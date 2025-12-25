@@ -1,0 +1,13 @@
+step_id: apply_temporary_residence
+title: Apply for Temporary Residence (Employment)
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_entry_completed
+outputs:
+  - temporary_residence_application_submitted
+description:
+  You must apply for a Temporary Residence Permit for the purpose of employment
+  at the Foreign Police department within the legally allowed period after entering Slovakia.
+  This application establishes your right to stay and work long-term.

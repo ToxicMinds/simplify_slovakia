@@ -1,0 +1,13 @@
+step_id: collect_residence_card
+title: Collect Temporary Residence Card
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - temporary_residence_application_approved
+outputs:
+  - legal_residence_established
+description:
+  After approval of your temporary residence application, you must personally
+  collect your residence permit card from the Foreign Police.
+  Only after card collection are you considered a legal resident of Slovakia.

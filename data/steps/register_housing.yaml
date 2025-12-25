@@ -1,0 +1,13 @@
+step_id: register_housing
+title: Register Address of Residence
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_residence_established
+outputs:
+  - address_registered
+description:
+  You must register your place of residence with the Foreign Police.
+  This confirms where you legally live in Slovakia and enables
+  official correspondence and downstream registrations.

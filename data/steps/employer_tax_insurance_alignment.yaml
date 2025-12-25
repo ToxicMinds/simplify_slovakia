@@ -1,0 +1,14 @@
+step_id: employer_tax_insurance_alignment
+title: Employer Tax and Insurance Alignment
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - gp_registered
+  - bank_account_opened
+outputs:
+  - taxes_and_insurance_aligned
+description:
+  Ensure your employer correctly reports your tax and social insurance contributions.
+  Confirm that your health insurance coverage is active and linked to your payroll.
+  Misalignment can lead to fines, incorrect coverage, or back payments.

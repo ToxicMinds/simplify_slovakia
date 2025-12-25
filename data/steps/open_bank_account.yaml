@@ -1,0 +1,13 @@
+step_id: open_bank_account
+title: Open Slovak Bank Account
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - address_registered
+outputs:
+  - bank_account_opened
+description:
+  Open a bank account with a Slovak bank to receive salary,
+  pay rent, and handle recurring obligations.
+  Most employers and institutions require a local IBAN.

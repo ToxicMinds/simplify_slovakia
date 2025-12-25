@@ -1,0 +1,12 @@
+step_id: apply_national_visa
+title: Apply for National Visa (Type D)
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - employment_contract_signed
+outputs:
+  - national_visa_granted
+description:
+  You must apply for a Slovak National Visa (Type D) at a Slovak embassy or consulate
+  in your country of residence before entering Slovakia for employment purposes.

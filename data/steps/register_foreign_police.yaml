@@ -1,0 +1,17 @@
+id: register_foreign_police
+title: Register with the Foreign Police
+step_type: legal
+blocking: true
+description: >
+  After entering Slovakia, a non-EU foreigner must report their place of stay
+  to the Foreign Police (Oddelenie cudzineckej polície).
+why_it_matters: >
+  This establishes your legal presence in Slovakia.
+official_links:
+  - authority: Ministry of Interior of the Slovak Republic
+    url: https://www.minv.sk/?pobyt-cudzinca
+prerequisites:
+  - enter_slovakia
+failure_modes:
+  - what_breaks: Failure to register on time
+    consequence: Fines and residence permit complications
