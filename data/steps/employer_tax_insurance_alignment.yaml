@@ -8,7 +8,18 @@ preconditions:
   - bank_account_opened
 outputs:
   - taxes_and_insurance_aligned
-description:
-  Ensure your employer correctly reports your tax and social insurance contributions.
-  Confirm that your health insurance coverage is active and linked to your payroll.
+description: |
+  Ensure your employer correctly reports your tax and social insurance contributions. 
+  Confirm that your health insurance coverage is active and linked to your payroll. 
   Misalignment can lead to fines, incorrect coverage, or back payments.
+why_it_matters: |
+  Proper alignment ensures compliance with Slovak law, avoids penalties, and guarantees correct social and health insurance coverage.
+official_links:
+  - authority: Financial Administration of the Slovak Republic
+    url: https://www.financnasprava.sk/sk/podnikatelia
+  - authority: Social Insurance Agency of Slovakia
+    url: https://www.socpoist.sk/
+failure_modes:
+  - what_breaks: Employer fails to report correctly
+    consequence: Incorrect taxes, social and health insurance issues, potential fines or administrative problems
+order: 10
