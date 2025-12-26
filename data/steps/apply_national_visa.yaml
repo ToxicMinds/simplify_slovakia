@@ -10,3 +10,12 @@ outputs:
 description:
   You must apply for a Slovak National Visa (Type D) at a Slovak embassy or consulate
   in your country of residence before entering Slovakia for employment purposes.
+why_it_matters: |
+  Establishes legal entry to Slovakia for employment purposes and triggers subsequent steps such as police registration and residence permit applications.
+official_links:
+  - authority: Ministry of Foreign and European Affairs of the Slovak Republic
+    url: https://www.mzv.sk/en/visa
+failure_modes:
+  - what_breaks: Entering Slovakia without a valid visa
+    consequence: Cannot legally start employment; risk of fines or deportation
+order: 1
