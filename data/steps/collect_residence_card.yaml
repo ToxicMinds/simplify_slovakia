@@ -4,10 +4,19 @@ jurisdiction: Slovakia
 applies_to:
   persona: non_eu_employee_first_entry_bratislava_single
 preconditions:
-  - temporary_residence_application_approved
+  - temporary_residence_application_submitted
 outputs:
   - legal_residence_established
-description:
-  After approval of your temporary residence application, you must personally
-  collect your residence permit card from the Foreign Police.
-  Only after card collection are you considered a legal resident of Slovakia.
+description: |
+  After approval of your temporary residence application, you must personally collect your residence permit card 
+  from the Foreign Police. Only after card collection are you considered a legal resident of Slovakia.
+why_it_matters: |
+  Possessing the residence card confirms your legal status and enables you to proceed with housing registration, 
+  bank account opening, and other administrative steps.
+official_links:
+  - authority: Ministry of Interior of the Slovak Republic
+    url: https://www.minv.sk/?pobyt-cudzinca
+failure_modes:
+  - what_breaks: Failing to collect the card on time
+    consequence: Delays in legal recognition, complications with subsequent steps like housing or banking
+order: 5
