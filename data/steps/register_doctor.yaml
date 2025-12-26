@@ -9,6 +9,15 @@ preconditions:
   - local_phone_number_obtained
 outputs:
   - gp_registered
-description:
-  Register with a Slovak General Practitioner (GP) to activate your health insurance
+description: |
+  Register with a Slovak General Practitioner (GP) to activate your health insurance 
   and ensure access to healthcare services. This step is required to use public health services.
+why_it_matters: |
+  Registration with a GP ensures you have legal access to healthcare services and that your health insurance is active.
+official_links:
+  - authority: Ministry of Health of the Slovak Republic
+    url: https://www.health.gov.sk/?gp-registration
+failure_modes:
+  - what_breaks: Not registering with a GP on time
+    consequence: Lack of healthcare access, insurance issues, fines or administrative complications
+order: 9
