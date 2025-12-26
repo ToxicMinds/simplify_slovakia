@@ -23,14 +23,17 @@ def load_step(step_id: str):
     return load_yaml(STEPS_DIR / f"{step_id}.yaml")
 
 
-@app.get("/resolve-flow")
-def resolve_flow():
-    flow = load_flow("sk_non_eu_employee_first_entry_bratislava_v1.yaml")
+@app.get("/flow/{flow_id}")
+def resolve_flow(flow_id: str):
+    flow_file = f"{flow_id}.yaml"
+    flow = load_flow(flow_file)
 
     resolved_steps = []
     for item in flow["steps"]:
         step_data = load_step(item["step_id"])
         step_data["order"] = item["order"]
+        # DEBUG: print each step being loaded
+        print(f"Loaded step: {step_data['step_id']}")
         resolved_steps.append(step_data)
 
     return {
@@ -42,3 +45,4 @@ def resolve_flow():
         },
         "steps": resolved_steps,
     }
+
