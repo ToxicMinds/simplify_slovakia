@@ -7,7 +7,17 @@ preconditions:
   - legal_entry_completed
 outputs:
   - temporary_residence_application_submitted
-description:
-  You must apply for a Temporary Residence Permit for the purpose of employment
+description: |
+  You must apply for a Temporary Residence Permit for the purpose of employment 
   at the Foreign Police department within the legally allowed period after entering Slovakia.
   This application establishes your right to stay and work long-term.
+why_it_matters: |
+  Without a temporary residence permit, you cannot legally reside or work in Slovakia. 
+  This step triggers the next steps, such as collecting the residence card and registering your address.
+official_links:
+  - authority: Ministry of Interior of the Slovak Republic
+    url: https://www.minv.sk/?pobyt-cudzinca
+failure_modes:
+  - what_breaks: Failing to submit on time or incorrectly
+    consequence: Fines, legal complications, potential rejection of application
+order: 4
