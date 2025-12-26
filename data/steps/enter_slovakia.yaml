@@ -11,3 +11,13 @@ description:
   You must enter Slovakia within the validity period of your National Visa (Type D).
   The date of entry triggers mandatory in-country obligations such as police registration
   and residence permit applications.
+why_it_matters: |
+  Legal entry establishes the starting point for all subsequent mandatory steps, 
+  including residence registration and employment authorization.
+official_links:
+  - authority: Ministry of Foreign and European Affairs of the Slovak Republic
+    url: https://www.mzv.sk/en/visa
+failure_modes:
+  - what_breaks: Late or illegal entry
+    consequence: Fines, invalid visa status, or complications with residence permits
+order: 2
