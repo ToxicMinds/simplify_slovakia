@@ -124,10 +124,29 @@
     </mxGraphModel>
   </diagram>
   <diagram id="dztVEGX_YCN5jenaGXB4" name="02 – Product Scope">
-    <mxGraphModel dx="1426" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="k05m55AxfvCH2z3YREK7-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="MVP v1 — Must Exist&#xa;&#xa;• Deterministic flow engine&#xa;• Persona-based eligibility rules&#xa;• Step-by-step legal checklists&#xa;• Preconditions &amp; outputs per step&#xa;• Official source links only&#xa;• Stateless backend API&#xa;• No user accounts required" vertex="1">
+          <mxGeometry height="378" width="214" x="20" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="k05m55AxfvCH2z3YREK7-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Post-MVP v2 — Allowed Later&lt;&#xa;&#xa;• User accounts (optional)&#xa;• Saved progress &amp; reminders&#xa;• Family reunification branches&#xa;• Driving license exchange&#xa;• Permanent residence countdown&#xa;• Health insurance optimization    " vertex="1">
+          <mxGeometry height="390" width="260" x="284" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="k05m55AxfvCH2z3YREK7-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Explicitly Out of Scope&#xa;&#xa;• Legal interpretation or advice&#xa;• AI-generated recommendations&#xa;• Country-agnostic flows&#xa;• Community forums&#xa;• Messaging with authorities&#xa;• Paid “fast-track” options" vertex="1">
+          <mxGeometry height="368" width="220" x="594" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="k05m55AxfvCH2z3YREK7-4" edge="1" parent="1" source="k05m55AxfvCH2z3YREK7-1" style="curved=1;startArrow=none;endArrow=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="k05m55AxfvCH2z3YREK7-2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k05m55AxfvCH2z3YREK7-5" edge="1" parent="1" source="k05m55AxfvCH2z3YREK7-2" style="curved=1;startArrow=none;endArrow=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="k05m55AxfvCH2z3YREK7-3" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
