@@ -85,47 +85,39 @@
     </mxGraphModel>
   </diagram>
   <diagram id="J1jy3IyDl_izO8BDfRi4" name="01 – Vision &amp; Promise">
-    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1315" dy="1737" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Core Problem" vertex="1">
-          <mxGeometry height="54" width="159" x="197" y="20" as="geometry" />
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Core Problem&#xa;&#xa;Navigating Slovak bureaucracy as a foreigner is opaque,&#xa;stressful, and error-prone due to fragmented information&#xa;and ambiguous rules." vertex="1">
+          <mxGeometry height="124" width="673" x="197" y="-50" as="geometry" />
         </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Promise to the User" vertex="1">
-          <mxGeometry height="54" width="201" x="176" y="124" as="geometry" />
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-10" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="In-G-cIO4zfv6QJph_Nf-3">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Non-Negotiable Principles" vertex="1">
-          <mxGeometry height="54" width="245" x="20" y="228" as="geometry" />
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-11" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="In-G-cIO4zfv6QJph_Nf-5">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="What This Will Never Be" vertex="1">
-          <mxGeometry height="54" width="233" x="26" y="332" as="geometry" />
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Promise to the User&#xa;&#xa;You will always know:&#xa;• what to do&#xa;• when to do it&#xa;• why it applies to you&#xa;• what happens if you don’t" vertex="1">
+          <mxGeometry height="106" width="694" x="186.5" y="124" as="geometry" />
         </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Success Definition" vertex="1">
-          <mxGeometry height="54" width="192" x="315" y="228" as="geometry" />
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Non-Negotiable Principles&#xa;&#xa;• Deterministic over intelligent&#xa;• Rules over interpretation&#xa;• Certainty over completeness&#xa;• Free for core users&#xa;• Country-specific truth&#xa;" vertex="1">
+          <mxGeometry height="160" width="454.5" x="70" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="What This Will Never Be&#xa;&#xa;• A legal advice platform&#xa;• A generic expat blog&#xa;• A chatbot that guesses&#xa;• A paywalled bureaucracy gatekeeper&#xa;• A one-size-fits-all solution&#xa;" vertex="1">
+          <mxGeometry height="150" width="420" x="90" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="In-G-cIO4zfv6QJph_Nf-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Success Definition&#xa;&#xa;A user completes their legal setup&#xa;without surprises, missed deadlines,&#xa;or external consultation.&#xa;" vertex="1">
+          <mxGeometry height="160" width="420" x="590" y="420" as="geometry" />
         </mxCell>
         <mxCell id="In-G-cIO4zfv6QJph_Nf-6" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-1" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="In-G-cIO4zfv6QJph_Nf-2" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-7" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-2" style="curved=1;startArrow=none;endArrow=block;exitX=0.15;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="In-G-cIO4zfv6QJph_Nf-3" value="">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="142" y="203" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="In-G-cIO4zfv6QJph_Nf-8" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-3" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="In-G-cIO4zfv6QJph_Nf-4" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="In-G-cIO4zfv6QJph_Nf-9" edge="1" parent="1" source="In-G-cIO4zfv6QJph_Nf-2" style="curved=1;startArrow=none;endArrow=block;exitX=0.85;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="In-G-cIO4zfv6QJph_Nf-5" value="">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="411" y="203" />
-            </Array>
           </mxGeometry>
         </mxCell>
       </root>
