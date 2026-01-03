@@ -1,6 +1,139 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
-  <diagram name="Page-1" id="0vy3kM2WsuKPdrhWz_9t">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9" pages="8">
+  <diagram name="Simplify Slovakia – Master Mind Map" id="0vy3kM2WsuKPdrhWz_9t">
+    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="Vision &amp; Promise" link="data:page/id,J1jy3IyDl_izO8BDfRi4" id="0D-fI5ARKzZ2tx-cWrTe-1">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="182" x="20" y="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Product Scope" link="data:page/id,dztVEGX_YCN5jenaGXB4" id="0D-fI5ARKzZ2tx-cWrTe-2">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="165" x="252" y="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Users &amp; Personas" link="data:page/id,jhomwc51KaJocMhkW82U" id="0D-fI5ARKzZ2tx-cWrTe-3">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="189" x="466" y="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Core Rules Engine" link="data:page/id,yWwHNZXrfUgK5G0sCDWY" id="0D-fI5ARKzZ2tx-cWrTe-4">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="194" x="231" y="124" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Architecture" link="data:page/id,ybpspoGPmq2TE33M3Ydx" id="0D-fI5ARKzZ2tx-cWrTe-5">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="145" x="32" y="228" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Risks &amp; Constraints" link="data:page/id,fZPdQxRwtOO85sEUFTVK" id="0D-fI5ARKzZ2tx-cWrTe-6">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="200" x="228" y="228" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Scaling &amp; Future" link="data:page/id,qOE6jJrU2QWxs6KhzBwo" id="0D-fI5ARKzZ2tx-cWrTe-7">
+          <mxCell parent="1" style="whiteSpace=wrap;strokeWidth=2;rounded=1;" vertex="1">
+            <mxGeometry height="54" width="178" x="477" y="228" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-8" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-1" style="curved=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;entryX=0;entryY=0.07;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="111" y="99" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-9" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-2" style="curved=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;entryX=0.52;entryY=0;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="334" y="99" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-10" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-3" style="curved=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;entryX=1;entryY=0.1;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="561" y="99" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-11" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-4" style="curved=1;startArrow=none;endArrow=none;exitX=0;exitY=0.92;entryX=0.5;entryY=0;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-12" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-4" style="curved=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="328" y="203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0D-fI5ARKzZ2tx-cWrTe-13" edge="1" parent="1" source="0D-fI5ARKzZ2tx-cWrTe-4" style="curved=1;startArrow=none;endArrow=none;exitX=1;exitY=0.89;entryX=0.5;entryY=0;rounded=0;" target="0D-fI5ARKzZ2tx-cWrTe-7" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="567" y="203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="J1jy3IyDl_izO8BDfRi4" name="01 – Vision &amp; Promise">
+    <mxGraphModel dx="1426" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dztVEGX_YCN5jenaGXB4" name="02 – Product Scope">
+    <mxGraphModel dx="1426" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="jhomwc51KaJocMhkW82U" name="03 – Users &amp; Personas">
+    <mxGraphModel dx="1426" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="yWwHNZXrfUgK5G0sCDWY" name="04 – Core Rules Engine">
+    <mxGraphModel dx="1426" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ybpspoGPmq2TE33M3Ydx" name="05 – Architecture">
+    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fZPdQxRwtOO85sEUFTVK" name="06 – Risks &amp; Constraints">
+    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="qOE6jJrU2QWxs6KhzBwo" name="07 – Scaling &amp; Future">
+    <mxGraphModel dx="1315" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
