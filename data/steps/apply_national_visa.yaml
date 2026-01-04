@@ -19,4 +19,3 @@ failure_modes:
   - what_breaks: Entering Slovakia without a valid visa
     consequence: Cannot legally start employment; risk of fines or deportation
 order: 1
-test_field: true
