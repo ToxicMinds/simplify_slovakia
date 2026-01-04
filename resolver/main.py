@@ -66,3 +66,6 @@ def get_flow(flow_id: str):
         "steps": resolved_steps,
     }
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
