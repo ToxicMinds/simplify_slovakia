@@ -232,3 +232,14 @@ Sun Jan 25 08:21:26 PM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    8f1b376..7960ab9  main -> main
 Sun Jan 25 08:21:47 PM CET 2026: Successfully committed and pushed
+[main 06221a8] Auto-commit: update Simplify Slovakia 2026-01-25 20:21:47
+ 7 files changed, 149 insertions(+)
+ create mode 100644 infra/aws/README.md
+ create mode 100644 infra/cost-guardrails.md
+ create mode 100644 scripts/README.md
+ create mode 100644 tests/README.md
+ create mode 100644 tests/integration/README.md
+ create mode 100644 tests/rules/README.md
+To github.com:ToxicMinds/simplify_slovakia.git
+   7960ab9..06221a8  main -> main
+Sun Jan 25 08:21:48 PM CET 2026: Successfully committed and pushed
