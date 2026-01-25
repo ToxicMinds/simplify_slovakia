@@ -225,3 +225,10 @@ Sun Jan 25 08:21:24 PM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    3223b1c..8f1b376  main -> main
 Sun Jan 25 08:21:26 PM CET 2026: Successfully committed and pushed
+[main 7960ab9] Auto-commit: update Simplify Slovakia 2026-01-25 20:21:45
+ 3 files changed, 53 insertions(+)
+ create mode 100644 frontend/README.md
+ create mode 100644 infra/README.md
+To github.com:ToxicMinds/simplify_slovakia.git
+   8f1b376..7960ab9  main -> main
+Sun Jan 25 08:21:47 PM CET 2026: Successfully committed and pushed
