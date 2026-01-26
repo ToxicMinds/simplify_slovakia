@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import FlowSelector from './components/FlowSelector'
+import DocumentTracker from './components/DocumentTracker'
 
 function App() {
   const [selectedFlowId, setSelectedFlowId] = useState(null)
@@ -193,6 +194,14 @@ function App() {
           </div>
           <p className="text-xs text-gray-500 mt-2 text-center">{getCompletionPercentage()}% Complete</p>
         </div>
+      </div>
+
+      {/* Document Tracker */}
+      <div className="max-w-5xl mx-auto px-4 pb-6">
+        <DocumentTracker 
+          documents={documents} 
+          onToggle={toggleDocument}
+        />
       </div>
 
       {/* Steps List - (rest of your existing step rendering code) */}
