@@ -1,17 +1,49 @@
 import { useState, useEffect } from 'react'
+import FlowSelector from './components/FlowSelector'
 
 function App() {
+  const [selectedFlowId, setSelectedFlowId] = useState(null)
   const [flowData, setFlowData] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [completedSteps, setCompletedSteps] = useState(new Set())
   const [expandedSteps, setExpandedSteps] = useState(new Set())
+  const [documents, setDocuments] = useState({})
 
-  // Fetch flow data from backend
+  // Load saved progress from localStorage
   useEffect(() => {
+    if (selectedFlowId) {
+      const saved = localStorage.getItem(`progress_${selectedFlowId}`)
+      if (saved) {
+        const { completed, documents: savedDocs } = JSON.parse(saved)
+        setCompletedSteps(new Set(completed))
+        setDocuments(savedDocs || {})
+      }
+    }
+  }, [selectedFlowId])
+
+  // Save progress to localStorage whenever it changes
+  useEffect(() => {
+    if (selectedFlowId) {
+      localStorage.setItem(
+        `progress_${selectedFlowId}`,
+        JSON.stringify({
+          completed: Array.from(completedSteps),
+          documents: documents,
+          lastUpdated: new Date().toISOString(),
+        })
+      )
+    }
+  }, [selectedFlowId, completedSteps, documents])
+
+  // Fetch flow data when flow is selected
+  useEffect(() => {
+    if (!selectedFlowId) return
+
     const fetchFlow = async () => {
+      setLoading(true)
       try {
-        const response = await fetch('http://localhost:8000/resolve-flow')
+        const response = await fetch(`http://localhost:8000/flow/${selectedFlowId}`)
         if (!response.ok) throw new Error('Failed to fetch flow data')
         const data = await response.json()
         setFlowData(data)
@@ -23,7 +55,7 @@ function App() {
     }
     
     fetchFlow()
-  }, [])
+  }, [selectedFlowId])
 
   const toggleStepCompletion = (stepId) => {
     setCompletedSteps(prev => {
@@ -49,11 +81,38 @@ function App() {
     })
   }
 
+  const toggleDocument = (docName) => {
+    setDocuments(prev => ({
+      ...prev,
+      [docName]: !prev[docName]
+    }))
+  }
+
   const getCompletionPercentage = () => {
     if (!flowData?.steps) return 0
     return Math.round((completedSteps.size / flowData.steps.length) * 100)
   }
 
+  const handleResetFlow = () => {
+    if (confirm('Are you sure you want to start over? This will clear all your progress.')) {
+      setSelectedFlowId(null)
+      setFlowData(null)
+      setCompletedSteps(new Set())
+      setDocuments({})
+      setExpandedSteps(new Set())
+    }
+  }
+
+  const handlePrint = () => {
+    window.print()
+  }
+
+  // Show flow selector if no flow selected
+  if (!selectedFlowId) {
+    return <FlowSelector onFlowSelected={setSelectedFlowId} />
+  }
+
+  // Loading state
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -65,45 +124,70 @@ function App() {
     )
   }
 
+  // Error state
   if (error) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 max-w-md">
           <h2 className="text-2xl font-bold text-red-700 mb-4">Connection Error</h2>
           <p className="text-red-600 mb-4">{error}</p>
-          <p className="text-sm text-gray-600">Make sure your backend is running:</p>
-          <code className="block bg-gray-100 p-2 rounded mt-2 text-xs">
-            cd backend && uvicorn app.main:app --reload --port 8000
-          </code>
+          <button
+            onClick={handleResetFlow}
+            className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+          >
+            Go Back
+          </button>
         </div>
       </div>
     )
   }
 
+  // Main checklist view (rest of your existing App.jsx code)
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-md">
+      {/* Header with actions */}
+      <header className="bg-white shadow-md print:shadow-none">
         <div className="max-w-5xl mx-auto px-4 py-6">
-          <h1 className="text-4xl font-bold text-indigo-600">Simplify Slovakia</h1>
-          <p className="text-gray-600 mt-2">
-            {flowData?.flow?.persona_id?.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-          </p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-4xl font-bold text-indigo-600">Simplify Slovakia</h1>
+              <p className="text-gray-600 mt-2">
+                {flowData?.flow?.persona_id?.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </p>
+            </div>
+            <div className="flex gap-2 print:hidden">
+              <button
+                onClick={handlePrint}
+                className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Print
+              </button>
+              <button
+                onClick={handleResetFlow}
+                className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200"
+              >
+                Change Flow
+              </button>
+            </div>
+          </div>
         </div>
       </header>
 
       {/* Progress Bar */}
-      <div className="max-w-5xl mx-auto px-4 py-6">
-        <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="max-w-5xl mx-auto px-4 py-6 print:py-2">
+        <div className="bg-white rounded-lg shadow-md p-6 print:shadow-none print:border">
           <div className="flex justify-between items-center mb-2">
             <span className="text-sm font-semibold text-gray-700">Progress</span>
             <span className="text-sm font-semibold text-indigo-600">
               {completedSteps.size} of {flowData?.steps?.length || 0} completed
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
+          <div className="w-full bg-gray-200 rounded-full h-3 print:h-2">
             <div 
-              className="bg-indigo-600 h-3 rounded-full transition-all duration-300"
+              className="bg-indigo-600 h-3 rounded-full transition-all duration-300 print:h-2"
               style={{ width: `${getCompletionPercentage()}%` }}
             ></div>
           </div>
@@ -111,7 +195,7 @@ function App() {
         </div>
       </div>
 
-      {/* Steps List */}
+      {/* Steps List - (rest of your existing step rendering code) */}
       <main className="max-w-5xl mx-auto px-4 pb-12">
         <div className="space-y-4">
           {flowData?.steps?.map((step) => {
@@ -121,17 +205,15 @@ function App() {
             return (
               <div 
                 key={step.step_id}
-                className={`bg-white rounded-lg shadow-md overflow-hidden transition-all ${
+                className={`bg-white rounded-lg shadow-md overflow-hidden transition-all print:break-inside-avoid print:shadow-none print:border ${
                   isCompleted ? 'opacity-75 border-2 border-green-300' : ''
                 }`}
               >
-                {/* Step Header */}
-                <div className="p-6">
+                <div className="p-6 print:p-4">
                   <div className="flex items-start gap-4">
-                    {/* Checkbox */}
                     <button
                       onClick={() => toggleStepCompletion(step.step_id)}
-                      className={`flex-shrink-0 w-6 h-6 rounded border-2 transition-all ${
+                      className={`flex-shrink-0 w-6 h-6 rounded border-2 transition-all print:hidden ${
                         isCompleted 
                           ? 'bg-green-500 border-green-500' 
                           : 'border-gray-300 hover:border-indigo-500'
@@ -144,7 +226,9 @@ function App() {
                       )}
                     </button>
 
-                    {/* Step Content */}
+                    {/* Checkbox for print */}
+                    <div className="hidden print:block flex-shrink-0 w-4 h-4 border-2 border-gray-400 rounded"></div>
+
                     <div className="flex-grow">
                       <div className="flex items-start justify-between gap-4">
                         <div>
@@ -153,21 +237,20 @@ function App() {
                               Step {step.order}
                             </span>
                             {isCompleted && (
-                              <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                              <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full print:hidden">
                                 Completed
                               </span>
                             )}
                           </div>
-                          <h3 className={`text-xl font-bold ${isCompleted ? 'line-through text-gray-500' : 'text-gray-800'}`}>
+                          <h3 className={`text-xl font-bold ${isCompleted ? 'line-through text-gray-500' : 'text-gray-800'} print:text-lg`}>
                             {step.title}
                           </h3>
-                          <p className="text-gray-600 mt-2">{step.description}</p>
+                          <p className="text-gray-600 mt-2 text-sm">{step.description}</p>
                         </div>
                         
-                        {/* Expand Button */}
                         <button
                           onClick={() => toggleStepExpansion(step.step_id)}
-                          className="flex-shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors"
+                          className="flex-shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors print:hidden"
                         >
                           <svg 
                             className={`w-6 h-6 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
@@ -182,21 +265,19 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Expanded Details */}
-                  {isExpanded && (
-                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-4">
-                      {/* Why It Matters */}
+                  {/* Details - always shown in print, expandable on screen */}
+                  {(isExpanded || window.matchMedia('print').matches) && (
+                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-4 print:mt-4 print:pt-4">
                       {step.why_it_matters && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2">Why It Matters</h4>
+                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Why It Matters</h4>
                           <p className="text-gray-600 text-sm">{step.why_it_matters}</p>
                         </div>
                       )}
 
-                      {/* Preconditions */}
                       {step.preconditions && step.preconditions.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2">Prerequisites</h4>
+                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Prerequisites</h4>
                           <ul className="space-y-1">
                             {step.preconditions.map((precond, idx) => (
                               <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
@@ -208,10 +289,9 @@ function App() {
                         </div>
                       )}
 
-                      {/* Outputs */}
                       {step.outputs && step.outputs.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2">Produces</h4>
+                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Produces</h4>
                           <ul className="space-y-1">
                             {step.outputs.map((output, idx) => (
                               <li key={idx} className="text-sm text-green-700 flex items-start gap-2">
@@ -223,10 +303,9 @@ function App() {
                         </div>
                       )}
 
-                      {/* Official Links */}
                       {step.official_links && step.official_links.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2">Official Resources</h4>
+                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Official Resources</h4>
                           <ul className="space-y-2">
                             {step.official_links.map((link, idx) => (
                               <li key={idx}>
@@ -234,12 +313,13 @@ function App() {
                                   href={link.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1"
+                                  className="text-sm text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1 print:text-black"
                                 >
                                   {link.authority}
-                                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <svg className="w-3 h-3 print:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                   </svg>
+                                  <span className="hidden print:inline text-xs text-gray-500">({link.url})</span>
                                 </a>
                               </li>
                             ))}
@@ -247,10 +327,9 @@ function App() {
                         </div>
                       )}
 
-                      {/* Failure Modes */}
                       {step.failure_modes && step.failure_modes.length > 0 && (
-                        <div className="bg-yellow-50 border border-yellow-200 rounded p-4">
-                          <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Common Pitfalls</h4>
+                        <div className="bg-yellow-50 border border-yellow-200 rounded p-4 print:border-yellow-400">
+                          <h4 className="font-semibold text-yellow-800 mb-2 text-sm">⚠️ Common Pitfalls</h4>
                           <ul className="space-y-2">
                             {step.failure_modes.map((failure, idx) => (
                               <li key={idx} className="text-sm">
@@ -271,14 +350,38 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white shadow-md mt-12">
+      <footer className="bg-white shadow-md mt-12 print:hidden">
         <div className="max-w-5xl mx-auto px-4 py-6 text-center text-sm text-gray-600">
           <p>Simplify Slovakia • Deterministic Bureaucracy Navigation</p>
           <p className="mt-1">
             Flow: <span className="font-mono text-xs">{flowData?.flow?.flow_id}</span> • Version {flowData?.flow?.version}
           </p>
+          <p className="mt-2 text-xs text-gray-500">
+            Progress automatically saved to your browser
+          </p>
         </div>
       </footer>
+
+      {/* Print-only page break helper */}
+      <style>{`
+        @media print {
+          @page {
+            margin: 1cm;
+          }
+          
+          .print\\:hidden {
+            display: none !important;
+          }
+          
+          .print\\:block {
+            display: block !important;
+          }
+          
+          .print\\:inline {
+            display: inline !important;
+          }
+        }
+      `}</style>
     </div>
   )
 }
