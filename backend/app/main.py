@@ -103,23 +103,49 @@ def resolve_flow():
 
 @app.get("/flow/{flow_id}")
 def get_flow(flow_id: str):
-    flow = load_flow(f"{flow_id}.yaml")
+    """Get a specific flow by ID with all resolved steps"""
+    try:
+        flow_file = f"{flow_id}.yaml"
+        flow_path = FLOWS_DIR / flow_file
+        
+        # Check if flow exists
+        if not flow_path.exists():
+            raise HTTPException(
+                status_code=404, 
+                detail=f"Flow '{flow_id}' not found. Available flows: /flows"
+            )
+        
+        flow = load_yaml(flow_path)
+        resolved_steps = []
+        
+        for item in flow["steps"]:
+            step_file = STEPS_DIR / f"{item['step_id']}.yaml"
+            
+            # Check if step file exists
+            if not step_file.exists():
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Step file '{item['step_id']}.yaml' not found"
+                )
+            
+            step_data = load_yaml(step_file)
+            step_data["order"] = item["order"]
+            resolved_steps.append(step_data)
+        
+        return {
+            "flow": {
+                "flow_id": flow["flow_id"],
+                "persona_id": flow["persona_id"],
+                "country": flow["country"],
+                "version": flow["version"],
+            },
+            "steps": resolved_steps,
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
-    resolved_steps = []
-    for item in flow["steps"]:
-        step_data = load_step(item["step_id"])
-        step_data["order"] = item["order"]
-        resolved_steps.append(step_data)
-
-    return {
-        "flow": {
-            "flow_id": flow["flow_id"],
-            "persona_id": flow["persona_id"],
-            "country": flow["country"],
-            "version": flow["version"],
-        },
-        "steps": resolved_steps,
-    }
 
 
 @app.get("/health")
