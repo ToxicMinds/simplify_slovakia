@@ -108,6 +108,14 @@ function App() {
     window.print()
   }
 
+  const handleClearProgress = () => {
+  if (confirm('Clear all progress for this flow? This cannot be undone.')) {
+    setCompletedSteps(new Set())
+    setDocuments({})
+    localStorage.removeItem(`progress_${selectedFlowId}`)
+    }
+  }
+
   // Show flow selector if no flow selected
   if (!selectedFlowId) {
     return <FlowSelector onFlowSelected={setSelectedFlowId} />
@@ -171,6 +179,12 @@ function App() {
                 className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200"
               >
                 Change Flow
+              </button>
+              <button
+                onClick={handleClearProgress}
+                className="bg-red-50 text-red-700 px-4 py-2 rounded hover:bg-red-100 print:hidden"
+              >
+                Clear Progress
               </button>
             </div>
           </div>
