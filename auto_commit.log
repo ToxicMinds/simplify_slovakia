@@ -714,3 +714,23 @@ To github.com:ToxicMinds/simplify_slovakia.git
    a61a0ed..6517f13  main -> main
 Mon Jan 26 07:26:54 AM CET 2026: Successfully committed and pushed
 Mon Jan 26 07:26:54 AM CET 2026: Successfully committed and pushed
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main a275ef2] Auto-commit: update Simplify Slovakia 2026-01-26 11:21:34
+ 10 files changed, 232 insertions(+), 12 deletions(-)
+ create mode 100644 frontend/.gitignore
+ create mode 100644 frontend/eslint.config.js
+ create mode 100644 frontend/index.html
+ create mode 100644 frontend/public/vite.svg
+ create mode 100644 frontend/src/App.css
+ create mode 100644 frontend/src/App.jsx
+ create mode 100644 frontend/src/assets/react.svg
+ create mode 100644 frontend/src/index.css
+ create mode 100644 frontend/src/main.jsx
+Everything up-to-date
+Mon Jan 26 11:21:35 AM CET 2026: Successfully committed and pushed
