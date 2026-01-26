@@ -4042,3 +4042,17 @@ cannot lock ref 'refs/heads/main': is at 39a47a2bc09485a03cf2082e3326932a77665ed
 error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
 Mon Jan 26 11:25:31 AM CET 2026: Successfully committed and pushed
 Mon Jan 26 11:25:31 AM CET 2026: Successfully committed and pushed
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+[main 436444e] Auto-commit: update Simplify Slovakia 2026-01-26 11:25:31
+ 1 file changed, 16 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+   39a47a2..436444e  main -> main
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 436444e5eae447093cff32ead513b6d84f5c3fac but expected 39a47a2bc09485a03cf2082e3326932a77665ed8)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Mon Jan 26 11:25:33 AM CET 2026: Successfully committed and pushed
+Mon Jan 26 11:25:33 AM CET 2026: Successfully committed and pushed
