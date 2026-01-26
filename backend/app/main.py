@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from typing import Dict, List
+from pydantic import BaseModel
 import yaml
 from pathlib import Path
 
@@ -17,6 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "data"
 FLOWS_DIR = DATA_DIR / "flows"
 STEPS_DIR = DATA_DIR / "steps"
+
+# Add after the existing models/before routes
+class UserProgress(BaseModel):
+    """User's progress through a flow"""
+    flow_id: str
+    completed_steps: List[str]
+
+# In-memory storage (for MVP - will use localStorage in frontend)
+# In production, this would be a database
+user_progress_store: Dict[str, UserProgress] = {}
 
 
 def load_yaml(path: Path):
@@ -106,3 +118,18 @@ def get_flow(flow_id: str):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.post("/progress/{flow_id}")
+def save_progress(flow_id: str, progress: UserProgress):
+    """Save user's progress for a flow"""
+    user_progress_store[flow_id] = progress
+    return {"status": "saved", "flow_id": flow_id}
+
+
+@app.get("/progress/{flow_id}")
+def get_progress(flow_id: str):
+    """Get user's saved progress for a flow"""
+    if flow_id in user_progress_store:
+        return user_progress_store[flow_id]
+    return {"flow_id": flow_id, "completed_steps": []}
