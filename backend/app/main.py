@@ -1,10 +1,10 @@
-from fastapi import FastAPI
+BASE_DIR = Path(__file__).resolve().parent.parent.parentBASE_DIR = Path(__file__).resolve().parent.parent.parentfrom fastapi import FastAPI
 import yaml
 from pathlib import Path
 
 app = FastAPI()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "data"
 FLOWS_DIR = DATA_DIR / "flows"
 STEPS_DIR = DATA_DIR / "steps"
