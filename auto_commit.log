@@ -675,3 +675,14 @@ To github.com:ToxicMinds/simplify_slovakia.git
 error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
 Mon Jan 26 07:25:16 AM CET 2026: Successfully committed and pushed
 Mon Jan 26 07:25:16 AM CET 2026: Successfully committed and pushed
+fatal: cannot lock ref 'HEAD': is at f9ea8524d9bf605131b92b137dc9354e5a45bb99 but expected c8536aefce63e17a75e7819e250ab7efc1c3a676
+[main f9ea852] Auto-commit: update Simplify Slovakia 2026-01-26 07:26:49
+ 2 files changed, 17 insertions(+)
+ delete mode 100644 backend/app/.main.py.swp
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at f9ea8524d9bf605131b92b137dc9354e5a45bb99 but expected c8536aefce63e17a75e7819e250ab7efc1c3a676)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+To github.com:ToxicMinds/simplify_slovakia.git
+   c8536ae..f9ea852  main -> main
+Mon Jan 26 07:26:50 AM CET 2026: Successfully committed and pushed
+Mon Jan 26 07:26:50 AM CET 2026: Successfully committed and pushed
