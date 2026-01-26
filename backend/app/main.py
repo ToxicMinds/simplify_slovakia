@@ -54,21 +54,37 @@ def load_step(step_id: str):
 # NEW ENDPOINT: List all available flows
 @app.get("/flows")
 def list_flows():
-    """Return metadata for all available flows"""
-    flows = []
-    
-    for flow_file in FLOWS_DIR.glob("*.yaml"):
-        flow_data = load_yaml(flow_file)
-        flows.append({
-            "flow_id": flow_data["flow_id"],
-            "persona_id": flow_data["persona_id"],
-            "country": flow_data["country"],
-            "version": flow_data["version"],
-            "step_count": len(flow_data["steps"]),
-            "title": format_persona_title(flow_data["persona_id"]),
-        })
-    
-    return {"flows": flows}
+    """List all available flows with metadata"""
+    try:
+        flows = []
+        
+        for flow_file in FLOWS_DIR.glob("*.yaml"):
+            try:
+                flow_data = load_yaml(flow_file)
+                flows.append({
+                    "flow_id": flow_data["flow_id"],
+                    "persona_id": flow_data["persona_id"],
+                    "country": flow_data["country"],
+                    "version": flow_data["version"],
+                    "step_count": len(flow_data["steps"]),
+                    "title": format_persona_title(flow_data["persona_id"]),
+                })
+            except Exception as e:
+                # Skip malformed flow files, log error
+                print(f"Error loading {flow_file}: {e}")
+                continue
+        
+        if not flows:
+            raise HTTPException(
+                status_code=500,
+                detail="No valid flows found in data/flows/"
+            )
+        
+        return {"flows": flows}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 def format_persona_title(persona_id: str):
