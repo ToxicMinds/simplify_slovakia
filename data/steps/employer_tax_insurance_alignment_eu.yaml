@@ -1,0 +1,25 @@
+step_id: employer_tax_insurance_alignment_eu
+title: Employer Tax and Insurance Alignment
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - gp_registered
+  - bank_account_opened
+outputs:
+  - taxes_and_insurance_aligned
+description: |
+  Ensure your employer correctly registers you for Slovak social and health insurance. 
+  As an EU citizen, this process is straightforward but must be done correctly.
+why_it_matters: |
+  Proper registration ensures legal employment status, social security coverage, 
+  and pension contributions. Protects your rights as an EU worker.
+official_links:
+  - authority: Social Insurance Agency
+    url: https://www.socpoist.sk/
+  - authority: Tax Administration
+    url: https://www.financnasprava.sk/
+failure_modes:
+  - what_breaks: Employer fails to register properly
+    consequence: No health coverage, pension issues, potential fines
+order: 6
