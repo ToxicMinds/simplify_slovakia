@@ -25,4 +25,3 @@ steps:
 2. List all required steps in order
 3. Create corresponding step files in `steps/`
 4. Define applicable rules in `rules/`
-test
