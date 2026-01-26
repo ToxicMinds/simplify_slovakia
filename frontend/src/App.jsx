@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [flowData, setFlowData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
