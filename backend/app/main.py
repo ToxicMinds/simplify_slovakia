@@ -1,11 +1,18 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict, List
 from pydantic import BaseModel
 import yaml
 from pathlib import Path
 
-app = FastAPI()
+app = FastAPI(title="Simplify Slovakia API",
+    description="Deterministic bureaucracy navigation for Slovakia",
+    version="1.0.0",
+    contact={
+        "name": "Simplify Slovakia",
+        "url": "https://github.com/ToxicMinds/simplify_slovakia",
+        },
+    )
 
 app.add_middleware(
     CORSMiddleware,
