@@ -116,6 +116,22 @@ function App() {
     }
   }
 
+  const handleExport = () => {
+  const data = {
+    flowId: selectedFlowId,
+    completed: Array.from(completedSteps),
+    documents: documents,
+    exportedAt: new Date().toISOString(),
+    }
+  
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `simplify-slovakia-progress-${Date.now()}.json`
+    a.click()
+  }
+
   // Show flow selector if no flow selected
   if (!selectedFlowId) {
     return <FlowSelector onFlowSelected={setSelectedFlowId} />
@@ -185,6 +201,12 @@ function App() {
                 className="bg-red-50 text-red-700 px-4 py-2 rounded hover:bg-red-100 print:hidden"
               >
                 Clear Progress
+              </button>
+              <button
+                onClick={handleExport}
+                className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 print:hidden"
+              >
+                Export Progress
               </button>
             </div>
           </div>
