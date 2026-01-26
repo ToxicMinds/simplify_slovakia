@@ -1,4 +1,4 @@
-BASE_DIR = Path(__file__).resolve().parent.parent.parentBASE_DIR = Path(__file__).resolve().parent.parent.parentfrom fastapi import FastAPI
+from fastapi import FastAPI
 import yaml
 from pathlib import Path
 
