@@ -9707,3 +9707,9 @@ Mon Jan 26 11:34:45 AM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    5fd4a96..f986db2  main -> main
 Mon Jan 26 11:34:46 AM CET 2026: Successfully committed and pushed
+[main c101bf1] Auto-commit: update Simplify Slovakia 2026-01-26 11:34:46
+ 1 file changed, 5 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at f986db24923d960b72023c93ae5a4503d39d655f but expected 5fd4a96d5faa269aa1b2cab3f426fc8766bbcb6a)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Mon Jan 26 11:34:47 AM CET 2026: Successfully committed and pushed
