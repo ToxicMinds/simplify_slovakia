@@ -11982,3 +11982,9 @@ Mon Jan 26 11:40:06 AM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    c03e5bd..38d2c29  main -> main
 Mon Jan 26 11:40:08 AM CET 2026: Successfully committed and pushed
+[main 293f9fc] Auto-commit: update Simplify Slovakia 2026-01-26 11:40:08
+ 2 files changed, 4865 insertions(+)
+ create mode 100644 frontend/package-lock.json
+To github.com:ToxicMinds/simplify_slovakia.git
+   38d2c29..293f9fc  main -> main
+Mon Jan 26 11:40:11 AM CET 2026: Successfully committed and pushed
