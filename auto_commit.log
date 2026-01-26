@@ -11850,3 +11850,22 @@ Mon Jan 26 11:39:23 AM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    6f83b0a..83050ac  main -> main
 Mon Jan 26 11:39:25 AM CET 2026: Successfully committed and pushed
+[main 5a6287a] Auto-commit: update Simplify Slovakia 2026-01-26 11:39:25
+ 15 files changed, 5 insertions(+), 2955 deletions(-)
+ delete mode 100644 frontend/.gitignore
+ delete mode 100644 frontend/.gitkeep
+ delete mode 100644 frontend/README.md
+ delete mode 100644 frontend/eslint.config.js
+ delete mode 100644 frontend/index.html
+ delete mode 100644 frontend/package-lock.json
+ delete mode 100644 frontend/package.json
+ delete mode 100644 frontend/public/vite.svg
+ delete mode 100644 frontend/src/App.css
+ delete mode 100644 frontend/src/App.jsx
+ delete mode 100644 frontend/src/assets/react.svg
+ delete mode 100644 frontend/src/index.css
+ delete mode 100644 frontend/src/main.jsx
+ delete mode 100644 frontend/vite.config.js
+To github.com:ToxicMinds/simplify_slovakia.git
+   83050ac..5a6287a  main -> main
+Mon Jan 26 11:39:27 AM CET 2026: Successfully committed and pushed
