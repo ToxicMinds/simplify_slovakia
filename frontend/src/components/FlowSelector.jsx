@@ -1,3 +1,4 @@
+alert("THIS FlowSelector IS LOADED");
 import { useState, useEffect } from 'react'
 
 function FlowSelector({ onFlowSelected }) {
