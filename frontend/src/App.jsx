@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import FlowSelector from './components/FlowSelector'
 import DocumentTracker from './components/DocumentTracker'
+import { API_URL } from './config'
 
 function App() {
   const [selectedFlowId, setSelectedFlowId] = useState(null)
