@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 function FlowSelector({ onFlowSelected }) {
@@ -38,8 +39,9 @@ function FlowSelector({ onFlowSelected }) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 max-w-md">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Error</h2>
+          <h2 className="text-2xl font-bold text-red-700 mb-4">Connection Error</h2>
           <p className="text-red-600">{error}</p>
+          <p className="text-sm text-gray-600 mt-4">API_URL: {API_URL}</p>
         </div>
       </div>
     )
