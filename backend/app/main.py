@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict, List
 from pydantic import BaseModel
 import yaml
+import os
 from pathlib import Path
 
 app = FastAPI(title="Simplify Slovakia API",
@@ -22,7 +23,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# Detect if running in Lambda
+if os.environ.get('AWS_LAMBDA_FUNCTION_NAME'):
+    # In Lambda: /var/task/app/main.py -> /var/task
+    BASE_DIR = Path(__file__).resolve().parent.parent
+else:
+    # Local: backend/app/main.py -> project root
+    BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 DATA_DIR = BASE_DIR / "data"
 FLOWS_DIR = DATA_DIR / "flows"
 STEPS_DIR = DATA_DIR / "steps"
