@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react'
 
-const API_URL =
-  typeof import.meta !== 'undefined' &&
-  import.meta.env &&
-  import.meta.env.VITE_API_URL
-    ? import.meta.env.VITE_API_URL
-    : 'http://localhost:8000'
-
 function FlowSelector({ onFlowSelected }) {
   const [flows, setFlows] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
+    const API_URL =
+      import.meta.env?.VITE_API_URL ??
+      'http://localhost:8000'
+      
     const fetchFlows = async () => {
       try {
         const response = await fetch(`${API_URL}/flows`)
