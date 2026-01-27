@@ -1,0 +1,21 @@
+step_id: register_housing
+title: Register Address of Residence
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_residence_established
+outputs:
+  - address_registered
+description: |
+  You must register your place of residence with the Foreign Police. This confirms where you legally live in Slovakia 
+  and enables official correspondence and downstream registrations such as bank accounts and healthcare.
+why_it_matters: |
+  Registering your address is mandatory by law. It ensures legal compliance and facilitates all other essential services.
+official_links:
+  - authority: Ministry of Interior of the Slovak Republic
+    url: https://www.minv.sk/?pobyt-cudzinca
+failure_modes:
+  - what_breaks: Failure to register on time
+    consequence: Fines, legal complications, and potential delays in accessing banking, health, or employment services
+order: 6
