@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 function FlowSelector({ onFlowSelected }) {
   const [flows, setFlows] = useState([])
@@ -8,7 +9,7 @@ function FlowSelector({ onFlowSelected }) {
   useEffect(() => {
     const fetchFlows = async () => {
       try {
-        const response = await fetch('http://localhost:8000/flows')
+        const response = await fetch(`${API_URL}/flows`)
         if (!response.ok) throw new Error('Failed to fetch flows')
         const data = await response.json()
         setFlows(data.flows)

@@ -44,7 +44,7 @@ function App() {
     const fetchFlow = async () => {
       setLoading(true)
       try {
-        const response = await fetch(`http://localhost:8000/flow/${selectedFlowId}`)
+        const response = await fetch(`${API_URL}/flow/${selectedFlowId}`)
         if (!response.ok) throw new Error('Failed to fetch flow data')
         const data = await response.json()
         setFlowData(data)
