@@ -21567,3 +21567,12 @@ Tue Jan 27 02:34:32 PM CET 2026: Another commit in progress, skipping
 To github.com:ToxicMinds/simplify_slovakia.git
    c3871c6..2eb7e0e  main -> main
 Tue Jan 27 02:34:34 PM CET 2026: Successfully committed and pushed
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main 066072c] Auto-commit: update Simplify Slovakia 2026-01-27 14:35:04
+ 2 files changed, 7 insertions(+), 2 deletions(-)
