@@ -23717,3 +23717,13 @@ Tue Jan 27 02:40:04 PM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    0efcfdd..98c3a3c  main -> main
 Tue Jan 27 02:40:05 PM CET 2026: Successfully committed and pushed
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+To github.com:ToxicMinds/simplify_slovakia.git
+   98c3a3c..c7e530b  main -> main
+Tue Jan 27 02:40:06 PM CET 2026: Successfully committed and pushed
