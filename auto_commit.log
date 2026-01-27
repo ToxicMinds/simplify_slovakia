@@ -20713,3 +20713,33 @@ Tue Jan 27 08:32:19 AM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    deb558d..17662e6  main -> main
 Tue Jan 27 08:32:20 AM CET 2026: Successfully committed and pushed
+[main 2b3bf74] Auto-commit: update Simplify Slovakia 2026-01-27 08:32:20
+ 25 files changed, 528 insertions(+)
+ create mode 100644 backend/lambda_package/data/README.md
+ create mode 100644 backend/lambda_package/data/flows/README.md
+ create mode 100644 backend/lambda_package/data/flows/sk_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_non_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/reference/.gitkeep
+ create mode 100644 backend/lambda_package/data/reference/README.md
+ create mode 100644 backend/lambda_package/data/steps/README.md
+ create mode 100644 backend/lambda_package/data/steps/apply_national_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_temporary_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps/collect_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_foreign_police.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/tax_residence_and_annual_obligations.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 17662e67f782c073eb0dc74c76e397ed7cda36af but expected deb558dae08434707cc39592ced2dffcfa1cc735)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Tue Jan 27 08:32:21 AM CET 2026: Successfully committed and pushed
