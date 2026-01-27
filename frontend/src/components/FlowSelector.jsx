@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_URL } from '../config'
 
 function FlowSelector({ onFlowSelected }) {
   const [flows, setFlows] = useState([])
@@ -6,9 +7,6 @@ function FlowSelector({ onFlowSelected }) {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const API_URL =
-      import.meta.env?.VITE_API_URL ??
-      'http://localhost:8000'
       
     const fetchFlows = async () => {
       try {
