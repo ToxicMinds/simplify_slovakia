@@ -20968,3 +20968,14 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+[main 92bb1e0] Auto-commit: update Simplify Slovakia 2026-01-27 08:33:02
+ 1 file changed, 18 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 2dbc7d2a460b95bc2a6f8200851f3de065f47155 but expected 095c9222595b7e6e453fdb5c37c8141569789e39)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+To github.com:ToxicMinds/simplify_slovakia.git
+   095c922..2dbc7d2  main -> main
+Tue Jan 27 08:33:04 AM CET 2026: Successfully committed and pushed
+Tue Jan 27 08:33:04 AM CET 2026: Successfully committed and pushed
+Tue Jan 27 08:33:04 AM CET 2026: Another commit in progress, skipping
+Tue Jan 27 08:33:04 AM CET 2026: Another commit in progress, skipping
