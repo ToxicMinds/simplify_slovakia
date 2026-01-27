@@ -20946,3 +20946,7 @@ Tue Jan 27 08:32:58 AM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    8d605ec..fde8b2b  main -> main
 Tue Jan 27 08:33:00 AM CET 2026: Successfully committed and pushed
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fde8b2b8efd76d96086ec72db4efe91053247722 but expected 8d605ec4e646fdf41a7e362909cfb9fbf3a0a851)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Tue Jan 27 08:33:00 AM CET 2026: Successfully committed and pushed
