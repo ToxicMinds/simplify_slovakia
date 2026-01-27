@@ -1,0 +1,17 @@
+flow_id: sk_eu_employee_first_entry_bratislava_v1
+persona_id: eu_employee_first_entry_bratislava_single
+country: Slovakia
+version: 1.0.0
+steps:
+  - step_id: enter_slovakia_eu
+    order: 1
+  - step_id: register_housing_eu
+    order: 2
+  - step_id: open_bank_account_eu
+    order: 3
+  - step_id: get_sim_card_eu
+    order: 4
+  - step_id: register_doctor_eu
+    order: 5
+  - step_id: employer_tax_insurance_alignment_eu
+    order: 6
