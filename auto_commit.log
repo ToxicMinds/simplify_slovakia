@@ -28542,3 +28542,8 @@ remove the file manually to continue.
  create mode 100644 backend/lambda_package/data/steps/verify_primary_residence_status.yaml
 Everything up-to-date
 Wed Jan 28 03:53:57 PM CET 2026: Successfully committed and pushed
+[main d4ebccd] Auto-commit: update Simplify Slovakia 2026-01-28 15:53:57
+ 1 file changed, 57 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+   7abf033..e0c45bc  main -> main
+Wed Jan 28 03:53:58 PM CET 2026: Successfully committed and pushed
