@@ -1,1 +1,36 @@
-/home/nik/Downloads/Steps/apply_business_visa.yaml
+step_id: apply_business_visa
+title: Apply for National Visa (Type D) - Business Purpose
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - financial_proof_obtained
+outputs:
+  - business_visa_granted
+description: |
+  Apply at Slovak embassy/consulate in your home country for National Visa (Type D)
+  stating "business/self-employment" as purpose. Cannot apply inside Slovakia.
+  
+  Required documents:
+  - Valid passport (min. 3 months beyond visa validity)
+  - Completed visa application form
+  - Business plan
+  - Bank statements (proof of funds)
+  - Health insurance (min. €30,000 coverage for Schengen)
+  - Clean criminal record (apostilled, translated)
+  - Proof of accommodation in Slovakia
+  - Visa fee (~€100, varies by embassy)
+  
+  Processing time: 60-90 days typically.
+why_it_matters: |
+  This visa allows you 90 days to enter Slovakia and start residence permit process.
+  Without it, you cannot legally establish business or apply for residence permit in Slovakia.
+official_links:
+  - authority: Ministry of Foreign Affairs - National Visa
+    url: https://www.mzv.sk/web/en/consular_info/national_visa
+failure_modes:
+  - what_breaks: Missing apostille on criminal record
+    consequence: Application rejected, resubmit required
+  - what_breaks: Insufficient health insurance coverage
+    consequence: Visa denied
+order: 4
