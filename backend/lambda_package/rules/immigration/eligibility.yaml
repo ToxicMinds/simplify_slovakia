@@ -1,0 +1,57 @@
+version: 1.0
+jurisdiction: Slovakia
+
+dimensions:
+  nationality:
+    type: enum
+    values: [EU, NON_EU]
+
+  entry_context:
+    type: enum
+    values: [FIRST_ENTRY, IN_COUNTRY]
+
+  purpose:
+    type: enum
+    values: [EMPLOYMENT, BUSINESS, STUDY, FAMILY]
+
+  city:
+    type: enum
+    values: [BRATISLAVA, OTHER]
+
+rules:
+
+  non_eu_employment_first_entry:
+    when:
+      nationality: NON_EU
+      purpose: EMPLOYMENT
+      entry_context: FIRST_ENTRY
+    requires:
+      - national_visa_type_d
+      - temporary_residence_employment
+    blocks:
+      - in_country_application
+
+  eu_employment:
+    when:
+      nationality: EU
+      purpose: EMPLOYMENT
+    skips:
+      - national_visa_type_d
+      - temporary_residence
+
+entities:
+
+  national_visa_type_d:
+    legal_basis: "Act No. 404/2011 Coll."
+    authority: "Slovak Embassy / Consulate"
+    mandatory: true
+
+  temporary_residence_employment:
+    legal_basis: "Act No. 404/2011 Coll."
+    authority: "Foreign Police"
+    mandatory: true
+
+constraints:
+
+  in_country_application:
+    description: "Temporary residence for employment cannot be applied for inside Slovakia on first entry."
