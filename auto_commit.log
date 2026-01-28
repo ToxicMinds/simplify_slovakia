@@ -28338,3 +28338,51 @@ To github.com:ToxicMinds/simplify_slovakia.git
    019dbd6..8bec373  main -> main
 Wed Jan 28 03:53:40 PM CET 2026: Successfully committed and pushed
 Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+[main 99b1f6e] Auto-commit: update Simplify Slovakia 2026-01-28 15:53:40
+ 7 files changed, 535 insertions(+)
+ create mode 100644 backend/lambda_package/app/__init__.py
+ create mode 100644 backend/lambda_package/app/cors_fix.py
+ create mode 100644 backend/lambda_package/app/main.py
+ create mode 100644 backend/lambda_package/app/main.py.backup
+ create mode 100644 backend/lambda_package/app/models/.gitkeep
+ create mode 100644 backend/lambda_package/app/models/README.md
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:53:40 PM CET 2026: Another commit in progress, skipping
+To github.com:ToxicMinds/simplify_slovakia.git
+   8bec373..99b1f6e  main -> main
+Wed Jan 28 03:53:42 PM CET 2026: Successfully committed and pushed
