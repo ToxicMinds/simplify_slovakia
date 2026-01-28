@@ -34,12 +34,22 @@ else:
 DATA_DIR = BASE_DIR / "data"
 FLOWS_DIR = DATA_DIR / "flows"
 STEPS_DIR = DATA_DIR / "steps"
+RULES_DIR = BASE_DIR / "rules"
 
 # Add after the existing models/before routes
 class UserProgress(BaseModel):
     """User's progress through a flow"""
     flow_id: str
     completed_steps: List[str]
+
+
+class IntakeAnswers(BaseModel):
+    """User's intake questionnaire answers - maps to eligibility.yaml dimensions"""
+    nationality: str      # EU or NON_EU
+    entry_context: str    # FIRST_ENTRY or IN_COUNTRY
+    purpose: str          # EMPLOYMENT, BUSINESS, STUDY, FAMILY
+    city: str             # BRATISLAVA or OTHER
+
 
 # In-memory storage (for MVP - will use localStorage in frontend)
 # In production, this would be a database
@@ -57,6 +67,11 @@ def load_flow(flow_file: str):
 
 def load_step(step_id: str):
     return load_yaml(STEPS_DIR / f"{step_id}.yaml")
+
+
+def load_eligibility_rules():
+    """Load eligibility rules from rules/immigration/eligibility.yaml"""
+    return load_yaml(RULES_DIR / "immigration" / "eligibility.yaml")
 
 
 # NEW ENDPOINT: List all available flows
@@ -101,6 +116,114 @@ def format_persona_title(persona_id: str):
     parts = persona_id.replace("_", " ").split()
     formatted = " ".join(word.capitalize() for word in parts)
     return formatted
+
+
+# NEW ENDPOINT: Recommend flow based on intake answers
+@app.post("/recommend-flow")
+def recommend_flow(answers: IntakeAnswers):
+    """
+    Recommend a flow based on user's intake answers
+    
+    ROUTING LOGIC:
+    - Uses eligibility.yaml rules to determine correct flow
+    - Maps intake dimensions to existing flow personas
+    - Returns flow_id, title, reason, confidence level
+    
+    EXTENSIBILITY:
+    - When new flows added, update routing logic here
+    - Keep logic deterministic (no ML for v1)
+    """
+    try:
+        # Load all available flows
+        flows_response = list_flows()
+        available_flows = {f["flow_id"]: f for f in flows_response["flows"]}
+        
+        # ROUTING LOGIC - Based on eligibility.yaml dimensions
+        
+        # Rule 1: Non-EU + Employment + First Entry → sk_non_eu_employee_first_entry
+        if (answers.nationality == "NON_EU" and 
+            answers.purpose == "EMPLOYMENT" and 
+            answers.entry_context == "FIRST_ENTRY"):
+            
+            flow_id = "sk_non_eu_employee_first_entry_bratislava_v1"
+            if flow_id in available_flows:
+                return {
+                    "flow_id": flow_id,
+                    "title": available_flows[flow_id]["title"],
+                    "step_count": available_flows[flow_id]["step_count"],
+                    "reason": "You need a national visa (Type D) and temporary residence permit for employment.",
+                    "confidence": "high",
+                }
+        
+        # Rule 2: EU + Employment → sk_eu_employee_first_entry
+        if (answers.nationality == "EU" and 
+            answers.purpose == "EMPLOYMENT"):
+            
+            flow_id = "sk_eu_employee_first_entry_bratislava_v1"
+            if flow_id in available_flows:
+                return {
+                    "flow_id": flow_id,
+                    "title": available_flows[flow_id]["title"],
+                    "step_count": available_flows[flow_id]["step_count"],
+                    "reason": "As an EU citizen, you have simplified requirements. No visa needed!",
+                    "confidence": "high",
+                }
+        
+        # Rule 3: Non-EU + Business → sk_non_eu_freelancer_setup (when available)
+        if (answers.nationality == "NON_EU" and 
+            answers.purpose == "BUSINESS"):
+            
+            flow_id = "sk_non_eu_freelancer_setup_v1"
+            if flow_id in available_flows:
+                return {
+                    "flow_id": flow_id,
+                    "title": available_flows[flow_id]["title"],
+                    "step_count": available_flows[flow_id]["step_count"],
+                    "reason": "You'll need a trade license (živnosť) and business residence permit.",
+                    "confidence": "high",
+                }
+            else:
+                # Fallback to closest match
+                return {
+                    "flow_id": "sk_non_eu_employee_first_entry_bratislava_v1",
+                    "title": "Non-EU Employee (Temporary)",
+                    "step_count": available_flows.get("sk_non_eu_employee_first_entry_bratislava_v1", {}).get("step_count", 0),
+                    "reason": "Freelancer flow not yet available. This is the closest match.",
+                    "confidence": "medium",
+                }
+        
+        # Rule 4: Family → sk_family_reunification (when available)
+        if answers.purpose == "FAMILY":
+            flow_id = "sk_family_reunification_v1"
+            if flow_id in available_flows:
+                return {
+                    "flow_id": flow_id,
+                    "title": available_flows[flow_id]["title"],
+                    "step_count": available_flows[flow_id]["step_count"],
+                    "reason": "You'll join your family member who has residence in Slovakia.",
+                    "confidence": "high",
+                }
+            else:
+                # No exact match - let user choose manually
+                return {
+                    "flow_id": "",
+                    "title": "No exact match found",
+                    "step_count": 0,
+                    "reason": "Family reunification flow not yet available. Please select manually.",
+                    "confidence": "low",
+                }
+        
+        # Fallback: Default to showing manual selector
+        return {
+            "flow_id": "",
+            "title": "Please select manually",
+            "step_count": 0,
+            "reason": "We couldn't find an exact match for your situation. Please review all available flows.",
+            "confidence": "low",
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/resolve-flow")
@@ -169,7 +292,6 @@ def get_flow(flow_id: str):
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
 
 
 @app.get("/health")
