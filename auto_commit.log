@@ -26486,3 +26486,10 @@ Wed Jan 28 02:45:47 PM CET 2026: Successfully committed and pushed
 Wed Jan 28 03:15:22 PM CET 2026: No changes to commit
 Wed Jan 28 03:15:22 PM CET 2026: No changes to commit
 Wed Jan 28 03:15:38 PM CET 2026: Another commit in progress, skipping
+[main bea8fc1] Auto-commit: update Simplify Slovakia 2026-01-28 15:15:38
+ 3 files changed, 83 insertions(+)
+ create mode 100644 data/flows/sk_family_reunification_v1.yaml
+ create mode 100644 data/flows/sk_non_eu_freelancer_setup_v1.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+   5f42e6f..bea8fc1  main -> main
+Wed Jan 28 03:15:40 PM CET 2026: Successfully committed and pushed
