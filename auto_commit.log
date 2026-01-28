@@ -26713,3 +26713,32 @@ Wed Jan 28 03:46:17 PM CET 2026: Another commit in progress, skipping
 To github.com:ToxicMinds/simplify_slovakia.git
    cf3cf69..7e8b7ed  main -> main
 Wed Jan 28 03:46:18 PM CET 2026: Successfully committed and pushed
+[main aeb10f9] Auto-commit: update Simplify Slovakia 2026-01-28 15:46:19
+ 25 files changed, 1089 insertions(+), 24 deletions(-)
+ mode change 120000 => 100644 data/steps/apply_family_residence_permit.yaml
+ mode change 120000 => 100644 data/steps/apply_family_visa.yaml
+ mode change 120000 => 100644 data/steps/apply_permanent_residence.yaml
+ mode change 120000 => 100644 data/steps/apply_temporary_residence_business.yaml
+ mode change 120000 => 100644 data/steps/assess_eligibility_freelancer.yaml
+ mode change 120000 => 100644 data/steps/check_eligibility_permanent.yaml
+ mode change 120000 => 100644 data/steps/collect_permanent_residence_card.yaml
+ mode change 120000 => 100644 data/steps/contact_employer_day_one.yaml
+ mode change 120000 => 100644 data/steps/find_temporary_housing.yaml
+ mode change 120000 => 100644 data/steps/gather_five_year_documentation.yaml
+ mode change 120000 => 100644 data/steps/gather_relationship_documents.yaml
+ mode change 120000 => 100644 data/steps/locate_foreign_police_office.yaml
+ mode change 120000 => 100644 data/steps/obtain_criminal_record_check.yaml
+ mode change 120000 => 100644 data/steps/obtain_trade_license.yaml
+ mode change 120000 => 100644 data/steps/open_business_bank_account.yaml
+ mode change 120000 => 100644 data/steps/prepare_business_plan.yaml
+ mode change 120000 => 100644 data/steps/prepare_housing_proof.yaml
+ mode change 120000 => 100644 data/steps/prove_slovak_language_proficiency.yaml
+ mode change 120000 => 100644 data/steps/register_tax_office.yaml
+ mode change 120000 => 100644 data/steps/secure_proof_of_funds.yaml
+ mode change 120000 => 100644 data/steps/setup_health_insurance_dependent.yaml
+ mode change 120000 => 100644 data/steps/setup_health_insurance_selfemployed.yaml
+ mode change 120000 => 100644 data/steps/understand_residence_permit_urgency.yaml
+ mode change 120000 => 100644 data/steps/verify_primary_residence_status.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+   7e8b7ed..aeb10f9  main -> main
+Wed Jan 28 03:46:21 PM CET 2026: Successfully committed and pushed
