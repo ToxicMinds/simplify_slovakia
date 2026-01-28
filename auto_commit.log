@@ -26526,3 +26526,56 @@ Wed Jan 28 03:15:54 PM CET 2026: Successfully committed and pushed
 Wed Jan 28 03:45:28 PM CET 2026: No changes to commit
 Wed Jan 28 03:45:28 PM CET 2026: No changes to commit
 Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+[main 509934f] Auto-commit: update Simplify Slovakia 2026-01-28 15:45:28
+ 26 files changed, 28 insertions(+)
+ create mode 120000 data/steps/apply_business_visa.yaml
+ create mode 120000 data/steps/apply_family_residence_permit.yaml
+ create mode 120000 data/steps/apply_family_visa.yaml
+ create mode 120000 data/steps/apply_permanent_residence.yaml
+ create mode 120000 data/steps/apply_temporary_residence_business.yaml
+ create mode 120000 data/steps/assess_eligibility_freelancer.yaml
+ create mode 120000 data/steps/check_eligibility_permanent.yaml
+ create mode 120000 data/steps/collect_permanent_residence_card.yaml
+ create mode 120000 data/steps/contact_employer_day_one.yaml
+ create mode 120000 data/steps/find_temporary_housing.yaml
+ create mode 120000 data/steps/gather_five_year_documentation.yaml
+ create mode 120000 data/steps/gather_relationship_documents.yaml
+ create mode 120000 data/steps/locate_foreign_police_office.yaml
+ create mode 120000 data/steps/obtain_criminal_record_check.yaml
+ create mode 120000 data/steps/obtain_trade_license.yaml
+ create mode 120000 data/steps/open_business_bank_account.yaml
+ create mode 120000 data/steps/prepare_business_plan.yaml
+ create mode 120000 data/steps/prepare_housing_proof.yaml
+ create mode 120000 data/steps/prove_slovak_language_proficiency.yaml
+ create mode 120000 data/steps/register_tax_office.yaml
+ create mode 120000 data/steps/secure_proof_of_funds.yaml
+ create mode 120000 data/steps/setup_health_insurance_dependent.yaml
+ create mode 120000 data/steps/setup_health_insurance_selfemployed.yaml
+ create mode 120000 data/steps/understand_residence_permit_urgency.yaml
+ create mode 120000 data/steps/verify_primary_residence_status.yaml
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+Wed Jan 28 03:45:28 PM CET 2026: Another commit in progress, skipping
+To github.com:ToxicMinds/simplify_slovakia.git
+   de8c1db..509934f  main -> main
+Wed Jan 28 03:45:30 PM CET 2026: Successfully committed and pushed
