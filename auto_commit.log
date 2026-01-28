@@ -25859,3 +25859,32 @@ Wed Jan 28 02:31:34 PM CET 2026: Another commit in progress, skipping
 To github.com:ToxicMinds/simplify_slovakia.git
    84d0a04..fb351e9  main -> main
 Wed Jan 28 02:31:35 PM CET 2026: Successfully committed and pushed
+[main 496c4b2] Auto-commit: update Simplify Slovakia 2026-01-28 14:31:35
+ 25 files changed, 571 insertions(+)
+ create mode 100644 backend/lambda_package/data/README.md
+ create mode 100644 backend/lambda_package/data/flows/README.md
+ create mode 100644 backend/lambda_package/data/flows/sk_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_non_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/reference/.gitkeep
+ create mode 100644 backend/lambda_package/data/reference/README.md
+ create mode 100644 backend/lambda_package/data/steps/README.md
+ create mode 100644 backend/lambda_package/data/steps/apply_national_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_temporary_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps/collect_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_foreign_police.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/tax_residence_and_annual_obligations.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+   fb351e9..496c4b2  main -> main
+Wed Jan 28 02:31:37 PM CET 2026: Successfully committed and pushed
