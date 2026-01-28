@@ -26778,3 +26778,9 @@ Wed Jan 28 03:46:35 PM CET 2026: Another commit in progress, skipping
 To github.com:ToxicMinds/simplify_slovakia.git
    875ddb7..253d076  main -> main
 Wed Jan 28 03:46:36 PM CET 2026: Successfully committed and pushed
+[main 3cee1a9] Auto-commit: update Simplify Slovakia 2026-01-28 15:46:36
+ 2 files changed, 42 insertions(+), 1 deletion(-)
+ mode change 120000 => 100644 data/steps/apply_business_visa.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+   253d076..3cee1a9  main -> main
+Wed Jan 28 03:46:38 PM CET 2026: Successfully committed and pushed
