@@ -25905,3 +25905,11 @@ Wed Jan 28 02:31:40 PM CET 2026: Another commit in progress, skipping
 To github.com:ToxicMinds/simplify_slovakia.git
    c039f6b..71acce9  main -> main
 Wed Jan 28 02:31:42 PM CET 2026: Successfully committed and pushed
+[main f685be7] Auto-commit: update Simplify Slovakia 2026-01-28 14:31:42
+ 4 files changed, 99 insertions(+)
+ create mode 100644 backend/lambda_package/rules/README.md
+ create mode 100644 backend/lambda_package/rules/immigration/eligibility.yaml
+ create mode 100644 backend/lambda_package/rules/life_setup/.gitkeep
+To github.com:ToxicMinds/simplify_slovakia.git
+   71acce9..f685be7  main -> main
+Wed Jan 28 02:31:44 PM CET 2026: Successfully committed and pushed
