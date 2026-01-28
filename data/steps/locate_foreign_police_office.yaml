@@ -1,1 +1,49 @@
-/home/nik/Downloads/Steps/locate_foreign_police_office.yaml
+step_id: locate_foreign_police_office
+title: Locate Foreign Police Office
+jurisdiction: Slovakia
+applies_to:
+  persona: emergency_just_landed
+preconditions:
+  - temporary_housing_secured
+outputs:
+  - foreign_police_office_located
+description: |
+  Find the correct Foreign Police (Cudzinecká polícia) office for your address.
+  You must register at the office covering your accommodation district.
+  
+  Bratislava offices (5 districts):
+  - Bratislava I (Old Town, Downtown): Tomášikova 46
+  - Bratislava II (Ružinov, Vrakuňa): Nevädzová 2
+  - Bratislava III (Nové Mesto): Vajnorská 3
+  - Bratislava IV (Karlova Ves, Dúbravka): Krajná 8
+  - Bratislava V (Petržalka, Jarovce, Rusovce): Kutlíkova 17
+  
+  Main Bratislava Foreign Police Department:
+  - Address: Tomášikova 46, 831 04 Bratislava
+  - Phone: +421 2 33 55 18 00
+  - Hours: Mon-Wed 8:00-12:00, Thu 13:00-16:00, Fri 8:00-12:00
+  - Online appointment: https://www.minv.sk/?objednanie-sa-na-cp
+  
+  What to check:
+  - Office location (use Google Maps)
+  - Opening hours (reduced Fridays!)
+  - Whether appointment needed (varies by office)
+  - Parking situation if driving
+  - Public transport access
+  
+  Save office address in your phone. You'll visit multiple times.
+why_it_matters: |
+  Going to wrong office = wasted trip. Many offices require appointments now.
+  Showing up at 12:05 = closed. Missing the 3-day deadline because you couldn't
+  find office = expensive mistake. Get this right on day 1.
+official_links:
+  - authority: Foreign Police Contact List
+    url: https://www.minv.sk/?cudzinecka-policia-kontakty
+  - authority: Online Appointment Booking
+    url: https://www.minv.sk/?objednanie-sa-na-cp
+failure_modes:
+  - what_breaks: Going to wrong office
+    consequence: Rejected, must go to correct office, time wasted
+  - what_breaks: Arriving outside opening hours
+    consequence: Cannot register, deadline approaches
+order: 4

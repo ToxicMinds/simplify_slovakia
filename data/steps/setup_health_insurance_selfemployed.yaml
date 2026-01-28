@@ -1,1 +1,43 @@
-/home/nik/Downloads/Steps/setup_health_insurance_selfemployed.yaml
+step_id: setup_health_insurance_selfemployed
+title: Register for Health Insurance (Self-Employed)
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - trade_license_obtained
+outputs:
+  - health_insurance_active
+description: |
+  Register with a Slovak health insurance company as self-employed person.
+  You MUST do this within 8 days of getting trade license.
+  
+  Main insurers:
+  - Všeobecná zdravotná poisťovňa (VšZP) - largest, state-owned
+  - Dôvera zdravotná poisťovňa
+  - Union zdravotná poisťovňa
+  
+  Monthly payment: Minimum €96.81 (2024 rate, changes annually).
+  Based on 50% of average wage. If you earn more, you pay more.
+  
+  Required documents:
+  - Trade license
+  - Passport + residence card
+  - Proof of address
+  - Registration form (get at insurer office or online)
+  
+  You receive health insurance card (usually 2 weeks).
+why_it_matters: |
+  Operating without health insurance is illegal and blocks residence permit renewal.
+  Medical costs in Slovakia are fully covered for insured persons. Without it, you pay
+  full private prices (doctor visit ~€50, hospital day ~€200).
+official_links:
+  - authority: General Health Insurance Company (VšZP)
+    url: https://www.vszp.sk/
+  - authority: Ministry of Health - Insurance Info
+    url: https://www.health.gov.sk/
+failure_modes:
+  - what_breaks: Not registering within 8 days
+    consequence: €1,000+ fine, insurance backdated with penalties
+  - what_breaks: Not paying monthly premiums
+    consequence: Insurance suspended, residence permit renewal blocked
+order: 12

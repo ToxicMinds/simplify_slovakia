@@ -1,1 +1,45 @@
-/home/nik/Downloads/Steps/check_eligibility_permanent.yaml
+step_id: check_eligibility_permanent
+title: Check Eligibility for Permanent Residence
+jurisdiction: Slovakia
+applies_to:
+  persona: long_term_resident_bratislava
+preconditions:
+  - none
+outputs:
+  - permanent_residence_eligibility_confirmed
+description: |
+  Verify you meet requirements for permanent residence (trvalý pobyt):
+  
+  Standard path (most common):
+  - 5 years of continuous temporary residence in Slovakia
+  - Slovak language proficiency (B1 level)
+  - Clean criminal record
+  - Stable income/financial means
+  - Accommodation in Slovakia
+  
+  Shortened paths:
+  - 3 years if married to Slovak citizen
+  - 3 years if recognized refugee/asylum holder
+  - 2 years if Slovak ancestry
+  - Immediate if Slovak parent/grandparent
+  
+  "Continuous" means:
+  - No absences over 10 consecutive months
+  - No more than 6 months/year abroad
+  - Valid residence permit throughout (no gaps)
+  
+  Check your residence history carefully. Even short gaps can reset the clock.
+why_it_matters: |
+  Applying too early = automatic rejection + wasted fee (€160). Gaps in residence
+  or insufficient language skills are top rejection reasons. Get this right first.
+official_links:
+  - authority: Ministry of Interior - Permanent Residence
+    url: https://www.minv.sk/?trvaly-pobyt
+  - authority: Calculate your eligibility
+    url: https://www.minv.sk/?kalkulacka-na-vypocet-doby-pobytu
+failure_modes:
+  - what_breaks: Miscounting days abroad
+    consequence: Application rejected, must wait longer
+  - what_breaks: Gap in residence permits
+    consequence: 5-year clock may reset
+order: 1

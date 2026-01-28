@@ -1,1 +1,56 @@
-/home/nik/Downloads/Steps/apply_permanent_residence.yaml
+step_id: apply_permanent_residence
+title: Apply for Permanent Residence Permit
+jurisdiction: Slovakia
+applies_to:
+  persona: long_term_resident_bratislava
+preconditions:
+  - housing_proof_ready
+outputs:
+  - permanent_residence_applied
+description: |
+  Submit application at Foreign Police (Cudzinecká polícia) for permanent residence.
+  Book appointment online - typically 2-4 weeks wait.
+  
+  Submit complete package:
+  - Application form (tlačivo)
+  - Valid passport + current residence card
+  - All 5 years of residence documentation
+  - B1 Slovak language certificate
+  - Slovak criminal record (within 3 months)
+  - Home country criminal record (apostilled, translated, within 6 months)
+  - Housing proof (within 3 months)
+  - Employment/income proof (current)
+  - Health insurance confirmation
+  - 4 biometric passport photos
+  - Fee: €160 (non-refundable even if rejected)
+  
+  At appointment:
+  - Officer reviews all documents
+  - May ask questions in Slovak (language verification)
+  - Biometric data taken (fingerprints, photo)
+  - You receive receipt
+  
+  Processing time: 6-12 months (sometimes longer).
+  
+  During processing:
+  - Your temporary residence remains valid
+  - You can renew temporary if it expires during processing
+  - Cannot leave Slovakia for more than 6 months during processing
+why_it_matters: |
+  Permanent residence gives you:
+  - Indefinite right to live in Slovakia
+  - No more residence renewals
+  - Right to work without permits
+  - Path to citizenship after 8 total years
+  - Better mortgage rates, government benefits
+official_links:
+  - authority: Foreign Police Bratislava - Appointments
+    url: https://www.minv.sk/?objednanie-sa-na-cp
+  - authority: Ministry of Interior - Permanent Residence Guide
+    url: https://www.minv.sk/?trvaly-pobyt-cudzinca
+failure_modes:
+  - what_breaks: Missing any required document
+    consequence: Application rejected, no refund, resubmit from scratch
+  - what_breaks: Document expired during processing
+    consequence: Must submit updated document or application fails
+order: 6

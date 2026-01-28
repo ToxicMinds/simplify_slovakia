@@ -1,1 +1,42 @@
-/home/nik/Downloads/Steps/register_tax_office.yaml
+step_id: register_tax_office
+title: Register with Tax Office
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - trade_license_obtained
+outputs:
+  - tax_registration_completed
+description: |
+  Register with local Financial Directorate (Finančná správa) as self-employed person (SZČO).
+  You must do this BEFORE issuing your first invoice.
+  
+  What to register for:
+  - Income tax (daň z príjmov)
+  - VAT (DPH) - if turnover will exceed €49,790/year
+  
+  Required documents:
+  - Trade license (živnostenský list)
+  - Passport + residence card
+  - Proof of address
+  - Registration form (can do online via slovensko.sk with eID)
+  
+  You receive:
+  - Tax identification number (DIČ)
+  - VAT number (IČ DPH) if applicable
+  
+  Processing: Immediate if done online, 5 days if in person.
+why_it_matters: |
+  Issuing invoices without tax registration is illegal and results in fines.
+  You also cannot deduct business expenses without proper registration.
+official_links:
+  - authority: Financial Administration of Slovakia
+    url: https://www.financnasprava.sk/
+  - authority: Online registration portal
+    url: https://www.slovensko.sk/
+failure_modes:
+  - what_breaks: Invoicing before tax registration
+    consequence: Fines, invoices may be void
+  - what_breaks: Not registering for VAT when required
+    consequence: €30,000 fine, back taxes owed
+order: 11

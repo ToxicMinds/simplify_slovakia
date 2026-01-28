@@ -1,1 +1,44 @@
-/home/nik/Downloads/Steps/prepare_housing_proof.yaml
+step_id: prepare_housing_proof
+title: Prepare Housing Proof
+jurisdiction: Slovakia
+applies_to:
+  persona: long_term_resident_bratislava
+preconditions:
+  - criminal_record_obtained
+outputs:
+  - housing_proof_ready
+description: |
+  Prove you have accommodation in Slovakia with one of:
+  
+  1. Property ownership:
+     - Land Registry extract (list vlastníctva) - not older than 3 months
+     - Get from Cadastral Office (Katastrálny úrad)
+     - Fee: €10
+     - Shows you own apartment/house
+  
+  2. Rental agreement:
+     - Valid rental contract (nájomná zmluva)
+     - Landlord's confirmation letter (not older than 30 days)
+     - Landlord's ID copy + property ownership proof
+     - Contract must be long-term (min. 1 year remaining)
+  
+  3. Living with family:
+     - Owner's written consent (súhlas vlastníka)
+     - Proof of relationship
+     - Owner's property documents
+     - Owner must appear at Foreign Police for confirmation
+  
+  Address on documents must match address in application form.
+why_it_matters: |
+  You need registered permanent address in Slovakia. Without stable housing,
+  permanent residence is denied. Address changes during application processing
+  must be reported immediately or application is voided.
+official_links:
+  - authority: Cadastral Portal - Property Records
+    url: https://www.katasterportal.sk/
+failure_modes:
+  - what_breaks: Short-term rental (under 1 year)
+    consequence: Not accepted as stable accommodation
+  - what_breaks: Address mismatch between documents
+    consequence: Application rejected for inconsistency
+order: 5

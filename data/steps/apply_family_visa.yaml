@@ -1,1 +1,40 @@
-/home/nik/Downloads/Steps/apply_family_visa.yaml
+step_id: apply_family_visa
+title: Apply for National Visa (Type D) - Family Reunification
+jurisdiction: Slovakia
+applies_to:
+  persona: family_member_bratislava
+preconditions:
+  - relationship_documents_ready
+outputs:
+  - family_visa_granted
+description: |
+  Apply at Slovak embassy/consulate in your home country for National Visa (Type D)
+  for family reunification purpose. Must apply from outside Slovakia.
+  
+  Required documents:
+  - Valid passport (min. 3 months beyond visa validity)
+  - Completed visa application form
+  - All relationship documents (apostilled, translated)
+  - Sponsor's documents:
+    * Copy of residence card
+    * Proof of accommodation (rental contract/ownership)
+    * Bank statements (last 3 months)
+    * Employment contract or business income proof
+  - Health insurance (min. €30,000 Schengen coverage)
+  - Clean criminal record (apostilled, translated)
+  - 2 passport photos
+  - Visa fee (~€100)
+  
+  Processing time: 60-120 days typically.
+why_it_matters: |
+  This visa allows 90 days to enter and apply for family residence permit.
+  Entering on tourist visa then trying to stay is illegal and results in deportation.
+official_links:
+  - authority: Ministry of Foreign Affairs - Family Visa
+    url: https://www.mzv.sk/web/en/consular_info/family_reunification
+failure_modes:
+  - what_breaks: Sponsor doesn't meet income requirements
+    consequence: Visa denied for insufficient financial means
+  - what_breaks: Accommodation too small for family size
+    consequence: Visa rejected
+order: 3

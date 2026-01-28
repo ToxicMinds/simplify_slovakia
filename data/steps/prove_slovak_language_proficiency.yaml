@@ -1,1 +1,50 @@
-/home/nik/Downloads/Steps/prove_slovak_language_proficiency.yaml
+step_id: prove_slovak_language_proficiency
+title: Prove Slovak Language Proficiency (B1 Level)
+jurisdiction: Slovakia
+applies_to:
+  persona: long_term_resident_bratislava
+preconditions:
+  - five_year_documentation_complete
+outputs:
+  - language_proficiency_proven
+description: |
+  Demonstrate B1 level Slovak language proficiency. This is MANDATORY for permanent
+  residence (with few exceptions).
+  
+  How to prove:
+  1. Official B1 certificate from Ministry of Education recognized institution:
+     - State Language School (Štátna jazyková škola)
+     - Studia Academica Slovaca (Comenius University)
+     - Cost: €40-200 for exam
+  
+  2. Slovak university degree (any level)
+  
+  3. Slovak secondary school graduation certificate
+  
+  Exempt from language requirement:
+  - Age 65+
+  - Severe disability preventing learning
+  - Slovak ancestry with grandparent born in Slovakia
+  
+  The exam tests:
+  - Reading comprehension
+  - Writing (short essay, 80-100 words)
+  - Listening (recorded dialogues)
+  - Speaking (conversation with examiner, 10 min)
+  
+  Preparation time: 6-12 months of regular study if starting from zero.
+why_it_matters: |
+  This is the most common rejection reason. Without valid B1 certificate, your
+  application is automatically rejected. The certificate must be issued within 1 year
+  of application. Budget 3-6 months for exam scheduling.
+official_links:
+  - authority: Studia Academica Slovaca (Comenius University)
+    url: https://sas.uniba.sk/
+  - authority: List of recognized institutions
+    url: https://www.minedu.sk/
+failure_modes:
+  - what_breaks: Certificate older than 1 year
+    consequence: Not accepted, must retake exam
+  - what_breaks: Non-recognized institution certificate
+    consequence: Rejected, must get proper certificate
+order: 3

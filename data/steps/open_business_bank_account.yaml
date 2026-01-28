@@ -1,1 +1,44 @@
-/home/nik/Downloads/Steps/open_business_bank_account.yaml
+step_id: open_business_bank_account
+title: Open Business Bank Account
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - trade_license_obtained
+  - tax_registration_completed
+outputs:
+  - business_bank_account_opened
+description: |
+  Open a business bank account in Slovakia for receiving payments and paying taxes.
+  While technically not mandatory, it's highly recommended to separate personal/business finances.
+  
+  Main banks accepting non-EU freelancers:
+  - Tatra banka
+  - Slovenská sporiteľňa
+  - ČSOB
+  - VÚB banka
+  - Fio banka (often easiest for foreigners)
+  
+  Required documents:
+  - Trade license
+  - Passport + residence card
+  - Tax ID number (DIČ)
+  - Proof of address
+  - Initial deposit (€0-100 depending on bank)
+  
+  Monthly fees: €0-15 depending on bank and package.
+  Processing: Usually opened same day or within 3 days.
+why_it_matters: |
+  Slovak clients expect bank transfers (cash/checks rare). Tax office requires
+  documented income trail. Having Slovak IBAN makes invoicing and tax payments much easier.
+official_links:
+  - authority: National Bank of Slovakia
+    url: https://www.nbs.sk/
+  - authority: Fio banka (English service)
+    url: https://www.fio.sk/
+failure_modes:
+  - what_breaks: Bank rejects application (non-EU status)
+    consequence: Try different bank, some are foreigner-friendly
+  - what_breaks: Mixing personal/business finances
+    consequence: Tax audit complications, deduction disputes
+order: 13
