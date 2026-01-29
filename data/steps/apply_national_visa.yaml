@@ -7,15 +7,50 @@ preconditions:
   - employment_contract_signed
 outputs:
   - national_visa_granted
-description:
-  You must apply for a Slovak National Visa (Type D) at a Slovak embassy or consulate
-  in your country of residence before entering Slovakia for employment purposes.
+description: |
+  Apply at Slovak embassy or consulate in your home country for National Visa (Type D)
+  for employment purposes. Cannot apply from inside Slovakia or EU.
+  
+  Required documents:
+  - Valid passport (minimum 3 months beyond visa validity)
+  - Completed visa application form (downloadable from embassy website)
+  - Signed employment contract from Slovak employer
+  - Employer's confirmation letter (stating position, salary, start date)
+  - Proof of accommodation in Slovakia (rental agreement or hotel booking)
+  - Health insurance (minimum €30,000 coverage for Schengen area)
+  - Criminal record certificate (apostilled, translated to Slovak)
+  - Educational certificates/diplomas (if required for position)
+  - 2 recent passport photos (3.5cm x 4.5cm, white background)
+  - Visa fee: ~€100 (varies by embassy, check locally)
+  
+  Processing time: 60-90 days typically (can be longer at busy embassies)
+  
+  Interview: Some embassies require in-person interview. Be prepared to explain:
+  - Your job role and responsibilities
+  - Why this position in Slovakia
+  - Your qualifications
+  - Long-term plans
 why_it_matters: |
-  Establishes legal entry to Slovakia for employment purposes and triggers subsequent steps such as police registration and residence permit applications.
+  This visa is your legal entry ticket to Slovakia. Without it, you cannot:
+  - Enter Slovakia legally for employment
+  - Apply for temporary residence permit
+  - Start working for your employer
+  - Access any Slovak services
+  
+  Entering on tourist visa (or visa-free) then trying to work is illegal and results in
+  immediate deportation, 2-5 year ban from Schengen, and criminal record.
 official_links:
-  - authority: Ministry of Foreign and European Affairs of the Slovak Republic
-    url: https://www.mzv.sk/en/visa
+  - authority: Ministry of Foreign Affairs - National Visa
+    url: https://www.mzv.sk/web/en/consular_info/national_visa
+  - authority: Find your nearest Slovak embassy
+    url: https://www.mzv.sk/web/en/diplomatic_missions/slovak_missions_abroad
 failure_modes:
-  - what_breaks: Entering Slovakia without a valid visa
-    consequence: Cannot legally start employment; risk of fines or deportation
+  - what_breaks: Missing apostille on criminal record
+    consequence: Application rejected immediately, must restart with correct document
+  - what_breaks: Insufficient health insurance coverage (below €30,000)
+    consequence: Visa denied
+  - what_breaks: Employment contract doesn't specify salary or position clearly
+    consequence: Visa refused for "insufficient documentation"
+  - what_breaks: Applying too late (employer expects you to start soon)
+    consequence: Job offer may be withdrawn if visa processing exceeds timeline
 order: 1
