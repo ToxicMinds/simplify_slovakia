@@ -316,12 +316,14 @@ function App() {
             return (
               <div 
                 key={step.step_id}
-                className={`bg-white rounded-lg shadow-md overflow-hidden transition-all print:break-inside-avoid print:shadow-none print:border ${
+                className={`bg-white rounded-lg shadow-md overflow-hidden transition-all print:break-inside-avoid print:shadow-none print:border-2 ${
                   isCompleted ? 'opacity-75 border-2 border-green-300' : ''
                 }`}
               >
-                <div className="p-6 print:p-4">
-                  <div className="flex items-start gap-4">
+                {/* Step Header */}
+                <div className="p-4 md:p-6">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    {/* Checkbox */}
                     <button
                       onClick={() => toggleStepCompletion(step.step_id)}
                       className={`flex-shrink-0 w-6 h-6 rounded border-2 transition-all print:hidden ${
@@ -337,31 +339,39 @@ function App() {
                       )}
                     </button>
 
-                    {/* Checkbox for print */}
-                    <div className="hidden print:block flex-shrink-0 w-4 h-4 border-2 border-gray-400 rounded"></div>
+                    {/* Print checkbox */}
+                    <div className="hidden print:block flex-shrink-0 w-5 h-5 border-2 border-gray-400 rounded"></div>
 
-                    <div className="flex-grow">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-sm font-semibold text-indigo-600">
+                    {/* Step Content */}
+                    <div className="flex-grow min-w-0">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 md:gap-4">
+                        <div className="flex-grow min-w-0">
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span className="text-xs md:text-sm font-semibold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">
                               Step {step.order}
                             </span>
                             {isCompleted && (
                               <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full print:hidden">
-                                Completed
+                                ✓ Completed
                               </span>
                             )}
                           </div>
-                          <h3 className={`text-xl font-bold ${isCompleted ? 'line-through text-gray-500' : 'text-gray-800'} print:text-lg`}>
+                          <h3 className={`text-lg md:text-xl font-bold mb-3 ${isCompleted ? 'line-through text-gray-500' : 'text-gray-800'}`}>
                             {step.title}
                           </h3>
-                          <p className="text-gray-600 mt-2 text-sm">{step.description}</p>
+                          
+                          {/* Short description - always visible */}
+                          <div className="prose prose-sm md:prose max-w-none">
+                            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                              {step.description?.split('\n\n')[0] || step.description?.split('\n')[0] || step.description}
+                            </p>
+                          </div>
                         </div>
                         
+                        {/* Expand button */}
                         <button
                           onClick={() => toggleStepExpansion(step.step_id)}
-                          className="flex-shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors print:hidden"
+                          className="flex-shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors print:hidden self-start md:self-center"
                         >
                           <svg 
                             className={`w-6 h-6 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
@@ -376,47 +386,91 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Details - always shown in print, expandable on screen */}
-                  {(isExpanded || window.matchMedia('print').matches) && (
-                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-4 print:mt-4 print:pt-4">
-                      {step.why_it_matters && (
+                  {/* Expanded Details */}
+                  {(isExpanded || window.matchMedia?.('print')?.matches) && (
+                    <div className="mt-6 pt-6 border-t border-gray-200 space-y-6">
+                      
+                      {/* Full Description */}
+                      {step.description && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Why It Matters</h4>
-                          <p className="text-gray-600 text-sm">{step.why_it_matters}</p>
+                          <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                            <svg className="w-5 h-5 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Details
+                          </h4>
+                          <div className="prose prose-sm md:prose max-w-none">
+                            <div className="text-gray-700 whitespace-pre-line text-sm md:text-base leading-relaxed">
+                              {step.description}
+                            </div>
+                          </div>
                         </div>
                       )}
 
+                      {/* Why It Matters */}
+                      {step.why_it_matters && (
+                        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r">
+                          <h4 className="font-semibold text-yellow-900 mb-2 flex items-center gap-2 text-sm md:text-base">
+                            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                            </svg>
+                            Why This Matters
+                          </h4>
+                          <div className="text-yellow-900 whitespace-pre-line text-sm md:text-base leading-relaxed">
+                            {step.why_it_matters}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Prerequisites */}
                       {step.preconditions && step.preconditions.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Prerequisites</h4>
-                          <ul className="space-y-1">
+                          <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                            <svg className="w-5 h-5 text-orange-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                            Prerequisites
+                          </h4>
+                          <ul className="space-y-2">
                             {step.preconditions.map((precond, idx) => (
-                              <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                                <span className="text-indigo-600 mt-1">•</span>
-                                <span>{precond.replace(/_/g, ' ')}</span>
+                              <li key={idx} className="flex items-start gap-2 text-sm md:text-base">
+                                <span className="text-orange-600 mt-1 flex-shrink-0">▸</span>
+                                <span className="text-gray-700">{precond.replace(/_/g, ' ')}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       )}
 
+                      {/* Outputs */}
                       {step.outputs && step.outputs.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Produces</h4>
-                          <ul className="space-y-1">
+                          <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                            <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            What You'll Get
+                          </h4>
+                          <ul className="space-y-2">
                             {step.outputs.map((output, idx) => (
-                              <li key={idx} className="text-sm text-green-700 flex items-start gap-2">
-                                <span className="text-green-600 mt-1">✓</span>
-                                <span>{output.replace(/_/g, ' ')}</span>
+                              <li key={idx} className="flex items-start gap-2 text-sm md:text-base">
+                                <span className="text-green-600 mt-1 flex-shrink-0">✓</span>
+                                <span className="text-gray-700 font-medium">{output.replace(/_/g, ' ')}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       )}
 
+                      {/* Official Links */}
                       {step.official_links && step.official_links.length > 0 && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Official Resources</h4>
+                          <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                            <svg className="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                            Official Resources
+                          </h4>
                           <ul className="space-y-2">
                             {step.official_links.map((link, idx) => (
                               <li key={idx}>
@@ -424,39 +478,50 @@ function App() {
                                   href={link.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-indigo-600 hover:text-indigo-800 underline flex items-center gap-1 print:text-black"
+                                  className="text-blue-600 hover:text-blue-800 underline flex items-start gap-2 text-sm md:text-base print:text-black"
                                 >
-                                  {link.authority}
-                                  <svg className="w-3 h-3 print:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <svg className="w-4 h-4 mt-1 flex-shrink-0 print:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                   </svg>
-                                  <span className="hidden print:inline text-xs text-gray-500">({link.url})</span>
+                                  <span>
+                                    {link.authority}
+                                    <span className="hidden print:inline text-xs text-gray-500 ml-2">
+                                      ({link.url})
+                                    </span>
+                                  </span>
                                 </a>
                               </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {step.failure_modes && step.failure_modes.length > 0 && (
-                        <div className="bg-yellow-50 border border-yellow-200 rounded p-4 print:border-yellow-400">
-                          <h4 className="font-semibold text-yellow-800 mb-2 text-sm">⚠️ Common Pitfalls</h4>
-                          <ul className="space-y-2">
-                            {step.failure_modes.map((failure, idx) => (
-                              <li key={idx} className="text-sm">
-                                <p className="text-yellow-900 font-medium">{failure.what_breaks}</p>
-                                <p className="text-yellow-700">{failure.consequence}</p>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                  ))}
+                </ul>
               </div>
-            )
+            )}
+
+            {/* Failure Modes */}
+            {step.failure_modes && step.failure_modes.length > 0 && (
+              <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r">
+                <h4 className="font-semibold text-red-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                  <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  Common Pitfalls
+                </h4>
+                <ul className="space-y-3">
+                  {step.failure_modes.map((failure, idx) => (
+                    <li key={idx} className="text-sm md:text-base">
+                      <p className="text-red-900 font-medium mb-1">❌ {failure.what_breaks}</p>
+                      <p className="text-red-800">→ {failure.consequence}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  )
           })}
+
         </div>
       </main>
 
