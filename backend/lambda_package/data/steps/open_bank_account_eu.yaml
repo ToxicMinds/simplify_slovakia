@@ -1,0 +1,95 @@
+step_id: open_bank_account_eu
+title: Open Slovak Bank Account (EU Citizens)
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - address_registered
+  - mobile_number_obtained
+outputs:
+  - bank_account_opened
+description: |
+  EU citizens can open Slovak bank account easily - some banks offer fully online opening.
+  
+  Major advantage for EU:
+  - Don't need residence card (ID card sufficient)
+  - Can open account before employment starts
+  - Some banks: fully online process
+  - Lower documentation requirements
+  
+  Best banks for EU citizens:
+  - Fio banka: Fully online, 10-minute setup, English
+  - mBank: Online opening, no branch visit
+  - Tatra banka: English service, expat-friendly
+  - Slovenská sporiteľňa: Largest network
+  
+  Online opening process (Fio, mBank):
+  1. Go to bank website
+  2. Click "Open account online"
+  3. Fill online form (10-15 minutes)
+  4. Video ID verification:
+     - Show EU ID card to webcam
+     - Verify your face matches ID
+     - Answer security questions
+  5. Account activated in 10-30 minutes
+  6. Debit card delivered by post (3-5 days)
+  7. Online banking active immediately
+  
+  Required for online opening:
+  - EU ID card or passport
+  - Proof of Slovak address:
+    * Rental contract
+    * Utility bill
+    * Address registration confirmation
+  - Slovak mobile number
+  - Email address
+  
+  In-branch opening (alternative):
+  - Book appointment or walk-in
+  - Bring EU ID + proof of address
+  - Same-day account opening
+  - Card in 2-5 days
+  
+  No residence card needed!
+  No employment contract needed (initially)!
+  
+  Account features:
+  - Slovak IBAN (SK__ ____ ____)
+  - Debit card (Maestro/Mastercard/Visa)
+  - Online banking (web + app)
+  - SEPA transfers (free to EU)
+  - ATM access
+  
+  Costs: €0-10/month (usually €0-4 for basic account)
+  
+  Timeline: 10 minutes online to same-day in-branch
+why_it_matters: |
+  As EU citizen, you can open account on DAY 1:
+  - Before employment starts
+  - Before residence registration
+  - Just need ID card + address proof
+  
+  This is a major advantage over non-EU (who must wait for residence card).
+  
+  Why you need Slovak account:
+  - Salary payment (employer requires Slovak IBAN)
+  - Rent payment
+  - Utilities auto-pay
+  - Online services
+  - Lower fees than foreign account transfers
+  
+  Even though you could keep using home country account,
+  Slovak account is more convenient and often required.
+official_links:
+  - authority: Fio banka (online opening)
+    url: https://www.fio.sk/en/
+  - authority: mBank Slovakia
+    url: https://www.mbank.sk/
+  - authority: Tatra banka
+    url: https://www.tatrabanka.sk/en/
+failure_modes:
+  - what_breaks: Video ID verification fails (bad webcam, lighting)
+    consequence: Must visit branch in person
+  - what_breaks: No proof of Slovak address yet
+    consequence: Cannot complete online opening, wait for rental contract
+order: 8

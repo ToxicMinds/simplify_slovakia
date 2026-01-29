@@ -1,0 +1,30 @@
+step_id: prepare_business_plan
+title: Prepare Business Plan for Visa Application
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - eligibility_confirmed
+outputs:
+  - business_plan_ready
+description: |
+  Create a formal business plan in Slovak or English showing:
+  - Type of services/products you will provide
+  - Expected income and expenses (first year minimum)
+  - Target market (local clients, international, remote work)
+  - Where you will work (home office, coworking, rented space)
+  Embassy may request this during visa interview. Keep it realistic - overstating income
+  can cause issues later with tax office.
+why_it_matters: |
+  Immigration officers assess if your business is viable and won't require social assistance.
+  A weak plan signals you may take illegal employment instead. This document supports your
+  visa application and later residence permit.
+official_links:
+  - authority: Slovak Business Agency (startup resources)
+    url: https://www.sbagency.sk/
+failure_modes:
+  - what_breaks: Vague or unrealistic projections
+    consequence: Visa refusal for "insufficient grounds"
+  - what_breaks: Business plan conflicts with stated profession
+    consequence: Credibility issues, visa denial
+order: 2

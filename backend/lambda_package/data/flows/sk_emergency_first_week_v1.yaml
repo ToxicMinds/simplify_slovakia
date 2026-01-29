@@ -1,0 +1,22 @@
+flow_id: sk_emergency_first_week_v1
+persona_id: emergency_just_landed
+country: Slovakia
+version: 1.0.0
+steps:
+  - step_id: find_temporary_housing  # ❌ NEW
+    order: 1
+  
+  - step_id: get_sim_card  # ✅ EXISTS
+    order: 2
+  
+  - step_id: register_foreign_police  # ✅ EXISTS
+    order: 3
+  
+  - step_id: locate_foreign_police_office  # ❌ NEW
+    order: 4
+  
+  - step_id: contact_employer_day_one  # ❌ NEW
+    order: 5
+  
+  - step_id: understand_residence_permit_urgency  # ❌ NEW
+    order: 6
