@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { API_URL } from '../config'
+import { saveSession } from '../utils/storage'
 
 /**
  * IntakeForm.jsx
