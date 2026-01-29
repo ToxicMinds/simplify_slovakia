@@ -171,8 +171,14 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <header className="bg-white shadow-md">
           <div className="max-w-3xl mx-auto px-4 py-6">
-            <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-            <p className="text-gray-600 mt-2">Here's what we recommend</p>
+            {/* Wrap Logo and Title in a flex container */}
+            <div className="flex items-center gap-4">
+              <img src="/logo.svg" alt="Simplify Slovakia Logo" className="h-10 w-auto" />
+              <div>
+                <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
+                <p className="text-gray-600">Here's what we recommend</p>
+              </div>
+            </div>
           </div>
         </header>
 
