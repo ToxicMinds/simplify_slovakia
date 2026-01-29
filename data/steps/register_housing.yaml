@@ -1,5 +1,5 @@
 step_id: register_housing
-title: Register Address of Residence
+title: Register Permanent Address
 jurisdiction: Slovakia
 applies_to:
   persona: non_eu_employee_first_entry_bratislava_single
@@ -8,14 +8,100 @@ preconditions:
 outputs:
   - address_registered
 description: |
-  You must register your place of residence with the Foreign Police. This confirms where you legally live in Slovakia 
-  and enables official correspondence and downstream registrations such as bank accounts and healthcare.
+  Register your long-term address with Foreign Police after obtaining residence card.
+  This is your official permanent address in Slovakia.
+  
+  Difference from 3-day registration:
+  - 3-day registration: Temporary address (hotel, first week)
+  - Address registration: Permanent residential address
+  - This becomes your official address for ALL documents
+  
+  When to do this:
+  - After receiving residence card
+  - After securing long-term accommodation (min. 1 year)
+  - When moving from temporary to permanent address
+  
+  Required documents:
+  - Residence card (temporary residence permit)
+  - Passport
+  - Long-term accommodation proof:
+    * Rental contract (1+ years) OR
+    * Property ownership documents (list vlastníctva) OR
+    * Owner's consent (súhlas vlastníka bytu/domu)
+  - Owner's ID copy
+  - Owner's property ownership proof (from Cadastre)
+  
+  Landlord cooperation required:
+  - Landlord must provide written consent
+  - Some landlords hesitate (tax reporting implications)
+  - Landlord may need to come to Foreign Police with you
+  - This is LEGAL REQUIREMENT - landlord must cooperate
+  
+  Registration process:
+  1. Book appointment at Foreign Police (online or phone)
+  2. Arrive with all documents
+  3. Landlord may need to be present (depends on office)
+  4. Fill registration form
+  5. Officer updates residence record
+  6. Receive confirmation (same day)
+  
+  Cost: €0 (free)
+  Processing: Same-day
+  
+  Address format registered:
+  Street + Number, Postal Code, City
+  Example: Dunajská 15, 811 08 Bratislava
+  
+  This address used for:
+  - All official correspondence (tax, Foreign Police, health insurance)
+  - Bank account
+  - Employer records
+  - Delivery address
+  - Tax residence
+  - Voting (if applicable)
+  
+  Updating address:
+  - Must notify Foreign Police within 3 days of moving
+  - Bring new rental contract/ownership
+  - Update is free but mandatory
 why_it_matters: |
-  Registering your address is mandatory by law. It ensures legal compliance and facilitates all other essential services.
+  Your registered address is your legal domicile in Slovakia.
+  
+  ALL official mail goes here:
+  - Foreign Police letters (residence renewal reminders!)
+  - Tax office correspondence
+  - Court summons (if any)
+  - Health insurance
+  - Government notices
+  
+  Without registered address:
+  - Cannot prove residence for many services
+  - Miss critical government correspondence
+  - May miss residence renewal deadline (no reminder received)
+  
+  Wrong/outdated address:
+  - Fine €10-50 for not updating
+  - Missed official letters (legal consequences)
+  - Cannot be served legal documents
+  
+  Many services require proof of address:
+  - Opening bank account
+  - Mobile phone contracts
+  - Car registration
+  - Business registration
+  - Government benefits
+  
+  Get this done within first month of residence!
 official_links:
-  - authority: Ministry of Interior of the Slovak Republic
-    url: https://www.minv.sk/?pobyt-cudzinca
+  - authority: Foreign Police - Address Registration
+    url: https://www.minv.sk/?hlasenie-pobytu
+  - authority: Cadastre (property records)
+    url: https://www.katasterportal.sk/
 failure_modes:
-  - what_breaks: Failure to register on time
-    consequence: Fines, legal complications, and potential delays in accessing banking, health, or employment services
+  - what_breaks: Landlord refuses to provide consent
+    consequence: Cannot register address (negotiate with landlord, it's required by law)
+  - what_breaks: Not updating when you move
+    consequence: Fine €10-50, missed correspondence
+  - what_breaks: Registering where you don't actually live
+    consequence: Criminal offense (false declaration), fine, deportation risk
 order: 6
