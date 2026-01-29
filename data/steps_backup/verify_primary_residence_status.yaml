@@ -1,0 +1,35 @@
+step_id: verify_primary_residence_status
+title: Verify Primary Family Member's Residence Status
+jurisdiction: Slovakia
+applies_to:
+  persona: family_member_bratislava
+preconditions:
+  - none
+outputs:
+  - primary_residence_verified
+description: |
+  Confirm that your family member in Slovakia has valid legal residence status.
+  They must have one of:
+  - Temporary residence permit (at least 1 year validity remaining)
+  - Permanent residence
+  - Slovak/EU citizenship
+  
+  The sponsor must prove:
+  - Sufficient accommodation for family (min. 8m² per person)
+  - Financial means to support you (min. subsistence level + housing)
+  - Health insurance coverage
+  
+  Get certified copy of their residence card and residence permit decision.
+why_it_matters: |
+  You cannot apply for family reunification if the primary member's status is temporary
+  (tourist visa, student visa under 1 year, etc.) or about to expire. Immigration will
+  check their status before processing your application.
+official_links:
+  - authority: Ministry of Interior - Family Reunification
+    url: https://www.minv.sk/?zlucenie-rodiny
+failure_modes:
+  - what_breaks: Primary member has tourist visa only
+    consequence: Family reunification application rejected
+  - what_breaks: Primary member's residence expires during your application
+    consequence: Your application automatically rejected
+order: 1
