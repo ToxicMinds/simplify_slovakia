@@ -20,18 +20,21 @@ function App() {
      RESTORE SESSION ON MOUNT
      ============================ */
   useEffect(() => {
-    const savedSession = loadSession()
-
-    if (savedSession?.flowId) {
+  try {
+    const savedSession = loadSession?.()
+    if (!savedSession || !savedSession.flowId) return
       console.log('Restoring session:', savedSession.flowId)
-
       setSelectedFlowId(savedSession.flowId)
-      setCompletedSteps(new Set(savedSession.completedSteps || []))
-      setExpandedSteps(new Set(savedSession.expandedSteps || []))
-      setDocuments(savedSession.documents || {})
-      setShowIntake(savedSession.showIntake === false ? false : false)
+      setCompletedSteps(new Set(savedSession.completedSteps ?? []))
+      setExpandedSteps(new Set(savedSession.expandedSteps ?? []))
+      setDocuments(savedSession.documents ?? [])
+      setShowIntake(false)
+    } catch (e) {
+      console.error('Session restore failed, clearing storage', e)
+      localStorage.clear()
     }
   }, [])
+
 
   /* ============================
      SAVE SESSION ON CHANGE
