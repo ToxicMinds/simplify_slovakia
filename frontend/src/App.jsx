@@ -1,3 +1,4 @@
+import Logo from './components/Logo'
 import { useState, useEffect } from 'react'
 import FlowSelector from './components/FlowSelector'
 import IntakeForm from './components/IntakeForm'
