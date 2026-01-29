@@ -1,41 +1,41 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import FlowSelector from './components/FlowSelector'
+import FlowViewer from './components/FlowViewer'
 import IntakeForm from './components/IntakeForm'
-import DocumentTracker from './components/DocumentTracker'
-import { API_URL } from './config'
-import { saveSession, loadSession, clearSession } from './utils/storage'
+import { loadSession, saveSession } from './utils/session'
 
 function App() {
   const [selectedFlowId, setSelectedFlowId] = useState(null)
-  const [showIntake, setShowIntake] = useState(true)
-  const [flowData, setFlowData] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
   const [completedSteps, setCompletedSteps] = useState(new Set())
   const [expandedSteps, setExpandedSteps] = useState(new Set())
-  const [documents, setDocuments] = useState({})
+  const [documents, setDocuments] = useState([])
+  const [showIntake, setShowIntake] = useState(true)
 
-  /* ============================
-     RESTORE SESSION ON MOUNT
-     ============================ */
+  // -------------------------------
+  // RESTORE SESSION (ONCE)
+  // -------------------------------
   useEffect(() => {
-    const savedSession = loadSession()
+    try {
+      const savedSession = loadSession?.()
 
-    if (savedSession?.flowId) {
+      if (!savedSession || !savedSession.flowId) return
+
       console.log('Restoring session:', savedSession.flowId)
 
       setSelectedFlowId(savedSession.flowId)
-      setCompletedSteps(new Set(savedSession.completedSteps || []))
-      setExpandedSteps(new Set(savedSession.expandedSteps || []))
-      setDocuments(savedSession.documents || {})
-      setShowIntake(savedSession.showIntake === false ? false : false)
+      setCompletedSteps(new Set(savedSession.completedSteps ?? []))
+      setExpandedSteps(new Set(savedSession.expandedSteps ?? []))
+      setDocuments(savedSession.documents ?? [])
+      setShowIntake(false)
+    } catch (e) {
+      console.error('Session restore failed, clearing storage', e)
+      localStorage.clear()
     }
   }, [])
 
-  /* ============================
-     SAVE SESSION ON CHANGE
-     ============================ */
+  // -------------------------------
+  // SAVE SESSION (ON CHANGE)
+  // -------------------------------
   useEffect(() => {
     if (!selectedFlowId) return
 
@@ -59,123 +59,48 @@ function App() {
     )
   }, [selectedFlowId, completedSteps, expandedSteps, documents, showIntake])
 
-  /* ============================
-     FETCH FLOW DATA
-     ============================ */
-  useEffect(() => {
-    if (!selectedFlowId) return
-
-    const fetchFlow = async () => {
-      setLoading(true)
-      try {
-        const response = await fetch(`${API_URL}/flow/${selectedFlowId}`)
-        if (!response.ok) throw new Error('Failed to fetch flow data')
-        const data = await response.json()
-        setFlowData(data)
-      } catch (err) {
-        setError(err.message)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchFlow()
-  }, [selectedFlowId])
-
-  /* ============================
-     STATE MUTATORS
-     ============================ */
-  const toggleStepCompletion = (stepId) => {
-    setCompletedSteps(prev => {
-      const s = new Set(prev)
-      s.has(stepId) ? s.delete(stepId) : s.add(stepId)
-      return s
-    })
-  }
-
-  const toggleStepExpansion = (stepId) => {
-    setExpandedSteps(prev => {
-      const s = new Set(prev)
-      s.has(stepId) ? s.delete(stepId) : s.add(stepId)
-      return s
-    })
-  }
-
-  const toggleDocument = (docName) => {
-    setDocuments(prev => ({ ...prev, [docName]: !prev[docName] }))
-  }
-
-  const getCompletionPercentage = () => {
-    if (!flowData?.steps) return 0
-    return Math.round((completedSteps.size / flowData.steps.length) * 100)
-  }
-
-  /* ============================
-     FLOW CONTROL
-     ============================ */
-  const handleFlowSelected = (flowId) => {
+  // -------------------------------
+  // HANDLERS
+  // -------------------------------
+  const handleFlowSelect = (flowId) => {
     setSelectedFlowId(flowId)
-    setShowIntake(false)
-  }
-
-  const handleShowManualSelector = () => {
-    setShowIntake(false)
-  }
-
-  const handleResetFlow = () => {
-  if (confirm('Are you sure you want to start over? This will clear all your progress.')) {
-    // Clear session
-    clearSession()
-    
-    // Reset state
-    setSelectedFlowId(null)
-    setFlowData(null)
     setCompletedSteps(new Set())
-    setDocuments({})
     setExpandedSteps(new Set())
+    setDocuments([])
     setShowIntake(true)
   }
-}
 
-  /* ============================
-     RENDER GATES
-     ============================ */
-  if (!selectedFlowId && showIntake) {
-    return (
-      <IntakeForm
-        onFlowSelected={handleFlowSelected}
-        onShowManualSelector={handleShowManualSelector}
-      />
-    )
+  const handleIntakeSubmit = (answers) => {
+    console.log('Intake submitted:', answers)
+    setShowIntake(false)
   }
 
-  if (!selectedFlowId && !showIntake) {
-    return <FlowSelector onFlowSelected={handleFlowSelected} />
-  }
-
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading…</div>
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div>
-          <p className="text-red-600">{error}</p>
-          <button onClick={handleResetFlow}>Go Back</button>
-        </div>
-      </div>
-    )
-  }
-
-  /* ============================
-     MAIN VIEW (UNCHANGED)
-     ============================ */
+  // -------------------------------
+  // RENDER
+  // -------------------------------
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Everything below here remains exactly as before */}
-      {/* Progress bar, checklist rendering, footer, print styles */}
-      {/* No logic changes */}
+    <div style={{ padding: '1.5rem', maxWidth: '960px', margin: '0 auto' }}>
+      <h1>Simplify Slovakia</h1>
+
+      {!selectedFlowId && (
+        <FlowSelector onSelect={handleFlowSelect} />
+      )}
+
+      {selectedFlowId && showIntake && (
+        <IntakeForm onSubmit={handleIntakeSubmit} />
+      )}
+
+      {selectedFlowId && !showIntake && (
+        <FlowViewer
+          flowId={selectedFlowId}
+          completedSteps={completedSteps}
+          setCompletedSteps={setCompletedSteps}
+          expandedSteps={expandedSteps}
+          setExpandedSteps={setExpandedSteps}
+          documents={documents}
+          setDocuments={setDocuments}
+        />
+      )}
     </div>
   )
 }
