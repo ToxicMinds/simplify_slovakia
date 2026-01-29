@@ -4,20 +4,15 @@ import { saveSession } from '../utils/storage'
 
 /**
  * IntakeForm.jsx
- * 
+ *
  * PURPOSE: Ask users questions to recommend the right flow
  * LOCATION: frontend/src/components/IntakeForm.jsx
- * 
+ *
  * ARCHITECTURE:
  * - Uses eligibility dimensions from rules/immigration/eligibility.yaml
  * - Calls /recommend-flow endpoint
  * - Shows recommendation + allows override
  * - Passes selected flow_id to parent (App.jsx)
- * 
- * DATA FLOW:
- * 1. User answers questions → eligibility dimensions
- * 2. POST to /recommend-flow → gets recommended flow_id
- * 3. User accepts/overrides → calls onFlowSelected(flow_id)
  */
 
 function IntakeForm({ onFlowSelected, onShowManualSelector }) {
@@ -32,7 +27,6 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  // Questions based on eligibility.yaml dimensions
   const questions = [
     {
       id: 'nationality',
@@ -73,11 +67,10 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
   const handleAnswer = (questionId, value) => {
     const newAnswers = { ...answers, [questionId]: value }
     setAnswers(newAnswers)
-    
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      // All questions answered - get recommendation
       getRecommendation(newAnswers)
     }
   }
@@ -85,57 +78,79 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
   const getRecommendation = async (finalAnswers) => {
     setLoading(true)
     setError(null)
-    
+
     try {
       const response = await fetch(`${API_URL}/recommend-flow`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(finalAnswers),
       })
-      
+
       if (!response.ok) {
         throw new Error('Failed to get recommendation')
       }
-      
+
       const data = await response.json()
       setRecommendation(data)
-      setLoading(false)
     } catch (err) {
       setError(err.message)
+    } finally {
       setLoading(false)
     }
   }
 
+  /* ==============================
+     UPDATED: ACCEPT RECOMMENDATION
+     ============================== */
   const handleAcceptRecommendation = () => {
-    if (recommendation && recommendation.flow_id) {
-      // Save intake answers to localStorage for future reference
-      localStorage.setItem('simplify_slovakia_intake', JSON.stringify({
-        answers,
-        recommendation,
-        accepted: true,
-        timestamp: new Date().toISOString(),
-      }))
-      
-      onFlowSelected(recommendation.flow_id)
+    if (!recommendation?.flow_id) return
+
+    const intakeData = {
+      answers,
+      recommendation,
+      accepted: true,
+      timestamp: new Date().toISOString(),
     }
+
+    // Legacy storage (keep for now)
+    localStorage.setItem(
+      'simplify_slovakia_intake',
+      JSON.stringify(intakeData)
+    )
+
+    // Unified session storage
+    saveSession({
+      flowId: recommendation.flow_id,
+      completedSteps: [],
+      expandedSteps: [],
+      documents: {},
+      intakeAnswers: intakeData,
+      showIntake: false,
+    })
+
+    onFlowSelected(recommendation.flow_id)
   }
 
   const handleShowAllFlows = () => {
-    // Save that user rejected recommendation
-    localStorage.setItem('simplify_slovakia_intake', JSON.stringify({
-      answers,
-      recommendation,
-      accepted: false,
-      timestamp: new Date().toISOString(),
-    }))
-    
+    localStorage.setItem(
+      'simplify_slovakia_intake',
+      JSON.stringify({
+        answers,
+        recommendation,
+        accepted: false,
+        timestamp: new Date().toISOString(),
+      })
+    )
+
     onShowManualSelector()
   }
 
   const progress = ((currentQuestion + 1) / questions.length) * 100
   const currentQuestionData = questions[currentQuestion]
 
-  // Loading state
+  /* ==============================
+     LOADING STATE
+     ============================== */
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -147,7 +162,9 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     )
   }
 
-  // Recommendation screen
+  /* ==============================
+     RECOMMENDATION SCREEN
+     ============================== */
   if (recommendation) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -161,8 +178,7 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
         <main className="max-w-3xl mx-auto px-4 py-12">
           <div className="bg-white rounded-lg shadow-xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Based on your answers:</h2>
-            
-            {/* User's answers summary */}
+
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <h3 className="font-semibold text-gray-900 mb-2">👤 Your Profile</h3>
               <ul className="space-y-1 text-gray-700 text-sm">
@@ -173,7 +189,6 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
               </ul>
             </div>
 
-            {/* Recommendation */}
             <div className="border-l-4 border-indigo-600 bg-indigo-50 p-4 mb-6">
               <h3 className="font-semibold text-indigo-900 mb-2">✨ We recommend:</h3>
               <p className="text-lg font-bold text-indigo-700">{recommendation.title}</p>
@@ -187,28 +202,26 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="flex flex-col gap-3">
               <button
                 onClick={handleAcceptRecommendation}
-                className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+                className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700"
               >
                 Start This Flow →
               </button>
-              
+
               <button
                 onClick={handleShowAllFlows}
-                className="w-full bg-white text-gray-700 py-3 px-6 rounded-lg font-semibold border-2 border-gray-300 hover:border-gray-400 transition-colors"
+                className="w-full bg-white text-gray-700 py-3 px-6 rounded-lg font-semibold border-2 border-gray-300 hover:border-gray-400"
               >
                 No, show me all options
               </button>
             </div>
 
-            {/* Warning if no exact match */}
             {recommendation.confidence === 'low' && (
               <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <p className="text-sm text-yellow-800">
-                  ⚠️ We couldn't find an exact match for your situation. We recommend reviewing all available flows.
+                  ⚠️ We couldn't find an exact match for your situation.
                 </p>
               </div>
             )}
@@ -218,7 +231,9 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     )
   }
 
-  // Error state
+  /* ==============================
+     ERROR STATE
+     ============================== */
   if (error) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -236,7 +251,9 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     )
   }
 
-  // Question screen
+  /* ==============================
+     QUESTION FLOW
+     ============================== */
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <header className="bg-white shadow-md">
@@ -248,7 +265,6 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
 
       <main className="max-w-3xl mx-auto px-4 py-12">
         <div className="bg-white rounded-lg shadow-xl p-8">
-          {/* Progress bar */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-medium text-gray-700">
@@ -257,32 +273,29 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
               <span className="text-sm text-gray-500">{Math.round(progress)}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
+              <div
                 className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
           </div>
 
-          {/* Question */}
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             {currentQuestionData.question}
           </h2>
 
-          {/* Options */}
           <div className="space-y-3">
-            {currentQuestionData.options.map((option) => (
+            {currentQuestionData.options.map(option => (
               <button
                 key={option.value}
                 onClick={() => handleAnswer(currentQuestionData.id, option.value)}
-                className="w-full text-left p-4 rounded-lg border-2 border-gray-300 hover:border-indigo-600 hover:bg-indigo-50 transition-all"
+                className="w-full text-left p-4 rounded-lg border-2 border-gray-300 hover:border-indigo-600 hover:bg-indigo-50"
               >
                 <span className="text-lg">{option.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Back button */}
           {currentQuestion > 0 && (
             <button
               onClick={() => setCurrentQuestion(currentQuestion - 1)}
@@ -292,7 +305,6 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
             </button>
           )}
 
-          {/* Skip to manual selector */}
           <div className="mt-8 text-center">
             <button
               onClick={handleShowAllFlows}
