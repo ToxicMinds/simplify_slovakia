@@ -1,4 +1,3 @@
-import Logo from './components/Logo'
 import { useState } from 'react'
 import { API_URL } from '../config'
 import { saveSession } from '../utils/storage'
@@ -173,7 +172,7 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
           <div className="max-w-3xl mx-auto px-4 py-6">
             {/* Wrap Logo and Title in a flex container */}
             <div className="flex items-center gap-4">
-              <img src="/logo.svg" alt="Simplify Slovakia Logo" className="h-10 w-auto" />
+              <img src="/simplify-slovakia.svg" alt="Simplify Slovakia Logo" className="h-10 w-auto" />
               <div>
                 <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
                 <p className="text-gray-600">Here's what we recommend</p>
