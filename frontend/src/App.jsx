@@ -178,15 +178,6 @@ function App() {
     )
   }
 
-  if (!flowData) {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      Loading flow…
-    </div>
-  )
-}
-
-
   // 3. Intake Form
   if (!selectedFlowId && showIntake) {
     return (
