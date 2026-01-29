@@ -241,7 +241,7 @@ function App() {
         <div className="max-w-5xl mx-auto px-4 py-6">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-4xl font-bold text-indigo-600">Simplify Slovakia</h1>
+              <Logo />
               <p className="text-gray-600 mt-2">
                 {flowData?.flow?.persona_id?.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
               </p>
