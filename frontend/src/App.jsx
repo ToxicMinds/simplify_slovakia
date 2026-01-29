@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import FlowSelector from './components/FlowSelector'
 import IntakeForm from './components/IntakeForm'
 import DocumentTracker from './components/DocumentTracker'
@@ -15,63 +15,77 @@ function App() {
   const [completedSteps, setCompletedSteps] = useState(new Set())
   const [expandedSteps, setExpandedSteps] = useState(new Set())
   const [documents, setDocuments] = useState({})
-  
-  // Track if we have finished the initial load from storage
-  const isRestored = useRef(false)
 
   /* ============================
      RESTORE SESSION ON MOUNT
      ============================ */
   useEffect(() => {
     try {
-      const saved = loadSession()
-      if (saved && saved.flowId) {
-        setSelectedFlowId(saved.flowId)
-        // Ensure we handle Sets correctly from storage.js
-        setCompletedSteps(saved.completedSteps instanceof Set ? saved.completedSteps : new Set(saved.completedSteps))
-        setExpandedSteps(saved.expandedSteps instanceof Set ? saved.expandedSteps : new Set(saved.expandedSteps))
-        setDocuments(saved.documents || {})
-        setShowIntake(saved.showIntake ?? false)
+      const savedSession = loadSession?.()
+      // Only restore if we actually have a saved flowId
+      if (savedSession && savedSession.flowId) {
+        console.log('Restoring session:', savedSession.flowId)
+        setSelectedFlowId(savedSession.flowId)
+        setCompletedSteps(new Set(savedSession.completedSteps ?? []))
+        setExpandedSteps(new Set(savedSession.expandedSteps ?? []))
+        // Ensure documents is an object to prevent .map or key-access errors
+        setDocuments(savedSession.documents && typeof savedSession.documents === 'object' ? savedSession.documents : {})
+        setShowIntake(false)
       }
     } catch (e) {
-      console.error('Session restore failed', e)
-    } finally {
-      isRestored.current = true
+      console.error('Session restore failed, clearing storage', e)
+      localStorage.clear()
     }
   }, [])
+
 
   /* ============================
      SAVE SESSION ON CHANGE
      ============================ */
   useEffect(() => {
-    // Don't save until we've attempted to restore the initial state
-    // and don't save if there's no flow selected
-    if (!isRestored.current || !selectedFlowId) return
+    // Only save if a flow is actively selected
+    if (!selectedFlowId) return
 
-    saveSession({
+    const sessionData = {
       flowId: selectedFlowId,
-      completedSteps, // storage.js handles the Array.from conversion
-      expandedSteps,
+      completedSteps: Array.from(completedSteps),
+      expandedSteps: Array.from(expandedSteps),
       documents,
       showIntake,
-    })
+    }
+
+    saveSession(sessionData)
+
+    // Backward compatibility sync
+    localStorage.setItem(
+      `progress_${selectedFlowId}`,
+      JSON.stringify({
+        completed: Array.from(completedSteps),
+        documents,
+        lastUpdated: new Date().toISOString(),
+      })
+    )
   }, [selectedFlowId, completedSteps, expandedSteps, documents, showIntake])
 
   /* ============================
      FETCH FLOW DATA
      ============================ */
   useEffect(() => {
-    if (!selectedFlowId) return
+    if (!selectedFlowId) {
+      setFlowData(null)
+      return
+    }
 
     const fetchFlow = async () => {
       setLoading(true)
-      setError(null)
+      setError(null) // Clear previous errors
       try {
         const response = await fetch(`${API_URL}/flow/${selectedFlowId}`)
-        if (!response.ok) throw new Error('Failed to fetch flow data')
+        if (!response.ok) throw new Error(`Server responded with ${response.status}: Failed to fetch flow`)
         const data = await response.json()
         setFlowData(data)
       } catch (err) {
+        console.error("Fetch error:", err)
         setError(err.message)
       } finally {
         setLoading(false)
@@ -109,58 +123,117 @@ function App() {
     return Math.round((completedSteps.size / flowData.steps.length) * 100)
   }
 
+  /* ============================
+     FLOW CONTROL
+     ============================ */
   const handleFlowSelected = (flowId) => {
-    setCompletedSteps(new Set())
-    setDocuments({})
     setSelectedFlowId(flowId)
     setShowIntake(false)
+    // Clear old flow progress when a brand new flow is selected via UI
+    setCompletedSteps(new Set())
+    setDocuments({})
+  }
+
+  const handleShowManualSelector = () => {
+    setShowIntake(false)
+    setSelectedFlowId(null)
   }
 
   const handleResetFlow = () => {
-    if (window.confirm('Clear all progress?')) {
+    if (confirm('Are you sure you want to start over? This will clear all your progress.')) {
       clearSession()
       setSelectedFlowId(null)
       setFlowData(null)
       setCompletedSteps(new Set())
       setDocuments({})
+      setExpandedSteps(new Set())
       setShowIntake(true)
+      setError(null)
     }
   }
 
-  if (loading) return <div className="flex h-screen items-center justify-center font-bold">Loading Roadmap...</div>
+  /* ============================
+     RENDER GATES
+     ============================ */
   
-  if (error) return (
-    <div className="flex h-screen items-center justify-center flex-col">
-      <p className="text-red-500 mb-4">{error}</p>
-      <button onClick={handleResetFlow} className="bg-indigo-600 text-white px-4 py-2 rounded">Restart</button>
-    </div>
-  )
-
-  if (!selectedFlowId) {
-    return showIntake 
-      ? <IntakeForm onFlowSelected={handleFlowSelected} onShowManualSelector={() => setShowIntake(false)} />
-      : <FlowSelector onFlowSelected={handleFlowSelected} />
+  // 1. Loading State
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center font-medium">Loading flow details...</div>
   }
 
-  return (
-    <div className="min-h-screen bg-slate-50 p-4 md:p-8">
-      <div className="max-w-4xl mx-auto">
-        <header className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold text-slate-800">{flowData?.title}</h1>
-          <button onClick={handleResetFlow} className="text-sm text-slate-500 hover:text-red-600">Reset</button>
-        </header>
-        <div className="w-full bg-white h-3 rounded-full mb-8 overflow-hidden border">
-          <div className="bg-indigo-600 h-full transition-all" style={{ width: `${getCompletionPercentage()}%` }} />
+  // 2. Error State
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="bg-white p-6 rounded-lg shadow-xl text-center">
+          <p className="text-red-600 mb-4 font-bold">Error: {error}</p>
+          <button 
+            className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+            onClick={handleResetFlow}
+          >
+            Return to Start
+          </button>
         </div>
-        <DocumentTracker 
-          steps={flowData?.steps || []}
-          completedSteps={completedSteps}
-          toggleStepCompletion={toggleStepCompletion}
-          expandedSteps={expandedSteps}
-          toggleStepExpansion={toggleStepExpansion}
-          documents={documents}
-          toggleDocument={toggleDocument}
-        />
+      </div>
+    )
+  }
+
+  if (!flowData) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      Loading flow…
+    </div>
+  )
+}
+
+
+  // 3. Intake Form
+  if (!selectedFlowId && showIntake) {
+    return (
+      <IntakeForm
+        onFlowSelected={handleFlowSelected}
+        onShowManualSelector={handleShowManualSelector}
+      />
+    )
+  }
+
+  // 4. Manual Selector
+  if (!selectedFlowId && !showIntake) {
+    return <FlowSelector onFlowSelected={handleFlowSelected} />
+  }
+
+  /* ============================
+     MAIN VIEW
+     ============================ */
+  return (
+    
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-2xl font-bold text-indigo-900">{flowData?.title || 'Your Roadmap'}</h1>
+          <button onClick={handleResetFlow} className="text-sm text-indigo-600 hover:underline">Reset Progress</button>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="bg-white rounded-full h-4 mb-8 overflow-hidden shadow-inner">
+          <div 
+            className="bg-indigo-600 h-full transition-all duration-500" 
+            style={{ width: `${getCompletionPercentage()}%` }}
+          />
+        </div>
+
+        {/* Logic for Checklist and DocumentTracker goes here */}
+        {flowData && (
+          <DocumentTracker 
+            steps={flowData.steps}
+            completedSteps={completedSteps}
+            toggleStepCompletion={toggleStepCompletion}
+            expandedSteps={expandedSteps}
+            toggleStepExpansion={toggleStepExpansion}
+            documents={documents}
+            toggleDocument={toggleDocument}
+          />
+        )}
       </div>
     </div>
   )
