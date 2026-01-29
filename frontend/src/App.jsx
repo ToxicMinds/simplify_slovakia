@@ -3,6 +3,7 @@ import FlowSelector from './components/FlowSelector'
 import IntakeForm from './components/IntakeForm'
 import DocumentTracker from './components/DocumentTracker'
 import { API_URL } from './config'
+import { saveSession, loadSession, clearSession, hasSession } from './utils/storage'
 
 function App() {
   const [selectedFlowId, setSelectedFlowId] = useState(null)
