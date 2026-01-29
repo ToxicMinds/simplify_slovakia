@@ -1,0 +1,85 @@
+step_id: enter_slovakia
+title: Enter Slovakia on National Visa
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - national_visa_granted
+outputs:
+  - legal_entry_completed
+description: |
+  Enter Slovakia within the validity period of your National Visa (Type D).
+  The entry date starts your 90-day countdown for residence permit application.
+  
+  Entry process:
+  1. Arrive at Slovak border (airport, land border, train)
+  2. Proceed to immigration/passport control
+  3. Present:
+     - Valid passport
+     - National Visa (Type D) in passport
+     - Supporting documents (employment contract, accommodation proof)
+  4. Border officer stamps passport with entry date
+  5. Keep all documents for Foreign Police registration
+  
+  Main entry points:
+  - Bratislava Airport (M. R. Štefánik) - recommended for first entry
+  - Vienna Airport + bus to Bratislava (1h, often cheaper)
+  - Land borders: Austria, Czech Republic, Poland, Hungary, Ukraine
+  - International train stations
+  
+  What happens at border:
+  - Officer scans passport and visa
+  - May ask purpose: say "employment"
+  - May request employment contract (have it ready)
+  - May ask about accommodation
+  - Stamps passport with entry date - THIS IS CRITICAL
+  
+  Entry stamp shows:
+  - Date of entry
+  - Entry point
+  - Visa validity dates
+  
+  After entry:
+  - 3 working days: Register with Foreign Police
+  - 90 days: Apply for residence permit
+  - Visa allows multiple entries during validity
+  
+  Important dates to note:
+  - Entry date (Day 0)
+  - Foreign Police deadline: Day 0 + 3 working days
+  - Residence application deadline: Day 90
+why_it_matters: |
+  The entry stamp in your passport is crucial evidence:
+  - Proves you entered legally (not as tourist)
+  - Starts the 3-day Foreign Police registration deadline
+  - Starts the 90-day residence application window
+  - Shows compliance with immigration law
+  
+  Potential border issues:
+  - Visa not in system (rare): officer calls embassy
+  - Questions about job legitimacy: show contract
+  - Accommodation concerns: show booking/rental agreement
+  
+  If entry is denied:
+  - Must return to origin country
+  - Cannot start job in Slovakia
+  - Visa may be cancelled
+  - Must reapply from scratch
+  
+  99% of entries with valid Type D visa are smooth.
+  Problems only if visa fraudulent or documents suspicious.
+official_links:
+  - authority: Ministry of Interior - Border Control
+    url: https://www.minv.sk/?pohranicna-policia
+  - authority: Bratislava Airport
+    url: https://www.bts.aero/en/
+  - authority: Slovak Railways (trains)
+    url: https://www.slovakrail.sk/en.html
+failure_modes:
+  - what_breaks: Entering on tourist visa/ESTA instead of Type D
+    consequence: Cannot apply for residence, must leave and restart process
+  - what_breaks: Visa expired before entry
+    consequence: Entry denied at border
+  - what_breaks: Passport not stamped (rare at external Schengen borders)
+    consequence: Cannot prove entry date for Foreign Police
+order: 2

@@ -1,0 +1,87 @@
+step_id: register_doctor_eu
+title: Register with General Practitioner (EU Citizens)
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_residence_established
+  - health_insurance_active
+outputs:
+  - gp_registered
+description: |
+  Register with Slovak GP after setting up Slovak health insurance (mandatory after 90 days).
+  
+  EU citizen healthcare phases:
+  
+  Phase 1 (Days 1-90): EHIC card
+  - European Health Insurance Card covers emergencies only
+  - Hospital emergency care covered
+  - Cannot register with GP (need Slovak insurance first)
+  - No prescriptions
+  - No sick leave certificates
+  - Private payment for routine care
+  
+  Phase 2 (Day 90+): Slovak insurance + GP
+  - MUST register with Slovak health insurer (legal requirement)
+  - Choose: VšZP, Dôvera, or Union
+  - Then register with GP (same as non-EU citizens)
+  
+  When to switch:
+  - Legally: after 90 days in Slovakia
+  - Practically: as soon as you start working
+  - Employer usually handles health insurance registration
+  
+  GP registration (after Slovak insurance):
+  1. Choose GP from insurer's list
+  2. Call for appointment: "Chcem sa zaregistrovať"
+  3. Bring:
+     - Slovak health insurance card (not EHIC!)
+     - EU ID card
+     - Proof of address
+  4. Register (15-30 minutes, €0)
+  5. Full access to Slovak healthcare
+  
+  English-speaking options:
+  - Medici na Tehelnej
+  - Poliklinika Ružinov
+  - GHC Clinic (private)
+  
+  What changes with Slovak insurance:
+  - Full GP care (not just emergencies)
+  - Prescriptions covered
+  - Sick leave certificates available
+  - Specialist referrals covered
+  - Routine checkups covered
+  - Must pay monthly health insurance: ~€96/month minimum (usually via employer)
+why_it_matters: |
+  Common EU citizen mistakes:
+  
+  1. "EHIC covers everything" - NO!
+     - EHIC = emergencies only
+     - EHIC ≠ GP care
+     - EHIC ≠ prescriptions
+     - EHIC ≠ sick leave
+  
+  2. "I can use EHIC forever" - NO!
+     - Only valid 90 days
+     - After 90 days, must have Slovak insurance
+     - Using EHIC past 90 days is illegal residence
+  
+  3. "GP will see me with just EHIC" - NO!
+     - GPs won't register you without Slovak insurance
+     - Must pay private (€30-50/visit)
+  
+  Correct path:
+  - Day 1-90: EHIC for emergencies, private for routine care
+  - Day 90+: Slovak insurance + registered GP = full coverage
+official_links:
+  - authority: EHIC Information
+    url: https://ec.europa.eu/social/main.jsp?catId=559
+  - authority: Slovak Health Insurance Companies
+    url: https://www.vszp.sk/
+failure_modes:
+  - what_breaks: Trying to register GP with just EHIC
+    consequence: GP refuses (need Slovak insurance)
+  - what_breaks: Not switching to Slovak insurance after 90 days
+    consequence: Illegal, no coverage, medical bills
+order: 9

@@ -1,0 +1,72 @@
+step_id: register_housing_eu
+title: Register Housing Address (EU Citizens)
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - accommodation_secured
+outputs:
+  - address_registered
+description: |
+  EU citizens should register their address but it's not legally mandatory.
+  However, registration is highly recommended for practical reasons.
+  
+  Legal status:
+  - NOT mandatory for EU citizens (unlike non-EU)
+  - No fine if you don't register
+  - But strongly recommended for services
+  
+  Where to register:
+  - City/municipal office (mestská časť, miestny úrad)
+  - NOT Foreign Police (that's for non-EU only)
+  - Example (Bratislava): District office for your address
+  
+  What you need:
+  - EU ID card or passport
+  - Rental contract OR property ownership
+  - If renting: Landlord consent (súhlas vlastníka)
+  - Sometimes: Landlord's property ownership proof
+  
+  Process:
+  1. Go to district office during office hours
+  2. Fill out registration form (prihlásenie na trvalý pobyt)
+  3. Submit documents
+  4. Receive confirmation (usually same day)
+  
+  Fee: €0 (free)
+  
+  Why register even though optional:
+  - Many services require proof of address
+  - Banking (some banks ask for it)
+  - Mobile phone contracts
+  - Online shopping delivery verification
+  - Government correspondence
+  - Easier for residence documentation if you stay long-term
+  
+  Alternative to registration:
+  - Use rental contract as proof of address
+  - Works for most services
+  - But registration is more official
+why_it_matters: |
+  While not mandatory for EU citizens, registration makes life easier:
+  - Official proof of address accepted everywhere
+  - Simplifies administrative processes
+  - Shows long-term commitment to Slovakia
+  
+  Without registration:
+  - Must use rental contract for everything
+  - Some services may question validity
+  - Harder to prove residence if needed
+  
+  Takes 30 minutes, free, valid indefinitely. Worth doing.
+official_links:
+  - authority: Bratislava City Districts
+    url: https://bratislava.sk/
+  - authority: Ministry of Interior - EU Citizens
+    url: https://www.minv.sk/?eu-citizens
+failure_modes:
+  - what_breaks: Landlord refuses consent
+    consequence: Cannot register (but not illegal, just inconvenient)
+  - what_breaks: Going to Foreign Police instead of city office
+    consequence: Sent away (wrong office for EU citizens)
+order: 6

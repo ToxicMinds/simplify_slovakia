@@ -1,0 +1,115 @@
+step_id: open_bank_account
+title: Open Slovak Bank Account
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_residence_established
+  - mobile_number_obtained
+outputs:
+  - bank_account_opened
+description: |
+  Open Slovak bank account to receive salary and manage finances in Slovakia.
+  
+  Best banks for foreigners:
+  - Tatra banka (English service, expat programs)
+  - Slovenská sporiteľňa (largest bank, wide ATM network)
+  - VÚB banka (good online banking)
+  - ČSOB (foreigner-friendly)
+  - Fio banka (easy online opening, English interface)
+  - mBank (fully online, quick approval)
+  
+  Required documents:
+  - Valid passport
+  - Residence card (temporary residence permit) - MANDATORY for non-EU
+  - Proof of address in Slovakia:
+    * Rental contract
+    * Registration confirmation from Foreign Police
+    * Utility bill
+  - Employment contract (proves income source)
+  - Slovak mobile number
+  - Initial deposit: €0-50 (varies by bank)
+  
+  Opening process:
+  1. Book appointment:
+     - Online (bank website)
+     - Phone (some English-speaking staff)
+     - Walk-in (longer wait)
+  
+  2. Visit branch with documents:
+     - Fill application form
+     - Choose account package
+     - Set up online banking
+     - Order debit card
+  
+  3. Receive:
+     - Account number (IBAN: SK__ ____ ____ ____ ____)
+     - Online banking credentials
+     - Debit card (delivered in 2-5 days by post)
+  
+  Account packages (typical):
+  - Basic/Standard: €0-4/month
+    * Salary deposits
+    * Debit card
+    * Online/mobile banking
+    * Limited free ATM withdrawals
+  
+  - Premium: €5-10/month
+    * More free ATM withdrawals
+    * Better exchange rates
+    * Premium support
+  
+  What you get:
+  - Slovak IBAN (required for salary)
+  - Debit card (Maestro/Mastercard/Visa)
+  - Online banking (web + mobile app)
+  - ATM access (nationwide network)
+  - SEPA transfers (EU payments)
+  
+  Timeline: Same-day account, 2-5 days for card
+  
+  Costs:
+  - Account maintenance: €0-10/month
+  - Debit card: usually free
+  - ATM withdrawals: 2-5 free/month at own bank
+  - SEPA transfers: usually free
+  - International transfers: €5-20 per transfer
+why_it_matters: |
+  Slovak bank account is ESSENTIAL:
+  
+  For employment:
+  - Employer requires Slovak IBAN for salary
+  - Cannot use foreign account (tax reporting issues)
+  - Salary usually paid 10th-15th of month
+  
+  For daily life:
+  - Pay rent (landlords expect bank transfer)
+  - Pay utilities (domiciliation/auto-pay)
+  - Online shopping in Slovakia
+  - Government payments and fees
+  
+  For legal compliance:
+  - Residence renewal requires proof of income
+  - Bank statements = proof of financial stability
+  
+  Cannot survive in Slovakia without local account.
+  Foreign accounts don't work due to:
+  - Employer won't pay to foreign IBAN
+  - High transfer fees both ways
+  - Currency conversion losses
+  - Some services only accept Slovak IBAN
+official_links:
+  - authority: Tatra banka (English)
+    url: https://www.tatrabanka.sk/en/
+  - authority: Fio banka (English)
+    url: https://www.fio.sk/en/
+  - authority: National Bank of Slovakia
+    url: https://www.nbs.sk/en/
+failure_modes:
+  - what_breaks: Trying to open before residence card
+    consequence: Bank refuses (non-EU need residence proof)
+  - what_breaks: Not having proof of address
+    consequence: Application incomplete, must return
+  - what_breaks: Missing employment contract
+    consequence: Bank may refuse or require higher initial deposit
+order: 8

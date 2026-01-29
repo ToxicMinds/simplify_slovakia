@@ -1,0 +1,86 @@
+step_id: enter_slovakia_eu
+title: Enter Slovakia (EU Citizens)
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - none
+outputs:
+  - legal_entry_completed
+description: |
+  EU/EEA/Swiss citizens enjoy freedom of movement - no visa or entry permit needed.
+  
+  What you need to enter:
+  - Valid EU national ID card OR passport
+  - Nothing else!
+  
+  Entry process:
+  - Arrive in Slovakia by any route
+  - Internal Schengen borders: usually no passport control
+  - If checked: show ID card/passport
+  - No visa, no questions, no stamp
+  - Free to enter and stay
+  
+  Common entry routes:
+  - Vienna Airport (VIE) → Bus/train to Bratislava (1 hour)
+    * Often cheaper flights than Bratislava
+    * RegioJet/FlixBus: €5-10
+    * No border control between Austria-Slovakia
+  
+  - Bratislava Airport (BTS)
+    * Direct but fewer/more expensive flights
+    * Right in Slovakia
+  
+  - Drive from any EU country
+    * No border stops
+    * May see old border posts (unmanned)
+  
+  - Train/bus from EU
+    * No passport check
+    * Free movement
+  
+  After entry:
+  - Can stay up to 3 months with just ID
+  - Can work immediately with employment contract
+  - Should register address if staying 90+ days (not mandatory but recommended)
+  - No Foreign Police registration required
+  
+  Schengen internal borders:
+  - Slovakia-Austria: open border
+  - Slovakia-Czech Republic: open border
+  - Slovakia-Poland: open border
+  - Slovakia-Hungary: open border
+  - Slovakia-Ukraine: NOT Schengen (passport control)
+why_it_matters: |
+  As EU citizen, entry is trivially easy:
+  - No visa process
+  - No entry requirements
+  - No delays or questions
+  - Can cross border hundreds of times
+  
+  However, easy entry doesn't mean:
+  - Automatic job (need to apply and get hired)
+  - Automatic accommodation (must arrange)
+  - Automatic bank account (must open it)
+  - Automatic health insurance (must register after 90 days)
+  
+  All administrative steps still required - entry is just easier.
+  
+  Keep proof of entry date:
+  - Flight/bus ticket
+  - Bank transaction in Slovakia
+  - Hotel booking
+  Useful for employment start date and tax residence calculations.
+official_links:
+  - authority: EU Freedom of Movement
+    url: https://ec.europa.eu/social/main.jsp?catId=457
+  - authority: Ministry of Interior - EU Citizens
+    url: https://www.minv.sk/?eu-citizens
+  - authority: RegioJet (Vienna-Bratislava)
+    url: https://www.regiojet.com/
+failure_modes:
+  - what_breaks: Expired ID card
+    consequence: Entry refused, need valid document
+  - what_breaks: Assuming everything else is automatic
+    consequence: Discover still need housing, bank account, tax registration, insurance
+order: 2
