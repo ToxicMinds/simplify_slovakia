@@ -1,3 +1,4 @@
+import Logo from './components/Logo'
 import { useState } from 'react'
 import { API_URL } from '../config'
 import { saveSession } from '../utils/storage'
