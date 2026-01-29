@@ -34606,3 +34606,11 @@ To github.com:ToxicMinds/simplify_slovakia.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at db68b99e2b1eb71df7f45b363570767ff733d32f but expected ce6f834ae07211a843f7f144a74c92d8f95d0d6e)
 error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
 Thu Jan 29 07:41:33 PM CET 2026: Successfully committed and pushed
+[main 9a6d6c0] Auto-commit: update Simplify Slovakia 2026-01-29 19:41:33
+ 4 files changed, 93 insertions(+)
+ create mode 100644 backend/lambda_package/rules/README.md
+ create mode 100644 backend/lambda_package/rules/immigration/eligibility.yaml
+ create mode 100644 backend/lambda_package/rules/life_setup/.gitkeep
+To github.com:ToxicMinds/simplify_slovakia.git
+   db68b99..d948ad5  main -> main
+Thu Jan 29 07:41:34 PM CET 2026: Successfully committed and pushed
