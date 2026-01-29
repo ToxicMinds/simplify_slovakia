@@ -1,22 +1,78 @@
 step_id: get_sim_card_eu
-title: Obtain Slovak SIM Card
+title: Get Slovak SIM Card (EU Citizens)
 jurisdiction: Slovakia
 applies_to:
   persona: eu_employee_first_entry_bratislava_single
 preconditions:
   - legal_entry_completed
 outputs:
-  - local_phone_number_obtained
+  - mobile_number_obtained
 description: |
-  Get a Slovak SIM card for local communication. You can usually get one immediately 
-  at any mobile operator shop with just your EU ID.
+  EU citizens can use home SIM initially (EU roaming) but Slovak number strongly recommended.
+  
+  EU roaming:
+  - Your home country SIM works in Slovakia at domestic rates
+  - Calls, SMS, data: no extra charge
+  - Valid for "temporary stays" (typically 2-4 months)
+  - After that, operator may limit roaming or add charges
+  
+  When Slovak SIM needed:
+  - Slovak services require Slovak number format (+421)
+  - Some banks mandate Slovak number
+  - Government SMS only to Slovak numbers
+  - Fair use limits on EU roaming
+  
+  Recommended strategy (first 3 months):
+  - Week 1-2: Use home SIM (roaming)
+  - Week 2-3: Get Slovak SIM (prepaid)
+  - Use dual-SIM phone OR carry two phones
+    * Home SIM: calls to family/friends
+    * Slovak SIM: local services, bank, authorities
+  
+  Getting Slovak SIM (same as non-EU):
+  - Operators: Orange, Telekom, O2, 4ka
+  - Document: EU ID card or passport
+  - Cost: €5-15 for SIM + credit
+  - Location: operator shops, supermarkets, post office
+  - Activation: immediate
+  
+  Prepaid vs Postpaid:
+  - Prepaid: €10-15/month, no contract
+  - Postpaid: €15-25/month, needs bank account
+  - Start with prepaid
+  
+  Why Slovak number even with EU roaming:
+  - Backup if home operator cuts roaming
+  - Required by many Slovak services
+  - Cheaper for calls to Slovak numbers
+  - Professional (Slovak number on business cards)
+  
+  Timeline:
+  - Can delay 2-3 weeks (use home SIM)
+  - Get before opening bank account
+  - Must have before residence registration (if needed)
 why_it_matters: |
-  Local phone number is needed for two-factor authentication, employer contact, 
-  and registering for various services.
+  EU roaming is convenient but has limits:
+  - "Fair use policy": not meant for permanent residence
+  - Operators can restrict after 2-4 months
+  - Some Slovak services reject non-Slovak numbers
+  
+  €10-15/month Slovak SIM = insurance against:
+  - Home operator cutting roaming
+  - Bank refusing non-Slovak number
+  - Missing SMS from authorities
+  
+  Most EU citizens in Slovakia have both:
+  - Home SIM for calls home
+  - Slovak SIM for local use
 official_links:
-  - authority: Slovak Telecommunication Regulatory Authority
-    url: https://www.teleoff.gov.sk/
+  - authority: Orange Slovakia
+    url: https://www.orange.sk/
+  - authority: EU Roaming Rules
+    url: https://ec.europa.eu/digital-single-market/en/roaming
 failure_modes:
-  - what_breaks: Using only foreign number
-    consequence: Higher roaming costs, missed notifications, service registration issues
-order: 4
+  - what_breaks: Home operator cuts roaming after 3 months
+    consequence: Suddenly no phone service
+  - what_breaks: Slovak bank rejects home country number
+    consequence: Cannot complete account opening
+order: 3
