@@ -1,21 +1,103 @@
 step_id: get_sim_card
-title: Obtain Slovak SIM Card
+title: Get Slovak SIM Card
 jurisdiction: Slovakia
 applies_to:
   persona: non_eu_employee_first_entry_bratislava_single
 preconditions:
   - legal_entry_completed
 outputs:
-  - local_phone_number_obtained
+  - mobile_number_obtained
 description: |
-  Obtain a Slovak SIM card to enable communication with employers, banks, insurance providers, 
-  and public authorities. A local phone number is commonly required for verification and notifications.
+  Obtain Slovak mobile number immediately - essential for all Slovak services.
+  
+  Main mobile operators:
+  - Orange Slovakia (best coverage, largest network)
+  - Slovak Telekom (reliable, good customer service)
+  - O2 Slovakia (competitive prices)
+  - 4ka (budget carrier, city coverage)
+  
+  Where to buy SIM:
+  - Operator shops (malls, city centers)
+  - Tesco, Kaufland, Billa supermarkets (SIM vending machines)
+  - Slovak Post (Slovenská pošta)
+  - Some newsstands/trafiky
+  
+  What you need:
+  - Passport (required for registration)
+  - Residence card (if you have it) or visa
+  - €5-20 cash for SIM + initial credit
+  
+  Plan types:
+  
+  1. Prepaid (Predplatená karta):
+     - No contract, pay-as-you-go
+     - €10-15/month typical usage
+     - Top-up at shops, online, ATMs
+     - Recommended for first months
+  
+  2. Postpaid (Paušál):
+     - Monthly contract
+     - €15-30/month
+     - Automatic billing from bank account
+     - Better rates but needs Slovak bank account
+  
+  Recommended first choice: PREPAID
+  - No commitment
+  - Activate immediately
+  - No bank account needed
+  - Switch to postpaid later
+  
+  Typical prepaid package (€15/month):
+  - Unlimited calls within Slovakia
+  - Unlimited SMS
+  - 10-20 GB data
+  - EU roaming included
+  
+  Activation process:
+  1. Buy SIM at shop
+  2. Clerk activates it (needs your passport)
+  3. Insert in phone
+  4. Receive Slovak number: +421 9XX XXX XXX
+  5. Active in 5-30 minutes
+  
+  Why Slovak number essential:
+  - Foreign Police sends appointment SMS
+  - Banks require Slovak number for verification
+  - Online government services (slovensko.sk)
+  - Health insurance contact
+  - Employer HR communication
+  - Most Slovak services don't accept foreign numbers for SMS
 why_it_matters: |
-  Having a local phone number ensures you can receive important notifications, activate services, and communicate efficiently.
+  This is one of the FIRST things to do (Day 1-2).
+  
+  Without Slovak number:
+  - Cannot book Foreign Police appointment (need SMS confirmation)
+  - Cannot open bank account at some banks
+  - Cannot receive verification codes for Slovak apps
+  - Miss important SMS from authorities
+  
+  Foreign numbers don't work reliably:
+  - SMS delivery issues
+  - High roaming costs for calls
+  - Many forms reject non-Slovak format
+  
+  Cost: €10-15/month
+  Time to get: 15 minutes
+  Problems avoided: Countless
+  
+  Get this BEFORE Foreign Police registration!
 official_links:
-  - authority: Slovak Telecommunication Regulatory Authority
-    url: https://www.teleoff.gov.sk/
+  - authority: Orange Slovakia
+    url: https://www.orange.sk/en
+  - authority: Slovak Telekom
+    url: https://www.telekom.sk/
+  - authority: O2 Slovakia
+    url: https://www.o2.sk/
+  - authority: 4ka
+    url: https://www.4ka.sk/
 failure_modes:
-  - what_breaks: Not obtaining a SIM card promptly
-    consequence: Missed communications, delayed verifications, and limited access to essential services
-order: 8
+  - what_breaks: Trying to use only foreign SIM
+    consequence: Missed SMS from Foreign Police, bank, authorities
+  - what_breaks: Not having ID for SIM registration
+    consequence: Cannot buy SIM (anti-terrorism registration law)
+order: 3
