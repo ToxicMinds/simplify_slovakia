@@ -32247,3 +32247,110 @@ To github.com:ToxicMinds/simplify_slovakia.git
    e04a978..e289622  main -> main
 Thu Jan 29 07:13:35 PM CET 2026: Successfully committed and pushed
 Thu Jan 29 07:13:35 PM CET 2026: Another commit in progress, skipping
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main 8c9fc1b] Auto-commit: update Simplify Slovakia 2026-01-29 19:13:35
+ 97 files changed, 4283 insertions(+)
+ create mode 100644 backend/lambda_package/data/README.md
+ create mode 100644 backend/lambda_package/data/flows/README.md
+ create mode 100644 backend/lambda_package/data/flows/sk_emergency_first_week_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_family_reunification_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_non_eu_employee_first_entry_bratislava_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_non_eu_freelancer_setup_v1.yaml
+ create mode 100644 backend/lambda_package/data/flows/sk_permanent_residence_prep_v1.yaml
+ create mode 100644 backend/lambda_package/data/reference/.gitkeep
+ create mode 100644 backend/lambda_package/data/reference/README.md
+ create mode 100644 backend/lambda_package/data/steps/README.md
+ create mode 100644 backend/lambda_package/data/steps/apply_business_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_family_residence_permit.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_family_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_national_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_permanent_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_temporary_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps/apply_temporary_residence_business.yaml
+ create mode 100644 backend/lambda_package/data/steps/assess_eligibility_freelancer.yaml
+ create mode 100644 backend/lambda_package/data/steps/check_eligibility_permanent.yaml
+ create mode 100644 backend/lambda_package/data/steps/collect_permanent_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/collect_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/contact_employer_day_one.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment.yaml
+ create mode 100644 backend/lambda_package/data/steps/employer_tax_insurance_alignment_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia.yaml
+ create mode 100644 backend/lambda_package/data/steps/enter_slovakia_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/find_temporary_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps/gather_five_year_documentation.yaml
+ create mode 100644 backend/lambda_package/data/steps/gather_relationship_documents.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card.yaml
+ create mode 100644 backend/lambda_package/data/steps/get_sim_card_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/locate_foreign_police_office.yaml
+ create mode 100644 backend/lambda_package/data/steps/obtain_criminal_record_check.yaml
+ create mode 100644 backend/lambda_package/data/steps/obtain_trade_license.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_bank_account_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/open_business_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps/prepare_business_plan.yaml
+ create mode 100644 backend/lambda_package/data/steps/prepare_housing_proof.yaml
+ create mode 100644 backend/lambda_package/data/steps/prove_slovak_language_proficiency.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_doctor_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_foreign_police.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_housing_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps/register_tax_office.yaml
+ create mode 100644 backend/lambda_package/data/steps/secure_proof_of_funds.yaml
+ create mode 100644 backend/lambda_package/data/steps/setup_health_insurance_dependent.yaml
+ create mode 100644 backend/lambda_package/data/steps/setup_health_insurance_selfemployed.yaml
+ create mode 100644 backend/lambda_package/data/steps/tax_residence_and_annual_obligations.yaml
+ create mode 100644 backend/lambda_package/data/steps/understand_residence_permit_urgency.yaml
+ create mode 100644 backend/lambda_package/data/steps/verify_primary_residence_status.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/README.md
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_business_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_family_residence_permit.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_family_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_national_visa.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_permanent_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_temporary_residence.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/apply_temporary_residence_business.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/assess_eligibility_freelancer.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/check_eligibility_permanent.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/collect_permanent_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/collect_residence_card.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/contact_employer_day_one.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/employer_tax_insurance_alignment.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/employer_tax_insurance_alignment_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/enter_slovakia.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/enter_slovakia_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/find_temporary_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/gather_five_year_documentation.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/gather_relationship_documents.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/get_sim_card.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/get_sim_card_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/locate_foreign_police_office.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/obtain_criminal_record_check.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/obtain_trade_license.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/open_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/open_bank_account_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/open_business_bank_account.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/prepare_business_plan.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/prepare_housing_proof.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/prove_slovak_language_proficiency.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_doctor.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_doctor_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_foreign_police.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_housing.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_housing_eu.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/register_tax_office.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/secure_proof_of_funds.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/setup_health_insurance_dependent.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/setup_health_insurance_selfemployed.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/tax_residence_and_annual_obligations.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/understand_residence_permit_urgency.yaml
+ create mode 100644 backend/lambda_package/data/steps_backup/verify_primary_residence_status.yaml
+Everything up-to-date
+Thu Jan 29 07:13:37 PM CET 2026: Successfully committed and pushed
