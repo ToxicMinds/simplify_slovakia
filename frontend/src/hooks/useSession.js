@@ -1,12 +1,9 @@
 /**
- * useSession.js - FINAL VERSION
+ * useSession.js - CORRECTED VERSION v2
  * 
  * Location: ~/simplify_slovakia/frontend/src/hooks/useSession.js (NEW FILE)
  * 
- * React hook that wraps storage.js and provides:
- * - Automatic session persistence
- * - Mode-based state management
- * - Clean API for components
+ * FIX: Reset goes back to INTAKE mode (matches original behavior)
  */
 
 import { useState, useEffect } from 'react'
@@ -100,10 +97,10 @@ export function useSession() {
       }))
     },
     
-    // Full reset
+    // Full reset - back to intake (matches original behavior)
     reset: () => {
       clearStorageSession()
-      setSession(transitionToSelectingFlow())
+      setSession(transitionToIntake())  // ✅ Reset to INTAKE, not SELECTING_FLOW
     },
     
     // Export session
