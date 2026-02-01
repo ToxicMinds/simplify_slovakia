@@ -1,9 +1,11 @@
 /**
- * storage.js - FIXED VERSION
+ * storage.js - CORRECTED VERSION v2
  * 
  * Replaces: ~/simplify_slovakia/frontend/src/utils/storage.js
  * 
- * FIX: Properly converts Arrays back to Sets when loading from localStorage
+ * FIXES:
+ * 1. Properly converts Arrays to Sets when loading
+ * 2. Defaults to INTAKE mode (matches your original behavior)
  */
 
 // ============================================================================
@@ -164,7 +166,7 @@ function migrateOldSession() {
 
 export function createEmptySession() {
   return {
-    mode: SESSION_MODES.SELECTING_FLOW,
+    mode: SESSION_MODES.INTAKE,  // ✅ Default to intake (matches your original behavior)
     flowId: null,
     completedSteps: new Set(),
     expandedSteps: new Set(),
