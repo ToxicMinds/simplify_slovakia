@@ -4,28 +4,64 @@ import FlowSelector from './components/FlowSelector'
 import IntakeForm from './components/IntakeForm'
 import DocumentTracker from './components/DocumentTracker'
 import { API_URL } from './config'
-import { useSession } from './hooks/useSession'
+import { saveSession, loadSession, clearSession } from './utils/storage'
 
 function App() {
-  // Session management (replaces all your useState calls for session data)
-  const {
-    session,
-    mode,
-    SESSION_MODES,
-    actions,
-    showIntake,
-    showFlowSelector,
-    showFlow,
-    selectedFlowId,
-    completedSteps,
-    expandedSteps,
-    documents
-  } = useSession()
-  
-  // Backend data (NOT part of session)
+  const [selectedFlowId, setSelectedFlowId] = useState(null)
+  const [showIntake, setShowIntake] = useState(true)
   const [flowData, setFlowData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [completedSteps, setCompletedSteps] = useState(new Set())
+  const [expandedSteps, setExpandedSteps] = useState(new Set())
+  const [documents, setDocuments] = useState({})
+
+  /* ============================
+     RESTORE SESSION ON MOUNT
+     ============================ */
+  useEffect(() => {
+    try {
+      const savedSession = loadSession()
+      if (savedSession && savedSession.flowId) {
+        console.log('Restoring session:', savedSession.flowId)
+        setSelectedFlowId(savedSession.flowId)
+        setCompletedSteps(savedSession.completedSteps || new Set())
+        setExpandedSteps(savedSession.expandedSteps || new Set())
+        setDocuments(savedSession.documents || {})
+        setShowIntake(false)
+      }
+    } catch (e) {
+      console.error('Session restore failed:', e)
+      // Don't clear all storage, just log the error
+    }
+  }, [])
+
+  /* ============================
+     SAVE SESSION ON CHANGE
+     ============================ */
+  useEffect(() => {
+    if (!selectedFlowId) return
+
+    const sessionData = {
+      flowId: selectedFlowId,
+      completedSteps: Array.from(completedSteps),
+      expandedSteps: Array.from(expandedSteps),
+      documents,
+      showIntake,
+    }
+
+    saveSession(sessionData)
+
+    // Backward compatibility
+    localStorage.setItem(
+      `progress_${selectedFlowId}`,
+      JSON.stringify({
+        completed: Array.from(completedSteps),
+        documents,
+        lastUpdated: new Date().toISOString(),
+      })
+    )
+  }, [selectedFlowId, completedSteps, expandedSteps, documents, showIntake])
 
   /* ============================
      FETCH FLOW DATA
@@ -56,27 +92,63 @@ function App() {
   }, [selectedFlowId])
 
   /* ============================
-     HELPER FUNCTIONS
+     STATE MUTATORS
      ============================ */
+  const toggleStepCompletion = (stepId) => {
+    setCompletedSteps(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(stepId)) {
+        newSet.delete(stepId)
+      } else {
+        newSet.add(stepId)
+      }
+      return newSet
+    })
+  }
+
+  const toggleStepExpansion = (stepId) => {
+    setExpandedSteps(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(stepId)) {
+        newSet.delete(stepId)
+      } else {
+        newSet.add(stepId)
+      }
+      return newSet
+    })
+  }
+
+  const toggleDocument = (docName) => {
+    setDocuments(prev => ({ ...prev, [docName]: !prev[docName] }))
+  }
+
   const getCompletionPercentage = () => {
     if (!flowData?.steps) return 0
     return Math.round((completedSteps.size / flowData.steps.length) * 100)
   }
 
   /* ============================
-     EVENT HANDLERS
+     ACTIONS
      ============================ */
   const handleFlowSelected = (flowId) => {
-    actions.selectFlow(flowId)
+    setSelectedFlowId(flowId)
+    setShowIntake(false)
   }
 
   const handleShowManualSelector = () => {
-    actions.showFlowSelector()
+    setShowIntake(false)
   }
 
   const handleResetFlow = () => {
     if (confirm('Are you sure you want to start over? This will clear all your progress.')) {
-      actions.reset()
+      clearSession()
+      setSelectedFlowId(null)
+      setFlowData(null)
+      setCompletedSteps(new Set())
+      setDocuments({})
+      setExpandedSteps(new Set())
+      setShowIntake(true)
+      setError(null)
     }
   }
 
@@ -86,12 +158,22 @@ function App() {
 
   const handleClearProgress = () => {
     if (confirm('Clear all progress for this flow? This cannot be undone.')) {
-      actions.clearProgress()
+      setCompletedSteps(new Set())
+      setDocuments({})
+      if (selectedFlowId) {
+        localStorage.removeItem(`progress_${selectedFlowId}`)
+      }
     }
   }
 
   const handleExport = () => {
-    const data = actions.exportSession()
+    const data = {
+      flowId: selectedFlowId,
+      completed: Array.from(completedSteps),
+      documents: documents,
+      exportedAt: new Date().toISOString(),
+    }
+    
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -105,7 +187,7 @@ function App() {
      ============================ */
   
   // Intake Form
-  if (showIntake) {
+  if (!selectedFlowId && showIntake) {
     return (
       <IntakeForm
         onFlowSelected={handleFlowSelected}
@@ -115,7 +197,7 @@ function App() {
   }
 
   // Manual Selector
-  if (showFlowSelector) {
+  if (!selectedFlowId && !showIntake) {
     return <FlowSelector onFlowSelected={handleFlowSelected} />
   }
 
@@ -220,7 +302,7 @@ function App() {
       <div className="max-w-5xl mx-auto px-4 pb-6">
         <DocumentTracker 
           documents={documents} 
-          onToggle={actions.toggleDocument}
+          onToggle={toggleDocument}
         />
       </div>
 
@@ -243,7 +325,7 @@ function App() {
                   <div className="flex items-start gap-3 md:gap-4">
                     {/* Checkbox */}
                     <button
-                      onClick={() => actions.toggleStepCompletion(step.step_id)}
+                      onClick={() => toggleStepCompletion(step.step_id)}
                       className={`flex-shrink-0 w-6 h-6 rounded border-2 transition-all print:hidden ${
                         isCompleted 
                           ? 'bg-green-500 border-green-500' 
@@ -288,7 +370,7 @@ function App() {
                         
                         {/* Expand button */}
                         <button
-                          onClick={() => actions.toggleStepExpansion(step.step_id)}
+                          onClick={() => toggleStepExpansion(step.step_id)}
                           className="flex-shrink-0 text-indigo-600 hover:text-indigo-800 transition-colors print:hidden self-start md:self-center"
                         >
                           <svg 
@@ -409,36 +491,37 @@ function App() {
                                   </span>
                                 </a>
                               </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Failure Modes */}
-                      {step.failure_modes && step.failure_modes.length > 0 && (
-                        <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r">
-                          <h4 className="font-semibold text-red-900 mb-3 flex items-center gap-2 text-sm md:text-base">
-                            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                            </svg>
-                            Common Pitfalls
-                          </h4>
-                          <ul className="space-y-3">
-                            {step.failure_modes.map((failure, idx) => (
-                              <li key={idx} className="text-sm md:text-base">
-                                <p className="text-red-900 font-medium mb-1">❌ {failure.what_breaks}</p>
-                                <p className="text-red-800">→ {failure.consequence}</p>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                  ))}
+                </ul>
               </div>
-            )
+            )}
+
+            {/* Failure Modes */}
+            {step.failure_modes && step.failure_modes.length > 0 && (
+              <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r">
+                <h4 className="font-semibold text-red-900 mb-3 flex items-center gap-2 text-sm md:text-base">
+                  <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  Common Pitfalls
+                </h4>
+                <ul className="space-y-3">
+                  {step.failure_modes.map((failure, idx) => (
+                    <li key={idx} className="text-sm md:text-base">
+                      <p className="text-red-900 font-medium mb-1">❌ {failure.what_breaks}</p>
+                      <p className="text-red-800">→ {failure.consequence}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  )
           })}
+
         </div>
       </main>
 
@@ -450,7 +533,7 @@ function App() {
             Flow: <span className="font-mono text-xs">{flowData?.flow?.flow_id}</span> • Version {flowData?.flow?.version}
           </p>
           <p className="mt-2 text-xs text-gray-500">
-            Progress automatically saved to your browser • Mode: {mode}
+            Progress automatically saved to your browser
           </p>
         </div>
       </footer>
