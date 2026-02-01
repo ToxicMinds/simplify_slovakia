@@ -1,14 +1,9 @@
 /**
- * storage.js - FINAL VERSION
+ * storage.js - FIXED VERSION
  * 
  * Replaces: ~/simplify_slovakia/frontend/src/utils/storage.js
  * 
- * Changes:
- * - Adds explicit SESSION_MODES (INTAKE, SELECTING_FLOW, IN_FLOW)
- * - Single storage key instead of multiple
- * - Validation enforces invariants
- * - State transition functions
- * - Migrates your old data automatically
+ * FIX: Properly converts Arrays back to Sets when loading from localStorage
  */
 
 // ============================================================================
@@ -80,9 +75,14 @@ function migrateOldSession() {
     if (sessionJson) {
       const session = JSON.parse(sessionJson)
       if (session.mode) {
-        // Already has mode, validate and return
-        if (validateSession(session)) {
-          return session
+        // Already has mode, convert Arrays back to Sets
+        const converted = {
+          ...session,
+          completedSteps: new Set(session.completedSteps || []),
+          expandedSteps: new Set(session.expandedSteps || [])
+        }
+        if (validateSession(converted)) {
+          return converted
         }
       }
     }
@@ -180,14 +180,23 @@ export function createEmptySession() {
 
 /**
  * Load session from localStorage
- * Automatically migrates old format
+ * Automatically migrates old format and converts Arrays to Sets
  */
 export function loadSession() {
   try {
     const migrated = migrateOldSession()
     
     if (migrated && validateSession(migrated)) {
-      return migrated
+      // Ensure Sets (defensive programming)
+      return {
+        ...migrated,
+        completedSteps: migrated.completedSteps instanceof Set 
+          ? migrated.completedSteps 
+          : new Set(migrated.completedSteps || []),
+        expandedSteps: migrated.expandedSteps instanceof Set 
+          ? migrated.expandedSteps 
+          : new Set(migrated.expandedSteps || [])
+      }
     }
     
     return createEmptySession()
@@ -199,7 +208,7 @@ export function loadSession() {
 
 /**
  * Save session to localStorage
- * Validates before saving
+ * Validates before saving and converts Sets to Arrays
  */
 export function saveSession(session) {
   // Add mode if missing (backward compatibility during transition)
@@ -213,18 +222,30 @@ export function saveSession(session) {
     }
   }
   
-  if (!validateSession(session)) {
-    console.error('Invalid session state:', session)
+  // Ensure Sets before validation
+  const sessionWithSets = {
+    ...session,
+    completedSteps: session.completedSteps instanceof Set 
+      ? session.completedSteps 
+      : new Set(session.completedSteps || []),
+    expandedSteps: session.expandedSteps instanceof Set 
+      ? session.expandedSteps 
+      : new Set(session.expandedSteps || [])
+  }
+  
+  if (!validateSession(sessionWithSets)) {
+    console.error('Invalid session state:', sessionWithSets)
     throw new Error('Invalid session state')
   }
   
+  // Convert Sets to Arrays for JSON serialization
   const sessionToSave = {
-    mode: session.mode,
-    flowId: session.flowId || null,
-    completedSteps: Array.from(session.completedSteps || []),
-    expandedSteps: Array.from(session.expandedSteps || []),
-    documents: session.documents || {},
-    intakeAnswers: session.intakeAnswers || null,
+    mode: sessionWithSets.mode,
+    flowId: sessionWithSets.flowId || null,
+    completedSteps: Array.from(sessionWithSets.completedSteps || []),
+    expandedSteps: Array.from(sessionWithSets.expandedSteps || []),
+    documents: sessionWithSets.documents || {},
+    intakeAnswers: sessionWithSets.intakeAnswers || null,
     timestamp: new Date().toISOString()
   }
   
@@ -232,13 +253,13 @@ export function saveSession(session) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sessionToSave))
     
     // Also save to old format for backward compatibility (temporary)
-    if (session.flowId) {
-      localStorage.setItem(OLD_KEYS.FLOW_ID, session.flowId)
+    if (sessionWithSets.flowId) {
+      localStorage.setItem(OLD_KEYS.FLOW_ID, sessionWithSets.flowId)
       localStorage.setItem(
-        `progress_${session.flowId}`,
+        `progress_${sessionWithSets.flowId}`,
         JSON.stringify({
-          completed: Array.from(session.completedSteps || []),
-          documents: session.documents || {},
+          completed: Array.from(sessionWithSets.completedSteps || []),
+          documents: sessionWithSets.documents || {},
           lastUpdated: new Date().toISOString()
         })
       )
@@ -312,8 +333,12 @@ export function transitionToInFlow(flowId, preserveData = {}) {
   return {
     mode: SESSION_MODES.IN_FLOW,
     flowId,
-    completedSteps: preserveData.completedSteps || new Set(),
-    expandedSteps: preserveData.expandedSteps || new Set(),
+    completedSteps: preserveData.completedSteps instanceof Set 
+      ? preserveData.completedSteps 
+      : new Set(preserveData.completedSteps || []),
+    expandedSteps: preserveData.expandedSteps instanceof Set 
+      ? preserveData.expandedSteps 
+      : new Set(preserveData.expandedSteps || []),
     documents: preserveData.documents || {},
     intakeAnswers: preserveData.intakeAnswers || null,
     timestamp: new Date().toISOString()
