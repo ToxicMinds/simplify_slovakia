@@ -1,0 +1,47 @@
+step_id: apply_family_residence_permit
+title: Apply for Family Residence Permit
+jurisdiction: Slovakia
+applies_to:
+  persona: family_member_bratislava
+preconditions:
+  - legal_entry_completed
+  - foreign_police_registered
+outputs:
+  - family_residence_granted
+description: |
+  Apply at Foreign Police for temporary residence permit as family member.
+  Must apply within 3 working days of entry on national visa.
+  
+  Required documents:
+  - Valid passport + national visa
+  - All relationship documents (same as visa application)
+  - Sponsor documents:
+    * Original residence card
+    * Proof of accommodation
+    * Bank statements (last 3 months)
+    * Employment/income proof
+    * Health insurance covering applicant
+  - Applicant's health insurance
+  - Clean criminal record (if not submitted for visa)
+  - Proof of financial means (sponsor's responsibility)
+  - 4 passport photos
+  - Application form
+  - Fee: €170
+  
+  Processing: 90 days typically. You receive receipt allowing legal stay.
+  
+  Permit duration: Usually matches sponsor's permit (max 2 years initially).
+why_it_matters: |
+  This grants you legal residence in Slovakia. You can work without separate work permit
+  once you receive this card. Children can enroll in schools immediately.
+official_links:
+  - authority: Foreign Police Bratislava
+    url: https://www.minv.sk/?kontakty-cudzinecka-policia
+  - authority: Ministry of Interior - Family Residence
+    url: https://www.minv.sk/?pobyt-rodinneho-prislusnika
+failure_modes:
+  - what_breaks: Sponsor loses their residence during processing
+    consequence: Your application automatically rejected
+  - what_breaks: Applying after 3-day deadline
+    consequence: Fine €50-1,000, application may be rejected
+order: 6

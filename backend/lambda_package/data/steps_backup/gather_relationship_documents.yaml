@@ -1,0 +1,45 @@
+step_id: gather_relationship_documents
+title: Gather Relationship Documentation
+jurisdiction: Slovakia
+applies_to:
+  persona: family_member_bratislava
+preconditions:
+  - primary_residence_verified
+outputs:
+  - relationship_documents_ready
+description: |
+  Collect and legalize all documents proving family relationship:
+  
+  For spouse:
+  - Marriage certificate (original + apostilled copy)
+  - Both birth certificates
+  - If previous marriage: divorce decree or death certificate
+  
+  For children:
+  - Birth certificate showing both parents
+  - If applicable: adoption papers, custody agreement
+  - Other parent's consent (notarized) if not coming
+  
+  For parents (must prove dependency):
+  - Birth certificate showing parent-child relationship
+  - Medical documentation of dependency
+  - Proof financial support from Slovak resident
+  
+  All documents must be:
+  - Apostilled or legalized at Slovak embassy
+  - Officially translated to Slovak by sworn translator
+  - Issued within last 6 months (for most documents)
+why_it_matters: |
+  Immigration strictly verifies family ties. Fake relationships lead to criminal charges
+  and 5-year entry ban. Missing apostille = automatic rejection.
+official_links:
+  - authority: Ministry of Justice - Apostille
+    url: https://www.justice.gov.sk/
+  - authority: List of sworn translators
+    url: https://www.justice.gov.sk/Stranky/Sudn%C3%AD-tlmo%C4%8Dn%C3%ADci/Zoznam-sudnych-tlmocnikov.aspx
+failure_modes:
+  - what_breaks: Documents not apostilled
+    consequence: Immediate rejection, must restart process
+  - what_breaks: Using non-sworn translator
+    consequence: Translation not accepted, delays
+order: 2

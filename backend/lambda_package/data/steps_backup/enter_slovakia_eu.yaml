@@ -1,0 +1,22 @@
+step_id: enter_slovakia_eu
+title: Enter Slovakia with EU ID/Passport
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - employment_contract_signed
+outputs:
+  - legal_entry_completed
+description: |
+  As an EU citizen, you can enter Slovakia with just your national ID card or passport. 
+  No visa required. You have freedom of movement within the EU.
+why_it_matters: |
+  EU citizenship grants you the right to live and work in Slovakia without a visa. 
+  This simplifies your entry compared to non-EU citizens.
+official_links:
+  - authority: European Commission - Free Movement
+    url: https://ec.europa.eu/social/main.jsp?catId=457
+failure_modes:
+  - what_breaks: Entering with expired ID
+    consequence: May be denied entry or face questioning at border
+order: 1
