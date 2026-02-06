@@ -37400,3 +37400,8 @@ remove the file manually to continue.
  create mode 100644 data/flows/flow_tourist_pure_visit.yaml
 Everything up-to-date
 Fri Feb  6 05:56:52 PM CET 2026: Successfully committed and pushed
+[main efb53e6] Auto-commit: update Simplify Slovakia 2026-02-06 17:56:52
+ 1 file changed, 14 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+   389b544..e8fd75f  main -> main
+Fri Feb  6 05:56:53 PM CET 2026: Successfully committed and pushed
