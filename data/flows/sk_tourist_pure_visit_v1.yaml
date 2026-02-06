@@ -17,7 +17,7 @@ description: |
 
 persona_id: tourist_visitor_no_immigration_intent
 jurisdiction: Slovakia
-version: "1.0"
+version: 1.0.0
 
 steps:
   # Step 1: Before Arrival (2-4 weeks before)
