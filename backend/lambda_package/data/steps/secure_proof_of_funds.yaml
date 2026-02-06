@@ -1,0 +1,31 @@
+step_id: secure_proof_of_funds
+title: Secure Proof of Financial Means
+jurisdiction: Slovakia
+applies_to:
+  persona: non_eu_freelancer_bratislava
+preconditions:
+  - business_plan_ready
+outputs:
+  - financial_proof_obtained
+description: |
+  Obtain bank statement showing minimum €2,500 in your account (or equivalent in your currency).
+  Money must be available for at least 3 months prior to application. Some embassies require
+  €5,000+ for business visa. The account must be in your name.
+  
+  Alternative proof:
+  - Sponsorship letter from Slovak company with notarized contract
+  - Property ownership documents
+  - Investment portfolio statements
+why_it_matters: |
+  This proves you won't be a burden on Slovak social system during your initial months.
+  Insufficient funds is the #1 reason for business visa rejection. Border police may
+  also verify this on entry.
+official_links:
+  - authority: Ministry of Foreign Affairs - Visa Requirements
+    url: https://www.mzv.sk/web/en/consular_info/visa_requirements
+failure_modes:
+  - what_breaks: Recent large deposit (looks like borrowed money)
+    consequence: Embassy requests explanation, possible rejection
+  - what_breaks: Account in someone else's name
+    consequence: Automatic rejection
+order: 3

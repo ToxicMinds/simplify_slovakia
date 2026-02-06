@@ -1,0 +1,22 @@
+step_id: register_housing_eu
+title: Register Address of Residence
+jurisdiction: Slovakia
+applies_to:
+  persona: eu_employee_first_entry_bratislava_single
+preconditions:
+  - legal_entry_completed
+outputs:
+  - address_registered
+description: |
+  Register your Slovak address with local authorities. As an EU citizen staying longer than 90 days, 
+  you should register your temporary or permanent residence.
+why_it_matters: |
+  Registration confirms your legal residence and is needed for accessing healthcare, 
+  banking, and other services. Required if staying over 90 days.
+official_links:
+  - authority: Ministry of Interior of the Slovak Republic
+    url: https://www.minv.sk/?pobyt-cudzinca
+failure_modes:
+  - what_breaks: Not registering within required timeframe
+    consequence: Fines or complications accessing public services
+order: 2
