@@ -48306,3 +48306,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 To github.com:ToxicMinds/simplify_slovakia.git
    61f5c5a..5d268a5  main -> main
 Fri Feb  6 06:56:06 PM CET 2026: Successfully committed and pushed
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 5d268a5270d87482b287fbab943e6a20cd10cd82 but expected 61f5c5a24eb428e072e3f7e97234f3b24f30fb95)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Fri Feb  6 06:56:07 PM CET 2026: Successfully committed and pushed
