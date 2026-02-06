@@ -45851,3 +45851,14 @@ To github.com:ToxicMinds/simplify_slovakia.git
 Fri Feb  6 06:43:21 PM CET 2026: Successfully committed and pushed
 Fri Feb  6 06:46:53 PM CET 2026: Another commit in progress, skipping
 Fri Feb  6 06:46:53 PM CET 2026: Another commit in progress, skipping
+Fri Feb  6 06:46:53 PM CET 2026: Another commit in progress, skipping
+Fri Feb  6 06:46:53 PM CET 2026: Another commit in progress, skipping
+[main 6c7c579] Auto-commit: update Simplify Slovakia 2026-02-06 18:46:53
+ 5 files changed, 2 insertions(+)
+ rename data/{steps_backup => steps}/employer_tax_insurance_alignment.yaml (100%)
+ rename data/{steps_backup => steps}/employer_tax_insurance_alignment_eu.yaml (100%)
+ rename data/{steps_backup => steps}/enter_slovakia.yaml (100%)
+ rename data/{steps_backup => steps}/enter_slovakia_eu.yaml (100%)
+To github.com:ToxicMinds/simplify_slovakia.git
+   acdc3b6..6c7c579  main -> main
+Fri Feb  6 06:46:55 PM CET 2026: Successfully committed and pushed
