@@ -18,8 +18,8 @@ description: |
   This is a MAJOR life decision - read every step carefully.
 
 persona_id: seeking_slovak_citizenship
-jurisdiction: Slovakia
-version: "1.0"
+country: Slovakia
+version: 1.0.0
 
 steps:
   # Phase 1: Entry and First Residence (Months 0-6)
