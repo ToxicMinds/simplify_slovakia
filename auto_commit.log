@@ -37371,3 +37371,11 @@ Fri Feb  6 05:50:22 PM CET 2026: No changes to commit
 Fri Feb  6 05:50:22 PM CET 2026: No changes to commit
 Fri Feb  6 05:50:22 PM CET 2026: Another commit in progress, skipping
 Fri Feb  6 05:50:22 PM CET 2026: Another commit in progress, skipping
+[main 3029e0a] Auto-commit: update Simplify Slovakia 2026-02-06 17:50:22
+ 4 files changed, 713 insertions(+)
+ create mode 100644 data/steps/complete_language_exam.yaml
+ create mode 100644 data/steps/complete_medical_examination.yaml
+ create mode 100644 data/steps/renounce_previous_citizenship.yaml
+To github.com:ToxicMinds/simplify_slovakia.git
+   a081534..3029e0a  main -> main
+Fri Feb  6 05:50:25 PM CET 2026: Successfully committed and pushed
