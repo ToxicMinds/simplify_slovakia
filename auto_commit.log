@@ -52644,3 +52644,20 @@ To github.com:ToxicMinds/simplify_slovakia.git
 error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
 Fri Feb  6 07:38:03 PM CET 2026: Successfully committed and pushed
 Fri Feb  6 07:38:03 PM CET 2026: Successfully committed and pushed
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main 4ecfdc4] Auto-commit: update Simplify Slovakia 2026-02-06 19:38:03
+ 1 file changed, 17 insertions(+)
+To github.com:ToxicMinds/simplify_slovakia.git
+   525ff2f..4ecfdc4  main -> main
+Fri Feb  6 07:38:05 PM CET 2026: Successfully committed and pushed
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 4ecfdc4cef741bb9bda4a602d42c2b09792065fb but expected 525ff2fde55a53417efaac36c001bfe5a29ed422)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Fri Feb  6 07:38:05 PM CET 2026: Successfully committed and pushed
+Fri Feb  6 07:38:05 PM CET 2026: Another commit in progress, skipping
