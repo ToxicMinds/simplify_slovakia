@@ -19,8 +19,8 @@ description: |
   - Pathway to citizenship (after 8 years total)
 
 persona_id: long_term_temporary_resident
-jurisdiction: Slovakia
-version: "2.0"
+country: Slovakia
+version: 1.0.0
 
 steps:
   # Step 1: Verify Eligibility (Day 1-7)
