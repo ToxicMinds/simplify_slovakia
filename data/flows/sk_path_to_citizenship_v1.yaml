@@ -1,0 +1,192 @@
+flow_id: path_to_slovak_citizenship
+title: Path to Slovak Citizenship (8-Year Residence Track)
+description: |
+  The complete journey from first entering Slovakia to becoming a Slovak citizen.
+  
+  This is the FULL path for non-EU citizens who want Slovak citizenship and passport.
+  
+  REALISTIC TIMELINE: 8-10 years minimum
+  
+  Requirements:
+  - 8 years continuous residence (5 years if married to Slovak)
+  - Slovak language B1 level
+  - No serious criminal record
+  - Stable income/housing
+  - Pass integration exam
+  - Renounce previous citizenship (for most people)
+  
+  This is a MAJOR life decision - read every step carefully.
+
+persona_id: seeking_slovak_citizenship
+jurisdiction: Slovakia
+version: "1.0"
+
+steps:
+  # Phase 1: Entry and First Residence (Months 0-6)
+  - step_id: apply_national_visa
+    order: 1
+  
+  - step_id: enter_slovakia_first_time
+    order: 2
+  
+  - step_id: register_foreign_police
+    order: 3
+  
+  - step_id: find_long_term_accommodation
+    order: 4
+  
+  # Phase 2: Initial Temporary Residence (Year 1)
+  - step_id: complete_medical_examination
+    order: 5
+  
+  - step_id: apply_temporary_residence
+    order: 6
+  
+  - step_id: collect_residence_card
+    order: 7
+  
+  - step_id: register_health_insurance
+    order: 8
+  
+  - step_id: open_bank_account
+    order: 9
+  
+  # Phase 3: Maintain Residence (Years 1-5)
+  - step_id: renew_temporary_residence_year2
+    order: 10
+  
+  - step_id: renew_temporary_residence_year3
+    order: 11
+  
+  - step_id: renew_temporary_residence_year4
+    order: 12
+  
+  # Phase 4: Language Learning (Years 1-5, parallel)
+  - step_id: start_slovak_language_course
+    order: 13
+  
+  - step_id: achieve_a2_slovak_level
+    order: 14
+  
+  - step_id: complete_language_exam
+    order: 15
+  
+  # Phase 5: Permanent Residence (Year 5)
+  - step_id: apply_permanent_residence
+    order: 16
+  
+  - step_id: attend_permanent_residence_interview
+    order: 17
+  
+  - step_id: collect_permanent_residence_card
+    order: 18
+  
+  # Phase 6: Integration (Years 5-8)
+  - step_id: study_slovak_history_constitution
+    order: 19
+  
+  - step_id: maintain_continuous_residence
+    order: 20
+  
+  - step_id: prove_financial_stability
+    order: 21
+  
+  - step_id: obtain_criminal_record_certificate
+    order: 22
+  
+  # Phase 7: Citizenship Application (Year 8)
+  - step_id: prepare_citizenship_application
+    order: 23
+  
+  - step_id: submit_citizenship_application
+    order: 24
+  
+  - step_id: attend_citizenship_interview
+    order: 25
+  
+  - step_id: pass_integration_exam
+    order: 26
+  
+  - step_id: wait_citizenship_decision
+    order: 27
+  
+  # Phase 8: Final Steps (Year 8-9)
+  - step_id: receive_citizenship_approval
+    order: 28
+  
+  - step_id: renounce_previous_citizenship
+    order: 29
+  
+  - step_id: receive_slovak_citizenship_certificate
+    order: 30
+  
+  - step_id: apply_for_slovak_passport
+    order: 31
+
+estimated_timeline: "8-10 years (5-7 years if married to Slovak citizen)"
+estimated_cost: "€5,000-8,000 total (over 8 years)"
+
+cost_breakdown:
+  year_1: "€800 (visa + residence + medical)"
+  years_2_4: "€170/year (residence renewals)"
+  year_5: "€300 (permanent residence + language exam)"
+  years_6_8: "€0 (permanent residence, no renewals)"
+  year_8_citizenship: "€200-2,500 (citizenship fee + renunciation)"
+  language_courses: "€1,000-2,000 (over 2-3 years)"
+  total: "€5,000-8,000"
+
+prerequisites:
+  - Age 18+
+  - No serious criminal record
+  - Willing to renounce previous citizenship
+  - Willing to learn Slovak to B1 level
+  - Willing to live in Slovakia continuously for 8 years
+  - Financial stability (income €800+/month)
+  - Accommodation secured
+
+common_pitfalls:
+  - Breaking continuous residence (travel > 6 months total per year resets the clock)
+  - Not starting language learning early (needs 2-3 years)
+  - Assuming citizenship is automatic after 8 years (it's not - discretionary)
+  - Minor legal issues (even traffic fines can delay)
+  - Not tracking residence days carefully
+  - Underestimating financial requirements
+  - Changing jobs too frequently (looks unstable)
+  - Not understanding renunciation implications
+
+success_factors:
+  - Start Slovak lessons in Year 1
+  - Keep meticulous records of all residence dates
+  - Maintain stable employment
+  - Integrate into community (volunteer, memberships)
+  - No legal issues (even minor ones)
+  - Keep family situation stable
+  - Have backup funds for unexpected costs
+
+reality_check: |
+  CRITICAL STATISTICS:
+  
+  - Application approval rate: ~40%
+  - Most common rejection: Insufficient Slovak language
+  - Second most common: Gaps in residence continuity
+  - Average time from application to decision: 18-24 months
+  - About 20% drop out during language learning
+  - About 30% never complete renunciation
+  
+  LIFE IMPLICATIONS:
+  
+  You will spend:
+  - 8+ years of your life in Slovakia
+  - €5,000-8,000 in fees
+  - 500-800 hours learning Slovak
+  - Give up your current citizenship (usually)
+  
+  Make sure this is what you REALLY want.
+  
+  Alternative: EU long-term residence (after 5 years) gives you:
+  - Permanent right to live in Slovakia
+  - Work anywhere in EU
+  - Keep your original citizenship
+  - No language exam required
+  
+  For many people, permanent residence is the better goal.
