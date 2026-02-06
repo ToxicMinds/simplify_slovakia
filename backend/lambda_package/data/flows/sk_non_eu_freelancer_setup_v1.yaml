@@ -1,0 +1,46 @@
+flow_id: sk_non_eu_freelancer_setup_v1
+persona_id: non_eu_freelancer_bratislava
+country: Slovakia
+version: 1.0.0
+steps:
+  # Steps marked ✅ exist in data/steps/
+  # Steps marked ❌ need to be created
+
+  - step_id: assess_eligibility_freelancer  # ❌ NEW
+    order: 1
+  
+  - step_id: prepare_business_plan  # ❌ NEW
+    order: 2
+  
+  - step_id: secure_proof_of_funds  # ❌ NEW
+    order: 3
+  
+  - step_id: apply_business_visa  # ❌ NEW
+    order: 4
+  
+  - step_id: enter_slovakia  # ✅ EXISTS
+    order: 5
+  
+  - step_id: register_foreign_police  # ✅ EXISTS
+    order: 6
+  
+  - step_id: obtain_trade_license  # ❌ NEW (živnosť)
+    order: 7
+  
+  - step_id: apply_temporary_residence_business  # ❌ NEW
+    order: 8
+  
+  - step_id: collect_residence_card  # ✅ EXISTS
+    order: 9
+  
+  - step_id: register_housing  # ✅ EXISTS
+    order: 10
+  
+  - step_id: register_tax_office  # ❌ NEW
+    order: 11
+  
+  - step_id: setup_health_insurance_selfemployed  # ❌ NEW
+    order: 12
+  
+  - step_id: open_business_bank_account  # ❌ NEW
+    order: 13

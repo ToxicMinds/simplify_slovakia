@@ -1,0 +1,27 @@
+flow_id: sk_non_eu_employee_first_entry_bratislava_v1
+persona_id: non_eu_employee_first_entry_bratislava_single
+country: Slovakia
+version: 1.0.0
+steps:
+  - step_id: apply_national_visa
+    order: 1
+  - step_id: enter_slovakia
+    order: 2
+  - step_id: register_foreign_police
+    order: 3
+  - step_id: apply_temporary_residence
+    order: 4
+  - step_id: collect_residence_card
+    order: 5
+  - step_id: register_housing
+    order: 6
+  - step_id: open_bank_account
+    order: 7
+  - step_id: get_sim_card
+    order: 8
+  - step_id: register_doctor
+    order: 9
+  - step_id: employer_tax_insurance_alignment
+    order: 10
+  - step_id: tax_residence_and_annual_obligations
+    order: 11
