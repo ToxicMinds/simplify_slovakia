@@ -40388,3 +40388,7 @@ remove the file manually to continue.
 To github.com:ToxicMinds/simplify_slovakia.git
    f5ce716..6a5c8be  main -> main
 Fri Feb  6 06:12:55 PM CET 2026: Successfully committed and pushed
+To github.com:ToxicMinds/simplify_slovakia.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 6a5c8beaeae570dc29d0d5dc1c7432bf010bf003 but expected f5ce7161a345942b04cfd5fc55736523780ced06)
+error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
+Fri Feb  6 06:12:56 PM CET 2026: Successfully committed and pushed
