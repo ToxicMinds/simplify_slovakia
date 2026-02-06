@@ -38870,3 +38870,13 @@ remove the file manually to continue.
  create mode 100644 backend/lambda_package/yaml/tokens.py
 Everything up-to-date
 Fri Feb  6 06:08:02 PM CET 2026: Successfully committed and pushed
+[main be51307] Auto-commit: update Simplify Slovakia 2026-02-06 18:08:02
+ 6 files changed, 973 insertions(+)
+ create mode 100644 backend/lambda_package/app/__init__.py
+ create mode 100644 backend/lambda_package/app/cors_fix.py
+ create mode 100644 backend/lambda_package/app/main.py
+ create mode 100644 backend/lambda_package/app/models/.gitkeep
+ create mode 100644 backend/lambda_package/app/models/README.md
+To github.com:ToxicMinds/simplify_slovakia.git
+   5a55f7f..1bc4b4e  main -> main
+Fri Feb  6 06:08:05 PM CET 2026: Successfully committed and pushed
