@@ -37386,3 +37386,17 @@ To github.com:ToxicMinds/simplify_slovakia.git
 Fri Feb  6 05:50:27 PM CET 2026: Successfully committed and pushed
 Fri Feb  6 05:56:51 PM CET 2026: No changes to commit
 Fri Feb  6 05:56:51 PM CET 2026: No changes to commit
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
+[main e8fd75f] Auto-commit: update Simplify Slovakia 2026-02-06 17:56:51
+ 4 files changed, 443 insertions(+)
+ create mode 100644 data/flows/flow_permanent_residence_UPDATED.yaml
+ create mode 100644 data/flows/flow_tourist_complete.yaml
+ create mode 100644 data/flows/flow_tourist_pure_visit.yaml
+Everything up-to-date
+Fri Feb  6 05:56:52 PM CET 2026: Successfully committed and pushed
