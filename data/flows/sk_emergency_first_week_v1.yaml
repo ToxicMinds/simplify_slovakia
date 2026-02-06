@@ -3,20 +3,15 @@ persona_id: emergency_just_landed
 country: Slovakia
 version: 1.0.0
 steps:
-  - step_id: find_temporary_housing  # ❌ NEW
+  - step_id: find_temporary_housing
     order: 1
-  
-  - step_id: get_sim_card  # ✅ EXISTS
+  - step_id: get_sim_card
     order: 2
-  
-  - step_id: register_foreign_police  # ✅ EXISTS
+  - step_id: register_foreign_police
     order: 3
-  
-  - step_id: locate_foreign_police_office  # ❌ NEW
+  - step_id: locate_foreign_police_office
     order: 4
-  
-  - step_id: contact_employer_day_one  # ❌ NEW
+  - step_id: contact_employer_day_one
     order: 5
-  
-  - step_id: understand_residence_permit_urgency  # ❌ NEW
+  - step_id: understand_residence_permit_urgency
     order: 6
