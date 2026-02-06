@@ -16,7 +16,7 @@ description: |
   This flow is for: Visit → Leave → Visit again.
 
 persona_id: tourist_visitor_no_immigration_intent
-jurisdiction: Slovakia
+country: Slovakia
 version: 1.0.0
 
 steps:

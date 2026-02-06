@@ -49857,3 +49857,17 @@ an editor opened by 'git commit'. Please make sure all processes
 are terminated then try again. If it still fails, a git process
 may have crashed in this repository earlier:
 remove the file manually to continue.
+[main ac0f41b] Auto-commit: update Simplify Slovakia 2026-02-06 19:27:46
+ 2 files changed, 17 insertions(+), 2 deletions(-)
+Everything up-to-date
+Fri Feb  6 07:27:48 PM CET 2026: Successfully committed and pushed
+To github.com:ToxicMinds/simplify_slovakia.git
+   9fc3135..ac0f41b  main -> main
+Fri Feb  6 07:27:49 PM CET 2026: Successfully committed and pushed
+fatal: Unable to create '/home/nik/simplify_slovakia/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, e.g.
+an editor opened by 'git commit'. Please make sure all processes
+are terminated then try again. If it still fails, a git process
+may have crashed in this repository earlier:
+remove the file manually to continue.
