@@ -46009,3 +46009,9 @@ To github.com:ToxicMinds/simplify_slovakia.git
 error: failed to push some refs to 'github.com:ToxicMinds/simplify_slovakia.git'
 Fri Feb  6 06:50:31 PM CET 2026: Successfully committed and pushed
 Fri Feb  6 06:51:19 PM CET 2026: Another commit in progress, skipping
+[main 16c728e] Auto-commit: update Simplify Slovakia 2026-02-06 18:51:19
+ 2 files changed, 12 insertions(+)
+ rename data/{steps_backup => steps}/tax_residence_and_annual_obligations.yaml (100%)
+To github.com:ToxicMinds/simplify_slovakia.git
+   34a3827..16c728e  main -> main
+Fri Feb  6 06:51:21 PM CET 2026: Successfully committed and pushed
