@@ -1,4 +1,4 @@
-flow_id: tourist_90_day_visit_to_residence
+flow_id: sk_tourist_complete_v1
 title: "Tourist 90-Day Visit → Temporary Residence"
 description: |
   For non-EU citizens who can enter Slovakia visa-free for 90 days (Schengen) and want to convert to temporary residence.
@@ -17,8 +17,8 @@ description: |
   CRITICAL: You must start this process BEFORE your 90 days expire!
 
 persona_id: P7_tourist_90day_visitor
-jurisdiction: Slovakia
-version: "1.0"
+country: Slovakia
+version: 1.0.0
 
 steps:
   # Step 1: Entry and Registration (Days 1-3)
