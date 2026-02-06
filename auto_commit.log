@@ -51705,3 +51705,11 @@ Fri Feb  6 07:34:31 PM CET 2026: Successfully committed and pushed
 To github.com:ToxicMinds/simplify_slovakia.git
    de5169e..edadfd8  main -> main
 Fri Feb  6 07:34:32 PM CET 2026: Successfully committed and pushed
+[main dbfb52b] Auto-commit: update Simplify Slovakia 2026-02-06 19:34:32
+ 4 files changed, 92 insertions(+)
+ create mode 100644 backend/lambda_package/rules/README.md
+ create mode 100644 backend/lambda_package/rules/immigration/eligibility.yaml
+ create mode 100644 backend/lambda_package/rules/life_setup/.gitkeep
+To github.com:ToxicMinds/simplify_slovakia.git
+   edadfd8..7ec15ec  main -> main
+Fri Feb  6 07:34:33 PM CET 2026: Successfully committed and pushed
