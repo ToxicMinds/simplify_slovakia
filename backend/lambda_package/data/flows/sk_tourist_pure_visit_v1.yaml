@@ -1,0 +1,149 @@
+flow_id: sk_tourist_pure_visit_v1
+title: "Pure Tourist Visit to Slovakia (90 Days Maximum)"
+description: |
+  For non-EU citizens visiting Slovakia as tourists - visiting family, friends, sightseeing, or business meetings.
+  
+  NO IMMIGRATION INTENT - This is purely for visits.
+  
+  Common for:
+  - Indians visiting family
+  - Brazilians on vacation
+  - Business visitors from UAE, Israel, etc.
+  - Anyone from visa-free countries who just wants to visit
+  
+  If you want to STAY and work/live in Slovakia, use the "Tourist to Residence" flow instead.
+  
+  This flow is for: Visit → Leave → Visit again.
+
+persona_id: tourist_visitor_no_immigration_intent
+country: Slovakia
+version: 1.0.0
+
+steps:
+  # Step 1: Before Arrival (2-4 weeks before)
+  - step_id: check_visa_free_eligibility
+    order: 1
+  
+  - step_id: book_accommodation_tourist
+    order: 2
+  
+  - step_id: get_travel_insurance
+    order: 3
+  
+  - step_id: prepare_proof_of_funds_tourist
+    order: 4
+  
+  # Step 2: Arrival in Slovakia (Day 1)
+  - step_id: enter_slovakia_tourist
+    order: 5
+  
+  - step_id: keep_entry_stamp_safe
+    order: 6
+  
+  # Step 3: Within 3 Days of Arrival
+  - step_id: register_foreign_police_tourist
+    order: 7
+  
+  # Step 4: During Visit (Days 1-90)
+  - step_id: track_your_90_days
+    order: 8
+  
+  - step_id: get_local_sim_card_optional
+    order: 9
+  
+  # Step 5: Before Departure
+  - step_id: ensure_exit_before_day_90
+    order: 10
+  
+  - step_id: get_exit_stamp
+    order: 11
+
+estimated_timeline: "Up to 90 days"
+estimated_cost: "€50-200 (insurance, registration fee if needed)"
+
+cost_breakdown:
+  travel_insurance: "€30-100 (for 90 days)"
+  police_registration_fee: "€0 (free if done by accommodation)"
+  local_sim_card: "€10-20 (optional)"
+  misc: "€10-50"
+
+prerequisites:
+  - Passport valid for 6+ months
+  - From visa-free country (India, Brazil, Israel, UAE, etc.)
+  - Proof of accommodation (hotel booking or invitation letter)
+  - Proof of funds (€50-100/day or bank statement showing €2,000+)
+  - Return ticket or proof of onward travel
+  - Travel insurance (€30,000 medical coverage minimum)
+
+NO_REQUIREMENTS:
+  - ❌ NO medical examination needed (tourist visit only)
+  - ❌ NO language requirement
+  - ❌ NO work permit needed (can't work!)
+  - ❌ NO residence application
+  - ❌ NO foreign police interview
+
+common_pitfalls:
+  - Overstaying 90 days (illegal, leads to ban)
+  - Thinking you can "figure out immigration" while here (start BEFORE day 60!)
+  - Working on tourist visa (illegal, immediate deportation)
+  - Not registering with police (€100-500 fine)
+  - Losing entry stamp (keep passport safe!)
+  - Assuming 90 days = 3 months (count days, not months!)
+
+critical_timeline:
+  - Day 1: Enter Slovakia
+  - Day 1-3: Register with foreign police
+  - Day 60: If you want to stay longer, START immigration process NOW
+  - Day 85: LAST chance to start residence process
+  - Day 90: MUST leave or face overstay penalties
+
+what_you_can_do:
+  - ✅ Visit family and friends
+  - ✅ Sightseeing, tourism
+  - ✅ Attend conferences, business meetings
+  - ✅ Short-term language courses (non-degree)
+  - ✅ Medical treatment
+  - ✅ Volunteer work (unpaid)
+
+what_you_CANNOT_do:
+  - ❌ Work (paid employment)
+  - ❌ Start a business
+  - ❌ Enroll in degree programs
+  - ❌ Open bank account (difficult without residence)
+  - ❌ Get health insurance (must have travel insurance)
+  - ❌ Stay beyond 90 days
+
+extending_your_stay:
+  option_1: "Leave Schengen area and come back (resets 90 days)"
+  option_2: "Apply for temporary residence BEFORE day 90 (see 'Tourist to Residence' flow)"
+  option_3: "Apply for national visa from home country for longer stays"
+  
+  note: "You CANNOT extend tourist status at foreign police. Must either leave or convert to residence."
+
+after_90_days:
+  - Must leave Schengen area
+  - Can return after 90 days out of Schengen
+  - Rule: 90 days in any 180-day period
+  - Overstay = fine + ban (1-5 years depending on duration)
+
+typical_visitor_profile:
+  - Visiting family in Slovakia
+  - Sightseeing in Bratislava, High Tatras, castles
+  - Business meetings or conferences
+  - Medical tourism
+  - Short cultural exchange
+  - Language immersion (non-degree)
+
+if_you_want_to_stay:
+  - Use "Tourist to Residence Conversion" flow
+  - Must start BEFORE day 60 of your 90 days
+  - Requires job offer or business registration
+  - See: flow_tourist_to_residence.yaml
+
+border_crossing_tips:
+  - Keep passport safe (entry stamp is critical)
+  - Have hotel booking confirmation ready
+  - Show return ticket if asked
+  - Have proof of funds (credit card or bank statement)
+  - Answer "tourism" or "visiting family" honestly
+  - Don't mention work or immigration (you're a tourist!)

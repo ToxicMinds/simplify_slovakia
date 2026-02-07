@@ -1,0 +1,35 @@
+step_id: setup_health_insurance_dependent
+title: Register for Health Insurance (Dependent)
+applies_to:
+  persona: family_member_bratislava
+preconditions:
+- family_residence_granted
+outputs:
+- health_insurance_active
+description: "Register with Slovak health insurance company. If your sponsor is employed,\n\
+  you may be covered as their dependent (spouse, children under 18).\nOtherwise, you\
+  \ must pay your own insurance.\n\nOptions:\n1. As dependent (if sponsor is employee):\n\
+  \   - Free coverage if not employed yourself\n   - Sponsor registers you with their\
+  \ insurer\n   - Children automatically covered\n\n2. Self-paid insurance:\n   -\
+  \ Choose from VšZP, Dôvera, or Union\n   - Monthly payment: Minimum €96.81 for adults\n\
+  \   - Children under 18: Free even if parents pay\n\nRequired documents:\n- Residence\
+  \ card\n- Passport\n- Proof of address\n- Marriage certificate (for spouse)\n- Birth\
+  \ certificates (for children)\n- Sponsor's employment contract (if dependent)\n\n\
+  Processing: Card issued within 2-3 weeks.\n"
+why_it_matters: 'Healthcare is mandatory in Slovakia. Without insurance, you pay full
+  private costs
+
+  and cannot renew residence permit. Emergency room visits cost €100-500 without insurance.
+
+  '
+official_links:
+- authority: General Health Insurance Company (VšZP)
+  url: https://www.vszp.sk/en/
+- authority: Ministry of Health - Insurance Guide
+  url: https://www.health.gov.sk/
+failure_modes:
+- what_breaks: Not registering within 8 days of residence permit
+  consequence: €500-1,000 fine, insurance backdated with penalties
+- what_breaks: Assuming automatic coverage without registration
+  consequence: No coverage, liable for full medical costs
+country: Slovakia

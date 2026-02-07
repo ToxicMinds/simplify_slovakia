@@ -1,0 +1,72 @@
+step_id: apply_temporary_residence
+title: Apply for Temporary Residence (Employment)
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+- legal_entry_completed
+- foreign_police_registered
+outputs:
+- temporary_residence_application_submitted
+description: "Apply at Foreign Police (Cudzinecká polícia) for temporary residence\
+  \ permit for employment.\nMUST be done within 90 days of entry on national visa.\n\
+  \nBook appointment online first - typically 2-4 weeks wait for slot.\n\nRequired\
+  \ documents:\n- Valid passport + national visa\n- Employment contract (original\
+  \ + copy)\n- Employer confirmation letter (not older than 30 days)\n- Proof of accommodation:\n\
+  \  * Rental contract (min. 1 year) OR\n  * Property ownership documents OR\n  *\
+  \ Employer-provided housing letter\n- Proof of financial means (min. €199.60/month\
+  \ or employer guarantee)\n- Health insurance valid in Slovakia (from Slovak insurer\
+  \ or EU/international)\n- Criminal record from home country (apostilled, officially\
+  \ translated)\n- Proof of address registration with Foreign Police (registration\
+  \ receipt)\n- 4 biometric passport photos (3.5cm x 4.5cm)\n- Bank account statement\
+  \ (if self-funding) showing 3 months of funds\n- Application form (obtainable at\
+  \ Foreign Police or online)\n- Fee: €170 (cash or card, varies by office)\n\nProcessing\
+  \ time: 60-90 days\n\nAt appointment:\n- Officer reviews all documents\n- May ask\
+  \ questions about job and living situation\n- Biometric data collected (fingerprints,\
+  \ photo)\n- You receive receipt confirming application submitted\n\nThe receipt\
+  \ allows you to:\n- Stay legally in Slovakia during processing\n- Continue working\n\
+  - Travel (but check re-entry rules)\n\nPermit duration: Usually 1-2 years (tied\
+  \ to employment contract length, max 2 years first time)\n"
+why_it_matters: 'This permit is what converts your short-term visa into long-term
+  legal residence.
+
+  Without it:
+
+  - You must leave Slovakia when national visa expires (90 days)
+
+  - Cannot legally work beyond visa validity
+
+  - Cannot renew residence later
+
+  - Cannot bring family members
+
+
+  The 90-day deadline is HARD. Missing it means:
+
+  - You''re in illegal residence (€100-1,000 fine)
+
+  - Must leave Slovakia immediately
+
+  - Cannot apply for residence from inside Slovakia anymore
+
+  - Must restart entire process from home country
+
+  - Possible 1-2 year entry ban
+
+  '
+official_links:
+- authority: Foreign Police Bratislava
+  url: https://www.minv.sk/?kontakty-cudzinecka-policia
+- authority: Ministry of Interior - Temporary Residence
+  url: https://www.minv.sk/?docasny-pobyt
+- authority: Online appointment booking
+  url: https://www.minv.sk/?objednanie-sa-na-cp
+failure_modes:
+- what_breaks: Missing 90-day deadline
+  consequence: Illegal residence, fine €100-1,000, deportation, possible ban
+- what_breaks: Accommodation proof is short-term (under 1 year)
+  consequence: Application rejected
+- what_breaks: Health insurance not valid in Slovakia
+  consequence: Application rejected, must get Slovak/valid EU insurance
+- what_breaks: Missing biometric photos
+  consequence: Application incomplete, must return with photos
+country: Slovakia

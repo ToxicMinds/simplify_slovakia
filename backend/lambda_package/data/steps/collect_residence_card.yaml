@@ -1,0 +1,68 @@
+step_id: collect_residence_card
+title: Collect Temporary Residence Card
+applies_to:
+  persona: non_eu_employee_first_entry_bratislava_single
+preconditions:
+- temporary_residence_application_submitted
+outputs:
+- legal_residence_established
+description: "After 60-90 days, you receive SMS or email notification that decision\
+  \ is ready.\n\nCollect process:\n1. Go to Foreign Police with:\n   - Passport\n\
+  \   - Application receipt\n   - Decision notification (if received by mail)\n\n\
+  2. Officer gives you written decision (rozhodnutie):\n   - If APPROVED: Pay €4.50\
+  \ for card production\n   - If REJECTED: Receive rejection letter with reasons\n\
+  \n3. Card production: 30 days\n\n4. Return to collect card (preukaz o pobyte):\n\
+  \   - Bring passport and card production receipt\n   - Card shows your photo, validity\
+  \ dates, residence type\n   - Also receive \"birth number\" (rodné číslo) - important\
+  \ ID number\n\nWhat the card shows:\n- Your name and photo\n- Birth date and nationality\n\
+  - Card number (P-XXXXXXX)\n- Valid from/to dates\n- Purpose: \"Zamestnanec\" (Employment)\n\
+  - Birth number (rodné číslo): XXXXXX/XXXX\n\nBirth number is used for:\n- Health\
+  \ insurance registration\n- Bank accounts\n- Tax office\n- Employment records\n\
+  - All official documents\n\nKeep this number safe - it's like your Slovak social\
+  \ security number.\n"
+why_it_matters: 'The residence card is proof of your legal status. You need it for:
+
+  - Registering permanent address
+
+  - Opening bank account
+
+  - Getting health insurance card
+
+  - Employer HR processes
+
+  - Renting apartment
+
+  - Signing mobile phone contract
+
+  - Any interaction with Slovak authorities
+
+
+  Without the physical card, many services will refuse you even if you have
+
+  the receipt. The card = your legal identity in Slovakia.
+
+
+  If residence is REJECTED:
+
+  - You have 15 days to appeal OR leave Slovakia
+
+  - Rejection reasons must be specific (can appeal if procedural error)
+
+  - If no appeal, you must leave by date specified in rejection
+
+  - Overstaying = illegal residence (fines, ban)
+
+  '
+official_links:
+- authority: Foreign Police - Card Collection
+  url: https://www.minv.sk/?cudzinecka-policia
+- authority: Ministry of Interior - Residence Card Info
+  url: https://www.minv.sk/?preukaz-o-pobyte
+failure_modes:
+- what_breaks: Not collecting decision within 30 days of notification
+  consequence: May be considered abandoned, decision voided
+- what_breaks: Losing residence card
+  consequence: Report to police immediately, pay €15 replacement fee, 30-day wait
+- what_breaks: Card expires and you don't renew
+  consequence: Illegal residence, must leave Slovakia or face deportation
+country: Slovakia

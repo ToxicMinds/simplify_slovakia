@@ -1,0 +1,38 @@
+step_id: obtain_criminal_record_check
+title: Obtain Criminal Record Check
+applies_to:
+  persona: long_term_resident_bratislava
+preconditions:
+- language_proficiency_proven
+outputs:
+- criminal_record_obtained
+description: "Get clean criminal record certificates from TWO sources:\n\n1. Slovak\
+  \ criminal record (Výpis z registra trestov):\n   - Request at General Prosecutor's\
+  \ Office or online via slovensko.sk\n   - Fee: €8\n   - Processing: 3-5 days\n \
+  \  - Must be issued within 3 months of application\n\n2. Home country criminal record:\n\
+  \   - From your country of citizenship\n   - Must be apostilled/legalized\n   -\
+  \ Officially translated to Slovak by sworn translator\n   - Must be issued within\
+  \ 6 months of application\n\nIf you lived in other countries for 6+ months during\
+  \ your 5 years in Slovakia,\nyou may also need their criminal records.\n\nEven minor\
+  \ infractions can cause issues. If you have ANY criminal record:\n- Consult immigration\
+  \ lawyer BEFORE applying\n- Some crimes = automatic permanent ban\n- Minor offenses\
+  \ may be waived after waiting period\n"
+why_it_matters: 'Criminal record (even spent convictions) can disqualify you from
+  permanent residence.
+
+  Slovakia checks international databases. Hiding criminal past = automatic rejection
+
+  + possible criminal charges for false declaration.
+
+  '
+official_links:
+- authority: General Prosecutor's Office - Criminal Records
+  url: https://www.genpro.gov.sk/vrt-12e3.html
+- authority: Online request portal
+  url: https://www.slovensko.sk/
+failure_modes:
+- what_breaks: Certificate older than allowed period
+  consequence: Application rejected, must get fresh certificate
+- what_breaks: Not disclosing criminal record
+  consequence: Permanent ban from Slovakia
+country: Slovakia

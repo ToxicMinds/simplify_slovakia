@@ -1,0 +1,109 @@
+flow_id: sk_permanent_residence_v1
+title: "Apply for Permanent Residence (After 5 Years)"
+description: |
+  Apply for permanent residence permit after living in Slovakia continuously for 5 years on temporary residence.
+  
+  This is the most common path to permanent residence for non-EU citizens.
+  
+  REQUIREMENTS:
+  - 5 years continuous residence (gaps <6 months/year allowed)
+  - Slovak language B1 level
+  - Medical examination
+  - No serious criminal record
+  - Stable income and accommodation
+  
+  OUTCOME:
+  - Permanent residence card (valid 10 years, renewable)
+  - Can live and work in Slovakia indefinitely
+  - Can travel freely in/out
+  - Pathway to citizenship (after 8 years total)
+
+persona_id: long_term_temporary_resident
+country: Slovakia
+version: 1.0.0
+
+steps:
+  # Step 1: Verify Eligibility (Day 1-7)
+  - step_id: check_eligibility_permanent
+    order: 1
+  
+  # Step 2: Medical Examination (Day 7-21)
+  # ✅ ADDED: Medical exam is MANDATORY for permanent residence
+  - step_id: complete_medical_examination
+    order: 2
+  
+  # Step 3: Language Exam (Day 21-60 OR already done)
+  # ✅ UPDATED: Specific B1 exam requirement
+  - step_id: complete_language_exam
+    order: 3
+  
+  # Step 4: Gather Documentation (Day 60-90)
+  - step_id: gather_five_year_documentation
+    order: 4
+  
+  - step_id: obtain_criminal_record_check
+    order: 5
+  
+  - step_id: prepare_housing_proof
+    order: 6
+  
+  # Step 5: Application (Day 90-95)
+  - step_id: apply_permanent_residence
+    order: 7
+  
+  # Step 6: Decision and Collection (Day 95-185)
+  - step_id: attend_permanent_residence_interview
+    order: 8
+  
+  - step_id: collect_permanent_residence_card
+    order: 9
+
+estimated_timeline: "90-180 days (medical and language must be ready)"
+estimated_cost: "€300-500"
+
+cost_breakdown:
+  medical_examination: "€80-150"
+  language_exam_b1: "€100-120 (if not done yet)"
+  criminal_record: "€20-50"
+  document_translations: "€50-100"
+  application_fee: "€100"
+  photos: "€10"
+
+prerequisites:
+  - 5 years continuous temporary residence in Slovakia
+  - Valid temporary residence card
+  - No criminal record
+  - Slovak language B1 level (or willing to take exam)
+  - Stable accommodation
+  - Stable income (€800+/month)
+
+common_pitfalls:
+  - Gaps in residence >6 months/year (resets the 5-year clock)
+  - Medical certificate expired (must be <3 months old when applying)
+  - Language certificate expired (must be <1 year old when applying)
+  - Not having proper employment/income proof
+  - Criminal record issues (even minor traffic violations can cause delays)
+  - Assuming language exam is easy (many people fail first attempt)
+
+critical_notes:
+  - Start language learning in Year 2-3 of temporary residence
+  - Medical exam must be from authorized clinic (Poliklinika Ružinov, FirstMed, etc.)
+  - Language certificate MUST be from official exam center (Štátna jazyková škola, university)
+  - Criminal record must be from home country + Slovakia
+  - If denied, you can reapply after fixing issues (not permanent ban)
+
+success_factors:
+  - Keep meticulous records of entry/exit dates (5 years)
+  - Start language course early (needs 200-400 hours of study)
+  - Get medical and language done 2-3 months before application
+  - Have all documents translated and apostilled
+  - Keep stable employment throughout
+  - Respond quickly to any Foreign Police requests
+
+after_approval:
+  - Collect permanent residence card within 30 days
+  - Card valid 10 years (renewable indefinitely)
+  - No longer need to renew every 1-2 years
+  - Can apply for citizenship after 3 more years (8 years total)
+  - Can sponsor family members for residence
+  - Can apply for long-term EU residence permit
