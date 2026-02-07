@@ -1,0 +1,14 @@
+step_id: prepare_citizenship_application
+title: Prepare Citizenship Application
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- criminal_record_certificate_obtained
+- language_certificate_b1_issued
+outputs:
+- citizenship_application_prepared
+description: 'Compile complete citizenship application package: 8 years residence
+  proof, language certificate, criminal records, financial documents, Slovak studies
+  materials. 50+ pages typically.'

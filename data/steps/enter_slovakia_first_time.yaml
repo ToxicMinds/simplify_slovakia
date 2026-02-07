@@ -1,0 +1,58 @@
+step_id: enter_slovakia_first_time
+title: Enter Slovakia for the First Time
+country: Slovakia
+applies_to:
+  persona:
+    - seeking_slovak_citizenship
+preconditions:
+  - national_visa_granted
+outputs:
+  - legal_entry_completed
+description: |
+  Enter Slovakia on your National Visa (Type D) for the first time.
+  This is Day 1 of your 8-10 year journey to Slovak citizenship.
+  
+  At border control:
+  - Show passport with national visa
+  - Receive entry stamp
+  - May be asked about purpose (answer: employment/business as per visa)
+  
+  Entry date matters for:
+  - Starting 3-day Foreign Police registration deadline
+  - Starting 90-day residence permit application deadline
+  - Beginning your first year of continuous residence (for citizenship)
+  
+  Take photo of entry stamp immediately.
+  
+  CRITICAL DEADLINES:
+  - Day 1-3: Register at Foreign Police
+  - Day 1-90: Apply for residence permit
+  - This entry begins your 8-year citizenship clock
+why_it_matters: |
+  This entry marks the official start of your path to citizenship.
+  
+  The entry date is critical for:
+  - Calculating 8 years of continuous residence
+  - Proving legal entry for all future applications
+  - Establishing residency start date
+  
+  Keep meticulous records from Day 1:
+  - Entry/exit dates (for all trips)
+  - Residence addresses
+  - Employment history
+  
+  These records will be verified when you apply for citizenship in 8 years.
+official_links:
+  - authority: Ministry of Interior - First Entry
+    url: https://www.minv.sk/?vstup-do-sr
+  - authority: Citizenship Requirements
+    url: https://www.minv.sk/?statne-obcianstvo
+failure_modes:
+  - what_breaks: Entering after visa expiration
+    consequence: Entry denied, must restart visa process from home country
+  - what_breaks: Not registering with Foreign Police within 3 days
+    consequence: Fine €50-1,000, red flag on record
+  - what_breaks: Missing 90-day residence application deadline
+    consequence: Illegal residence, must leave Slovakia, restart process
+  - what_breaks: Not tracking entry/exit dates from beginning
+    consequence: Cannot prove continuous residence 8 years later, citizenship denied

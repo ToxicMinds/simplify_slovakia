@@ -1,0 +1,12 @@
+step_id: register_health_insurance
+title: Register for Health Insurance
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- legal_residence_established
+outputs:
+- health_insurance_registered
+description: Register with Slovak health insurance company (VšZP, Dôvera, or Union).
+  Required for legal residence.

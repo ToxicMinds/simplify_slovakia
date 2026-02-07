@@ -1,0 +1,13 @@
+step_id: apply_for_slovak_passport
+title: Apply for Slovak Passport
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- slovak_citizenship_certificate_received
+outputs:
+- slovak_passport_obtained
+description: Apply for Slovak passport at local police station. Bring citizenship
+  certificate, photos, fee €33. Passport ready in 30 days. Congratulations - you are
+  now Slovak!

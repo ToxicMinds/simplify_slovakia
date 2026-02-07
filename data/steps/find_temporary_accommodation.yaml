@@ -1,0 +1,41 @@
+step_id: find_temporary_accommodation
+title: Find Temporary Accommodation (30-90 Days)
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- legal_entry_completed
+outputs:
+- temporary_accommodation_secured
+description: 'Secure accommodation for 1-3 months while you prepare residence application.
+
+
+  Options:
+
+  - Extended stay hotel/apartment
+
+  - Airbnb (monthly rental)
+
+  - Shared flat (short-term sublet)
+
+  - Friend/colleague (with written consent)
+
+
+  What you need:
+
+  - Written contract or confirmation
+
+  - Minimum 1-month commitment
+
+  - Proof of payment
+
+  - Owner''s consent for residence application
+
+
+  Budget: €400-800/month in Bratislava.'
+why_it_matters: 'You need stable accommodation address for residence permit application.
+
+  Hotel bookings under 1 month won''t be accepted by Foreign Police.
+
+  Accommodation contract is one of the main residence permit requirements.'

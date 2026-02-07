@@ -1,0 +1,12 @@
+step_id: start_slovak_language_course
+title: Start Slovak Language Course
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- temporary_residence_granted
+outputs:
+- language_learning_started
+description: Enroll in Slovak language course (A1→B1 level). Needs 400-600 hours of
+  study. Start early - required for permanent residence and citizenship.

@@ -1,0 +1,12 @@
+step_id: attend_citizenship_interview
+title: Attend Citizenship Interview
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- citizenship_application_submitted
+outputs:
+- citizenship_interview_completed
+description: 'Attend interview at Ministry of Interior. Questions about: Slovak language,
+  history, constitution, motivation for citizenship. Conducted in Slovak.'

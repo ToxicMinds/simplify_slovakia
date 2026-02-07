@@ -1,0 +1,43 @@
+step_id: gather_financial_proof_documents
+title: Gather Financial Proof Documents
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- legal_basis_for_residence_established
+outputs:
+- financial_proof_gathered
+description: 'Collect documents proving financial stability.
+
+
+  Required:
+
+  - Bank statements (last 3 months, €2,500+ balance)
+
+  - Employment contract showing salary
+
+  - OR proof of self-employment income
+
+  - Proof you can support yourself (€199.60/month minimum)
+
+
+  If employer guarantees:
+
+  - Letter from employer guaranteeing financial support
+
+  - Employer''s financial statements
+
+
+  Documents must be:
+
+  - Recent (not older than 30 days)
+
+  - In Slovak or English
+
+  - Showing consistent income/funds'
+why_it_matters: 'Foreign Police verifies you won''t be a burden on social system.
+
+  Insufficient financial proof = automatic rejection.
+
+  €2,500 is minimum; more is better.'

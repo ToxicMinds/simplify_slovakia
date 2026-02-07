@@ -1,0 +1,12 @@
+step_id: maintain_continuous_residence
+title: Maintain Continuous Residence
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- permanent_residence_granted
+outputs:
+- continuous_residence_maintained
+description: Live in Slovakia continuously for 8 years total (3 more after permanent
+  residence). Travel <6 months/year. Track all entry/exit dates meticulously.

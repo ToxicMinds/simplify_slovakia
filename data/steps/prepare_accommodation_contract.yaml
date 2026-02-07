@@ -1,0 +1,48 @@
+step_id: prepare_accommodation_contract
+title: Prepare Accommodation Contract
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_accommodation_secured
+outputs:
+- accommodation_contract_ready
+description: 'Prepare proper accommodation contract for residence application.
+
+
+  Requirements:
+
+  - Rental contract minimum 6 months (1 year preferred)
+
+  - OR property ownership documents
+
+  - OR employer-provided housing letter
+
+  - Landlord''s consent for residence registration
+
+  - Landlord''s ID copy
+
+  - Property ownership proof (list vlastníctva)
+
+
+  Contract must show:
+
+  - Your name
+
+  - Exact address
+
+  - Duration (from/to dates)
+
+  - Landlord signature and stamp
+
+
+  Notarization: Recommended but not always required.
+
+
+  Budget: €30 for notarization if needed.'
+why_it_matters: 'Accommodation proof is REQUIRED for residence permit.
+
+  Short-term contracts (<6 months) are rejected.
+
+  Without proper contract, application fails immediately.'

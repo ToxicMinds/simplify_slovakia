@@ -1,0 +1,12 @@
+step_id: keep_entry_stamp_safe
+title: Keep Entry Stamp Safe
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- legal_entry_completed
+outputs:
+- entry_stamp_secured
+description: Take photo of entry stamp in passport. This proves your entry date and
+  starts 90-day countdown. Keep passport secure.

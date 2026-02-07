@@ -1,0 +1,13 @@
+step_id: attend_permanent_residence_interview
+title: Attend Permanent Residence Interview
+country: Slovakia
+applies_to:
+  persona:
+  - long_term_resident_bratislava
+  - seeking_slovak_citizenship
+preconditions:
+- permanent_residence_applied
+outputs:
+- permanent_residence_interview_completed
+description: Attend interview at Foreign Police. May ask questions in Slovak to verify
+  language level. Review all application details beforehand.

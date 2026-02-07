@@ -1,0 +1,37 @@
+step_id: register_foreign_police_tourist
+title: Register with Foreign Police (Tourist)
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- legal_entry_completed
+outputs:
+- foreign_police_registered
+description: 'Register your stay with Foreign Police within 3 working days of arrival.
+
+
+  If staying in hotel/hostel: They register you automatically.
+
+  If staying with friend/Airbnb: You must register yourself.
+
+
+  Bring to Foreign Police:
+
+  - Passport with entry stamp
+
+  - Accommodation proof (booking, invitation letter)
+
+  - Completed registration form
+
+
+  No fee for tourist registration.
+
+
+  Registration confirms your legal presence and accommodation address.'
+why_it_matters: 'Failure to register = fine €100-500.
+
+  Registration is required even for short tourist visits.
+
+  Without it, you cannot proceed with residence conversion if needed.'

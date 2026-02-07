@@ -1,0 +1,29 @@
+step_id: submit_biometrics_photo
+title: Submit Biometric Photo and Fingerprints
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_residence_applied
+outputs:
+- biometrics_submitted
+description: 'Provide biometric data at Foreign Police appointment.
+
+
+  Biometrics include:
+
+  - Fingerprints (all fingers)
+
+  - Digital photo (taken at office)
+
+  - Signature
+
+
+  Also bring 4 physical passport photos (3.5cm x 4.5cm).
+
+
+  This is done during your residence application appointment.'
+why_it_matters: 'Biometrics are mandatory for residence card production.
+
+  Without them, no card can be issued.'

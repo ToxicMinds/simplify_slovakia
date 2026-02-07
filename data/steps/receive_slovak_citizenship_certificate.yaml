@@ -1,0 +1,12 @@
+step_id: receive_slovak_citizenship_certificate
+title: Receive Slovak Citizenship Certificate
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- previous_citizenship_renounced
+outputs:
+- slovak_citizenship_certificate_received
+description: Receive official Slovak citizenship certificate from Ministry. This is
+  proof of citizenship. Now you can apply for Slovak passport.

@@ -1,0 +1,12 @@
+step_id: submit_citizenship_application
+title: Submit Citizenship Application
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- citizenship_application_prepared
+outputs:
+- citizenship_application_submitted
+description: 'Submit application to Ministry of Interior. Fee: €200. Application reviewed
+  for completeness. May take 3-6 months for initial review.'

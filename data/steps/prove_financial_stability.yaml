@@ -1,0 +1,13 @@
+step_id: prove_financial_stability
+title: Prove Financial Stability
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- continuous_residence_maintained
+outputs:
+- financial_stability_proven
+description: 'Demonstrate stable income throughout residence period. Collect: tax
+  returns (8 years), employment contracts, bank statements. Shows you won''t burden
+  social system.'

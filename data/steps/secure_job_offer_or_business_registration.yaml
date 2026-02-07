@@ -1,0 +1,40 @@
+step_id: secure_job_offer_or_business_registration
+title: Secure Job Offer or Register Business
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_accommodation_secured
+outputs:
+- legal_basis_for_residence_established
+description: 'Obtain legal basis for residence permit while in Slovakia.
+
+
+  Option 1 - Employment:
+
+  - Get job offer from Slovak company
+
+  - Employer provides employment contract
+
+  - Contract must show: position, salary, start date, duration
+
+
+  Option 2 - Business:
+
+  - Register as self-employed (živnosť)
+
+  - Requires business plan and €2,500+ in bank
+
+  - Apply at Trade Licensing Office
+
+
+  Timeline: 1-2 weeks for employment, 1 week for business registration.
+
+
+  CRITICAL: Must do this within first 30 days of 90-day stay.'
+why_it_matters: 'You cannot get residence permit without legal purpose.
+
+  Employment or business is the foundation of your residence application.
+
+  Starting this late (day 70+) won''t leave time to complete residence process.'

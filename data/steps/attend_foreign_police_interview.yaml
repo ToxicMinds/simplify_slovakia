@@ -1,0 +1,39 @@
+step_id: attend_foreign_police_interview
+title: Attend Foreign Police Interview
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_residence_applied
+outputs:
+- interview_completed
+description: 'Attend interview at Foreign Police during application processing.
+
+
+  Interview may include:
+
+  - Questions about job and employer
+
+  - Questions about accommodation
+
+  - Verification of documents
+
+  - Questions about intentions (how long staying, etc.)
+
+
+  Answer honestly and consistently with application documents.
+
+
+  Bring:
+
+  - Passport
+
+  - Application receipt
+
+  - Any additional documents they request'
+why_it_matters: 'Interview verifies information in application.
+
+  Inconsistent answers = rejection.
+
+  This determines approval or denial.'

@@ -1,0 +1,53 @@
+step_id: enter_slovakia_tourist
+title: Enter Slovakia as Tourist
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_visitor_no_immigration_intent
+preconditions:
+  - visa_free_eligibility_confirmed
+outputs:
+  - legal_entry_completed
+description: |
+  Enter Slovakia as a tourist using visa-free entry.
+  
+  At border control:
+  - Show valid passport (6+ months remaining)
+  - Receive entry stamp (keep safe!)
+  - May be asked for:
+    * Hotel booking or invitation letter
+    * Return ticket
+    * Proof of funds (€50-100/day)
+    * Travel insurance certificate
+  
+  Answer border questions honestly:
+  - Purpose: "Tourism" / "Visiting family" / "Sightseeing"
+  - Duration: "7 days" / "2 weeks" (whatever your actual plan)
+  - Where staying: Name of hotel or friend's address
+  
+  Do NOT mention:
+  - Work or employment
+  - Plans to stay long-term
+  - Any immigration intentions
+  
+  Entry stamp starts your 90-day countdown.
+  Take photo of stamp immediately.
+why_it_matters: |
+  Entry stamp is proof of legal entry and starts 90-day clock.
+  
+  Overstaying leads to:
+  - Fines €100-500
+  - Deportation
+  - Ban from Schengen (1-5 years)
+  
+  Keep passport safe - without entry stamp, you can't prove when you entered.
+official_links:
+  - authority: Ministry of Interior - Tourist Entry
+    url: https://www.minv.sk/?vstup-cudzinca
+failure_modes:
+  - what_breaks: Mentioning work at border
+    consequence: Entry denied, sent back to origin
+  - what_breaks: No return ticket or insufficient funds
+    consequence: Entry denied or detained for questioning
+  - what_breaks: Overstaying 90 days
+    consequence: Fine, deportation, ban from Schengen

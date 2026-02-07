@@ -1,0 +1,31 @@
+step_id: provide_additional_documents_if_requested
+title: Provide Additional Documents if Requested
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_residence_applied
+outputs:
+- additional_documents_submitted
+description: 'Submit any additional documents requested by Foreign Police during processing.
+
+
+  Common requests:
+
+  - Updated employment contract
+
+  - Fresh bank statements
+
+  - Updated accommodation proof
+
+  - Additional employer documentation
+
+
+  Respond within deadline given (usually 15 days).
+
+
+  Submit at Foreign Police office or by registered mail.'
+why_it_matters: 'Failure to provide requested documents = automatic rejection.
+
+  Deadline is strict - missing it voids application.'

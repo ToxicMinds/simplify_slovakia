@@ -1,0 +1,12 @@
+step_id: pass_integration_exam
+title: Pass Integration Exam
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- citizenship_interview_completed
+outputs:
+- integration_exam_passed
+description: Pass written exam on Slovak history, constitution, culture. Multiple
+  choice, 80% pass rate required. Tests knowledge studied in preparation phase.

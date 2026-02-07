@@ -1,0 +1,12 @@
+step_id: renew_temporary_residence_year4
+title: Renew Temporary Residence (Year 4)
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- temporary_residence_year3_granted
+outputs:
+- temporary_residence_year4_granted
+description: Renew residence permit for fourth year. After this, eligible for permanent
+  residence (5 years total).

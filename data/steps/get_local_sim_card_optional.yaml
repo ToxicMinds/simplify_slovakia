@@ -1,0 +1,12 @@
+step_id: get_local_sim_card_optional
+title: Get Local SIM Card (Optional)
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- legal_entry_completed
+outputs:
+- local_sim_obtained
+description: 'Optional: Get Slovak SIM card for cheaper local calls/data. Available
+  at mobile shops with passport. Cost: €10-20.'
