@@ -19,6 +19,17 @@ persona_id: tourist_visitor_no_immigration_intent
 country: Slovakia
 version: 1.0.0
 
+eligibility:
+  intent: TOURISM
+  nationality: NON_EU
+  current_location: OUTSIDE_SK
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+  max_duration_days: 90
+  requires_immigration_intent: false
+  wants_to_stay: false
+  requires_visa: false
+
 steps:
   # Step 1: Before Arrival (2-4 weeks before)
   - step_id: check_visa_free_eligibility

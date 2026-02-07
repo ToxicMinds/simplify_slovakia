@@ -2,6 +2,15 @@ flow_id: sk_eu_employee_first_entry_bratislava_v1
 persona_id: eu_employee_first_entry_bratislava_single
 country: Slovakia
 version: 1.0.0
+
+eligibility:
+  intent: IMMIGRATION
+  nationality: EU
+  current_location: OUTSIDE_SK
+  purpose: EMPLOYMENT
+  lifecycle_phase: FIRST_ENTRY
+  requires_visa: false
+
 steps:
   - step_id: enter_slovakia_eu
     order: 1

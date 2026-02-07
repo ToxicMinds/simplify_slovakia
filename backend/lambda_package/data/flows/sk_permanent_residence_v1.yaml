@@ -22,6 +22,15 @@ persona_id: long_term_temporary_resident
 country: Slovakia
 version: 1.0.0
 
+eligibility:
+  intent: IMMIGRATION
+  nationality: ANY
+  current_location: IN_SK
+  lifecycle_phase: PERMANENT
+  time_horizon: MEDIUM
+  min_years_residence: 5
+  requires_language: true
+
 steps:
   # Step 1: Verify Eligibility (Day 1-7)
   - step_id: check_eligibility_permanent

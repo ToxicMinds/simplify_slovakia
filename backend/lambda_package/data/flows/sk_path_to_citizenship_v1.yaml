@@ -8,8 +8,7 @@ description: |
   REALISTIC TIMELINE: 8-10 years minimum
   
   Requirements:
-  - 8 years continuous residence (5 years if married to Slovak)flow_id: sk_path_to_citizenship_v1
-
+  - 8 years continuous residence (5 years if married to Slovak)
   - Slovak language B1 level
   - No serious criminal record
   - Stable income/housing
@@ -21,6 +20,16 @@ description: |
 persona_id: seeking_slovak_citizenship
 country: Slovakia
 version: 1.0.0
+
+eligibility:
+  intent: IMMIGRATION
+  nationality: ANY
+  current_location: ANY
+  lifecycle_phase: CITIZENSHIP
+  time_horizon: LONG
+  min_years_residence: 8
+  requires_language: true
+  requires_renunciation: true
 
 steps:
   # Phase 1: Entry and First Residence (Months 0-6)
