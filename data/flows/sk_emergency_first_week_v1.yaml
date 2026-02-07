@@ -2,6 +2,14 @@ flow_id: sk_emergency_first_week_v1
 persona_id: emergency_just_landed
 country: Slovakia
 version: 1.0.0
+
+eligibility:
+  intent: EMERGENCY
+  current_location: IN_SK
+  urgency: EMERGENCY
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+
 steps:
   - step_id: find_temporary_housing
     order: 1

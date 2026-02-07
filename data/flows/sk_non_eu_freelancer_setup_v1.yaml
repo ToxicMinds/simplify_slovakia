@@ -2,6 +2,15 @@ flow_id: sk_non_eu_freelancer_setup_v1
 persona_id: non_eu_freelancer_bratislava
 country: Slovakia
 version: 1.0.0
+
+eligibility:
+  intent: IMMIGRATION
+  nationality: NON_EU
+  current_location: OUTSIDE_SK
+  purpose: BUSINESS
+  lifecycle_phase: FIRST_ENTRY
+  requires_visa: true
+
 steps:
   - step_id: assess_eligibility_freelancer
     order: 1
