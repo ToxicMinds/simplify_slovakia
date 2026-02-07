@@ -1,0 +1,12 @@
+step_id: book_accommodation_tourist
+title: Book Tourist Accommodation
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- visa_free_eligibility_confirmed
+outputs:
+- accommodation_booked
+description: Book hotel, hostel, or Airbnb for your stay. Keep confirmation email/receipt
+  for border control and police registration.

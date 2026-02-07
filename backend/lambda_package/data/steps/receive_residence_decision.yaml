@@ -1,0 +1,44 @@
+step_id: receive_residence_decision
+title: Receive Residence Permit Decision
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- interview_completed
+outputs:
+- residence_decision_received
+description: 'Receive notification of residence permit decision.
+
+
+  Timeline: 60-180 days from application
+
+
+  Notification methods:
+
+  - SMS/email
+
+  - Registered mail
+
+  - Check online (some offices)
+
+
+  If APPROVED:
+
+  - Pick up decision letter at Foreign Police
+
+  - Pay €4.50 for card production
+
+  - Wait 30 days for card
+
+
+  If REJECTED:
+
+  - Receive rejection letter with reasons
+
+  - Can appeal within 15 days
+
+  - Must leave Slovakia if no appeal or appeal fails'
+why_it_matters: 'This determines your legal status in Slovakia.
+
+  Approval = you can stay. Rejection = must leave within 15 days.'

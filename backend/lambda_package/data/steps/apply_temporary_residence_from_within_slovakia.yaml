@@ -1,0 +1,56 @@
+step_id: apply_temporary_residence_from_within_slovakia
+title: Apply for Temporary Residence from Within Slovakia
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- medical_certificate_issued
+- accommodation_contract_ready
+- health_insurance_obtained
+outputs:
+- temporary_residence_applied
+description: 'Submit residence permit application at Foreign Police BEFORE day 90.
+
+
+  This is a special process - different from normal residence application.
+
+
+  Book appointment online: www.minv.sk/?objednanie-sa-na-cp
+
+  Wait time: 2-4 weeks
+
+
+  Required documents:
+
+  - Valid passport
+
+  - All gathered documents (employment, accommodation, medical, insurance, financial)
+
+  - 4 biometric photos
+
+  - Application form
+
+  - Fee: €170
+
+
+  At appointment:
+
+  - Officer reviews everything
+
+  - May ask questions about job/accommodation
+
+  - Biometric data taken
+
+  - Receive receipt
+
+
+  Receipt allows you to stay during processing (60-90 days).
+
+
+  Processing: Usually 90-120 days.'
+why_it_matters: 'This must be done BEFORE your 90 days expire.
+
+  Applying after day 90 = illegal overstay, automatic rejection + deportation.
+
+  Once you apply, you CANNOT leave Slovakia until approved.'

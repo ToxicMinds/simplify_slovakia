@@ -1,0 +1,12 @@
+step_id: renew_temporary_residence_year2
+title: Renew Temporary Residence (Year 2)
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- temporary_residence_year1_completed
+outputs:
+- temporary_residence_year2_granted
+description: Renew residence permit for second year. Apply 90 days before expiration.
+  Same documents as initial application but updated.

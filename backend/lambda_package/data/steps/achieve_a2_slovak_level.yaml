@@ -1,0 +1,12 @@
+step_id: achieve_a2_slovak_level
+title: Achieve A2 Slovak Level
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- language_learning_started
+outputs:
+- a2_level_achieved
+description: Reach A2 (basic) Slovak level through courses and practice. Milestone
+  toward B1 requirement for permanent residence.

@@ -1,0 +1,12 @@
+step_id: ensure_exit_before_day_90
+title: Ensure Exit Before Day 90
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- days_tracked
+outputs:
+- timely_exit_planned
+description: Book departure before day 90. Overstaying = fine + ban. Allow buffer
+  (leave by day 85-88) for safety.

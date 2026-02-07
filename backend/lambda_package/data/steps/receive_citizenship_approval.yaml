@@ -1,0 +1,12 @@
+step_id: receive_citizenship_approval
+title: Receive Citizenship Approval
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- citizenship_decision_pending
+outputs:
+- citizenship_approval_received
+description: Receive approval letter from Ministry of Interior. Congratulations! Now
+  you must renounce previous citizenship within 90 days or approval expires.

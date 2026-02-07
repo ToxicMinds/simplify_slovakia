@@ -1,0 +1,11 @@
+step_id: check_visa_free_eligibility
+title: Check Visa-Free Eligibility
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions: []
+outputs:
+- visa_free_eligibility_confirmed
+description: Verify your nationality qualifies for visa-free entry to Slovakia (Schengen
+  90-day rule). Check official list at Slovak Ministry of Foreign Affairs website.

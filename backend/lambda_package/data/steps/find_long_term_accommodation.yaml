@@ -1,0 +1,12 @@
+step_id: find_long_term_accommodation
+title: Find Long-Term Accommodation
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- legal_entry_completed
+outputs:
+- long_term_accommodation_found
+description: Secure stable accommodation for multi-year stay. Rental contract minimum
+  1 year. Will need to prove continuous address for citizenship.

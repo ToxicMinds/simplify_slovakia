@@ -1,0 +1,12 @@
+step_id: wait_citizenship_decision
+title: Wait for Citizenship Decision
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- integration_exam_passed
+outputs:
+- citizenship_decision_pending
+description: 'Wait for Ministry decision. Timeline: 12-24 months typically. Approval
+  rate ~40%. Decision is discretionary - meeting requirements doesn''t guarantee approval.'

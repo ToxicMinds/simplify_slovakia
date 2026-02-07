@@ -1,0 +1,29 @@
+step_id: pay_residence_application_fee
+title: Pay Residence Application Fee
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- temporary_residence_application_ready
+outputs:
+- application_fee_paid
+description: 'Pay the residence permit application fee.
+
+
+  Fee: €170 (standard temporary residence)
+
+  Payment methods:
+
+  - Cash at Foreign Police
+
+  - Bank transfer (get details from Foreign Police)
+
+
+  Keep receipt - required for application submission.
+
+
+  Fee is NON-REFUNDABLE even if application rejected.'
+why_it_matters: 'Application incomplete without fee payment.
+
+  Keep receipt safe - proof of payment required at appointment.'

@@ -1,0 +1,13 @@
+step_id: study_slovak_history_constitution
+title: Study Slovak History and Constitution
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- permanent_residence_granted
+outputs:
+- slovak_studies_completed
+description: Study Slovak history, constitution, and culture. Required for citizenship
+  integration exam. Covers major historical events, government structure, national
+  symbols.

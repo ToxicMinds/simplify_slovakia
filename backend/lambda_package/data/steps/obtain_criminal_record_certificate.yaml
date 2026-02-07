@@ -1,0 +1,12 @@
+step_id: obtain_criminal_record_certificate
+title: Obtain Criminal Record Certificate
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- financial_stability_proven
+outputs:
+- criminal_record_certificate_obtained
+description: Get criminal record certificates from Slovakia and all countries lived
+  in 6+ months. Must be clean - even minor offenses can disqualify.

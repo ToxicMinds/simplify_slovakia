@@ -1,0 +1,49 @@
+step_id: obtain_health_insurance_slovakia
+title: Obtain Health Insurance Valid in Slovakia
+country: Slovakia
+applies_to:
+  persona:
+  - P7_tourist_90day_visitor
+preconditions:
+- legal_basis_for_residence_established
+outputs:
+- health_insurance_obtained
+description: 'Get health insurance valid in Slovakia for residence application.
+
+
+  Options:
+
+  1. Slovak health insurance company (if employer provides)
+
+  2. International insurance with Slovakia coverage
+
+  3. Travel insurance with €30,000+ coverage (temporary)
+
+
+  Main Slovak insurers:
+
+  - VšZP (Všeobecná zdravotná poisťovňa)
+
+  - Dôvera
+
+  - Union
+
+
+  Cost: €50-100/month
+
+
+  Required documents:
+
+  - Passport
+
+  - Proof of address
+
+  - Employment contract or business registration
+
+
+  Processing: Immediate enrollment, card in 2 weeks.'
+why_it_matters: 'Health insurance is MANDATORY for residence permit.
+
+  Without it, application automatically rejected.
+
+  Must be active from day 1 of residence application.'

@@ -1,0 +1,11 @@
+step_id: prepare_proof_of_funds_tourist
+title: Prepare Proof of Funds (Tourist)
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions: []
+outputs:
+- proof_of_funds_ready
+description: 'Prepare proof you can support yourself: bank statement showing €2,000+,
+  credit card, or cash. May be requested at border.'

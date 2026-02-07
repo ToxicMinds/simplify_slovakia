@@ -1,0 +1,11 @@
+step_id: get_travel_insurance
+title: Get Travel Insurance
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions: []
+outputs:
+- travel_insurance_obtained
+description: Purchase travel insurance with minimum €30,000 medical coverage for Schengen
+  area. Required for border entry.

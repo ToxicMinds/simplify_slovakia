@@ -1,0 +1,12 @@
+step_id: get_exit_stamp
+title: Get Exit Stamp
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- timely_exit_planned
+outputs:
+- exit_stamp_obtained
+description: Ensure you get exit stamp when leaving Schengen. Proves you left on time.
+  Take photo of exit stamp.

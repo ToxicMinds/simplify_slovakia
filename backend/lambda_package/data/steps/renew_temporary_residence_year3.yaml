@@ -1,0 +1,12 @@
+step_id: renew_temporary_residence_year3
+title: Renew Temporary Residence (Year 3)
+country: Slovakia
+applies_to:
+  persona:
+  - seeking_slovak_citizenship
+preconditions:
+- temporary_residence_year2_granted
+outputs:
+- temporary_residence_year3_granted
+description: Renew residence permit for third year. Maintain continuous residence
+  - gaps reset citizenship clock.

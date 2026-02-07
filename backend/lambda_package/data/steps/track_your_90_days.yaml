@@ -1,0 +1,12 @@
+step_id: track_your_90_days
+title: Track Your 90 Days
+country: Slovakia
+applies_to:
+  persona:
+  - tourist_visitor_no_immigration_intent
+preconditions:
+- legal_entry_completed
+outputs:
+- days_tracked
+description: Mark your entry date and calculate day 90. Set phone reminders for day
+  60 (if considering residence) and day 85 (last chance to leave).

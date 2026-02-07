@@ -1,0 +1,54 @@
+step_id: enter_slovakia_visa_free
+title: Enter Slovakia Visa-Free (90-Day Tourist Entry)
+country: Slovakia
+applies_to:
+  persona:
+    - P7_tourist_90day_visitor
+    - tourist_visitor_no_immigration_intent
+preconditions:
+  - visa_free_eligibility_verified
+outputs:
+  - legal_entry_completed
+description: |
+  Enter Slovakia as a tourist using visa-free entry (90-day Schengen rule).
+  Available to citizens of India, Brazil, Israel, UAE, and other visa-free countries.
+  
+  At border control, you will:
+  - Show valid passport (6+ months validity)
+  - Receive entry stamp (KEEP THIS SAFE!)
+  - May be asked for:
+    * Proof of accommodation (hotel booking, invitation letter)
+    * Return ticket
+    * Proof of funds (€50-100/day or €2,000+ in bank)
+    * Travel insurance certificate
+  
+  CRITICAL: The entry stamp date starts your 90-day countdown.
+  Take a photo of the stamp immediately.
+  
+  You are entering as a TOURIST only. Do not mention:
+  - Work or employment
+  - Plans to stay long-term
+  - Immigration intentions
+  
+  Correct answers at border:
+  - "Tourism" / "Visiting family" / "Sightseeing"
+  - "Business meeting" (if true)
+  - Show hotel booking or invitation letter
+why_it_matters: |
+  This entry stamp is proof of your legal entry date and starts your 90-day clock.
+  
+  If you plan to convert to temporary residence, you MUST do so within 90 days.
+  Overstaying = illegal residence, fines €100-1,000, deportation, 1-5 year ban.
+  
+  The stamp is your most important document - without it, you cannot prove when
+  you entered and may face complications with residence applications.
+official_links:
+  - authority: Ministry of Interior - Schengen Entry Rules
+    url: https://www.minv.sk/?schengen-borders
+failure_modes:
+  - what_breaks: Mentioning work or immigration intentions at border
+    consequence: Entry denied, sent back to origin country
+  - what_breaks: Insufficient funds or no return ticket
+    consequence: Entry denied or detained for questioning
+  - what_breaks: Losing passport with entry stamp
+    consequence: Cannot prove legal entry, complications with residence application
