@@ -1,209 +1,138 @@
 step_id: complete_medical_examination
 title: Complete Medical Examination for Residence Permit
-jurisdiction: Slovakia
 applies_to:
   persona:
-    - non_eu_employee_slovakia
-    - non_eu_business_slovakia  
-    - non_eu_family_slovakia
+  - non_eu_employee_slovakia
+  - non_eu_business_slovakia
+  - non_eu_family_slovakia
 preconditions:
-  - national_visa_granted
+- national_visa_granted
 outputs:
-  - medical_certificate_issued
-description: |
-  Undergo mandatory medical examination at an authorized Slovak medical facility.
-  
-  REQUIRED FOR:
-  - All temporary residence permits (work, business, family)
-  - Permanent residence permits
-  - Long-term visa Type D (in some cases)
-  
-  WHERE TO GO - AUTHORIZED FACILITIES:
-  
-  **Bratislava:**
-  - Poliklinika Ružinov
-    Address: Ružinovská 10, 821 08 Bratislava
-    Phone: +421 2 4826 2111
-    Hours: Mon-Fri 7:00-15:00
-    
-  - Fakultná nemocnica s poliklinikou F.D. Roosevelta (FNsP)
-    Address: Nábrežie L. Svobodu 1, 974 01 Banská Bystrica
-    Phone: +421 48 441 1111
-    Hours: Mon-Fri 7:00-14:00
-    
-  - Lekárske služby FirstMed
-    Address: Hattalova 12/A, 831 03 Bratislava
-    Phone: +421 2 5441 2000
-    Hours: Mon-Fri 8:00-18:00, Sat 8:00-12:00
-    English-speaking staff available
-  
-  **Košice:**
-  - Poliklinika Železničná
-    Address: Železničná 1, 040 01 Košice
-    Phone: +421 55 622 4111
-    Hours: Mon-Fri 7:00-15:00
-  
-  WHAT TESTS YOU'LL GET:
-  
-  1. General physical examination
-     - Height, weight, blood pressure
-     - Cardiovascular examination
-     - Respiratory examination
-     - General health assessment
-  
-  2. Chest X-ray (mandatory)
-     - Tuberculosis screening
-     - Lung health check
-     - Results available same day or next day
-  
-  3. Blood tests (mandatory)
-     - HIV test
-     - Hepatitis B and C
-     - Syphilis (VDRL/RPR)
-     - General blood count
-     - Results: 2-5 working days
-  
-  4. Urine test
-     - General health indicators
-     - Drug screening (in some cases)
-  
-  5. Doctor consultation
-     - Review of medical history
-     - Discussion of any chronic conditions
-     - Confirmation of fitness for residence
-  
-  COST:
-  - Total: €80-150 (varies by facility)
-  - Breakdown:
-    * Doctor consultation: €30-50
-    * Chest X-ray: €25-40
-    * Blood tests: €40-70
-    * Certificate issuance: €5-10
-  
-  WHAT TO BRING:
-  - Valid passport with visa
-  - Previous medical records (if available)
-  - List of current medications
-  - Cash or card for payment
-  - Passport photo (some facilities require)
-  
-  APPOINTMENT PROCESS:
-  
-  1. Call ahead to book appointment (recommended)
-     - Walk-ins accepted but may wait 2-3 hours
-     - Specify: "Immigration medical examination" (lekárske vyšetrenie na pobytové povolenie)
-  
-  2. Arrive fasting (8-12 hours)
-     - Required for blood tests
-     - You can drink water
-     - Bring snack for after tests
-  
-  3. Full examination takes 1-2 hours
-     - All tests done same day
-     - Some results immediate, blood tests take 2-5 days
-  
-  4. Certificate collection:
-     - Most facilities: pick up in 3-7 working days
-     - Can be sent by email (PDF) or post
-     - Original required for Foreign Police
-  
-  CERTIFICATE DETAILS:
-  
-  The medical certificate (zdravotné osvedčenie) includes:
-  - Your personal data
-  - List of tests performed with results
-  - Doctor's conclusion: "FIT FOR RESIDENCE" or not
-  - Doctor's signature and clinic stamp
-  - Validity: 3 months from issue date
-  
-  VALIDITY:
-  - Certificate valid for 3 months only
-  - Must submit to Foreign Police within 3 months
-  - If expired, must repeat entire examination
-  - Plan timing: get medical 1-2 months before residence application
-  
-  LANGUAGE:
-  - Certificate issued in Slovak
-  - Some clinics offer English translation (+€20-30)
-  - Official translation not usually required
-  - Foreign Police accepts Slovak certificates
-  
-  WHAT IF TESTS SHOW ISSUES:
-  
-  Conditions that MAY affect approval:
-  - Active tuberculosis (automatic denial until treated)
-  - Untreated HIV (usually okay if on treatment)
-  - Hepatitis B/C (usually okay, just noted)
-  - Drug use indicators (may require explanation)
-  
-  Most conditions are acceptable if:
-  - You're under medical treatment
-  - Condition is controlled/stable
-  - No public health risk
-  
-  SPECIAL CASES:
-  
-  Pregnant women:
-  - Chest X-ray can be postponed (with doctor's note)
-  - Other tests proceed normally
-  - May need additional documentation
-  
-  Children under 18:
-  - Same tests required
-  - Parent/guardian must be present
-  - Some facilities have pediatric specialists
-  
-  Chronic conditions:
-  - Bring medical records and prescriptions
-  - May need letter from your home country doctor
-  - Translation to Slovak or English helpful
-why_it_matters: |
-  Medical examination is MANDATORY - you cannot get residence permit without it.
-  
+- medical_certificate_issued
+description: "Undergo mandatory medical examination at an authorized Slovak medical\
+  \ facility.\n\nREQUIRED FOR:\n- All temporary residence permits (work, business,\
+  \ family)\n- Permanent residence permits\n- Long-term visa Type D (in some cases)\n\
+  \nWHERE TO GO - AUTHORIZED FACILITIES:\n\n**Bratislava:**\n- Poliklinika Ružinov\n\
+  \  Address: Ružinovská 10, 821 08 Bratislava\n  Phone: +421 2 4826 2111\n  Hours:\
+  \ Mon-Fri 7:00-15:00\n  \n- Fakultná nemocnica s poliklinikou F.D. Roosevelta (FNsP)\n\
+  \  Address: Nábrežie L. Svobodu 1, 974 01 Banská Bystrica\n  Phone: +421 48 441\
+  \ 1111\n  Hours: Mon-Fri 7:00-14:00\n  \n- Lekárske služby FirstMed\n  Address:\
+  \ Hattalova 12/A, 831 03 Bratislava\n  Phone: +421 2 5441 2000\n  Hours: Mon-Fri\
+  \ 8:00-18:00, Sat 8:00-12:00\n  English-speaking staff available\n\n**Košice:**\n\
+  - Poliklinika Železničná\n  Address: Železničná 1, 040 01 Košice\n  Phone: +421\
+  \ 55 622 4111\n  Hours: Mon-Fri 7:00-15:00\n\nWHAT TESTS YOU'LL GET:\n\n1. General\
+  \ physical examination\n   - Height, weight, blood pressure\n   - Cardiovascular\
+  \ examination\n   - Respiratory examination\n   - General health assessment\n\n\
+  2. Chest X-ray (mandatory)\n   - Tuberculosis screening\n   - Lung health check\n\
+  \   - Results available same day or next day\n\n3. Blood tests (mandatory)\n   -\
+  \ HIV test\n   - Hepatitis B and C\n   - Syphilis (VDRL/RPR)\n   - General blood\
+  \ count\n   - Results: 2-5 working days\n\n4. Urine test\n   - General health indicators\n\
+  \   - Drug screening (in some cases)\n\n5. Doctor consultation\n   - Review of medical\
+  \ history\n   - Discussion of any chronic conditions\n   - Confirmation of fitness\
+  \ for residence\n\nCOST:\n- Total: €80-150 (varies by facility)\n- Breakdown:\n\
+  \  * Doctor consultation: €30-50\n  * Chest X-ray: €25-40\n  * Blood tests: €40-70\n\
+  \  * Certificate issuance: €5-10\n\nWHAT TO BRING:\n- Valid passport with visa\n\
+  - Previous medical records (if available)\n- List of current medications\n- Cash\
+  \ or card for payment\n- Passport photo (some facilities require)\n\nAPPOINTMENT\
+  \ PROCESS:\n\n1. Call ahead to book appointment (recommended)\n   - Walk-ins accepted\
+  \ but may wait 2-3 hours\n   - Specify: \"Immigration medical examination\" (lekárske\
+  \ vyšetrenie na pobytové povolenie)\n\n2. Arrive fasting (8-12 hours)\n   - Required\
+  \ for blood tests\n   - You can drink water\n   - Bring snack for after tests\n\n\
+  3. Full examination takes 1-2 hours\n   - All tests done same day\n   - Some results\
+  \ immediate, blood tests take 2-5 days\n\n4. Certificate collection:\n   - Most\
+  \ facilities: pick up in 3-7 working days\n   - Can be sent by email (PDF) or post\n\
+  \   - Original required for Foreign Police\n\nCERTIFICATE DETAILS:\n\nThe medical\
+  \ certificate (zdravotné osvedčenie) includes:\n- Your personal data\n- List of\
+  \ tests performed with results\n- Doctor's conclusion: \"FIT FOR RESIDENCE\" or\
+  \ not\n- Doctor's signature and clinic stamp\n- Validity: 3 months from issue date\n\
+  \nVALIDITY:\n- Certificate valid for 3 months only\n- Must submit to Foreign Police\
+  \ within 3 months\n- If expired, must repeat entire examination\n- Plan timing:\
+  \ get medical 1-2 months before residence application\n\nLANGUAGE:\n- Certificate\
+  \ issued in Slovak\n- Some clinics offer English translation (+€20-30)\n- Official\
+  \ translation not usually required\n- Foreign Police accepts Slovak certificates\n\
+  \nWHAT IF TESTS SHOW ISSUES:\n\nConditions that MAY affect approval:\n- Active tuberculosis\
+  \ (automatic denial until treated)\n- Untreated HIV (usually okay if on treatment)\n\
+  - Hepatitis B/C (usually okay, just noted)\n- Drug use indicators (may require explanation)\n\
+  \nMost conditions are acceptable if:\n- You're under medical treatment\n- Condition\
+  \ is controlled/stable\n- No public health risk\n\nSPECIAL CASES:\n\nPregnant women:\n\
+  - Chest X-ray can be postponed (with doctor's note)\n- Other tests proceed normally\n\
+  - May need additional documentation\n\nChildren under 18:\n- Same tests required\n\
+  - Parent/guardian must be present\n- Some facilities have pediatric specialists\n\
+  \nChronic conditions:\n- Bring medical records and prescriptions\n- May need letter\
+  \ from your home country doctor\n- Translation to Slovak or English helpful\n"
+why_it_matters: 'Medical examination is MANDATORY - you cannot get residence permit
+  without it.
+
+
   **Consequences of skipping:**
+
   - Residence permit application rejected immediately
+
   - No refund of application fees (€170+)
+
   - Must restart entire process
+
   - Potential delays of 2-3 months
-  
+
+
   **Consequences of expired certificate:**
+
   - Foreign Police will not accept
+
   - Must redo entire examination (€80-150 again)
+
   - Application timeline delayed
-  
+
+
   **Public health requirements:**
+
   - Slovakia must protect public health
+
   - Tuberculosis screening is especially strict
+
   - Active TB = automatic denial (must complete treatment first, usually 6-12 months)
-  
+
+
   **Your health matters:**
+
   - This catches serious conditions early
+
   - Free screening worth €100+ in most countries
-  - Ensures you're healthy for your new life in Slovakia
-  
+
+  - Ensures you''re healthy for your new life in Slovakia
+
+
   **Timing is critical:**
+
   - Certificate valid only 3 months
+
   - If your residence application is delayed, certificate may expire
+
   - Plan to get medical 1-2 months before applying
+
   - Some people get medical AFTER collecting all other documents
+
+  '
 official_links:
-  - authority: Ministry of Health - Authorized Medical Facilities
-    url: https://www.health.gov.sk/
-  - authority: Poliklinika Ružinov Bratislava
-    url: http://www.poliklinika-ruzinov.sk/
-  - authority: FirstMed Slovakia (English-speaking)
-    url: https://www.firstmedcenters.com/slovakia/
+- authority: Ministry of Health - Authorized Medical Facilities
+  url: https://www.health.gov.sk/
+- authority: Poliklinika Ružinov Bratislava
+  url: http://www.poliklinika-ruzinov.sk/
+- authority: FirstMed Slovakia (English-speaking)
+  url: https://www.firstmedcenters.com/slovakia/
 failure_modes:
-  - what_breaks: Getting medical exam at non-authorized facility
-    consequence: Certificate not accepted by Foreign Police, must redo at authorized facility (€80-150 wasted)
-  - what_breaks: Submitting expired medical certificate (over 3 months old)
-    consequence: Application rejected, must redo entire medical exam
-  - what_breaks: Active tuberculosis found on chest X-ray
-    consequence: Residence permit denied until TB treatment completed (6-12 months delay), must leave Slovakia during treatment
-  - what_breaks: Failing to bring certificate to Foreign Police appointment
-    consequence: Application rejected, appointment rescheduled (2-4 week delay)
-  - what_breaks: Getting medical too early (4-5 months before application)
-    consequence: Certificate expires before you submit application, must redo exam
-  - what_breaks: Not fasting before blood tests
-    consequence: Test results invalid, must return for new blood draw (+€40-70)
-order: 8
+- what_breaks: Getting medical exam at non-authorized facility
+  consequence: Certificate not accepted by Foreign Police, must redo at authorized
+    facility (€80-150 wasted)
+- what_breaks: Submitting expired medical certificate (over 3 months old)
+  consequence: Application rejected, must redo entire medical exam
+- what_breaks: Active tuberculosis found on chest X-ray
+  consequence: Residence permit denied until TB treatment completed (6-12 months delay),
+    must leave Slovakia during treatment
+- what_breaks: Failing to bring certificate to Foreign Police appointment
+  consequence: Application rejected, appointment rescheduled (2-4 week delay)
+- what_breaks: Getting medical too early (4-5 months before application)
+  consequence: Certificate expires before you submit application, must redo exam
+- what_breaks: Not fasting before blood tests
+  consequence: Test results invalid, must return for new blood draw (+€40-70)
+country: Slovakia

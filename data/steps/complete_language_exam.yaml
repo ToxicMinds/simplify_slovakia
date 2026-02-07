@@ -1,256 +1,162 @@
 step_id: complete_language_exam
 title: Pass Slovak Language Exam (B1 Level)
-jurisdiction: Slovakia
 applies_to:
   persona:
-    - applying_permanent_residence
-    - applying_citizenship
-    - non_eu_long_term_resident
+  - applying_permanent_residence
+  - applying_citizenship
+  - non_eu_long_term_resident
 preconditions:
-  - temporary_residence_valid
+- temporary_residence_valid
 outputs:
-  - language_certificate_b1_issued
-description: |
-  Pass the official Slovak language exam at B1 level (Common European Framework).
-  
-  REQUIRED FOR:
-  - Permanent residence permit
-  - Slovak citizenship
-  - EU long-term residence permit
-  
-  EXAM PROVIDERS (OFFICIAL):
-  
-  **Bratislava:**
-  
-  1. Štátna jazyková škola (State Language School)
-     Address: Komenského 6, 813 33 Bratislava
-     Phone: +421 2 5441 4221
-     Website: http://www.sjs.sk
-     Email: sjs@sjs.sk
-     
-     Exam dates: Every 2 months (Feb, Apr, Jun, Aug, Oct, Dec)
-     Registration deadline: 30 days before exam
-     Cost: €100
-     Results: 4-6 weeks
-  
-  2. Univerzita Komenského - Centrum celoživotného vzdelávania
-     Address: Šafárikovo nám. 6, 818 06 Bratislava
-     Phone: +421 2 5939 0234
-     Website: https://fphil.uniba.sk/ccvzv
-     
-     Exam dates: Quarterly (Mar, Jun, Sep, Dec)
-     Cost: €120
-     Results: 3-4 weeks
-  
-  **Košice:**
-  
-  3. Univerzita Pavla Jozefa Šafárika
-     Address: Šrobárova 2, 040 59 Košice
-     Phone: +421 55 234 7111
-     Website: https://www.upjs.sk
-     
-     Exam dates: Semi-annual (May, November)
-     Cost: €100
-     Results: 5-6 weeks
-  
-  EXAM FORMAT:
-  
-  The B1 exam has 4 parts (3-4 hours total):
-  
-  1. **Reading Comprehension** (60 minutes)
-     - Read 3-4 texts (news articles, notices, instructions)
-     - Answer 25 multiple choice questions
-     - Pass threshold: 60% (15/25 correct)
-  
-  2. **Listening Comprehension** (40 minutes)
-     - Listen to 4-5 audio clips (conversations, announcements, interviews)
-     - Answer 20 questions
-     - Played twice
-     - Pass threshold: 60% (12/20 correct)
-  
-  3. **Writing** (60 minutes)
-     - Task 1: Write a formal letter (150-180 words)
-       Example: "Write to the foreign police explaining a delay in your application"
-     - Task 2: Write a personal message or description (120-150 words)
-       Example: "Describe your daily routine in Slovakia"
-     - Graded on: grammar, vocabulary, coherence, task completion
-     - Pass threshold: 60%
-  
-  4. **Speaking** (15 minutes)
-     - Part 1: Introduction and simple questions (3 min)
-     - Part 2: Describe a picture or situation (4 min)
-     - Part 3: Role-play conversation (5 min)
-     - Part 4: Express opinion on a topic (3 min)
-     - Pass threshold: 60%
-  
-  OVERALL PASSING:
-  - Must pass ALL 4 parts (each ≥60%)
-  - Overall average ≥65%
-  - If you fail one part, you can retake just that part within 6 months
-  
-  PREPARATION:
-  
-  **Recommended study time:**
-  - No Slovak: 400-600 hours (12-18 months intensive)
-  - Basic Slovak (A2): 200-300 hours (6-9 months)
-  - Good Slovak (B1 unofficial): 80-120 hours (2-3 months review)
-  
-  **Preparation courses:**
-  
-  1. **Štátna jazyková škola - B1 Prep Course**
-     Duration: 6 months (2x per week, 90 min)
-     Cost: €480
-     Small groups (8-12 people)
-     Includes mock exams
-  
-  2. **Online: SlovakForYou.com**
-     Self-paced B1 course
-     Cost: €120 (lifetime access)
-     Video lessons + exercises
-     Mock exams included
-  
-  3. **Private tutors** (via GoStudent, SuperProf)
-     Cost: €25-40/hour
-     Recommended: 40-60 hours for B1 prep
-  
-  **Free resources:**
-  - Slovak Duolingo (basic vocabulary)
-  - YouTube: "Learn Slovak with Zuzana"
-  - Slovak TV with subtitles (RTVS)
-  - Language exchange meetups in Bratislava (free)
-  
-  EXAM REGISTRATION:
-  
-  1. Choose exam date and location
-  2. Register online or in person (30 days before exam)
-  3. Pay exam fee (€100-120)
-  4. Receive confirmation email with:
-     - Exam date, time, location
-     - What to bring (ID, pens)
-     - Sample exam format
-  
-  5. Day of exam:
-     - Arrive 30 min early
-     - Bring valid ID (passport)
-     - No dictionaries allowed
-     - No phones/electronics
-  
-  RESULTS:
-  
-  - Notification: 3-6 weeks after exam
-  - Sent by email and post
-  - Certificate (original): Pick up in person or request by post (+€10)
-  
-  Certificate includes:
-  - Your name
-  - Exam date
-  - Level achieved: B1
-  - Scores for each part
-  - Valid indefinitely (but Foreign Police may require recent - within 1 year)
-  
-  CERTIFICATE VALIDITY:
-  
-  For official purposes:
-  - Permanent residence: Certificate must be < 1 year old when applying
-  - Citizenship: Certificate must be < 2 years old
-  
-  If expired: Must retake entire exam
-  
-  EXEMPTIONS:
-  
-  You do NOT need this exam if:
-  - You completed Slovak high school or university (degree is proof)
-  - You are over 65 years old
-  - You have documented health condition preventing language learning
-  - You are a Slovak speaker from Slovakia (ethnic Slovak from another country)
-  
-  To claim exemption, provide:
-  - University diploma (with apostille if from abroad)
-  - Medical certificate from neurologist/psychiatrist
-  - Birth certificate showing Slovak ancestry
-  
-  COMMON MISTAKES:
-  
-  ❌ Taking exam at non-accredited school → Certificate not accepted
-  ❌ Waiting until last minute → No slots available
-  ❌ Not preparing adequately → Fail and must wait 2-3 months to retake
-  ❌ Thinking A2 is enough → It's not, must be B1
-  ❌ Only studying grammar → Exam tests practical communication
-  
-  TIPS:
-  
-  ✓ Register early (exams fill up fast, especially in Bratislava)
-  ✓ Take preparation course (significantly increases pass rate)
-  ✓ Practice speaking with natives (most people fail the speaking part)
-  ✓ Do mock exams (available from exam centers)
-  ✓ If you fail, focus on the weakest part and retake quickly
-  
-  REALISTIC TIMELINE:
-  
-  From zero Slovak to B1 exam pass:
-  - Intensive study (20 hrs/week): 12 months
-  - Regular study (10 hrs/week): 18-24 months
-  - Casual study (5 hrs/week): 3-4 years
-  
-  Most people underestimate this - plan accordingly!
+- language_certificate_b1_issued
+description: "Pass the official Slovak language exam at B1 level (Common European\
+  \ Framework).\n\nREQUIRED FOR:\n- Permanent residence permit\n- Slovak citizenship\n\
+  - EU long-term residence permit\n\nEXAM PROVIDERS (OFFICIAL):\n\n**Bratislava:**\n\
+  \n1. Štátna jazyková škola (State Language School)\n   Address: Komenského 6, 813\
+  \ 33 Bratislava\n   Phone: +421 2 5441 4221\n   Website: http://www.sjs.sk\n   Email:\
+  \ sjs@sjs.sk\n   \n   Exam dates: Every 2 months (Feb, Apr, Jun, Aug, Oct, Dec)\n\
+  \   Registration deadline: 30 days before exam\n   Cost: €100\n   Results: 4-6 weeks\n\
+  \n2. Univerzita Komenského - Centrum celoživotného vzdelávania\n   Address: Šafárikovo\
+  \ nám. 6, 818 06 Bratislava\n   Phone: +421 2 5939 0234\n   Website: https://fphil.uniba.sk/ccvzv\n\
+  \   \n   Exam dates: Quarterly (Mar, Jun, Sep, Dec)\n   Cost: €120\n   Results:\
+  \ 3-4 weeks\n\n**Košice:**\n\n3. Univerzita Pavla Jozefa Šafárika\n   Address: Šrobárova\
+  \ 2, 040 59 Košice\n   Phone: +421 55 234 7111\n   Website: https://www.upjs.sk\n\
+  \   \n   Exam dates: Semi-annual (May, November)\n   Cost: €100\n   Results: 5-6\
+  \ weeks\n\nEXAM FORMAT:\n\nThe B1 exam has 4 parts (3-4 hours total):\n\n1. **Reading\
+  \ Comprehension** (60 minutes)\n   - Read 3-4 texts (news articles, notices, instructions)\n\
+  \   - Answer 25 multiple choice questions\n   - Pass threshold: 60% (15/25 correct)\n\
+  \n2. **Listening Comprehension** (40 minutes)\n   - Listen to 4-5 audio clips (conversations,\
+  \ announcements, interviews)\n   - Answer 20 questions\n   - Played twice\n   -\
+  \ Pass threshold: 60% (12/20 correct)\n\n3. **Writing** (60 minutes)\n   - Task\
+  \ 1: Write a formal letter (150-180 words)\n     Example: \"Write to the foreign\
+  \ police explaining a delay in your application\"\n   - Task 2: Write a personal\
+  \ message or description (120-150 words)\n     Example: \"Describe your daily routine\
+  \ in Slovakia\"\n   - Graded on: grammar, vocabulary, coherence, task completion\n\
+  \   - Pass threshold: 60%\n\n4. **Speaking** (15 minutes)\n   - Part 1: Introduction\
+  \ and simple questions (3 min)\n   - Part 2: Describe a picture or situation (4\
+  \ min)\n   - Part 3: Role-play conversation (5 min)\n   - Part 4: Express opinion\
+  \ on a topic (3 min)\n   - Pass threshold: 60%\n\nOVERALL PASSING:\n- Must pass\
+  \ ALL 4 parts (each ≥60%)\n- Overall average ≥65%\n- If you fail one part, you can\
+  \ retake just that part within 6 months\n\nPREPARATION:\n\n**Recommended study time:**\n\
+  - No Slovak: 400-600 hours (12-18 months intensive)\n- Basic Slovak (A2): 200-300\
+  \ hours (6-9 months)\n- Good Slovak (B1 unofficial): 80-120 hours (2-3 months review)\n\
+  \n**Preparation courses:**\n\n1. **Štátna jazyková škola - B1 Prep Course**\n  \
+  \ Duration: 6 months (2x per week, 90 min)\n   Cost: €480\n   Small groups (8-12\
+  \ people)\n   Includes mock exams\n\n2. **Online: SlovakForYou.com**\n   Self-paced\
+  \ B1 course\n   Cost: €120 (lifetime access)\n   Video lessons + exercises\n   Mock\
+  \ exams included\n\n3. **Private tutors** (via GoStudent, SuperProf)\n   Cost: €25-40/hour\n\
+  \   Recommended: 40-60 hours for B1 prep\n\n**Free resources:**\n- Slovak Duolingo\
+  \ (basic vocabulary)\n- YouTube: \"Learn Slovak with Zuzana\"\n- Slovak TV with\
+  \ subtitles (RTVS)\n- Language exchange meetups in Bratislava (free)\n\nEXAM REGISTRATION:\n\
+  \n1. Choose exam date and location\n2. Register online or in person (30 days before\
+  \ exam)\n3. Pay exam fee (€100-120)\n4. Receive confirmation email with:\n   - Exam\
+  \ date, time, location\n   - What to bring (ID, pens)\n   - Sample exam format\n\
+  \n5. Day of exam:\n   - Arrive 30 min early\n   - Bring valid ID (passport)\n  \
+  \ - No dictionaries allowed\n   - No phones/electronics\n\nRESULTS:\n\n- Notification:\
+  \ 3-6 weeks after exam\n- Sent by email and post\n- Certificate (original): Pick\
+  \ up in person or request by post (+€10)\n\nCertificate includes:\n- Your name\n\
+  - Exam date\n- Level achieved: B1\n- Scores for each part\n- Valid indefinitely\
+  \ (but Foreign Police may require recent - within 1 year)\n\nCERTIFICATE VALIDITY:\n\
+  \nFor official purposes:\n- Permanent residence: Certificate must be < 1 year old\
+  \ when applying\n- Citizenship: Certificate must be < 2 years old\n\nIf expired:\
+  \ Must retake entire exam\n\nEXEMPTIONS:\n\nYou do NOT need this exam if:\n- You\
+  \ completed Slovak high school or university (degree is proof)\n- You are over 65\
+  \ years old\n- You have documented health condition preventing language learning\n\
+  - You are a Slovak speaker from Slovakia (ethnic Slovak from another country)\n\n\
+  To claim exemption, provide:\n- University diploma (with apostille if from abroad)\n\
+  - Medical certificate from neurologist/psychiatrist\n- Birth certificate showing\
+  \ Slovak ancestry\n\nCOMMON MISTAKES:\n\n❌ Taking exam at non-accredited school\
+  \ → Certificate not accepted\n❌ Waiting until last minute → No slots available\n\
+  ❌ Not preparing adequately → Fail and must wait 2-3 months to retake\n❌ Thinking\
+  \ A2 is enough → It's not, must be B1\n❌ Only studying grammar → Exam tests practical\
+  \ communication\n\nTIPS:\n\n✓ Register early (exams fill up fast, especially in\
+  \ Bratislava)\n✓ Take preparation course (significantly increases pass rate)\n✓\
+  \ Practice speaking with natives (most people fail the speaking part)\n✓ Do mock\
+  \ exams (available from exam centers)\n✓ If you fail, focus on the weakest part\
+  \ and retake quickly\n\nREALISTIC TIMELINE:\n\nFrom zero Slovak to B1 exam pass:\n\
+  - Intensive study (20 hrs/week): 12 months\n- Regular study (10 hrs/week): 18-24\
+  \ months\n- Casual study (5 hrs/week): 3-4 years\n\nMost people underestimate this\
+  \ - plan accordingly!\n"
+why_it_matters: 'Language requirement is MANDATORY for permanent residence and citizenship.
 
-why_it_matters: |
-  Language requirement is MANDATORY for permanent residence and citizenship.
-  
+
   **Why it exists:**
+
   - Slovakia requires integration
+
   - Proves you can function independently
+
   - Required by Slovak Constitution (Act 40/1993)
+
   - EU requirement for long-term residence
-  
+
+
   **Consequences of not having it:**
+
   - Permanent residence application automatically rejected
+
   - Citizenship application rejected
+
   - Cannot renew temporary residence indefinitely (max 10 years)
+
   - Eventually forced to leave Slovakia
-  
+
+
   **Why B1 specifically:**
+
   - B1 = "independent user" level
+
   - Can handle most daily situations
+
   - Can read official documents with some effort
+
   - Can communicate with authorities
+
   - Aligns with EU integration standards
-  
+
+
   **Reality check:**
+
   This is the HARDEST requirement for most people:
+
   - Medical exam: 1 day, €100
+
   - Police clearance: 1 week
+
   - Language exam: 12-24 months of study, €500-1000+ in prep
-  
-  Most people fail permanent residence/citizenship because they underestimate the language requirement.
-  
-  **Start preparing NOW**, not when you're ready to apply.
 
+
+  Most people fail permanent residence/citizenship because they underestimate the
+  language requirement.
+
+
+  **Start preparing NOW**, not when you''re ready to apply.
+
+  '
 official_links:
-  - authority: Štátna jazyková škola (Official Exam Provider)
-    url: http://www.sjs.sk
-  - authority: Ministry of Education - Language Requirements
-    url: https://www.minedu.sk
-  - authority: Act 404/2011 - Language Requirement (Article 23)
-    url: https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2011/404/
-
+- authority: Štátna jazyková škola (Official Exam Provider)
+  url: http://www.sjs.sk
+- authority: Ministry of Education - Language Requirements
+  url: https://www.minedu.sk
+- authority: Act 404/2011 - Language Requirement (Article 23)
+  url: https://www.slov-lex.sk/pravne-predpisy/SK/ZZ/2011/404/
 failure_modes:
-  - what_breaks: Taking exam at non-accredited school
-    consequence: Certificate not recognized by Foreign Police, must retake at official center (€100 wasted, 2-3 month delay)
-  
-  - what_breaks: Not preparing adequately (self-study only, no course)
-    consequence: 70% fail rate on first attempt, must wait 2-3 months to retake, delays permanent residence by 6+ months
-  
-  - what_breaks: Waiting to start studying until you're "ready to apply"
-    consequence: Realize you need 12-18 months of study, permanent residence application delayed by 1-2 years
-  
-  - what_breaks: Assuming A2 level is enough
-    consequence: Foreign Police rejects application, must achieve B1 and reapply (6-12 month delay)
-  
-  - what_breaks: Certificate expires before you submit application
-    consequence: Must retake entire exam (€100, 4-6 weeks for results), application delayed
-  
-  - what_breaks: Only studying grammar, not speaking practice
-    consequence: Fail speaking portion (60% of people fail here), must retake speaking part
-
-order: 15
+- what_breaks: Taking exam at non-accredited school
+  consequence: Certificate not recognized by Foreign Police, must retake at official
+    center (€100 wasted, 2-3 month delay)
+- what_breaks: Not preparing adequately (self-study only, no course)
+  consequence: 70% fail rate on first attempt, must wait 2-3 months to retake, delays
+    permanent residence by 6+ months
+- what_breaks: Waiting to start studying until you're "ready to apply"
+  consequence: Realize you need 12-18 months of study, permanent residence application
+    delayed by 1-2 years
+- what_breaks: Assuming A2 level is enough
+  consequence: Foreign Police rejects application, must achieve B1 and reapply (6-12
+    month delay)
+- what_breaks: Certificate expires before you submit application
+  consequence: Must retake entire exam (€100, 4-6 weeks for results), application
+    delayed
+- what_breaks: Only studying grammar, not speaking practice
+  consequence: Fail speaking portion (60% of people fail here), must retake speaking
+    part
+country: Slovakia
