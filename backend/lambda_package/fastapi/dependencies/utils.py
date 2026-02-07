@@ -21,7 +21,6 @@ from fastapi._compat import (
     ModelField,
     RequiredParam,
     Undefined,
-    _regenerate_error_with_loc,
     copy_field_info,
     create_body_model,
     evaluate_forwardref,
@@ -513,7 +512,6 @@ def analyze_param(
             type_=use_annotation_from_field_info,
             default=field_info.default,
             alias=alias,
-            required=field_info.default in (RequiredParam, Undefined),
             field_info=field_info,
         )
         if is_path_param:
@@ -524,11 +522,7 @@ def analyze_param(
             assert (
                 is_scalar_field(field)
                 or is_scalar_sequence_field(field)
-                or (
-                    lenient_issubclass(field.type_, BaseModel)
-                    # For Pydantic v1
-                    and getattr(field, "shape", 1) == 1
-                )
+                or lenient_issubclass(field.type_, BaseModel)
             ), f"Query parameter {param_name!r} must be one of the supported types"
 
     return ParamDetails(type_annotation=type_annotation, depends=depends, field=field)
@@ -718,12 +712,7 @@ def _validate_value_with_model_field(
             return None, [get_missing_field_error(loc=loc)]
         else:
             return deepcopy(field.default), []
-    v_, errors_ = field.validate(value, values, loc=loc)
-    if isinstance(errors_, list):
-        new_errors = _regenerate_error_with_loc(errors=errors_, loc_prefix=())
-        return None, new_errors
-    else:
-        return v_, []
+    return field.validate(value, values, loc=loc)
 
 
 def _is_json_field(field: ModelField) -> bool:
@@ -1027,7 +1016,6 @@ def get_body_field(
     final_field = create_model_field(
         name="body",
         type_=BodyModel,
-        required=required,
         alias="body",
         field_info=BodyFieldInfo(**BodyFieldInfo_kwargs),
     )
