@@ -1,5 +1,5 @@
 // frontend/src/data/intakeQuestions.js
-// Intake questions matching flow metadata
+// FIXED VERSION - Removed STUDY option until student flow is created
 
 /**
  * INTAKE QUESTIONS
@@ -96,6 +96,12 @@ export const intakeQuestions = [
     required: true,
     options: [
       {
+        value: 'TOURISM',
+        label: 'Tourism / Short Visit',
+        description: 'Tourist visit up to 90 days',
+        help: 'No work allowed'
+      },
+      {
         value: 'EMPLOYMENT',
         label: 'Employment',
         description: 'I have a job offer from a Slovak company',
@@ -114,18 +120,6 @@ export const intakeQuestions = [
         help: 'Family reunification'
       },
       {
-        value: 'STUDY',
-        label: 'University / Studies',
-        description: 'Student visa for education',
-        help: 'Not fully supported yet - coming soon'
-      },
-      {
-        value: 'TOURISM',
-        label: 'Tourism / Short Visit',
-        description: 'Tourist visit up to 90 days',
-        help: 'No work allowed'
-      },
-      {
         value: 'PERMANENT',
         label: 'Permanent Residence',
         description: 'I\'ve been here 5+ years and want permanent residence',
@@ -137,6 +131,8 @@ export const intakeQuestions = [
         description: 'I want to become a Slovak citizen',
         help: '8+ year commitment'
       }
+      // NOTE: STUDY option removed until sk_student_first_entry flow is created
+      // If you need student guidance, browse all flows and check employment flow as reference
     ]
   },
   
@@ -174,7 +170,7 @@ export const intakeQuestions = [
       }
     ],
     show_when: {
-      visit_purpose: ['EMPLOYMENT', 'BUSINESS', 'FAMILY', 'STUDY', 'TOURISM']
+      visit_purpose: ['EMPLOYMENT', 'BUSINESS', 'FAMILY', 'TOURISM']
     }
   },
   

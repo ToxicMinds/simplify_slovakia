@@ -1,5 +1,5 @@
 // frontend/src/App.jsx
-// FIXED VERSION - Proper integration with IntakeForm
+// FIXED VERSION - Restored manual flow selection and proper "Change Flow"
 
 import React from 'react'
 import { useSession } from './hooks/useSession'
@@ -37,9 +37,14 @@ function App() {
     actions.showFlowSelector()
   }
   
-  // Handle reset
-  const handleReset = () => {
-    if (window.confirm('Are you sure you want to start over? This will clear all progress.')) {
+  // Handle "Change Flow" - show manual selector, not intake
+  const handleChangeFlow = () => {
+    actions.showFlowSelector()
+  }
+  
+  // Handle full reset to intake
+  const handleStartOver = () => {
+    if (window.confirm('Start over from the beginning? This will clear all progress.')) {
       actions.reset()
     }
   }
@@ -85,7 +90,10 @@ function App() {
      ============================ */
   if (showFlowSelector) {
     return (
-      <FlowSelector onFlowSelected={handleFlowSelected} />
+      <FlowSelector 
+        onFlowSelected={handleFlowSelected}
+        onBackToIntake={actions.reset}
+      />
     )
   }
   
@@ -113,7 +121,7 @@ function App() {
           <h2 className="text-2xl font-bold text-red-700 mb-4">Connection Error</h2>
           <p className="text-red-600 mb-4">{error}</p>
           <button
-            onClick={handleReset}
+            onClick={handleChangeFlow}
             className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
           >
             Go Back
@@ -149,8 +157,8 @@ function App() {
                 Print
               </button>
               <button
-                onClick={handleReset}
-                className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200"
+                onClick={handleChangeFlow}
+                className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded hover:bg-indigo-200 font-medium"
               >
                 Change Flow
               </button>

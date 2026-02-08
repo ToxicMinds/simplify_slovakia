@@ -1,5 +1,5 @@
 // frontend/src/components/IntakeForm.jsx
-// FIXED VERSION - Proper integration with intakeQuestions.js
+// FIXED VERSION - Added "Browse all flows" button and better student handling
 
 import { 
   intakeQuestions, 
@@ -139,6 +139,10 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
      RECOMMENDATION SCREEN
      ============================== */
   if (recommendation) {
+    // Check if student was selected but no student flow exists
+    const isStudent = answers.visit_purpose === 'STUDY'
+    const noFlowFound = !recommendation.flow_id || recommendation.confidence === 'NONE'
+    
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <header className="bg-white shadow-md">
@@ -146,7 +150,9 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
             <img src="/simplify-slovakia.svg" alt="Logo" className="h-10 w-auto" />
             <div>
               <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-              <p className="text-gray-600">Here's what we recommend</p>
+              <p className="text-gray-600">
+                {isStudent && noFlowFound ? 'Student flow coming soon' : "Here's what we recommend"}
+              </p>
             </div>
           </div>
         </header>
@@ -166,32 +172,54 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
               </ul>
             </div>
 
-            <div className="border-l-4 border-indigo-600 bg-indigo-50 p-4 mb-6">
-              <h3 className="font-semibold text-indigo-900 mb-2">✨ We recommend:</h3>
-              <p className="text-lg font-bold text-indigo-700">{recommendation.title || 'Immigration Flow'}</p>
-              {recommendation.reason && (
-                <p className="text-sm text-indigo-600 mt-2">{recommendation.reason}</p>
-              )}
-              {recommendation.confidence && (
-                <p className="text-xs text-indigo-500 mt-2">
-                  Confidence: {recommendation.confidence}
-                  {recommendation.score && ` (${recommendation.score}% match)`}
+            {/* Student flow not available message */}
+            {isStudent && noFlowFound && (
+              <div className="border-l-4 border-yellow-600 bg-yellow-50 p-4 mb-6">
+                <h3 className="font-semibold text-yellow-900 mb-2">🎓 Student Flow Coming Soon</h3>
+                <p className="text-sm text-yellow-800 mb-3">
+                  We're working on a dedicated student immigration flow. For now, you can browse all available flows to find the closest match to your situation.
                 </p>
-              )}
-            </div>
+                <p className="text-xs text-yellow-700">
+                  Note: Student visas follow similar processes to employment visas in many ways. Check the employment flow as a reference.
+                </p>
+              </div>
+            )}
+
+            {/* Normal recommendation */}
+            {!noFlowFound && (
+              <div className="border-l-4 border-indigo-600 bg-indigo-50 p-4 mb-6">
+                <h3 className="font-semibold text-indigo-900 mb-2">✨ We recommend:</h3>
+                <p className="text-lg font-bold text-indigo-700">{recommendation.title || 'Immigration Flow'}</p>
+                {recommendation.reason && (
+                  <p className="text-sm text-indigo-600 mt-2">{recommendation.reason}</p>
+                )}
+                {recommendation.confidence && (
+                  <p className="text-xs text-indigo-500 mt-2">
+                    Confidence: {recommendation.confidence}
+                    {recommendation.score && ` (${recommendation.score}% match)`}
+                  </p>
+                )}
+              </div>
+            )}
 
             <div className="flex flex-col gap-4">
-              <button
-                onClick={handleAcceptRecommendation}
-                className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg transition-all"
-              >
-                Start This Flow
-              </button>
+              {!noFlowFound && (
+                <button
+                  onClick={handleAcceptRecommendation}
+                  className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg transition-all"
+                >
+                  Start This Flow
+                </button>
+              )}
               <button
                 onClick={handleShowAllFlows}
-                className="w-full bg-white text-indigo-600 py-4 rounded-xl font-semibold border-2 border-indigo-100 hover:border-indigo-600 transition-all"
+                className={`w-full py-4 rounded-xl font-semibold border-2 transition-all ${
+                  noFlowFound 
+                    ? 'bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700'
+                    : 'bg-white text-indigo-600 border-indigo-100 hover:border-indigo-600'
+                }`}
               >
-                View All Other Flows
+                Browse All Flows
               </button>
             </div>
           </div>
@@ -270,6 +298,16 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
             {/* Progress Indicator */}
             <div className="mt-6 text-center text-sm text-gray-500">
               Question {Object.keys(answers).length + 1} of {totalQuestions}
+            </div>
+
+            {/* Skip to Browse All Flows */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <button
+                onClick={handleShowAllFlows}
+                className="w-full text-center text-indigo-600 hover:text-indigo-800 font-medium text-sm py-2 hover:bg-indigo-50 rounded transition-all"
+              >
+                Skip questionnaire → Browse all flows
+              </button>
             </div>
           </div>
         </div>
