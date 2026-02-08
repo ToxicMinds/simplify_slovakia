@@ -1,0 +1,42 @@
+step_id: collect_residence_permit
+title: "Collect Residence Permit Card"
+order: 6
+estimated_duration: "1 hour"
+
+description: |
+  Once your application is approved, collect your residence permit card from the Slovak embassy. You'll receive notification by email or phone when it's ready.
+  
+  Bring:
+  - Passport (original)
+  - Application receipt
+  - Notification email/letter
+  - Payment for permit issuance (if applicable)
+  
+  The residence permit is a biometric card valid for your study duration (usually 1 year, renewable annually). Check all details are correct before leaving embassy.
+  
+  Some embassies allow you to collect the card in Slovakia instead - if so, you'll receive a visa sticker in your passport for initial entry.
+
+why_it_matters: |
+  This card is your legal permission to reside in Slovakia. Without it, you cannot enter or must leave within 90 days of arrival.
+  
+  Verify all information: name spelling, validity dates, and study purpose. Errors must be corrected immediately - fixing them from Slovakia is complicated.
+
+preconditions:
+  - application_approved
+  - embassy_notification_received
+
+outputs:
+  - residence_permit_card
+  - legal_entry_permission
+
+official_links:
+  - authority: "Residence Card Information"
+    url: "https://www.minv.sk/?residence-card"
+
+failure_modes:
+  - what_breaks: "Not collecting card within 60 days"
+    consequence: "Permit expires, must reapply completely, lose application fee"
+  - what_breaks: "Accepting card with errors without reporting"
+    consequence: "Name mismatch causes entry denial at border, major complications"
+  - what_breaks: "Losing residence card before travel"
+    consequence: "Cannot enter Slovakia, must reapply for duplicate (months of delay)"

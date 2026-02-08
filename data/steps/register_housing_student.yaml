@@ -1,0 +1,54 @@
+step_id: register_housing_student
+title: "Register Permanent Residence Address"
+order: 11
+estimated_duration: "1 hour"
+
+description: |
+  Register your accommodation address at the local municipal office (Matrika). This is separate from Foreign Police registration.
+  
+  For students in dormitories:
+  - The dorm may register you automatically
+  - Confirm with dorm administration
+  
+  For students in private rentals:
+  - Landlord must accompany you to Matrika
+  - Bring: rental contract, landlord's ID, your residence permit, passport
+  - Both you and landlord sign registration form
+  - Receive confirmation paper
+  
+  This registration links you to your address for:
+  - Receiving official mail
+  - Tax purposes
+  - Voting (if applicable)
+  - Healthcare access
+  
+  Find your local Matrika office based on your street address.
+
+why_it_matters: |
+  Official correspondence will be sent to this registered address. Missing important notices (residence renewal reminders, tax forms, university communications) can have serious consequences.
+  
+  Many services require proof of registered address:
+  - Opening bank account
+  - Getting Slovak phone plan
+  - Applying for part-time work permit
+  - Residence permit renewal
+
+preconditions:
+  - accommodation_confirmed
+  - landlord_cooperation_if_needed
+
+outputs:
+  - registered_address_confirmation
+  - permanent_address_on_file
+
+official_links:
+  - authority: "Bratislava City - Address Registration"
+    url: "https://bratislava.sk/en"
+
+failure_modes:
+  - what_breaks: "Not registering when moving to new address"
+    consequence: "Miss important mail, residence renewal notices, automatic permit cancellation"
+  - what_breaks: "Landlord refuses to register you"
+    consequence: "Cannot officially live there, find new accommodation urgently"
+  - what_breaks: "Using friend's address instead of real one"
+    consequence: "Fraud, can result in residence permit revocation"

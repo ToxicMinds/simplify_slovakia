@@ -1,0 +1,60 @@
+step_id: get_student_health_insurance
+title: "Activate Slovak Health Insurance"
+order: 10
+estimated_duration: "2-3 hours"
+
+description: |
+  Obtain mandatory Slovak health insurance. All residents must have health insurance from day one.
+  
+  Options:
+  1. Public health insurance (for EU students or those with employment)
+  2. Private commercial health insurance (most common for non-EU students)
+  
+  Recommended insurers for students:
+  - Union Health Insurance (most popular for students)
+  - Dôvera
+  - Všeobecná zdravotná poisťovňa (VšZP)
+  
+  Cost: €40-60/month for basic coverage
+  
+  Process:
+  - Visit insurance office or apply online
+  - Bring: residence permit, passport, proof of student status
+  - Sign contract (usually 1 year, renewable)
+  - Pay first month premium
+  - Receive insurance card within 1 week
+  
+  Some universities help arrange insurance during orientation.
+
+why_it_matters: |
+  Operating without health insurance is illegal and dangerous. If caught:
+  - Fine up to €500
+  - Residence permit can be revoked
+  - Deportation possible
+  
+  More importantly: Without insurance, medical care is extremely expensive. Emergency room visit can cost €500-2000 without coverage. Insurance is legally required and financially essential.
+
+preconditions:
+  - enrolled_student_status
+  - residence_permit_card
+
+outputs:
+  - health_insurance_card
+  - insurance_policy_certificate
+  - legal_health_coverage
+
+official_links:
+  - authority: "Union Health Insurance"
+    url: "https://www.unionzp.sk/en/"
+  - authority: "Health Insurance Guide for Foreigners"
+    url: "https://www.zdravie.sk/"
+
+failure_modes:
+  - what_breaks: "Using travel insurance instead of Slovak health insurance"
+    consequence: "Not legally compliant, authorities reject it, get fined"
+  - what_breaks: "Letting insurance lapse between policy periods"
+    consequence: "Even 1 day gap is illegal, fine + residence permit jeopardy"
+  - what_breaks: "Buying insufficient coverage (<€30,000)"
+    consequence: "Doesn't meet legal minimum, authorities reject, must rebuy"
+  - what_breaks: "Not carrying insurance card"
+    consequence: "Cannot access medical care, pay full price upfront"

@@ -1,0 +1,98 @@
+flow_id: sk_student_first_entry_v1
+persona_id: non_eu_student_first_entry_single
+country: Slovakia
+version: 1.0.0
+
+eligibility:
+  intent: IMMIGRATION
+  nationality: NON_EU
+  current_location: OUTSIDE_SK
+  purpose: STUDY
+  lifecycle_phase: FIRST_ENTRY
+  requires_visa: true
+
+steps:
+  - step_id: get_university_acceptance
+    order: 1
+  - step_id: gather_student_documents
+    order: 2
+  - step_id: apply_student_residence_permit
+    order: 3
+  - step_id: attend_visa_interview
+    order: 4
+  - step_id: wait_for_residence_decision
+    order: 5
+  - step_id: collect_residence_permit
+    order: 6
+  - step_id: enter_slovakia_student
+    order: 7
+  - step_id: register_foreign_police_student
+    order: 8
+  - step_id: register_at_university
+    order: 9
+  - step_id: get_student_health_insurance
+    order: 10
+  - step_id: register_housing_student
+    order: 11
+  - step_id: open_student_bank_account
+    order: 12
+  - step_id: get_student_benefits
+    order: 13
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_REQUIRED
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: STUDY
+  time_horizon: LONG
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Student Immigration to Slovakia"
+  category: EDUCATION
+  description: "Complete process for international students coming to study at Slovak universities. Covers visa application, residence permit, university enrollment, and settling in Slovakia."
+  recommended_for: "Non-EU students accepted to Slovak universities (bachelor's, master's, PhD programs)"
+  not_for: "EU students (no visa needed), short-term language courses under 90 days, students already in Slovakia"
+  difficulty_level: HARD
+  time_commitment: "3-6 months from acceptance to arrival"
+  estimated_cost: "€200-500 (application fees, biometrics, travel)"
+  estimated_timeline: "3-6 months total: 2-4 months for residence permit approval, then arrival and registration"
+  priority: MEDIUM
+  tags:
+    - students
+    - education
+    - university
+    - first-entry
+    - visa-required
+    - temporary-residence
+  warnings:
+    - "Apply early: residence permit processing takes 60-90 days"
+    - "Financial proof required: ~€400-500/month for living expenses"
+    - "Valid health insurance mandatory from day one"
+    - "Must register at Foreign Police within 3 days of arrival"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_REQUIRED
+    weight: 35
+    reason: "Student residence permits are for non-EU citizens who need visas"
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 25
+    reason: "Must apply for residence permit from outside Slovakia at Slovak embassy"
+  - question: visit_purpose
+    required_answer: STUDY
+    weight: 30
+    reason: "This flow is specifically for students coming to study at Slovak universities"
+  - question: visit_duration
+    required_answer: LONG_STAY
+    weight: 5
+    reason: "University programs typically last 1-5 years (bachelor's, master's, PhD)"
+  - question: city
+    required_answer: null
+    weight: 5
+    reason: "Process similar regardless of city, though Bratislava has most universities"

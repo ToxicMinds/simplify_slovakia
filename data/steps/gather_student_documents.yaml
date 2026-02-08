@@ -1,0 +1,54 @@
+step_id: gather_student_documents
+title: "Gather Required Documents"
+order: 2
+estimated_duration: "2-4 weeks"
+
+description: |
+  Collect all documents required for your student residence permit application. The Slovak embassy requires comprehensive documentation proving your identity, financial means, accommodation, and health insurance.
+  
+  Required documents:
+  - Valid passport (must be valid 3+ months beyond intended stay)
+  - University acceptance letter (original + copy)
+  - Proof of financial means (€400-500/month × duration of stay)
+  - Proof of accommodation in Slovakia (dorm confirmation or rental agreement)
+  - Health insurance valid in Slovakia (minimum €30,000 coverage)
+  - 2 recent passport photos (3.5cm × 4.5cm, white background)
+  - Clean criminal record (apostilled, not older than 90 days)
+  - Educational certificates (apostilled)
+  - Birth certificate (apostilled)
+  - Completed application form
+  
+  All foreign documents must be translated to Slovak by certified translator and apostilled.
+
+why_it_matters: |
+  Immigration authorities are extremely strict about documentation. Missing or improperly formatted documents will result in immediate rejection without processing fee refund.
+  
+  The apostille and translation process alone can take 2-4 weeks, so start early. Financial proof is particularly scrutinized - must show you can support yourself without working illegally.
+
+preconditions:
+  - university_acceptance_letter
+  - valid_passport
+  - apostille_access
+
+outputs:
+  - complete_application_package
+  - translated_documents
+  - apostilled_certificates
+
+official_links:
+  - authority: "Ministry of Foreign Affairs - Visa Requirements"
+    url: "https://www.mzv.sk/web/en/consular_info/visa_requirement"
+  - authority: "Apostille Information"
+    url: "https://www.mzv.sk/web/en/consular_info/legalization"
+
+failure_modes:
+  - what_breaks: "Using bank statement instead of blocked account for financial proof"
+    consequence: "Application rejected - need dedicated blocked account showing full tuition + living costs"
+  - what_breaks: "Criminal record older than 90 days"
+    consequence: "Document invalid, application rejected, have to reapply with new one"
+  - what_breaks: "Translation not by certified translator"
+    consequence: "Documents not accepted, expensive re-translation needed"
+  - what_breaks: "Health insurance with wrong coverage amount"
+    consequence: "Insurance rejected, need to buy new policy, restart application"
+  - what_breaks: "Accommodation proof is informal agreement"
+    consequence: "Need official dormitory confirmation or notarized rental contract"

@@ -1,0 +1,66 @@
+step_id: open_student_bank_account
+title: "Open Slovak Bank Account"
+order: 12
+estimated_duration: "1 hour"
+
+description: |
+  Open a bank account in Slovakia. While not legally mandatory, it's practically essential for student life.
+  
+  Student-friendly banks:
+  - Tatra Banka (English service, student packages)
+  - Slovenská sporiteľňa (largest bank)
+  - VÚB (good online banking)
+  - Wise (online, multi-currency, good for international students)
+  
+  Documents needed:
+  - Residence permit card
+  - Passport
+  - Proof of student status (student ID or enrollment letter)
+  - Proof of address (registration confirmation)
+  
+  Many banks offer free accounts for students. Choose one with:
+  - English language support (app and customer service)
+  - Low/no fees
+  - Good ATM network
+  - Online/mobile banking
+  
+  Process takes 30-60 minutes. You'll get debit card within 5-7 days.
+
+why_it_matters: |
+  You need a Slovak bank account for:
+  - Receiving scholarship/stipend payments
+  - Paying tuition fees
+  - Paying rent
+  - Setting up direct debits (phone, insurance)
+  - Part-time work salary (if you get work permit)
+  
+  Using only foreign bank accounts results in:
+  - High ATM fees (€3-5 per withdrawal)
+  - Poor exchange rates
+  - Cannot receive local payments
+  - Some services refuse foreign cards
+
+preconditions:
+  - registered_address_confirmation
+  - student_id_card
+
+outputs:
+  - bank_account_number_IBAN
+  - debit_card
+  - online_banking_access
+
+official_links:
+  - authority: "Tatra Banka - Student Accounts"
+    url: "https://www.tatrabanka.sk/en/"
+  - authority: "Banking Guide for Students"
+    url: "https://www.studyin.sk/practical-info/"
+
+failure_modes:
+  - what_breaks: "Opening account before getting registered address"
+    consequence: "Bank refuses application, waste time"
+  - what_breaks: "Not activating card within 30 days"
+    consequence: "Card deactivated, must request new one, more delays"
+  - what_breaks: "Using only foreign account with high fees"
+    consequence: "Lose hundreds of euros per year to ATM fees and exchange costs"
+  - what_breaks: "Not setting up online banking"
+    consequence: "Must visit branch for every transaction, extremely inconvenient"

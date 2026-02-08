@@ -1,5 +1,5 @@
 // frontend/src/data/intakeQuestions.js
-// FIXED VERSION - Removed STUDY option until student flow is created
+// UPDATED - STUDY option restored now that student flow exists
 
 /**
  * INTAKE QUESTIONS
@@ -114,6 +114,12 @@ export const intakeQuestions = [
         help: 'Živnosť (trade license) route'
       },
       {
+        value: 'STUDY',
+        label: 'University / Studies',
+        description: 'I have acceptance from a Slovak university',
+        help: 'Student visa and residence permit'
+      },
+      {
         value: 'FAMILY',
         label: 'Join Family',
         description: 'My family member already has residence in Slovakia',
@@ -131,8 +137,6 @@ export const intakeQuestions = [
         description: 'I want to become a Slovak citizen',
         help: '8+ year commitment'
       }
-      // NOTE: STUDY option removed until sk_student_first_entry flow is created
-      // If you need student guidance, browse all flows and check employment flow as reference
     ]
   },
   
@@ -170,7 +174,7 @@ export const intakeQuestions = [
       }
     ],
     show_when: {
-      visit_purpose: ['EMPLOYMENT', 'BUSINESS', 'FAMILY', 'TOURISM']
+      visit_purpose: ['EMPLOYMENT', 'BUSINESS', 'FAMILY', 'STUDY', 'TOURISM']
     }
   },
   

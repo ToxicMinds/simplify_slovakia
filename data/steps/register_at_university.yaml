@@ -1,0 +1,61 @@
+step_id: register_at_university
+title: "Complete University Registration and Enrollment"
+order: 9
+estimated_duration: "1-2 days"
+
+description: |
+  Officially enroll at your university. This activates your student status and gives you access to facilities, courses, and student benefits.
+  
+  Process:
+  1. Go to International Student Office with documents:
+     - Residence permit card
+     - Passport
+     - University acceptance letter
+     - Educational certificates (originals)
+     - Passport photos (usually 2-4)
+  
+  2. Complete enrollment forms
+  3. Pay tuition fees (if applicable) or present scholarship confirmation
+  4. Receive student ID card
+  5. Get access to information system (class registration, grades)
+  6. Attend orientation for international students
+  
+  Register for your classes in the university system before semester starts. First come, first served for popular courses.
+
+why_it_matters: |
+  Without university enrollment, you lose the legal basis for your residence permit. Your permit is conditional on being an active student.
+  
+  The student ID card is crucial - you'll need it for:
+  - Library access
+  - Cafeteria meals (discounted)
+  - Building entry
+  - Exam registration
+  - Public transport discounts
+  
+  Not enrolling on time can result in losing your place and residence permit cancellation.
+
+preconditions:
+  - foreign_police_registration_stamp
+  - university_enrollment_period_open
+  - tuition_payment_ready
+
+outputs:
+  - student_id_card
+  - university_information_system_access
+  - enrolled_student_status
+
+official_links:
+  - authority: "Comenius University - International Office"
+    url: "https://uniba.sk/en/international-students/"
+  - authority: "Study in Slovakia - Student Life"
+    url: "https://www.studyin.sk/living/"
+
+failure_modes:
+  - what_breaks: "Missing enrollment deadline"
+    consequence: "Lose university place, residence permit becomes invalid, must leave Slovakia"
+  - what_breaks: "Not paying tuition on time"
+    consequence: "Enrollment cancelled, permit cancelled, deportation"
+  - what_breaks: "Failing to register for minimum credit hours"
+    consequence: "Not full-time student, residence permit violated, cancellation risk"
+  - what_breaks: "Losing student ID immediately"
+    consequence: "No building/library/cafeteria access, difficult replacement process"
