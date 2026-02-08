@@ -1,0 +1,44 @@
+step_id: enter_slovakia_student
+title: "Enter Slovakia"
+order: 7
+estimated_duration: "1 day (travel)"
+
+description: |
+  Travel to Slovakia using your residence permit. Enter through any Schengen border - once in Schengen zone, you can travel to Slovakia freely.
+  
+  At border control:
+  - Show residence permit card (or visa if collecting card in Slovakia)
+  - Show university acceptance letter
+  - May be asked about accommodation and finances
+  - Border officer will stamp your passport
+  
+  Recommended: Fly into Vienna (1 hour to Bratislava) or directly to Bratislava airport if available from your country.
+  
+  Upon arrival, keep residence permit card safe - you'll need it constantly for registration, banking, and ID checks.
+
+why_it_matters: |
+  Your residence permit clock starts when you enter Slovakia. You have 3 working days to register with Foreign Police.
+  
+  First impression matters - be prepared to explain your study plans if border officer asks questions. Have university letter and accommodation proof ready.
+
+preconditions:
+  - residence_permit_card
+  - flight_to_slovakia_booked
+
+outputs:
+  - entry_stamp_in_passport
+  - physically_present_in_slovakia
+
+official_links:
+  - authority: "Bratislava Airport"
+    url: "https://www.bts.aero/en/"
+  - authority: "Vienna Airport (alternative)"
+    url: "https://www.viennaairport.com/"
+
+failure_modes:
+  - what_breaks: "Arriving with expired residence permit"
+    consequence: "Entry denied at border, deportation, major crisis"
+  - what_breaks: "Not having university letter at border"
+    consequence: "Extensive questioning, possible entry denial if officer suspicious"
+  - what_breaks: "Arriving more than 3 months before studies start"
+    consequence: "Border officer may question early arrival, could deny entry"

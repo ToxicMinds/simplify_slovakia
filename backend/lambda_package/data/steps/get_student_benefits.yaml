@@ -1,0 +1,72 @@
+step_id: get_student_benefits
+title: "Access Student Discounts and Benefits"
+order: 13
+estimated_duration: "2-3 hours total"
+
+description: |
+  Set up various student benefits and discounts available in Slovakia.
+  
+  1. ISIC Card (International Student Identity Card):
+     - Cost: ~€15
+     - Apply through university or online
+     - Gives discounts worldwide (museums, transport, restaurants)
+  
+  2. Public Transport Student Discount:
+     - 50% discount on monthly passes
+     - Apply at transport company office (DPB in Bratislava)
+     - Need: student ID, residence permit, passport photo
+     - Cost: ~€15/month instead of €30
+  
+  3. Slovak Railways Student Discount:
+     - 50% off train tickets
+     - Automatic with Slovak student ID
+  
+  4. University Facilities Access:
+     - Library (free)
+     - Sports facilities (heavily discounted)
+     - Cafeterias (subsidized meals €2-4)
+     - Computer labs
+  
+  5. Cultural Discounts:
+     - Museums: student tickets 50% off
+     - Theaters: student discounts
+     - Cinemas: student prices
+  
+  Set these up early to maximize savings.
+
+why_it_matters: |
+  These benefits save €100-200 per month:
+  - Transport: €15 saved monthly
+  - Meals: €50-100 saved monthly
+  - Entertainment: €20-30 saved monthly
+  
+  The ISIC card pays for itself in 1-2 months of use. Public transport discount is essential - taxis are expensive and most students cannot afford cars.
+  
+  University facilities like library and computer labs are included in tuition - not using them means wasting resources you already paid for.
+
+preconditions:
+  - student_id_card
+  - bank_account_number_IBAN
+
+outputs:
+  - isic_card
+  - transport_student_discount_activated
+  - university_facilities_access
+
+official_links:
+  - authority: "ISIC Card Slovakia"
+    url: "https://www.isic.sk/"
+  - authority: "Bratislava Transport - Student Discounts"
+    url: "https://imhd.sk/ba/student-discounts"
+  - authority: "Student Discounts Guide"
+    url: "https://www.studyin.sk/student-life/"
+
+failure_modes:
+  - what_breaks: "Not getting transport pass, buying individual tickets"
+    consequence: "Spend €60+/month instead of €15, waste €500+/year"
+  - what_breaks: "Not using university cafeteria"
+    consequence: "Spend €8-12 per meal outside vs €2-4 in cafeteria, waste €1000+/year"
+  - what_breaks: "Not getting ISIC before traveling around Europe"
+    consequence: "Pay full price for museums/attractions, miss hundreds in savings"
+  - what_breaks: "Not registering for library access"
+    consequence: "Buy all textbooks instead (€200-500/semester), major waste"

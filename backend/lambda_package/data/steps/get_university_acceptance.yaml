@@ -1,0 +1,43 @@
+step_id: get_university_acceptance
+title: "Get University Acceptance Letter"
+order: 1
+estimated_duration: "1-6 months"
+
+description: |
+  Apply to and receive official acceptance from a Slovak university. This acceptance letter is required for your residence permit application.
+  
+  Most Slovak universities have international offices that help foreign students with applications. You'll need to research programs, meet admission requirements, and submit your application through their system.
+  
+  Bachelor's programs typically require high school diploma, master's requires bachelor's degree, and PhD requires master's degree. Language requirements vary - some programs are in English, others in Slovak.
+
+why_it_matters: |
+  The acceptance letter from a Slovak university is the foundation of your student residence permit application. Without it, you cannot apply for legal residence.
+  
+  The letter must be official, state your program name, duration, and start date. Immigration authorities will verify this directly with the university.
+
+preconditions:
+  - high_school_or_university_degree
+  - language_proficiency_proof
+  - financial_capability
+
+outputs:
+  - university_acceptance_letter
+  - program_enrollment_confirmation
+
+official_links:
+  - authority: "Study in Slovakia Portal"
+    url: "https://www.studyin.sk/"
+  - authority: "Comenius University (Bratislava)"
+    url: "https://uniba.sk/en/international-students/"
+  - authority: "Slovak University of Technology"
+    url: "https://www.stuba.sk/english/international/"
+
+failure_modes:
+  - what_breaks: "Applying too late for semester deadlines"
+    consequence: "Have to wait 6 months for next intake, miss residence permit window"
+  - what_breaks: "Incomplete application documents"
+    consequence: "Application rejected, waste months of waiting time"
+  - what_breaks: "Not checking language requirements"
+    consequence: "Need to take language courses first, delays entry by a year"
+  - what_breaks: "Choosing unaccredited program"
+    consequence: "Cannot get residence permit, immigration authorities reject non-recognized schools"

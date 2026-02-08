@@ -1,0 +1,45 @@
+step_id: attend_visa_interview
+title: "Attend Visa Interview and Biometrics"
+order: 4
+estimated_duration: "30-60 minutes"
+
+description: |
+  Attend your scheduled visa interview at the Slovak embassy. The embassy officer will ask questions about your study plans, financial situation, and ties to home country.
+  
+  Common interview questions:
+  - Why did you choose Slovakia and this specific university?
+  - How will you finance your studies?
+  - What are your plans after graduation?
+  - Do you have family or connections in Slovakia?
+  - What is your academic background?
+  
+  Be honest, confident, and prepared. Bring your documents even though you already submitted them - they may ask to verify specific points.
+  
+  Biometrics (fingerprints and photo) will be taken during this appointment if not done at application submission.
+
+why_it_matters: |
+  The interview helps immigration assess if you are a genuine student versus someone intending to work illegally. Inconsistent answers or suspicious behavior can lead to rejection.
+  
+  Your demeanor and preparation matter - show clear study intent, financial stability, and plans to return home after studies.
+
+preconditions:
+  - application_reference_number
+  - interview_appointment_scheduled
+
+outputs:
+  - interview_completed
+  - biometrics_on_file
+
+official_links:
+  - authority: "Slovak Embassy Interview Guidelines"
+    url: "https://www.mzv.sk/web/en/consular_info"
+
+failure_modes:
+  - what_breaks: "Giving inconsistent answers about finances or university"
+    consequence: "Red flags raised, application rejected for suspected fraud"
+  - what_breaks: "Saying you plan to work during studies (beyond legal limits)"
+    consequence: "Shows intent to violate visa terms, application rejected"
+  - what_breaks: "Unable to explain your academic program or career goals"
+    consequence: "Appears you're not genuine student, application denied"
+  - what_breaks: "Missing interview without rescheduling"
+    consequence: "Automatic application rejection, must restart entire process"

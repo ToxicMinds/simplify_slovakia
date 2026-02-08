@@ -1,0 +1,44 @@
+step_id: wait_for_residence_decision
+title: "Wait for Residence Permit Decision"
+order: 5
+estimated_duration: "60-90 days"
+
+description: |
+  After submitting your application, the Foreign Police in Slovakia process your request. This is a mandatory waiting period during which your documents are verified and background checks are conducted.
+  
+  You can track your application status online using your reference number (if embassy provides online tracking). Otherwise, the embassy will contact you when decision is made.
+  
+  During this time:
+  - Do NOT book flights or make commitments
+  - Keep your phone/email accessible for embassy contact
+  - Check application status weekly if tracking available
+  - Prepare for arrival (research accommodation if not finalized)
+  
+  Processing times vary: 60-90 days is typical, but can extend to 120 days during peak periods (summer). Plan accordingly.
+
+why_it_matters: |
+  This waiting period determines when you can start university. Apply early enough that processing completes before semester starts.
+  
+  Most universities have strict enrollment deadlines - missing them means waiting for next semester. Applications submitted after March for September start or after September for February start are risky.
+
+preconditions:
+  - application_submitted
+  - application_fee_paid
+
+outputs:
+  - pending_application_status
+  - tracking_number_active
+
+official_links:
+  - authority: "Foreign Police - Application Status"
+    url: "https://www.minv.sk/?application-status"
+
+failure_modes:
+  - what_breaks: "Not responding to embassy requests for additional documents"
+    consequence: "Application automatically rejected after 30 days of no response"
+  - what_breaks: "Changing contact information without notifying embassy"
+    consequence: "Miss notification of approval/interview, application expires"
+  - what_breaks: "Applying too close to semester start"
+    consequence: "Approval comes after enrollment deadline, must defer to next semester"
+  - what_breaks: "Booking non-refundable flights during processing"
+    consequence: "Application gets rejected, lose flight money, major financial loss"

@@ -1,0 +1,55 @@
+step_id: register_foreign_police_student
+title: "Register at Foreign Police Within 3 Days"
+order: 8
+estimated_duration: "2-3 hours"
+
+description: |
+  CRITICAL DEADLINE: Register at Foreign Police within 3 working days of arrival. This is mandatory by law.
+  
+  Find your local Foreign Police office based on accommodation address:
+  - Bratislava: Hraničná 1042/46
+  - Other cities: Check local police department
+  
+  Bring:
+  - Residence permit card
+  - Passport
+  - Accommodation proof (rental contract or dorm registration)
+  - University enrollment confirmation
+  
+  The officer will verify your documents and officially register your arrival. You'll receive a confirmation stamp in your residence permit.
+  
+  Book appointment online if possible - walk-ins can mean 2-3 hour waits.
+
+why_it_matters: |
+  Failing to register within 3 days is a serious offense. Penalties:
+  - Fine: €150-300
+  - Mark on immigration record
+  - Potential residence permit revocation
+  - Future visa/residence applications complicated
+  
+  This registration activates your legal residence - without it, you're in Slovakia illegally even with permit.
+
+preconditions:
+  - physically_present_in_slovakia
+  - accommodation_address_confirmed
+  - within_3_days_of_arrival
+
+outputs:
+  - foreign_police_registration_stamp
+  - legal_residence_activated
+
+official_links:
+  - authority: "Foreign Police Bratislava"
+    url: "https://www.minv.sk/?foreign-police-bratislava"
+  - authority: "Online Appointment Booking"
+    url: "https://www.minv.sk/?appointment"
+
+failure_modes:
+  - what_breaks: "Registering on day 4 or later"
+    consequence: "Automatic fine €150-300, immigration record damaged"
+  - what_breaks: "Going to wrong police office"
+    consequence: "Turned away, waste full day, may exceed 3-day deadline"
+  - what_breaks: "Not bringing accommodation proof"
+    consequence: "Registration refused, must return (may exceed deadline)"
+  - what_breaks: "Assuming weekend days don't count"
+    consequence: "They DO count as days 1-3, arrive Friday = deadline Monday"

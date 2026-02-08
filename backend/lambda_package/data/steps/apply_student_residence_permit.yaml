@@ -1,0 +1,50 @@
+step_id: apply_student_residence_permit
+title: "Apply for Student Residence Permit at Slovak Embassy"
+order: 3
+estimated_duration: "1-2 hours (appointment)"
+
+description: |
+  Submit your residence permit application at the Slovak embassy or consulate in your home country. You must apply in person - applications by mail are not accepted.
+  
+  Process:
+  1. Book appointment online at Slovak embassy website (book 1-2 months in advance)
+  2. Arrive 15 minutes early with all documents
+  3. Submit application form and documents
+  4. Pay application fee (typically €33-99 depending on country)
+  5. Provide biometrics if required
+  6. Receive receipt and application reference number
+  
+  The embassy officer will review your documents on the spot. If anything is missing or incorrect, they may refuse to accept the application. Make sure everything is complete before going.
+  
+  Processing time: 60-90 days from submission.
+
+why_it_matters: |
+  This is the official start of your immigration process. Once submitted, your application goes to the Foreign Police in Slovakia for processing.
+  
+  The appointment date determines your processing timeline - missing it means rebooking and potentially missing your semester start date. Embassy appointments can be scarce during peak season (May-August).
+
+preconditions:
+  - complete_application_package
+  - embassy_appointment_booked
+  - application_fee_ready
+
+outputs:
+  - application_receipt
+  - application_reference_number
+  - biometrics_submitted
+
+official_links:
+  - authority: "Slovak Embassy Locations Worldwide"
+    url: "https://www.mzv.sk/web/en/diplomatic_missions"
+  - authority: "Residence Permit Application Forms"
+    url: "https://www.minv.sk/?residence-of-foreigners"
+
+failure_modes:
+  - what_breaks: "Missing appointment without 48hr advance notice"
+    consequence: "Appointment forfeited, have to rebook (may be 1-2 months wait), miss semester deadline"
+  - what_breaks: "Bringing copies instead of original documents"
+    consequence: "Application refused on the spot, wasted appointment, have to rebook"
+  - what_breaks: "Insufficient application fee (wrong currency or amount)"
+    consequence: "Cannot submit application, must return with correct payment"
+  - what_breaks: "Passport expires within 3 months of planned stay"
+    consequence: "Application rejected - must renew passport first, restart process"
