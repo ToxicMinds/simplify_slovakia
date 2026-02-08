@@ -1,77 +1,37 @@
-import { intakeQuestions, getNextQuestion, validateAnswers,getTotalQuestions } from '../data/intakeQuestions'
+import { 
+  intakeQuestions, 
+  getNextQuestion, 
+  validateAnswers,
+  getTotalQuestions 
+} from '../data/intakeQuestions'
 import { useState } from 'react'
 import { API_URL } from '../config'
 import { saveSession } from '../utils/storage'
 
 /**
  * IntakeForm.jsx
- *
- * PURPOSE: Ask users questions to recommend the right flow
- * LOCATION: frontend/src/components/IntakeForm.jsx
- *
- * ARCHITECTURE:
- * - Uses eligibility dimensions from rules/immigration/eligibility.yaml
- * - Calls /recommend-flow endpoint
- * - Shows recommendation + allows override
- * - Passes selected flow_id to parent (App.jsx)
+ * UPDATED: Now uses dynamic branching logic from intakeQuestions.js
  */
 
 function IntakeForm({ onFlowSelected, onShowManualSelector }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState({
-    nationality: null,
-    entry_context: null,
-    purpose: null,
-    city: null,
-  })
+  // START WITH THE FIRST QUESTION OBJECT
+  const [currentQuestion, setCurrentQuestion] = useState(intakeQuestions[0])
+  const [answers, setAnswers] = useState({})
   const [recommendation, setRecommendation] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
-  const questions = [
-    {
-      id: 'nationality',
-      question: "What's your citizenship status?",
-      options: [
-        { value: 'EU', label: "I'm an EU/EEA/Swiss citizen" },
-        { value: 'NON_EU', label: "I'm from outside the EU/EEA/Switzerland" },
-      ],
-    },
-    {
-      id: 'entry_context',
-      question: "Where are you right now?",
-      options: [
-        { value: 'FIRST_ENTRY', label: "I haven't arrived in Slovakia yet" },
-        { value: 'IN_COUNTRY', label: "I'm already in Slovakia" },
-      ],
-    },
-    {
-      id: 'purpose',
-      question: "What brings you to Slovakia?",
-      options: [
-        { value: 'EMPLOYMENT', label: "Employment (I have a job offer)" },
-        { value: 'BUSINESS', label: "Starting a business / Freelancing" },
-        { value: 'FAMILY', label: "Joining family who lives here" },
-        { value: 'STUDY', label: "University or studies" },
-      ],
-    },
-    {
-      id: 'city',
-      question: "Which city will you live in?",
-      options: [
-        { value: 'BRATISLAVA', label: "Bratislava" },
-        { value: 'OTHER', label: "Other city" },
-      ],
-    },
-  ]
 
   const handleAnswer = (questionId, value) => {
     const newAnswers = { ...answers, [questionId]: value }
     setAnswers(newAnswers)
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
+    // DYNAMIC LOGIC: Ask the helper what the next question should be
+    const nextQ = getNextQuestion(newAnswers)
+    
+    if (nextQ) {
+      setCurrentQuestion(nextQ)
     } else {
+      // No more questions -> Get the recommendation
       getRecommendation(newAnswers)
     }
   }
@@ -81,7 +41,8 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     setError(null)
 
     try {
-      const response = await fetch(`${API_URL}/recommend-flow`, {
+      // API VERSION UPDATED TO V2
+      const response = await fetch(`${API_URL}/recommend-flow-v2`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(finalAnswers),
@@ -100,9 +61,6 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     }
   }
 
-  /* ==============================
-     UPDATED: ACCEPT RECOMMENDATION
-     ============================== */
   const handleAcceptRecommendation = () => {
     if (!recommendation?.flow_id) return
 
@@ -113,13 +71,8 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
       timestamp: new Date().toISOString(),
     }
 
-    // Legacy storage (keep for now)
-    localStorage.setItem(
-      'simplify_slovakia_intake',
-      JSON.stringify(intakeData)
-    )
+    localStorage.setItem('simplify_slovakia_intake', JSON.stringify(intakeData))
 
-    // Unified session storage
     saveSession({
       flowId: recommendation.flow_id,
       completedSteps: [],
@@ -142,12 +95,11 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
         timestamp: new Date().toISOString(),
       })
     )
-
     onShowManualSelector()
   }
 
-  const progress = ((currentQuestion + 1) / questions.length) * 100
-  const currentQuestionData = questions[currentQuestion]
+  // Calculate progress based on answered keys vs total potential questions
+  const progress = (Object.keys(answers).length / getTotalQuestions()) * 100
 
   /* ==============================
      LOADING STATE
@@ -164,20 +116,17 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
   }
 
   /* ==============================
-     RECOMMENDATION SCREEN
+     RECOMMENDATION SCREEN (Full UI Restored)
      ============================== */
   if (recommendation) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
         <header className="bg-white shadow-md">
-          <div className="max-w-3xl mx-auto px-4 py-6">
-            {/* Wrap Logo and Title in a flex container */}
-            <div className="flex items-center gap-4">
-              <img src="/simplify-slovakia.svg" alt="Simplify Slovakia Logo" className="h-10 w-auto" />
-              <div>
-                <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-                <p className="text-gray-600">Here's what we recommend</p>
-              </div>
+          <div className="max-w-3xl mx-auto px-4 py-6 flex items-center gap-4">
+            <img src="/simplify-slovakia.svg" alt="Logo" className="h-10 w-auto" />
+            <div>
+              <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
+              <p className="text-gray-600">Here's what we recommend</p>
             </div>
           </div>
         </header>
@@ -189,10 +138,9 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <h3 className="font-semibold text-gray-900 mb-2">👤 Your Profile</h3>
               <ul className="space-y-1 text-gray-700 text-sm">
-                <li>• Citizenship: {answers.nationality === 'EU' ? 'EU/EEA/Swiss' : 'Non-EU'}</li>
-                <li>• Status: {answers.entry_context === 'FIRST_ENTRY' ? "Haven't arrived yet" : 'Already in Slovakia'}</li>
-                <li>• Purpose: {answers.purpose}</li>
-                <li>• City: {answers.city}</li>
+                {Object.entries(answers).map(([key, value]) => (
+                  <li key={key}>• {key.replace('_', ' ')}: <span className="font-medium">{value}</span></li>
+                ))}
               </ul>
             </div>
 
@@ -202,36 +150,22 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
               {recommendation.reason && (
                 <p className="text-sm text-indigo-600 mt-2">{recommendation.reason}</p>
               )}
-              <div className="text-sm text-indigo-600 mt-2">
-                <span className="font-medium">{recommendation.step_count} steps</span>
-                {' • '}
-                <span>Flow ID: {recommendation.flow_id}</span>
-              </div>
             </div>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               <button
                 onClick={handleAcceptRecommendation}
-                className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700"
+                className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 shadow-lg transition-all"
               >
-                Start This Flow →
+                Start This Flow
               </button>
-
               <button
                 onClick={handleShowAllFlows}
-                className="w-full bg-white text-gray-700 py-3 px-6 rounded-lg font-semibold border-2 border-gray-300 hover:border-gray-400"
+                className="w-full bg-white text-indigo-600 py-4 rounded-xl font-semibold border-2 border-indigo-100 hover:border-indigo-600 transition-all"
               >
-                No, show me all options
+                View All Other Flows
               </button>
             </div>
-
-            {recommendation.confidence === 'low' && (
-              <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <p className="text-sm text-yellow-800">
-                  ⚠️ We couldn't find an exact match for your situation.
-                </p>
-              </div>
-            )}
           </div>
         </main>
       </div>
@@ -239,89 +173,41 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
   }
 
   /* ==============================
-     ERROR STATE
-     ============================== */
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 max-w-md">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Error</h2>
-          <p className="text-red-600 mb-4">{error}</p>
-          <button
-            onClick={handleShowAllFlows}
-            className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700"
-          >
-            See All Flows Instead
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  /* ==============================
-     QUESTION FLOW
+     QUESTION SCREEN
      ============================== */
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <header className="bg-white shadow-md">
-        <div className="max-w-3xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-          <p className="text-gray-600 mt-2">Let's find the right path for you</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
+      <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="h-2 bg-gray-100">
+          <div 
+            className="h-full bg-indigo-600 transition-all duration-500" 
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
-      </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <div className="mb-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">
-                Question {currentQuestion + 1} of {questions.length}
-              </span>
-              <span className="text-sm text-gray-500">{Math.round(progress)}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div
-                className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
+        <div className="p-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">{currentQuestion.question}</h2>
           </div>
 
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            {currentQuestionData.question}
-          </h2>
-
-          <div className="space-y-3">
-            {currentQuestionData.options.map(option => (
+          <div className="space-y-4">
+            {currentQuestion.options.map((option) => (
               <button
                 key={option.value}
-                onClick={() => handleAnswer(currentQuestionData.id, option.value)}
-                className="w-full text-left p-4 rounded-lg border-2 border-gray-300 hover:border-indigo-600 hover:bg-indigo-50"
+                onClick={() => handleAnswer(currentQuestion.id, option.value)}
+                className="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-indigo-500 hover:bg-indigo-50 transition-all group"
               >
-                <span className="text-lg">{option.label}</span>
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-gray-700 group-hover:text-indigo-700">
+                    {option.label}
+                  </span>
+                  <div className="h-5 w-5 rounded-full border-2 border-gray-200 group-hover:border-indigo-500 transition-colors"></div>
+                </div>
               </button>
             ))}
           </div>
-
-          {currentQuestion > 0 && (
-            <button
-              onClick={() => setCurrentQuestion(currentQuestion - 1)}
-              className="mt-6 text-gray-600 hover:text-gray-900 font-medium"
-            >
-              ← Back
-            </button>
-          )}
-
-          <div className="mt-8 text-center">
-            <button
-              onClick={handleShowAllFlows}
-              className="text-sm text-gray-500 hover:text-gray-700 underline"
-            >
-              Skip this and show me all flows
-            </button>
-          </div>
         </div>
-      </main>
+      </div>
     </div>
   )
 }
