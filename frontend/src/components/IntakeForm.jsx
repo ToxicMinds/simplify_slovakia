@@ -1,328 +1,332 @@
-import { useState } from 'react'
-import { API_URL } from '../config'
-import { saveSession } from '../utils/storage'
+// frontend/src/data/intakeQuestions.js
+// Updated intake questions matching flow metadata
 
 /**
- * IntakeForm.jsx
- *
- * PURPOSE: Ask users questions to recommend the right flow
- * LOCATION: frontend/src/components/IntakeForm.jsx
- *
- * ARCHITECTURE:
- * - Uses eligibility dimensions from rules/immigration/eligibility.yaml
- * - Calls /recommend-flow endpoint
- * - Shows recommendation + allows override
- * - Passes selected flow_id to parent (App.jsx)
+ * INTAKE QUESTIONS - Matches flow metadata intake_matches rules
+ * 
+ * These questions map directly to the intake_routing fields in flow YAML files.
+ * Each question's answers correspond to values flows can match against.
  */
 
-function IntakeForm({ onFlowSelected, onShowManualSelector }) {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState({
-    nationality: null,
-    entry_context: null,
-    purpose: null,
-    city: null,
-  })
-  const [recommendation, setRecommendation] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
-  const questions = [
-    {
-      id: 'nationality',
-      question: "What's your citizenship status?",
-      options: [
-        { value: 'EU', label: "I'm an EU/EEA/Swiss citizen" },
-        { value: 'NON_EU', label: "I'm from outside the EU/EEA/Switzerland" },
-      ],
-    },
-    {
-      id: 'entry_context',
-      question: "Where are you right now?",
-      options: [
-        { value: 'FIRST_ENTRY', label: "I haven't arrived in Slovakia yet" },
-        { value: 'IN_COUNTRY', label: "I'm already in Slovakia" },
-      ],
-    },
-    {
-      id: 'purpose',
-      question: "What brings you to Slovakia?",
-      options: [
-        { value: 'EMPLOYMENT', label: "Employment (I have a job offer)" },
-        { value: 'BUSINESS', label: "Starting a business / Freelancing" },
-        { value: 'FAMILY', label: "Joining family who lives here" },
-        { value: 'STUDY', label: "University or studies" },
-      ],
-    },
-    {
-      id: 'city',
-      question: "Which city will you live in?",
-      options: [
-        { value: 'BRATISLAVA', label: "Bratislava" },
-        { value: 'OTHER', label: "Other city" },
-      ],
-    },
-  ]
-
-  const handleAnswer = (questionId, value) => {
-    const newAnswers = { ...answers, [questionId]: value }
-    setAnswers(newAnswers)
-
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
-    } else {
-      getRecommendation(newAnswers)
-    }
-  }
-
-  const getRecommendation = async (finalAnswers) => {
-    setLoading(true)
-    setError(null)
-
-    try {
-      const response = await fetch(`${API_URL}/recommend-flow`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalAnswers),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to get recommendation')
+export const intakeQuestions = [
+  {
+    id: 'nationality_type',
+    question: "What's your citizenship/nationality status?",
+    description: "This determines visa requirements and which flows apply to you",
+    icon: '🌍',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'EU',
+        label: 'EU / EEA / Swiss Citizen',
+        description: 'You have freedom of movement - no visa needed!',
+        help: 'Includes all EU countries plus Iceland, Liechtenstein, Norway, Switzerland'
+      },
+      {
+        value: 'NON_EU_VISA_FREE',
+        label: 'Non-EU, Visa-Free',
+        description: 'From: USA, Canada, UK, Australia, Japan, etc.',
+        help: 'Can enter Schengen for 90 days without visa'
+      },
+      {
+        value: 'NON_EU_VISA_REQUIRED',
+        label: 'Non-EU, Visa Required',
+        description: 'From: India, China, Russia, Philippines, etc.',
+        help: 'Need Schengen visa to enter Slovakia'
       }
-
-      const data = await response.json()
-      setRecommendation(data)
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setLoading(false)
+    ]
+  },
+  
+  {
+    id: 'current_location',
+    question: "Where are you right now?",
+    description: "This affects which processes you can start",
+    icon: '📍',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'OUTSIDE_SK',
+        label: "Outside Slovakia",
+        description: "I haven't arrived yet / I'm in another country",
+        help: 'You\'ll need to apply for visas/permits from outside'
+      },
+      {
+        value: 'IN_SK',
+        label: "In Slovakia",
+        description: "I'm already physically in Slovakia",
+        help: 'Different processes available for people already here'
+      }
+    ],
+    show_when: null
+  },
+  
+  {
+    id: 'urgency_level',
+    question: "How urgent is your situation?",
+    description: "Are you in an emergency/time-sensitive situation?",
+    icon: '⏱️',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'EMERGENCY',
+        label: 'Emergency / Just Landed',
+        description: 'I just arrived and need immediate help',
+        help: 'Critical deadlines like Foreign Police registration'
+      },
+      {
+        value: 'NORMAL',
+        label: 'Normal Planning',
+        description: 'I have time to plan properly',
+        help: 'Standard immigration timeline'
+      }
+    ],
+    show_when: {
+      current_location: 'IN_SK'
     }
-  }
-
-  /* ==============================
-     UPDATED: ACCEPT RECOMMENDATION
-     ============================== */
-  const handleAcceptRecommendation = () => {
-    if (!recommendation?.flow_id) return
-
-    const intakeData = {
-      answers,
-      recommendation,
-      accepted: true,
-      timestamp: new Date().toISOString(),
+  },
+  
+  {
+    id: 'visit_purpose',
+    question: "What's your main purpose in Slovakia?",
+    description: "Why are you coming to / living in Slovakia?",
+    icon: '🎯',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'EMPLOYMENT',
+        label: 'Employment',
+        description: 'I have a job offer from a Slovak company',
+        help: 'Most common for workers'
+      },
+      {
+        value: 'BUSINESS',
+        label: 'Business / Freelancing',
+        description: 'Self-employed, freelancer, or starting a business',
+        help: 'Živnosť (trade license) route'
+      },
+      {
+        value: 'FAMILY',
+        label: 'Join Family',
+        description: 'My family member already has residence in Slovakia',
+        help: 'Family reunification'
+      },
+      {
+        value: 'STUDY',
+        label: 'University / Studies',
+        description: 'Student visa for education',
+        help: 'Not fully supported yet - coming soon'
+      },
+      {
+        value: 'TOURISM',
+        label: 'Tourism / Short Visit',
+        description: 'Tourist visit up to 90 days',
+        help: 'No work allowed'
+      },
+      {
+        value: 'PERMANENT',
+        label: 'Permanent Residence',
+        description: 'I\'ve been here 5+ years and want permanent residence',
+        help: 'After 5 years temporary residence'
+      },
+      {
+        value: 'CITIZENSHIP',
+        label: 'Slovak Citizenship',
+        description: 'I want to become a Slovak citizen',
+        help: '8+ year commitment'
+      }
+    ],
+    show_when: null
+  },
+  
+  {
+    id: 'visit_duration',
+    question: "How long do you plan to stay?",
+    description: "Estimated duration in Slovakia",
+    icon: '📅',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'SHORT_STAY',
+        label: 'Short Stay (< 90 days)',
+        description: 'Tourist visit or short business trip',
+        help: 'Maximum without residence permit'
+      },
+      {
+        value: 'MEDIUM_STAY',
+        label: 'Medium Stay (3 months - 2 years)',
+        description: 'Temporary residence',
+        help: 'Requires residence permit'
+      },
+      {
+        value: 'LONG_STAY',
+        label: 'Long Stay (2-5 years)',
+        description: 'Long-term temporary residence',
+        help: 'Towards permanent residence'
+      },
+      {
+        value: 'PERMANENT',
+        label: 'Indefinite / Permanent',
+        description: 'Planning to settle permanently',
+        help: '5+ years required for permanent residence'
+      }
+    ],
+    show_when: {
+      visit_purpose: ['EMPLOYMENT', 'BUSINESS', 'FAMILY', 'STUDY', 'TOURISM']
     }
-
-    // Legacy storage (keep for now)
-    localStorage.setItem(
-      'simplify_slovakia_intake',
-      JSON.stringify(intakeData)
-    )
-
-    // Unified session storage
-    saveSession({
-      flowId: recommendation.flow_id,
-      completedSteps: [],
-      expandedSteps: [],
-      documents: {},
-      intakeAnswers: intakeData,
-      showIntake: false,
-    })
-
-    onFlowSelected(recommendation.flow_id)
+  },
+  
+  {
+    id: 'years_in_slovakia',
+    question: "How long have you already lived in Slovakia?",
+    description: "On legal residence (not tourist visits)",
+    icon: '⏳',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: '0',
+        label: '0 years',
+        description: 'Haven\'t started yet / just arrived',
+        help: 'Starting your journey'
+      },
+      {
+        value: '1-2',
+        label: '1-2 years',
+        description: 'Recently arrived',
+        help: 'Early temporary residence phase'
+      },
+      {
+        value: '3-4',
+        label: '3-4 years',
+        description: 'Mid-term resident',
+        help: 'Approaching 5-year mark'
+      },
+      {
+        value: '5-7',
+        label: '5-7 years',
+        description: 'Long-term resident',
+        help: 'Eligible for permanent residence'
+      },
+      {
+        value: '8+',
+        label: '8+ years',
+        description: 'Very long-term resident',
+        help: 'Eligible for citizenship'
+      }
+    ],
+    show_when: {
+      visit_purpose: ['PERMANENT', 'CITIZENSHIP']
+    }
+  },
+  
+  {
+    id: 'city',
+    question: "Which city will you live in?",
+    description: "Some processes vary slightly by location",
+    icon: '🏙️',
+    type: 'single_select',
+    required: true,
+    options: [
+      {
+        value: 'BRATISLAVA',
+        label: 'Bratislava',
+        description: 'Capital city',
+        help: 'Most resources available'
+      },
+      {
+        value: 'OTHER',
+        label: 'Other City',
+        description: 'Košice, Žilina, Nitra, etc.',
+        help: 'Process similar but may have different office locations'
+      }
+    ],
+    show_when: null,
+    triggers_follow_up: false
   }
+]
 
-  const handleShowAllFlows = () => {
-    localStorage.setItem(
-      'simplify_slovakia_intake',
-      JSON.stringify({
-        answers,
-        recommendation,
-        accepted: false,
-        timestamp: new Date().toISOString(),
+/**
+ * Get the next question based on previous answers
+ */
+export function getNextQuestion(answers) {
+  for (const question of intakeQuestions) {
+    // Skip if already answered
+    if (answers[question.id] !== undefined) {
+      continue
+    }
+    
+    // Check if question should be shown
+    if (question.show_when) {
+      const shouldShow = Object.entries(question.show_when).every(([key, value]) => {
+        if (Array.isArray(value)) {
+          return value.includes(answers[key])
+        }
+        return answers[key] === value
       })
-    )
-
-    onShowManualSelector()
+      
+      if (!shouldShow) {
+        continue
+      }
+    }
+    
+    // This is the next question
+    return question
   }
-
-  const progress = ((currentQuestion + 1) / questions.length) * 100
-  const currentQuestionData = questions[currentQuestion]
-
-  /* ==============================
-     LOADING STATE
-     ============================== */
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-indigo-600 mx-auto mb-4"></div>
-          <p className="text-xl text-gray-700">Finding the best flow for you...</p>
-        </div>
-      </div>
-    )
-  }
-
-  /* ==============================
-     RECOMMENDATION SCREEN
-     ============================== */
-  if (recommendation) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <header className="bg-white shadow-md">
-          <div className="max-w-3xl mx-auto px-4 py-6">
-            {/* Wrap Logo and Title in a flex container */}
-            <div className="flex items-center gap-4">
-              <img src="/simplify-slovakia.svg" alt="Simplify Slovakia Logo" className="h-10 w-auto" />
-              <div>
-                <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-                <p className="text-gray-600">Here's what we recommend</p>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <main className="max-w-3xl mx-auto px-4 py-12">
-          <div className="bg-white rounded-lg shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Based on your answers:</h2>
-
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">👤 Your Profile</h3>
-              <ul className="space-y-1 text-gray-700 text-sm">
-                <li>• Citizenship: {answers.nationality === 'EU' ? 'EU/EEA/Swiss' : 'Non-EU'}</li>
-                <li>• Status: {answers.entry_context === 'FIRST_ENTRY' ? "Haven't arrived yet" : 'Already in Slovakia'}</li>
-                <li>• Purpose: {answers.purpose}</li>
-                <li>• City: {answers.city}</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-indigo-600 bg-indigo-50 p-4 mb-6">
-              <h3 className="font-semibold text-indigo-900 mb-2">✨ We recommend:</h3>
-              <p className="text-lg font-bold text-indigo-700">{recommendation.title}</p>
-              {recommendation.reason && (
-                <p className="text-sm text-indigo-600 mt-2">{recommendation.reason}</p>
-              )}
-              <div className="text-sm text-indigo-600 mt-2">
-                <span className="font-medium">{recommendation.step_count} steps</span>
-                {' • '}
-                <span>Flow ID: {recommendation.flow_id}</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <button
-                onClick={handleAcceptRecommendation}
-                className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700"
-              >
-                Start This Flow →
-              </button>
-
-              <button
-                onClick={handleShowAllFlows}
-                className="w-full bg-white text-gray-700 py-3 px-6 rounded-lg font-semibold border-2 border-gray-300 hover:border-gray-400"
-              >
-                No, show me all options
-              </button>
-            </div>
-
-            {recommendation.confidence === 'low' && (
-              <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <p className="text-sm text-yellow-800">
-                  ⚠️ We couldn't find an exact match for your situation.
-                </p>
-              </div>
-            )}
-          </div>
-        </main>
-      </div>
-    )
-  }
-
-  /* ==============================
-     ERROR STATE
-     ============================== */
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-        <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 max-w-md">
-          <h2 className="text-2xl font-bold text-red-700 mb-4">Error</h2>
-          <p className="text-red-600 mb-4">{error}</p>
-          <button
-            onClick={handleShowAllFlows}
-            className="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700"
-          >
-            See All Flows Instead
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  /* ==============================
-     QUESTION FLOW
-     ============================== */
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <header className="bg-white shadow-md">
-        <div className="max-w-3xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-indigo-600">Simplify Slovakia</h1>
-          <p className="text-gray-600 mt-2">Let's find the right path for you</p>
-        </div>
-      </header>
-
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <div className="mb-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">
-                Question {currentQuestion + 1} of {questions.length}
-              </span>
-              <span className="text-sm text-gray-500">{Math.round(progress)}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div
-                className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            {currentQuestionData.question}
-          </h2>
-
-          <div className="space-y-3">
-            {currentQuestionData.options.map(option => (
-              <button
-                key={option.value}
-                onClick={() => handleAnswer(currentQuestionData.id, option.value)}
-                className="w-full text-left p-4 rounded-lg border-2 border-gray-300 hover:border-indigo-600 hover:bg-indigo-50"
-              >
-                <span className="text-lg">{option.label}</span>
-              </button>
-            ))}
-          </div>
-
-          {currentQuestion > 0 && (
-            <button
-              onClick={() => setCurrentQuestion(currentQuestion - 1)}
-              className="mt-6 text-gray-600 hover:text-gray-900 font-medium"
-            >
-              ← Back
-            </button>
-          )}
-
-          <div className="mt-8 text-center">
-            <button
-              onClick={handleShowAllFlows}
-              className="text-sm text-gray-500 hover:text-gray-700 underline"
-            >
-              Skip this and show me all flows
-            </button>
-          </div>
-        </div>
-      </main>
-    </div>
-  )
+  
+  // No more questions
+  return null
 }
 
-export default IntakeForm
+/**
+ * Validate answers are complete
+ */
+export function validateAnswers(answers) {
+  const requiredQuestions = intakeQuestions.filter(q => {
+    if (!q.required) return false
+    
+    // Check if question should be shown
+    if (q.show_when) {
+      const shouldShow = Object.entries(q.show_when).every(([key, value]) => {
+        if (Array.isArray(value)) {
+          return value.includes(answers[key])
+        }
+        return answers[key] === value
+      })
+      if (!shouldShow) return false
+    }
+    
+    return true
+  })
+  
+  const missingAnswers = requiredQuestions
+    .filter(q => answers[q.id] === undefined)
+    .map(q => q.id)
+  
+  return {
+    valid: missingAnswers.length === 0,
+    missing: missingAnswers
+  }
+}
+
+/**
+ * Get total number of questions to answer given current answers
+ */
+export function getTotalQuestions(answers) {
+  return intakeQuestions.filter(q => {
+    if (q.show_when) {
+      const shouldShow = Object.entries(q.show_when).every(([key, value]) => {
+        if (Array.isArray(value)) {
+          return value.includes(answers[key])
+        }
+        return answers[key] === value
+      })
+      return shouldShow
+    }
+    return true
+  }).length
+}

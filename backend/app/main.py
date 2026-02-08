@@ -1,80 +1,208 @@
+# backend/app/main.py
+# UPDATED VERSION - Uses flow metadata for intelligent routing
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from typing import Dict, List
+from typing import Dict, List, Optional
 from pydantic import BaseModel
 import yaml
 import os
 from pathlib import Path
 
-app = FastAPI(title="Simplify Slovakia API",
+app = FastAPI(
+    title="Simplify Slovakia API",
     description="Deterministic bureaucracy navigation for Slovakia",
-    version="1.0.0",
+    version="2.0.0",
     contact={
         "name": "Simplify Slovakia",
         "url": "https://github.com/ToxicMinds/simplify_slovakia",
-        },
-    )
+    },
+)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins
-    allow_credentials=False,  # Must be False when using "*"
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Detect if running in Lambda
 if os.environ.get('AWS_LAMBDA_FUNCTION_NAME'):
-    # In Lambda: /var/task/app/main.py -> /var/task
     BASE_DIR = Path(__file__).resolve().parent.parent
 else:
-    # Local: backend/app/main.py -> project root
     BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 DATA_DIR = BASE_DIR / "data"
 FLOWS_DIR = DATA_DIR / "flows"
 STEPS_DIR = DATA_DIR / "steps"
-RULES_DIR = BASE_DIR / "rules"
-
-# Add after the existing models/before routes
-class UserProgress(BaseModel):
-    """User's progress through a flow"""
-    flow_id: str
-    completed_steps: List[str]
-
-
-class IntakeAnswers(BaseModel):
-    """User's intake questionnaire answers - maps to eligibility.yaml dimensions"""
-    nationality: str      # EU or NON_EU
-    entry_context: str    # FIRST_ENTRY or IN_COUNTRY
-    purpose: str          # EMPLOYMENT, BUSINESS, STUDY, FAMILY
-    city: str             # BRATISLAVA or OTHER
-
-
-# In-memory storage (for MVP - will use localStorage in frontend)
-# In production, this would be a database
-user_progress_store: Dict[str, UserProgress] = {}
-
 
 def load_yaml(path: Path):
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-
 def load_flow(flow_file: str):
     return load_yaml(FLOWS_DIR / flow_file)
-
 
 def load_step(step_id: str):
     return load_yaml(STEPS_DIR / f"{step_id}.yaml")
 
 
-def load_eligibility_rules():
-    """Load eligibility rules from rules/immigration/eligibility.yaml"""
-    return load_yaml(RULES_DIR / "immigration" / "eligibility.yaml")
+# ==============================================================================
+# MODELS
+# ==============================================================================
+
+class IntakeAnswersV2(BaseModel):
+    """V2 intake answers - matches intakeQuestions.js structure"""
+    nationality_type: str  # EU | NON_EU_VISA_FREE | NON_EU_VISA_REQUIRED
+    current_location: str  # OUTSIDE_SK | IN_SK
+    urgency_level: Optional[str] = None  # EMERGENCY | NORMAL
+    visit_purpose: str  # TOURISM | EMPLOYMENT | BUSINESS | FAMILY | STUDY | PERMANENT | CITIZENSHIP
+    visit_duration: Optional[str] = None  # SHORT_STAY | MEDIUM_STAY | LONG_STAY | PERMANENT
+    years_in_slovakia: Optional[str] = None  # 0 | 1-2 | 3-4 | 5-7 | 8+
+    city: str  # BRATISLAVA | OTHER
 
 
-# NEW ENDPOINT: List all available flows
+class FlowRecommendation(BaseModel):
+    """Flow recommendation with confidence scoring"""
+    flow_id: str
+    title: str
+    score: int  # 0-100
+    confidence: str  # HIGH | MEDIUM | LOW
+    reason: str
+    warnings: List[str] = []
+
+
+# ==============================================================================
+# HELPER FUNCTIONS
+# ==============================================================================
+
+def calculate_flow_match_score(flow_data: dict, answers: IntakeAnswersV2) -> tuple[int, str]:
+    """
+    Calculate match score using flow's intake_matches rules
+    Returns: (score, reason)
+    """
+    if 'intake_matches' not in flow_data:
+        # Fallback to simple scoring if no intake_matches
+        return calculate_simple_score(flow_data, answers)
+    
+    total_score = 0
+    max_possible = 0
+    matched_reasons = []
+    
+    for match_rule in flow_data['intake_matches']:
+        question = match_rule['question']
+        required_answer = match_rule['required_answer']
+        weight = match_rule['weight']
+        reason = match_rule.get('reason', '')
+        
+        max_possible += weight
+        
+        # Get user's answer for this question
+        user_answer = getattr(answers, question, None)
+        
+        # Check if it matches
+        if required_answer == 'ANY':
+            # ANY means any answer is acceptable
+            total_score += weight
+            matched_reasons.append(reason)
+        elif user_answer == required_answer:
+            total_score += weight
+            matched_reasons.append(reason)
+        elif isinstance(required_answer, list) and user_answer in required_answer:
+            total_score += weight
+            matched_reasons.append(reason)
+        elif required_answer.endswith('+') and user_answer:
+            # Handle "5+" type requirements
+            try:
+                required_years = int(required_answer[:-1])
+                user_years_str = user_answer.split('-')[0]  # "5-7" -> "5"
+                if user_years_str.endswith('+'):
+                    user_years = int(user_years_str[:-1])
+                else:
+                    user_years = int(user_years_str)
+                
+                if user_years >= required_years:
+                    total_score += weight
+                    matched_reasons.append(reason)
+            except:
+                pass
+    
+    if max_possible == 0:
+        return (0, "No matching criteria defined")
+    
+    # Calculate percentage
+    score = int((total_score / max_possible) * 100)
+    
+    # Combine reasons
+    reason_text = " | ".join(matched_reasons) if matched_reasons else "No matches"
+    
+    return (score, reason_text)
+
+
+def calculate_simple_score(flow_data: dict, answers: IntakeAnswersV2) -> tuple[int, str]:
+    """
+    Fallback scoring using intake_routing (backward compatibility)
+    """
+    routing = flow_data.get('intake_routing', {})
+    score = 0
+    
+    # Nationality match (30 points)
+    if routing.get('nationality_requirement') == 'ANY':
+        score += 30
+    elif routing.get('nationality_requirement') == answers.nationality_type:
+        score += 30
+    
+    # Location match (25 points)
+    if routing.get('entry_context') == 'ANY':
+        score += 25
+    elif routing.get('entry_context') == answers.current_location:
+        score += 25
+    
+    # Purpose match (35 points)
+    if routing.get('purpose') == 'ANY':
+        score += 35
+    elif routing.get('purpose') == answers.visit_purpose:
+        score += 35
+    
+    # Urgency match (10 points)
+    if routing.get('urgency') == 'ANY' or not routing.get('urgency'):
+        score += 10
+    elif routing.get('urgency') == answers.urgency_level:
+        score += 10
+    
+    reason = f"Matched via intake_routing (fallback method)"
+    return (score, reason)
+
+
+def get_confidence_from_score(score: int, threshold: int) -> str:
+    """Convert score to confidence level"""
+    if score >= 85:
+        return "HIGH"
+    elif score >= threshold:
+        return "MEDIUM"
+    elif score >= 30:
+        return "LOW"
+    else:
+        return "NONE"
+
+
+def generate_recommendation_reason(flow_data: dict, score: int, match_reason: str) -> str:
+    """Generate human-readable recommendation reason"""
+    if score >= 85:
+        return f"Perfect match! {match_reason}"
+    elif score >= 60:
+        return f"Good match. {match_reason}"
+    elif score >= 30:
+        return f"Partial match. {match_reason}"
+    else:
+        return "This flow doesn't seem to match your situation well."
+
+
+# ==============================================================================
+# ENDPOINTS
+# ==============================================================================
+
 @app.get("/flows")
 def list_flows():
     """List all available flows with metadata"""
@@ -84,16 +212,28 @@ def list_flows():
         for flow_file in FLOWS_DIR.glob("*.yaml"):
             try:
                 flow_data = load_yaml(flow_file)
+                
+                # Extract metadata
+                display_info = flow_data.get('display_info', {})
+                
                 flows.append({
                     "flow_id": flow_data["flow_id"],
-                    "persona_id": flow_data["persona_id"],
-                    "country": flow_data["country"],
-                    "version": flow_data["version"],
-                    "step_count": len(flow_data["steps"]),
-                    "title": format_persona_title(flow_data["persona_id"]),
+                    "title": display_info.get('title', flow_data.get('title', flow_data["flow_id"])),
+                    "category": display_info.get('category', 'Other'),
+                    "description": display_info.get('description', ''),
+                    "difficulty": display_info.get('difficulty_level', 'MEDIUM'),
+                    "timeline": display_info.get('estimated_timeline', ''),
+                    "cost": display_info.get('estimated_cost', ''),
+                    "priority": display_info.get('priority', 'MEDIUM'),
+                    "tags": display_info.get('tags', []),
+                    "step_count": len(flow_data.get("steps", [])),
+                    "version": flow_data.get("version", "1.0.0"),
+                    
+                    # Legacy fields for backward compatibility
+                    "persona_id": flow_data.get("persona_id", ""),
+                    "country": flow_data.get("country", "Slovakia"),
                 })
             except Exception as e:
-                # Skip malformed flow files, log error
                 print(f"Error loading {flow_file}: {e}")
                 continue
         
@@ -103,6 +243,10 @@ def list_flows():
                 detail="No valid flows found in data/flows/"
             )
         
+        # Sort by priority
+        priority_order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
+        flows.sort(key=lambda x: priority_order.get(x.get("priority", "MEDIUM"), 2))
+        
         return {"flows": flows}
     except HTTPException:
         raise
@@ -110,142 +254,117 @@ def list_flows():
         raise HTTPException(status_code=500, detail=str(e))
 
 
-def format_persona_title(persona_id: str):
-    """Convert persona_id to human-readable title"""
-    # non_eu_employee_first_entry_bratislava_single -> Non-EU Employee, First Entry, Bratislava
-    parts = persona_id.replace("_", " ").split()
-    formatted = " ".join(word.capitalize() for word in parts)
-    return formatted
-
-
-# NEW ENDPOINT: Recommend flow based on intake answers
-@app.post("/recommend-flow")
-def recommend_flow(answers: IntakeAnswers):
+@app.post("/recommend-flow-v2")
+def recommend_flow_v2(answers: IntakeAnswersV2):
     """
-    Recommend a flow based on user's intake answers
+    V2: Recommend flows using metadata-driven matching
     
-    ROUTING LOGIC:
-    - Uses eligibility.yaml rules to determine correct flow
-    - Maps intake dimensions to existing flow personas
-    - Returns flow_id, title, reason, confidence level
-    
-    EXTENSIBILITY:
-    - When new flows added, update routing logic here
-    - Keep logic deterministic (no ML for v1)
+    Uses intake_matches rules from flow YAML metadata for intelligent scoring.
+    Falls back to intake_routing if intake_matches not defined.
     """
     try:
         # Load all available flows
-        flows_response = list_flows()
-        available_flows = {f["flow_id"]: f for f in flows_response["flows"]}
+        all_flows = []
         
-        # ROUTING LOGIC - Based on eligibility.yaml dimensions
+        for flow_file in FLOWS_DIR.glob("*.yaml"):
+            try:
+                flow_data = load_yaml(flow_file)
+                all_flows.append(flow_data)
+            except Exception as e:
+                print(f"Error loading {flow_file}: {e}")
+                continue
         
-        # Rule 1: Non-EU + Employment + First Entry → sk_non_eu_employee_first_entry
-        if (answers.nationality == "NON_EU" and 
-            answers.purpose == "EMPLOYMENT" and 
-            answers.entry_context == "FIRST_ENTRY"):
+        if not all_flows:
+            raise HTTPException(status_code=500, detail="No flows available")
+        
+        # Score each flow
+        recommendations = []
+        
+        for flow_data in all_flows:
+            score, match_reason = calculate_flow_match_score(flow_data, answers)
             
-            flow_id = "sk_non_eu_employee_first_entry_bratislava_v1"
-            if flow_id in available_flows:
-                return {
-                    "flow_id": flow_id,
-                    "title": available_flows[flow_id]["title"],
-                    "step_count": available_flows[flow_id]["step_count"],
-                    "reason": "You need a national visa (Type D) and temporary residence permit for employment.",
-                    "confidence": "high",
-                }
-        
-        # Rule 2: EU + Employment → sk_eu_employee_first_entry
-        if (answers.nationality == "EU" and 
-            answers.purpose == "EMPLOYMENT"):
+            display_info = flow_data.get('display_info', {})
+            intake_routing = flow_data.get('intake_routing', {})
+            confidence_threshold = flow_data.get('intake_matches', [{}])[0].get('confidence_threshold', 70) if 'intake_matches' in flow_data else 70
             
-            flow_id = "sk_eu_employee_first_entry_bratislava_v1"
-            if flow_id in available_flows:
-                return {
-                    "flow_id": flow_id,
-                    "title": available_flows[flow_id]["title"],
-                    "step_count": available_flows[flow_id]["step_count"],
-                    "reason": "As an EU citizen, you have simplified requirements. No visa needed!",
-                    "confidence": "high",
-                }
-        
-        # Rule 3: Non-EU + Business → sk_non_eu_freelancer_setup (when available)
-        if (answers.nationality == "NON_EU" and 
-            answers.purpose == "BUSINESS"):
+            confidence = get_confidence_from_score(score, confidence_threshold)
             
-            flow_id = "sk_non_eu_freelancer_setup_v1"
-            if flow_id in available_flows:
-                return {
-                    "flow_id": flow_id,
-                    "title": available_flows[flow_id]["title"],
-                    "step_count": available_flows[flow_id]["step_count"],
-                    "reason": "You'll need a trade license (živnosť) and business residence permit.",
-                    "confidence": "high",
-                }
-            else:
-                # Fallback to closest match
-                return {
-                    "flow_id": "sk_non_eu_employee_first_entry_bratislava_v1",
-                    "title": "Non-EU Employee (Temporary)",
-                    "step_count": available_flows.get("sk_non_eu_employee_first_entry_bratislava_v1", {}).get("step_count", 0),
-                    "reason": "Freelancer flow not yet available. This is the closest match.",
-                    "confidence": "medium",
-                }
+            # Only include if score > 0
+            if score > 0:
+                recommendation = FlowRecommendation(
+                    flow_id=flow_data['flow_id'],
+                    title=display_info.get('title', flow_data.get('title', flow_data['flow_id'])),
+                    score=score,
+                    confidence=confidence,
+                    reason=generate_recommendation_reason(flow_data, score, match_reason),
+                    warnings=display_info.get('warnings', [])
+                )
+                recommendations.append(recommendation)
         
-        # Rule 4: Family → sk_family_reunification (when available)
-        if answers.purpose == "FAMILY":
-            flow_id = "sk_family_reunification_v1"
-            if flow_id in available_flows:
-                return {
-                    "flow_id": flow_id,
-                    "title": available_flows[flow_id]["title"],
-                    "step_count": available_flows[flow_id]["step_count"],
-                    "reason": "You'll join your family member who has residence in Slovakia.",
-                    "confidence": "high",
-                }
-            else:
-                # No exact match - let user choose manually
-                return {
-                    "flow_id": "",
-                    "title": "No exact match found",
-                    "step_count": 0,
-                    "reason": "Family reunification flow not yet available. Please select manually.",
-                    "confidence": "low",
-                }
+        if not recommendations:
+            return {
+                "flow_id": "",
+                "title": "No exact match found",
+                "score": 0,
+                "confidence": "NONE",
+                "reason": "We couldn't find a flow matching your situation. Please browse all flows manually.",
+                "warnings": [],
+                "step_count": 0
+            }
         
-        # Fallback: Default to showing manual selector
+        # Sort by score descending
+        recommendations.sort(key=lambda x: x.score, reverse=True)
+        
+        # Return top recommendation
+        top = recommendations[0]
+        
+        # Get step count
+        flow_data = load_yaml(FLOWS_DIR / f"{top.flow_id}.yaml")
+        
         return {
-            "flow_id": "",
-            "title": "Please select manually",
-            "step_count": 0,
-            "reason": "We couldn't find an exact match for your situation. Please review all available flows.",
-            "confidence": "low",
+            "flow_id": top.flow_id,
+            "title": top.title,
+            "score": top.score,
+            "confidence": top.confidence,
+            "reason": top.reason,
+            "warnings": top.warnings,
+            "step_count": len(flow_data.get("steps", [])),
+            "alternatives": [
+                {
+                    "flow_id": rec.flow_id,
+                    "title": rec.title,
+                    "score": rec.score,
+                    "confidence": rec.confidence
+                }
+                for rec in recommendations[1:4]  # Top 3 alternatives
+            ] if len(recommendations) > 1 else []
         }
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/resolve-flow")
-def resolve_flow():
-    # Keep existing hardcoded version for backward compatibility
-    flow = load_flow("sk_non_eu_employee_first_entry_bratislava_v1.yaml")
-
-    resolved_steps = []
-    for item in flow["steps"]:
-        step_data = load_step(item["step_id"])
-        step_data["order"] = item["order"]
-        resolved_steps.append(step_data)
-
-    return {
-        "flow": {
-            "flow_id": flow["flow_id"],
-            "persona_id": flow["persona_id"],
-            "country": flow["country"],
-            "version": flow["version"],
-        },
-        "steps": resolved_steps,
-    }
+# Keep old endpoint for backward compatibility
+@app.post("/recommend-flow")
+def recommend_flow_v1(answers: dict):
+    """
+    V1: Legacy endpoint - converts to V2 format and delegates
+    """
+    try:
+        # Convert old format to new format
+        v2_answers = IntakeAnswersV2(
+            nationality_type=answers.get('nationality', 'NON_EU_VISA_REQUIRED'),
+            current_location=answers.get('entry_context', 'OUTSIDE_SK'),
+            urgency_level=answers.get('urgency', 'NORMAL'),
+            visit_purpose=answers.get('purpose', 'EMPLOYMENT'),
+            visit_duration=None,
+            years_in_slovakia=None,
+            city=answers.get('city', 'BRATISLAVA')
+        )
+        
+        return recommend_flow_v2(v2_answers)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/flow/{flow_id}")
@@ -255,10 +374,9 @@ def get_flow(flow_id: str):
         flow_file = f"{flow_id}.yaml"
         flow_path = FLOWS_DIR / flow_file
         
-        # Check if flow exists
         if not flow_path.exists():
             raise HTTPException(
-                status_code=404, 
+                status_code=404,
                 detail=f"Flow '{flow_id}' not found. Available flows: /flows"
             )
         
@@ -268,7 +386,6 @@ def get_flow(flow_id: str):
         for item in flow["steps"]:
             step_file = STEPS_DIR / f"{item['step_id']}.yaml"
             
-            # Check if step file exists
             if not step_file.exists():
                 raise HTTPException(
                     status_code=500,
@@ -279,12 +396,21 @@ def get_flow(flow_id: str):
             step_data["order"] = item["order"]
             resolved_steps.append(step_data)
         
+        # Include metadata in response
+        display_info = flow.get('display_info', {})
+        
         return {
             "flow": {
                 "flow_id": flow["flow_id"],
-                "persona_id": flow["persona_id"],
-                "country": flow["country"],
-                "version": flow["version"],
+                "title": display_info.get('title', flow.get('title', flow["flow_id"])),
+                "description": display_info.get('description', flow.get('description', '')),
+                "category": display_info.get('category', 'Other'),
+                "difficulty": display_info.get('difficulty_level', 'MEDIUM'),
+                "timeline": display_info.get('estimated_timeline', flow.get('estimated_timeline', '')),
+                "cost": display_info.get('estimated_cost', flow.get('estimated_cost', '')),
+                "persona_id": flow.get("persona_id", ""),
+                "country": flow.get("country", "Slovakia"),
+                "version": flow.get("version", "1.0.0"),
             },
             "steps": resolved_steps,
         }
@@ -296,19 +422,4 @@ def get_flow(flow_id: str):
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
-
-
-@app.post("/progress/{flow_id}")
-def save_progress(flow_id: str, progress: UserProgress):
-    """Save user's progress for a flow"""
-    user_progress_store[flow_id] = progress
-    return {"status": "saved", "flow_id": flow_id}
-
-
-@app.get("/progress/{flow_id}")
-def get_progress(flow_id: str):
-    """Get user's saved progress for a flow"""
-    if flow_id in user_progress_store:
-        return user_progress_store[flow_id]
-    return {"flow_id": flow_id, "completed_steps": []}
+    return {"status": "ok", "version": "2.0.0"}
