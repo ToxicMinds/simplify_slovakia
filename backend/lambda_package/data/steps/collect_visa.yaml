@@ -1,0 +1,94 @@
+step_id: collect_visa
+title: Collect Visa and Passport
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - passport_submitted
+outputs:
+  - visa_granted
+  - passport_returned
+description: |
+  Collect your passport with visa decision after processing.
+  
+  PROCESSING TIME:
+  - Normal: 15 working days
+  - Can take up to 30 working days in peak season
+  - Sometimes faster (7-10 days)
+  
+  TRACK STATUS ONLINE:
+  - Use tracking number from receipt
+  - Check at: https://visa.vfsglobal.com/ind/en/svk/track-application
+  - Updates when passport reaches VFS from embassy
+  
+  NOTIFICATION:
+  - SMS when passport ready for collection
+  - Email notification
+  - Check online status daily
+  
+  COLLECTION PROCESS:
+  
+  1. Wait for "Ready for Collection" status
+  2. Visit same VFS center during collection hours
+  3. Bring:
+     - Original receipt
+     - Valid ID (passport copy, Aadhaar, driver's license)
+     - Someone else can collect with authorization letter + their ID
+  
+  4. Receive passport with visa sticker OR rejection letter
+  
+  WHAT THE VISA STICKER SHOWS:
+  - Type: C (short stay tourism)
+  - Validity dates (from - to)
+  - Duration of stay (e.g., "90 days")
+  - Number of entries (usually "MULT" = multiple)
+  - Issuing country: SVK (Slovakia)
+  - Schengen territory: "Schengen States"
+  
+  CHECK IMMEDIATELY:
+  - Correct spelling of your name
+  - Correct passport number
+  - Validity dates match your travel plans
+  - If ANY error → report immediately at VFS counter
+  
+  IF APPROVED:
+  - You can enter Slovakia (or any Schengen country) between validity dates
+  - Maximum stay: 90 days within any 180-day period
+  - Can enter/exit multiple times
+  
+  IF REJECTED:
+  - Envelope contains rejection letter stating reason
+  - Can appeal within 15 days (rarely successful)
+  - Can reapply addressing rejection reasons
+  - Visa fee is NOT refunded
+  
+  COMMON REJECTION REASONS:
+  1. Insufficient financial means (35%)
+  2. Purpose and conditions of stay not proven (25%)
+  3. Justification for journey unclear (20%)
+  4. Travel document validity issue (10%)
+  5. Intention to return not established (10%)
+why_it_matters: |
+  Check visa details BEFORE leaving VFS center!
+  
+  Errors on visa (wrong name, dates, etc.) must be corrected immediately.
+  Once you leave, corrections take weeks.
+  
+  If rejected, don't panic:
+  - Read rejection reason carefully
+  - Address specific issues
+  - Can reapply with stronger application
+  - Many people succeed on second attempt
+official_links:
+  - authority: VFS Global - Track Application
+    url: https://visa.vfsglobal.com/ind/en/svk/track-application
+  - authority: Understanding Schengen Visa Rejections
+    url: https://home-affairs.ec.europa.eu/visa-refusal-appeal_en
+failure_modes:
+  - what_breaks: Not collecting within 3 months
+    consequence: Passport sent to embassy, complex retrieval process
+  - what_breaks: Visa error not noticed at VFS center
+    consequence: Weeks of delay to correct via embassy
+  - what_breaks: Traveling with visa error (e.g., wrong passport number)
+    consequence: Denied boarding at airport or entry at border

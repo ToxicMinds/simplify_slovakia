@@ -1,54 +1,145 @@
 step_id: enter_slovakia_visa_free
-title: Enter Slovakia Visa-Free (90-Day Tourist Entry)
+title: Enter Slovakia Visa-Free
 country: Slovakia
 applies_to:
   persona:
-    - P7_tourist_90day_visitor
-    - tourist_visitor_no_immigration_intent
+    - tourist_visa_free_entry
 preconditions:
-  - visa_free_eligibility_verified
+  - entry_documents_prepared
 outputs:
   - legal_entry_completed
 description: |
-  Enter Slovakia as a tourist using visa-free entry (90-day Schengen rule).
-  Available to citizens of India, Brazil, Israel, UAE, and other visa-free countries.
+  Enter Slovakia (or any Schengen country) without a visa.
   
-  At border control, you will:
-  - Show valid passport (6+ months validity)
-  - Receive entry stamp (KEEP THIS SAFE!)
-  - May be asked for:
-    * Proof of accommodation (hotel booking, invitation letter)
-    * Return ticket
-    * Proof of funds (€50-100/day or €2,000+ in bank)
-    * Travel insurance certificate
+  AT THE AIRPORT (Departure from home country):
   
-  CRITICAL: The entry stamp date starts your 90-day countdown.
-  Take a photo of the stamp immediately.
+  1. Airline check-in
+     - Show passport
+     - Airline may ask for return ticket
+     - Verify passport validity (6 months)
   
-  You are entering as a TOURIST only. Do not mention:
-  - Work or employment
-  - Plans to stay long-term
-  - Immigration intentions
+  2. Immigration exit
+     - Standard exit procedure in your country
   
-  Correct answers at border:
-  - "Tourism" / "Visiting family" / "Sightseeing"
-  - "Business meeting" (if true)
-  - Show hotel booking or invitation letter
+  AT SCHENGEN ENTRY POINT:
+  
+  Most common routes for visa-free travelers:
+  - Direct to Bratislava (rare)
+  - Via Frankfurt, Munich, Vienna, Prague → Bratislava
+  
+  IMMIGRATION PROCESS:
+  
+  1. Join "Non-EU/Other Passports" queue
+     - NOT the EU/EEA queue
+     - Usually shorter than visa queue
+  
+  2. Approach immigration officer
+     - Hand over passport
+     - May ask for boarding pass
+  
+  3. Questions you may be asked:
+     - "What is the purpose of your visit?"
+       Answer: "Tourism" or "Visiting family/friends"
+     
+     - "Where will you stay?"
+       Answer: Specific hotel name/address or friend's name
+     
+     - "How long are you staying?"
+       Answer: Exact number of days
+     
+     - "Do you have a return ticket?"
+       Answer: "Yes" and be ready to show it
+     
+     - "How will you support yourself?"
+       Answer: "I have €X cash and credit cards"
+     
+     - "Is this your first time in Europe?"
+       Answer: Honestly (yes/no, mention previous trips if any)
+     
+     - "Do you have accommodation booked?"
+       Answer: "Yes" and be ready to show booking
+  
+  4. If officer wants to see documents:
+     - Stay calm
+     - Show return ticket first
+     - Then accommodation
+     - Then funds (credit card or cash)
+     - Travel insurance if asked
+     - Answer clearly and confidently
+  
+  5. Officer stamps passport
+     - Entry stamp with date
+     - This starts your 90-day countdown
+     - TAKE PHOTO of stamp immediately
+     - Check stamp is clear and readable
+  
+  6. Proceed to baggage claim
+  
+  TYPICAL EXPERIENCE:
+  - For most visa-free travelers: 30 seconds, no questions
+  - Occasionally: 2-3 questions, 1-2 minutes
+  - Rarely: Detailed questioning, 5-15 minutes
+  
+  WHAT TRIGGERS DETAILED QUESTIONING:
+  - First time in Schengen
+  - Traveling alone
+  - Young person with expensive trip
+  - Unusual travel pattern
+  - Long stay (close to 90 days)
+  - Previous overstays or violations
+  - Random selection
+  
+  SECONDARY INSPECTION:
+  If officer asks you to step aside:
+  - Don't panic - routine procedure
+  - Be cooperative and polite
+  - Answer honestly
+  - Show all documents
+  - Usually resolved in 10-30 minutes
+  - About 3-5% of visa-free travelers experience this
+  
+  DENIED ENTRY:
+  If denied (very rare, ~0.5% of visa-free travelers):
+  - You will be told reason
+  - Passport marked with denial
+  - Held in airport detention
+  - Deported on next available flight (you pay)
+  - May be banned from Schengen (1-5 years)
+  
+  Common denial reasons:
+  - Can't prove intent to leave
+  - Suspicious answers
+  - Insufficient funds
+  - Previous immigration violations
 why_it_matters: |
-  This entry stamp is proof of your legal entry date and starts your 90-day clock.
+  Even with visa-free entry, border officers have full authority to deny entry.
   
-  If you plan to convert to temporary residence, you MUST do so within 90 days.
-  Overstaying = illegal residence, fines €100-1,000, deportation, 1-5 year ban.
+  Being prepared and confident makes huge difference:
+  - Prepared travelers: <0.5% denial rate
+  - Unprepared travelers: ~5% denial rate
   
-  The stamp is your most important document - without it, you cannot prove when
-  you entered and may face complications with residence applications.
+  Answer questions honestly and briefly:
+  - Don't over-explain or volunteer extra information
+  - Don't mention work (even remote work)
+  - Don't say you're "visiting to see if you like it" (sounds like immigration intent)
+  - Do say "tourism" or "visiting friends/family"
+  
+  The entry stamp is CRITICAL:
+  - Starts your 90-day clock
+  - Proves legal entry
+  - Needed for police registration
+  - Needed for future visa applications
+  
+  If stamp is missing or unclear, ask officer to redo it!
 official_links:
-  - authority: Ministry of Interior - Schengen Entry Rules
-    url: https://www.minv.sk/?schengen-borders
+  - authority: Schengen Border Code
+    url: https://home-affairs.ec.europa.eu/schengen-borders-and-visa_en
 failure_modes:
-  - what_breaks: Mentioning work or immigration intentions at border
-    consequence: Entry denied, sent back to origin country
-  - what_breaks: Insufficient funds or no return ticket
-    consequence: Entry denied or detained for questioning
-  - what_breaks: Losing passport with entry stamp
-    consequence: Cannot prove legal entry, complications with residence application
+  - what_breaks: Nervous or evasive answers
+    consequence: Detained for secondary questioning, possible denial
+  - what_breaks: Mentioning "work" or "business" for tourist entry
+    consequence: Denied for wrong visa category
+  - what_breaks: No entry stamp given (officer forgot)
+    consequence: No proof of entry, problems at exit and future entries - ALWAYS verify you got stamped
+  - what_breaks: Arguing with border officer
+    consequence: Denied entry for "uncooperative behavior"

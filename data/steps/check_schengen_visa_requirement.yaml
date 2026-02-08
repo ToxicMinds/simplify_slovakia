@@ -1,0 +1,107 @@
+step_id: check_schengen_visa_requirement
+title: Check If You Need a Schengen Visa
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+    - tourist_visa_free_entry
+preconditions: []
+outputs:
+  - visa_requirement_known
+description: |
+  Determine whether you need a visa to enter Slovakia (and the Schengen Area).
+  
+  VISA-FREE COUNTRIES (90 days max, no visa needed):
+  
+  **Americas:**
+  - USA, Canada
+  - Argentina, Brazil, Chile, Uruguay, Paraguay
+  - Mexico, Panama, Costa Rica, Nicaragua
+  
+  **Asia-Pacific:**
+  - Australia, New Zealand
+  - Japan, South Korea, Taiwan, Singapore
+  - Hong Kong SAR, Macau SAR
+  - Brunei, Malaysia
+  
+  **Middle East:**
+  - Israel, United Arab Emirates, Qatar, Bahrain, Kuwait, Saudi Arabia
+  
+  **Europe (non-EU):**
+  - United Kingdom (post-Brexit)
+  - Serbia, Bosnia and Herzegovina, North Macedonia, Albania, Montenegro
+  
+  **Other:**
+  - Seychelles, Mauritius
+  
+  VISA-REQUIRED COUNTRIES (must apply in advance):
+  
+  - India
+  - China (mainland)
+  - Russia
+  - Pakistan, Bangladesh, Sri Lanka
+  - Philippines, Indonesia, Thailand, Vietnam
+  - Turkey
+  - Egypt, Morocco, Tunisia
+  - Nigeria, South Africa, Kenya, Ghana
+  - Most African countries
+  - Most Asian countries not listed above
+  
+  HOW TO VERIFY:
+  
+  1. Check official EU list:
+     https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+  
+  2. Contact Slovak embassy in your country
+  
+  3. Use VFS Global visa check:
+     https://visa.vfsglobal.com/one-pager/slovakia/
+  
+  IMPORTANT NOTES:
+  
+  - Visa policy can change - always verify with official sources
+  - Some countries have agreements that change requirements
+  - Dual citizens: Use your strongest passport (usually visa-free one)
+  - If in doubt, assume you need a visa and verify
+  
+  CONSEQUENCES OF GETTING THIS WRONG:
+  
+  If you think you're visa-free but actually need a visa:
+  - Denied boarding at airport (airline checks)
+  - Cannot board flight to Europe
+  - Waste flight ticket cost
+  - Possible airline penalties
+  
+  If you think you need a visa but are actually visa-free:
+  - Waste time and money on unnecessary visa application
+  - But at least you can still travel!
+  
+  When in doubt, it's safer to assume you need a visa.
+why_it_matters: |
+  This is THE MOST CRITICAL decision point.
+  
+  Getting this wrong means:
+  - For visa-required travelers: Denied boarding, wasted money
+  - For visa-free travelers: Unnecessary visa application
+  
+  About 15% of travelers get this wrong, often because they:
+  - Rely on outdated information
+  - Confuse Schengen with individual country rules
+  - Assume all countries treat them like USA does
+  - Don't verify official sources
+  
+  NEVER assume - ALWAYS verify with official sources!
+official_links:
+  - authority: European Commission - Visa Policy
+    url: https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+  - authority: VFS Global - Slovakia Visa Information
+    url: https://visa.vfsglobal.com/one-pager/slovakia/
+  - authority: Slovak Ministry of Foreign Affairs
+    url: https://www.mzv.sk/en/consular_info
+failure_modes:
+  - what_breaks: Relying on friend's experience from different country
+    consequence: Wrong assumption, denied boarding or unnecessary visa
+  - what_breaks: Not checking recent policy changes
+    consequence: Outdated information, travel disruption
+  - what_breaks: Assuming visa-free because "I have USA visa"
+    consequence: Schengen has different rules - still need visa

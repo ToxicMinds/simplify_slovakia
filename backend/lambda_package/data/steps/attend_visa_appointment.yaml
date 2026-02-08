@@ -1,0 +1,72 @@
+step_id: attend_visa_appointment
+title: Attend Visa Appointment and Submit Biometrics
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - visa_application_submitted
+outputs:
+  - biometrics_submitted
+  - passport_submitted
+description: |
+  This step is actually combined with the application submission step.
+  
+  At your VFS appointment, you will:
+  
+  1. Document verification (10 min)
+     - Officer checks all documents
+     - Verifies photocopies match originals
+     - Asks clarifying questions
+  
+  2. Biometric data collection (5 min)
+     - Digital photograph taken
+     - Fingerprints of all 10 fingers scanned
+     - Valid for 5 years (if you apply for another Schengen visa within 5 years, no need to redo)
+  
+  3. Payment confirmation
+     - Show online payment receipt
+     - Or pay by card at counter
+  
+  4. Passport submission
+     - Original passport handed over
+     - You receive tracking number
+     - Passport sent to Slovak Embassy for decision
+  
+  5. Collect receipt
+     - Keep safely
+     - Needed for passport collection
+     - Contains tracking number for status check
+  
+  WHAT TO BRING:
+  - All original documents
+  - Photocopies of everything
+  - Payment receipt (if paid online)
+  - Appointment confirmation email
+  - Pen (blue or black)
+  
+  DRESS CODE:
+  - Business casual recommended
+  - Remove glasses for photo
+  - No hats or head coverings (except religious)
+  - Clean face (remove makeup for photo)
+  
+  NO PHONES/ELECTRONICS inside visa center!
+  Leave at security or with companion outside.
+why_it_matters: |
+  This is your only chance to submit everything correctly.
+  
+  Once passport is submitted, you CANNOT:
+  - Travel internationally (no passport)
+  - Add missing documents
+  - Change application details
+  
+  Processing starts after this appointment.
+official_links:
+  - authority: VFS Global - What to Expect
+    url: https://visa.vfsglobal.com/ind/en/svk/attend-appointment
+failure_modes:
+  - what_breaks: Poor quality biometrics (wet/damaged fingers)
+    consequence: May need to return for re-scan, delays processing
+  - what_breaks: Photo doesn't meet requirements (glasses, wrong size)
+    consequence: New photo taken at center (+₹200 charge)

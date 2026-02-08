@@ -1,0 +1,98 @@
+flow_id: sk_tourist_visa_free_v1
+title: "Tourist Visit to Slovakia (Visa-Free Entry)"
+description: |
+  For non-EU citizens who DON'T need a visa to visit Slovakia.
+  
+  This applies ONLY to citizens of:
+  - USA, Canada
+  - UK (post-Brexit)
+  - Australia, New Zealand
+  - Japan, South Korea, Taiwan, Singapore, Hong Kong, Macau
+  - Israel, UAE, Saudi Arabia, Qatar, Bahrain, Kuwait
+  - Brazil, Argentina, Chile, Uruguay, Paraguay, Mexico, Panama, Costa Rica, Nicaragua
+  - Malaysia, Brunei
+  - Seychelles, Mauritius
+  
+  DOES NOT apply to:
+  - India (REQUIRES VISA)
+  - China (REQUIRES VISA)
+  - Russia (REQUIRES VISA)
+  - Pakistan, Bangladesh, Sri Lanka (REQUIRE VISA)
+  - Most African countries (REQUIRE VISA)
+  - Most Asian countries (REQUIRE VISA)
+  
+  Check official list: https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+  
+  Maximum stay: 90 days within any 180-day period
+  No visa required, but must meet entry requirements
+
+persona_id: tourist_visa_free_entry
+country: Slovakia
+version: 1.0.0
+
+eligibility:
+  intent: TOURISM
+  nationality: NON_EU_VISA_FREE
+  current_location: OUTSIDE_SK
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+  max_duration_days: 90
+  requires_visa: false
+
+steps:
+  - step_id: verify_visa_free_status
+    order: 1
+  
+  - step_id: prepare_visa_free_entry_documents
+    order: 2
+  
+  - step_id: get_travel_insurance
+    order: 3
+  
+  - step_id: enter_slovakia_visa_free
+    order: 4
+  
+  - step_id: register_foreign_police_tourist
+    order: 5
+  
+  - step_id: track_your_90_days
+    order: 6
+  
+  - step_id: exit_before_day_90
+    order: 7
+
+estimated_timeline: "Up to 90 days"
+estimated_cost: "€30-50 (travel insurance only)"
+
+cost_breakdown:
+  visa: "€0 (visa-free!)"
+  travel_insurance: "€30-50 (recommended, €30,000 coverage)"
+  total: "€30-50"
+
+prerequisites:
+  - Valid passport (6+ months validity)
+  - From a visa-free country (USA, Canada, UK, Australia, Japan, etc.)
+  - Proof of accommodation (hotel booking or invitation)
+  - Proof of funds (€50-100/day)
+  - Return ticket
+  - Travel insurance (highly recommended)
+
+common_pitfalls:
+  - Assuming any non-EU country is visa-free (NOT TRUE - check official list!)
+  - Overstaying 90 days (even by 1 day = ban)
+  - Not having proof of funds at border
+  - No return ticket
+
+reality_check: |
+  Even though you don't need a visa, border control can still:
+  - Ask for proof of accommodation
+  - Ask for return ticket
+  - Ask for proof of funds
+  - Ask about purpose of visit
+  
+  About 1-2% of visa-free travelers are denied entry due to:
+  - Insufficient documentation
+  - Suspicious intent
+  - No return ticket
+  
+  Be prepared with all documents!

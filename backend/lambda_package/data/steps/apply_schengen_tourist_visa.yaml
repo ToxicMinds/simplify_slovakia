@@ -1,0 +1,94 @@
+step_id: apply_schengen_tourist_visa
+title: Apply for Schengen Tourist Visa
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - visa_documents_ready
+outputs:
+  - visa_application_submitted
+description: |
+  Submit your Schengen tourist visa application at the visa application center.
+  
+  WHERE TO APPLY:
+  
+  In India:
+  - VFS Global centers (Delhi, Mumbai, Bangalore, Chennai, Kolkata, Hyderabad, Pune, Ahmedabad, Chandigarh, Kochi, Jalandhar, Goa)
+  - BLS International centers
+  
+  Website: https://visa.vfsglobal.com/ind/en/svk
+  
+  APPOINTMENT PROCESS:
+  
+  1. Book appointment online
+     - Visit VFS Global website
+     - Select "Slovakia - Tourism"
+     - Choose nearest center
+     - Pick available date/time
+     - Wait time: Usually 1-2 weeks for appointment
+  
+  2. Pay visa fee online
+     - €80 visa fee
+     - €30 VFS service charge
+     - Payment via credit card/debit card
+     - Keep payment receipt
+  
+  3. Attend appointment
+     - Arrive 15 minutes early
+     - Bring ALL original documents + photocopies
+     - Biometrics taken (photo, fingerprints)
+     - Interview (basic questions about trip)
+     - Duration: 15-30 minutes
+  
+  INTERVIEW QUESTIONS (Common):
+  - Why are you visiting Slovakia?
+  - Where will you stay?
+  - Who is paying for the trip?
+  - What is your occupation?
+  - Do you have family in Slovakia/Europe?
+  - When will you return?
+  - Have you traveled to Europe before?
+  
+  Answer honestly and confidently. Keep answers short and clear.
+  
+  AFTER SUBMISSION:
+  - Receive acknowledgment receipt with tracking number
+  - Passport submitted to embassy
+  - Cannot travel during processing (no passport)
+  - Processing time: 15-30 working days
+  - Track online with tracking number
+  
+  FEES:
+  - Schengen visa: €80
+  - Service charge: €30
+  - Total: €110 (approximately ₹9,500)
+  - Non-refundable even if rejected
+why_it_matters: |
+  The application interview is critical. Common rejection reasons:
+  
+  - Inconsistent answers (e.g., say "business" when applied for "tourism")
+  - Cannot explain itinerary clearly
+  - Appear uncertain or nervous (seems like hiding something)
+  - Documents don't match verbal answers
+  
+  Embassy officers are trained to detect visa fraud. Be honest and prepared.
+  
+  If rejected, you LOSE:
+  - €110 application fee
+  - Any non-refundable bookings
+  - Time (must reapply and wait again)
+official_links:
+  - authority: VFS Global India - Slovakia
+    url: https://visa.vfsglobal.com/ind/en/svk
+  - authority: BLS International - Slovakia Tourist Visa
+    url: https://blsslovakiavisa.com/india/
+failure_modes:
+  - what_breaks: Inconsistent information in documents vs. interview
+    consequence: Rejection for "misrepresentation", possible 5-year ban
+  - what_breaks: Showing up without appointment
+    consequence: Not allowed to apply, must rebook
+  - what_breaks: Missing one required document
+    consequence: Application not accepted, must rebook appointment
+  - what_breaks: Biometrics don't match passport photo (e.g., facial hair change)
+    consequence: Additional verification needed, delays by 2-4 weeks

@@ -1,0 +1,132 @@
+step_id: enter_slovakia_with_visa
+title: Enter Slovakia with Schengen Visa
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - visa_granted
+outputs:
+  - legal_entry_completed
+description: |
+  Enter Slovakia (or any Schengen country) with your approved visa.
+  
+  BEFORE TRAVEL:
+  
+  1. Double-check visa is valid
+     - Travel dates within visa validity
+     - Visa not damaged or tampered
+     - Passport has 3+ months validity beyond return
+  
+  2. Book tickets
+     - Now safe to book non-refundable tickets
+     - Keep confirmations printed
+  
+  3. Print important documents
+     - Visa copy
+     - Travel insurance
+     - Hotel bookings
+     - Return ticket
+     - Invitation letter (if applicable)
+  
+  AT THE AIRPORT (Departure):
+  
+  1. Airline check-in
+     - Show passport with visa
+     - Airline verifies visa validity
+     - If visa expired/invalid → denied boarding
+  
+  2. Immigration exit (India)
+     - Show boarding pass
+     - Quick exit stamp
+  
+  AT SCHENGEN ENTRY POINT:
+  
+  Most people enter through:
+  - Frankfurt, Germany
+  - Vienna, Austria
+  - Prague, Czech Republic
+  - Then connect to Bratislava
+  
+  OR direct to:
+  - Bratislava Airport (if direct flight)
+  
+  IMMIGRATION PROCESS:
+  
+  1. Join "Non-EU/EEA" queue
+  2. Approach immigration officer
+  3. Hand over:
+     - Passport with visa
+     - Boarding pass
+  
+  4. Officer may ask:
+     - "What is the purpose of your visit?"
+     - "Where will you stay?"
+     - "How long are you staying?"
+     - "Do you have return tickets?"
+     - "How much money do you have?"
+  
+  5. Answer clearly and honestly:
+     - "Tourism" or "Visiting family/friends"
+     - State hotel name or host address
+     - State exact number of days
+     - Show return ticket
+     - "I have €X cash and credit cards"
+  
+  6. May request to see:
+     - Return ticket
+     - Hotel bookings
+     - Travel insurance
+     - Bank statements/cash
+     - Rarely, but be prepared
+  
+  7. Receive entry stamp
+     - Officer stamps passport
+     - This starts your 90-day countdown
+     - TAKE PHOTO OF STAMP immediately
+  
+  8. Collect luggage, proceed to exit
+  
+  CRITICAL RULES:
+  
+  - Entry stamp starts 90-day clock (not visa start date!)
+  - First entry MUST be within visa validity dates
+  - Can enter any Schengen country first (doesn't have to be Slovakia)
+  - Once inside Schengen, no more border checks between countries
+  
+  WHAT TO CARRY:
+  - Passport with visa
+  - Travel insurance policy (printed)
+  - Return ticket confirmation
+  - Hotel bookings / invitation letter
+  - Cash: €50-100/day recommended
+  - Credit/debit cards
+  - Emergency contacts
+why_it_matters: |
+  Even with valid visa, you can be denied entry if:
+  - Cannot prove purpose of visit
+  - Insufficient funds
+  - No return ticket
+  - Expired travel insurance
+  - Suspicious interview answers
+  
+  Border officers have final say, even over visa officers.
+  
+  About 2-5% of people with valid visas are denied entry due to:
+  - Inconsistent answers
+  - Insufficient documentation
+  - Suspicious intent
+  
+  Be prepared and confident!
+official_links:
+  - authority: Schengen Border Code - Entry Conditions
+    url: https://home-affairs.ec.europa.eu/schengen-borders-and-visa_en
+failure_modes:
+  - what_breaks: Cannot explain purpose or show return ticket
+    consequence: Denied entry, deported on next flight, visa cancelled
+  - what_breaks: Visa stamp damaged or altered
+    consequence: Denied entry for visa fraud
+  - what_breaks: Arriving after visa validity expires
+    consequence: Denied boarding at departure or entry at border
+  - what_breaks: Travel insurance expired or insufficient coverage
+    consequence: May be denied entry or required to purchase at border

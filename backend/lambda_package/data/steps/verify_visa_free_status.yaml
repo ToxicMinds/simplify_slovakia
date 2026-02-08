@@ -1,0 +1,77 @@
+step_id: verify_visa_free_status
+title: Verify Your Visa-Free Status
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_visa_free_entry
+preconditions: []
+outputs:
+  - visa_free_status_confirmed
+description: |
+  Confirm that your nationality actually qualifies for visa-free entry to Slovakia/Schengen.
+  
+  VISA-FREE COUNTRIES (as of 2026):
+  
+  **Americas:**
+  - USA, Canada
+  - Argentina, Brazil, Chile, Uruguay, Paraguay
+  - Mexico, Panama, Costa Rica, Nicaragua
+  - Venezuela (suspended - check current status)
+  
+  **Asia-Pacific:**
+  - Australia, New Zealand
+  - Japan, South Korea, Taiwan, Singapore
+  - Hong Kong SAR, Macau SAR
+  - Brunei, Malaysia
+  
+  **Middle East:**
+  - Israel, UAE, Qatar, Bahrain, Kuwait, Saudi Arabia
+  
+  **Others:**
+  - UK (post-Brexit, still visa-free)
+  - Serbia, Bosnia, North Macedonia, Albania, Montenegro
+  - Seychelles, Mauritius
+  
+  NOT VISA-FREE (Common misconceptions):
+  - India → REQUIRES VISA
+  - China → REQUIRES VISA
+  - Russia → REQUIRES VISA
+  - Pakistan, Bangladesh, Sri Lanka → REQUIRE VISA
+  - Philippines, Indonesia, Thailand, Vietnam → REQUIRE VISA
+  - Turkey → REQUIRES VISA
+  - South Africa → REQUIRES VISA
+  
+  VERIFY OFFICIALLY:
+  https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+  
+  Or check with Slovak embassy in your country.
+  
+  IMPORTANT:
+  - Just because you don't need a visa doesn't mean entry is guaranteed
+  - Border officers can still deny entry if you don't meet requirements
+  - Visa-free means "no visa needed", not "automatic entry"
+why_it_matters: |
+  Showing up at the airport assuming you're visa-free when you're not:
+  - Denied boarding
+  - Wasted flight cost
+  - Possible airline penalty
+  - Embarrassment and stress
+  
+  About 5% of travelers incorrectly assume they're visa-free.
+  
+  Don't rely on:
+  - "I heard from a friend"
+  - Old information (rules change!)
+  - Assumptions based on other countries
+  
+  Check OFFICIAL sources only!
+official_links:
+  - authority: EU Visa Policy - Visa-Free Countries
+    url: https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+  - authority: Slovak Ministry of Foreign Affairs - Visa Requirements
+    url: https://www.mzv.sk/en/consular_info
+failure_modes:
+  - what_breaks: Relying on outdated information
+    consequence: Denied boarding, wasted money
+  - what_breaks: Assuming visa-waiver program in one country applies to all
+    consequence: Wrong assumption, denied entry

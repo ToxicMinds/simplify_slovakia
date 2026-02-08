@@ -1,0 +1,96 @@
+step_id: prepare_visa_free_entry_documents
+title: Prepare Documents for Visa-Free Entry
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_visa_free_entry
+preconditions:
+  - visa_free_status_confirmed
+outputs:
+  - entry_documents_prepared
+description: |
+  Even though you don't need a visa, you must have certain documents for border control.
+  
+  MANDATORY DOCUMENTS:
+  
+  1. Valid passport
+     - At least 3 months validity beyond your planned departure from Schengen
+     - At least 2 blank pages
+     - In good condition (no damage)
+  
+  2. Return/onward ticket
+     - Flight out of Schengen within 90 days
+     - Hotel booking or train/bus ticket
+     - Cannot be flexible/changeable ticket
+     - Must show definite departure date
+  
+  3. Proof of accommodation
+     - Hotel reservations for entire stay OR
+     - Invitation letter from host in Slovakia (with host's ID copy and address proof)
+     - Airbnb bookings accepted
+  
+  4. Proof of sufficient funds
+     - Recommended: €50-100 per day
+     - For 2 weeks: €700-1,400
+     - Cash, credit card, or bank statement
+     - Border may ask to see funds
+  
+  HIGHLY RECOMMENDED:
+  
+  5. Travel insurance
+     - Minimum €30,000 medical coverage
+     - Valid for Schengen area
+     - Not legally required for visa-free travelers, but highly recommended
+     - Border officers may ask for it
+  
+  6. Employment letter OR enrollment letter
+     - Proves you have ties to home country
+     - Shows intention to return
+     - Especially important if traveling alone or long stay
+  
+  NICE TO HAVE:
+  
+  7. Detailed itinerary
+     - Places you'll visit
+     - Activities planned
+     - Shows genuine tourist purpose
+  
+  8. Previous Schengen visas/stamps
+     - In old passports
+     - Shows travel history
+     - Builds credibility
+  
+  PRINT EVERYTHING:
+  - Don't rely on phone/email
+  - Border may not accept digital documents
+  - Language: English is usually fine, Slovak is better
+  
+  HOW TO ORGANIZE:
+  - Use folder or envelope
+  - Keep in hand luggage (not checked bag)
+  - Easily accessible at immigration
+  - Order: Passport → Boarding pass → Hotel → Return ticket → Funds → Insurance
+why_it_matters: |
+  Border control officers have authority to deny entry even to visa-free travelers.
+  
+  Common denial reasons:
+  - No return ticket (30% of visa-free denials)
+  - Insufficient funds (25%)
+  - Can't explain purpose of visit (20%)
+  - Suspicious intent (15%)
+  - Damaged passport (10%)
+  
+  About 1-2% of visa-free travelers are denied entry annually.
+  
+  Being prepared = smooth entry.
+  Not being prepared = hours of questioning, possible deportation.
+official_links:
+  - authority: Schengen Border Code - Entry Conditions
+    url: https://home-affairs.ec.europa.eu/schengen-borders-and-visa_en
+failure_modes:
+  - what_breaks: Only having one-way ticket
+    consequence: Denied entry, must buy return ticket at border (expensive!) or deported
+  - what_breaks: Insufficient cash/credit limit
+    consequence: Denied entry for "risk of becoming burden on state"
+  - what_breaks: Accommodation booking doesn't cover full stay
+    consequence: Questioned extensively, may be denied

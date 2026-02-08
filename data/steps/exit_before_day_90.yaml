@@ -1,0 +1,157 @@
+step_id: exit_before_day_90
+title: Exit Schengen Before Day 90
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_visa_free_entry
+preconditions:
+  - days_tracked
+outputs:
+  - timely_exit_completed
+description: |
+  Leave the Schengen area before your 90 days are up.
+  
+  THE 90/180 RULE:
+  - Maximum 90 days in any 180-day period
+  - "Rolling" 180 days (counts backwards from today)
+  - Includes ALL Schengen countries combined
+  - Applies even if you have multiple entries
+  
+  CALCULATE YOUR DEADLINE:
+  
+  Use official calculator:
+  https://ec.europa.eu/assets/home/visa-calculator/calculator.htm
+  
+  Or count manually:
+  - Entry date = Day 1 (even if you arrived at midnight)
+  - Count EVERY day in Schengen
+  - Exit date = Day used (even if you leave at 1am)
+  - Must exit BY day 90 (not ON day 91)
+  
+  EXAMPLE:
+  - Entered: January 15
+  - Day 1 = January 15
+  - Day 90 = April 14
+  - Must leave BY April 14
+  
+  BUFFER TIME:
+  - Book flight for day 87-88, not day 90
+  - Allows for delays, cancellations, emergencies
+  - Don't cut it close!
+  
+  EXIT PROCEDURE:
+  
+  1. Check-in at airline
+     - Normal procedure
+     - No special requirements
+  
+  2. Immigration exit
+     - Join exit queue
+     - Officer stamps passport
+     - EXIT STAMP IS CRITICAL
+     - Take photo of stamp
+     - Verify stamp is clear and dated correctly
+  
+  3. Proceed to boarding
+  
+  CONSEQUENCES OF OVERSTAY:
+  
+  Even 1 day overstay:
+  - €100-500 fine at airport
+  - Entry ban: 1-5 years from Schengen
+  - Flagged in Schengen database
+  - Future visa applications rejected
+  - May be detained at airport
+  
+  Overstay 1-7 days:
+  - €300-500 fine
+  - 1-3 year ban
+  - Deportation
+  
+  Overstay > 1 week:
+  - €500-1,000 fine
+  - 3-5 year ban
+  - Mandatory deportation
+  - Criminal record
+  
+  Overstay > 1 month:
+  - €1,000+ fine
+  - 5-10 year ban
+  - Criminal charges
+  - Possible lifetime ban
+  
+  EMERGENCY SITUATIONS:
+  
+  If you MUST stay longer:
+  
+  Medical emergency:
+  - Get hospital documentation
+  - Report to Foreign Police immediately
+  - May grant short extension
+  - Bring medical reports to airport when leaving
+  
+  Flight cancelled:
+  - Get airline cancellation letter
+  - Rebook immediately (same day if possible)
+  - Keep all documentation
+  - Usually excused if beyond your control
+  
+  CANNOT extend for:
+  - "Enjoying Slovakia too much"
+  - "Want to see more places"
+  - "Didn't realize time passed"
+  - "Forgot to check calendar"
+  
+  AFTER EXITING:
+  
+  To return to Schengen:
+  - Must spend 90 days OUTSIDE Schengen
+  - Then can return for another 90 days
+  - Cycle repeats
+  
+  RECORD KEEPING:
+  - Keep boarding passes
+  - Keep entry/exit stamps
+  - Keep hotel receipts
+  - Needed for future applications
+  - Proves you didn't overstay
+why_it_matters: |
+  Overstaying is taken EXTREMELY seriously, even for visa-free travelers.
+  
+  Real statistics:
+  - About 3% of tourists overstay unknowingly
+  - 100% face penalties when caught
+  - Automated systems track all entries/exits
+  - No escape from detection
+  
+  Border officers check:
+  - Entry date from passport stamp
+  - Days spent (automatic calculation)
+  - Previous overstays (database check)
+  
+  "I didn't know" is NOT an excuse:
+  - You are responsible for tracking
+  - Ignorance doesn't exempt penalties
+  - Rules are clearly posted
+  
+  Your future travel to Europe depends on this:
+  - One overstay = years of ban
+  - Ban applies to ALL Schengen countries
+  - Also affects UK visa applications
+  - Damages your immigration record permanently
+  
+  DON'T RISK IT!
+official_links:
+  - authority: EU 90/180 Day Calculator
+    url: https://ec.europa.eu/assets/home/visa-calculator/calculator.htm
+  - authority: Schengen Overstay Consequences
+    url: https://home-affairs.ec.europa.eu/policies/schengen/schengen-visa_en
+failure_modes:
+  - what_breaks: Miscounting days (thinking months = 30 days)
+    consequence: Overstay by 1-3 days, still penalized
+  - what_breaks: No exit stamp (officer forgot)
+    consequence: Future entry shows you "never left" - big problem, always get stamp!
+  - what_breaks: Thinking "90 days per country" instead of "90 days total Schengen"
+    consequence: Overstay, penalties
+  - what_breaks: Flight delayed and you miss day 90
+    consequence: Overstay penalty even if airline fault (this is why you need buffer!)

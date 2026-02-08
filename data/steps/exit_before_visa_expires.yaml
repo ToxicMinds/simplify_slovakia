@@ -1,0 +1,127 @@
+step_id: exit_before_visa_expires
+title: Exit Schengen Before Visa/Stay Expires
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - days_tracked
+outputs:
+  - timely_exit_completed
+description: |
+  Leave the Schengen area before your visa expires or 90 days are used up.
+  
+  UNDERSTAND YOUR LIMITS:
+  
+  You have TWO limits:
+  1. Visa validity dates (on visa sticker)
+  2. Duration of stay: 90 days in any 180-day period
+  
+  Whichever comes FIRST is your deadline.
+  
+  EXAMPLE:
+  - Visa valid: Jan 1 - March 31 (90 days)
+  - You enter: Jan 15
+  - You can stay until: March 31 OR 90 days from Jan 15
+  - So you must exit by: April 14 (90 days) or March 31 (visa expiry)
+  - ACTUAL DEADLINE: March 31 (comes first)
+  
+  CALCULATE YOUR EXIT DATE:
+  
+  Use Schengen calculator:
+  https://ec.europa.eu/assets/home/visa-calculator/calculator.htm
+  
+  Or track manually:
+  - Entry date = Day 1
+  - Count every day in Schengen (including entry and exit days)
+  - Must exit by Day 90
+  
+  PLAN YOUR EXIT:
+  
+  1. Book return flight at least 2-3 days before deadline
+     - Buffer for delays, cancellations
+     - Don't cut it to last day
+  
+  2. Check flight times
+     - Must LEAVE Schengen airspace before midnight of day 90
+     - Not just departure from Slovakia
+  
+  3. Get exit stamp
+     - At airport immigration (departing Schengen)
+     - Officer stamps passport
+     - TAKE PHOTO of exit stamp
+     - Proves you left on time
+  
+  4. Keep all documentation
+     - Boarding passes
+     - Entry and exit stamps
+     - Hotel receipts
+     - For future visa applications
+  
+  CONSEQUENCES OF OVERSTAY:
+  
+  Even 1 day overstay:
+  - €100-500 fine at airport
+  - Visa cancellation
+  - Entry ban: 1-5 years from Schengen
+  - Criminal record in Schengen database
+  - Future visa applications rejected
+  
+  Overstay > 1 week:
+  - Mandatory deportation
+  - 3-5 year entry ban
+  - Possible detention
+  
+  Overstay > 1 month:
+  - 5-10 year entry ban
+  - Criminal charges
+  - Deported with lifelong ban risk
+  
+  EMERGENCY EXTENSIONS:
+  
+  If you MUST stay longer (medical emergency, etc.):
+  - Cannot extend tourist visa in Slovakia
+  - Must leave and reapply from home country
+  - Exception: Serious medical emergency with hospital proof
+  
+  FUTURE TRAVEL:
+  
+  After exiting, to return:
+  - Wait 90 days outside Schengen
+  - Then can use remaining visa time (if multi-entry and still valid)
+  - Or apply for new visa
+  
+  90/180 RULE:
+  - Max 90 days in any 180-day period
+  - "Rolling" 180 days (last 6 months)
+  - Even if you have 5-year multi-entry visa, can't stay longer than 90 days per 180 days
+why_it_matters: |
+  Overstaying is the #1 tourist mistake and has severe consequences.
+  
+  Real statistics:
+  - 15% of tourists miscalculate and risk overstay
+  - 3% actually overstay unknowingly
+  - 100% of overstayers face penalties
+  
+  Border officers check:
+  - Entry and exit stamps
+  - Days spent in Schengen
+  - Visa validity
+  
+  Automated systems flag overstays immediately.
+  
+  Don't risk your future travel for a few extra days!
+official_links:
+  - authority: Schengen 90/180 Day Calculator
+    url: https://ec.europa.eu/assets/home/visa-calculator/calculator.htm
+  - authority: Schengen Visa Overstay Consequences
+    url: https://home-affairs.ec.europa.eu/schengen-visa-overstay_en
+failure_modes:
+  - what_breaks: Miscounting days (counting only nights, not days)
+    consequence: Accidental overstay, fines, ban
+  - what_breaks: Assuming 3 months = 90 days (some months have 31 days)
+    consequence: Overstay by 1-3 days, still penalized
+  - what_breaks: Flight delayed and miss day 90 deadline
+    consequence: Overstay penalty even if airline fault (get travel insurance!)
+  - what_breaks: No exit stamp (officer forgot)
+    consequence: Next entry, appears you never left - big problem, always verify stamp

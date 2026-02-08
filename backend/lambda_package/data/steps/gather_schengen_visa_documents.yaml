@@ -1,0 +1,178 @@
+step_id: gather_schengen_visa_documents
+title: Gather Required Documents for Schengen Visa
+country: Slovakia
+applies_to:
+  persona:
+    - tourist_schengen_visa_required
+preconditions:
+  - visa_requirement_known
+outputs:
+  - visa_documents_ready
+description: |
+  Collect all required documents for your Schengen tourist visa application.
+  
+  MANDATORY DOCUMENTS (10 items):
+  
+  1. PASSPORT
+     - Valid for at least 6 months beyond return date
+     - At least 2 blank pages
+     - Original + photocopy of bio page
+     - If you have old passports with Schengen visas, bring them too
+  
+  2. VISA APPLICATION FORM
+     - Download from VFS Global website
+     - Fill completely in English or Slovak
+     - Sign and date
+     - DO NOT leave any field blank (write "N/A" if not applicable)
+  
+  3. PASSPORT PHOTOS (2 photos)
+     - Size: 35mm x 45mm
+     - White background
+     - Recent (taken within last 6 months)
+     - Face must cover 70-80% of photo
+     - No glasses, no smile, neutral expression
+     - Professional quality (not selfies!)
+  
+  4. TRAVEL INSURANCE
+     - Minimum coverage: €30,000 for medical emergencies
+     - Valid for entire Schengen area
+     - Coverage period: From first to last day of your trip
+     - Companies: ICICI Lombard, Bajaj Allianz, Digit, etc.
+     - Cost: ₹500-1,500 for 15 days
+     - Print policy certificate
+  
+  5. FLIGHT ITINERARY (NOT TICKET!)
+     - DO NOT buy actual ticket yet (visa might be rejected!)
+     - Book a "dummy ticket" or "hold booking" for visa purposes
+     - Must show:
+       * Your name (exactly as in passport)
+       * Flight dates (arrival and departure)
+       * Booking reference
+     - Services: DummyTicket.com, VisaReservation.com (₹500-1,000)
+     - OR: Pay airline to hold reservation (usually 48 hours free)
+  
+  6. ACCOMMODATION PROOF
+     - Hotel bookings for ENTIRE stay (every single night)
+     - Must show:
+       * Your name
+       * Hotel name and address
+       * Check-in and check-out dates
+       * Booking confirmation number
+     - Use Booking.com with free cancellation (don't pay yet!)
+     - OR: Invitation letter from host in Slovakia (see below)
+  
+  7. PROOF OF SUFFICIENT FUNDS
+     - Bank statements: Last 3 months
+     - Must show consistent balance
+     - Recommended: €50-100 per day (€750-1,500 for 15 days)
+     - Highlight salary credits
+     - Original bank statements (stamped by bank) + photocopies
+     - If sponsored: Sponsor's bank statements + sponsorship letter
+  
+  8. EMPLOYMENT/ENROLLMENT PROOF
+     - Employment letter from employer on company letterhead:
+       * Your position
+       * Salary
+       * Employment dates
+       * Leave approval for travel dates
+       * Company stamp and signature
+     - OR Student: Enrollment letter from university/school
+     - OR Self-employed: Business registration certificate + tax returns
+     - OR Retired: Pension documents
+  
+  9. COVER LETTER
+     - Write 1-page letter explaining:
+       * Why you're visiting Slovakia
+       * Your detailed itinerary (day by day)
+       * Why you'll return to home country
+       * Your ties to home country (job, family, property)
+     - Sign and date
+  
+  10. TRAVEL ITINERARY
+      - Day-by-day plan:
+        * Day 1: Arrive Bratislava, visit Old Town
+        * Day 2: High Tatras day trip
+        * Day 3: Bratislava Castle, SNM Museum
+        * etc.
+      - Be specific and realistic
+      - Should match hotel bookings and flight dates
+  
+  CONDITIONAL DOCUMENTS (if applicable):
+  
+  11. INVITATION LETTER (if staying with someone)
+      - Letter from host in Slovakia
+      - Must include:
+        * Host's full name and address
+        * Your relationship to host
+        * Dates of your stay
+        * Statement that they'll provide accommodation
+        * Host's signature
+      - Attach: Host's residence permit copy + address proof
+  
+  12. MINOR'S DOCUMENTS (if applicant is under 18)
+      - Birth certificate
+      - Parents' passports
+      - NOC (No Objection Certificate) from both parents
+      - If traveling with one parent: Notarized consent from other parent
+  
+  13. BUSINESS DOCUMENTS (if business purpose mixed with tourism)
+      - Invitation from Slovak company
+      - Your company registration
+      - Business card
+  
+  DOCUMENT CHECKLIST:
+  - [ ] Passport (original + copy)
+  - [ ] Visa application form (signed)
+  - [ ] 2 passport photos
+  - [ ] Travel insurance (€30,000 coverage)
+  - [ ] Flight itinerary (NOT ticket)
+  - [ ] Hotel bookings (entire stay)
+  - [ ] Bank statements (3 months)
+  - [ ] Employment letter
+  - [ ] Cover letter
+  - [ ] Travel itinerary
+  - [ ] Invitation letter (if applicable)
+  
+  COMMON MISTAKES:
+  
+  1. Buying actual flight ticket → Lose money if visa rejected
+  2. Insufficient bank balance → Rejection for "lack of means"
+  3. Incomplete hotel bookings → Rejection for "unclear purpose"
+  4. Fake documents → Permanent ban + criminal charges
+  5. Photos don't meet specs → Application rejected, must resubmit
+  6. Old bank statements → Rejection (must be recent)
+  7. No travel insurance → Automatic rejection
+  8. Itinerary doesn't match bookings → Rejection for "inconsistency"
+why_it_matters: |
+  Document issues are the #1 reason for Schengen visa rejections:
+  
+  - 35% rejected for "insufficient means" (bank statements)
+  - 25% for "unclear purpose" (incomplete itinerary/bookings)
+  - 10% for "document irregularities" (fake or inconsistent docs)
+  - 10% for "photo issues" (wrong size, old photo, etc.)
+  
+  Getting documents right = 70% of success.
+  
+  Embassy officers check EVERYTHING:
+  - Photos are measured with ruler
+  - Bank statements verified with bank
+  - Hotel bookings checked online
+  - Employment letters called to verify
+  
+  Don't cut corners - they WILL catch it!
+official_links:
+  - authority: VFS Global - Document Requirements
+    url: https://visa.vfsglobal.com/ind/en/svk/attend-appointment
+  - authority: Schengen Visa Photo Requirements
+    url: https://www.schengenvisainfo.com/photo-requirements/
+failure_modes:
+  - what_breaks: Using expired passport
+    consequence: Application rejected, must renew passport first
+  - what_breaks: Buying actual flight ticket
+    consequence: Lose €500-2,000 if visa rejected
+  - what_breaks: Fake bank statements
+    consequence: Permanent ban from Schengen, possible criminal charges
+  - what_breaks: Photos from phone/selfie
+    consequence: Application rejected, must get professional photos
+  - what_breaks: Insufficient funds shown
+    consequence: Rejection - cannot prove ability to support yourself
