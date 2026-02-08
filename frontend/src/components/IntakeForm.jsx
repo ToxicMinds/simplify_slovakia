@@ -76,28 +76,31 @@ function IntakeForm({ onFlowSelected, onShowManualSelector }) {
     }
   }
 
-  const getRecommendation = async (finalAnswers) => {
-    setLoading(true)
-    setError(null)
-
-    try {
-      const response = await fetch(`${API_URL}/recommend-flow`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalAnswers),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to get recommendation')
-      }
-
-      const data = await response.json()
-      setRecommendation(data)
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setLoading(false)
+  const IntakeFlow = ({ onComplete }) => {
+    const [answers, setAnswers] = useState({})
+    const [currentQuestion, setCurrentQuestion] = useState(intakeQuestions[0])
+  
+    const handleAnswer = (questionId, value) => {
+    const newAnswers = { ...answers, [questionId]: value }
+    setAnswers(newAnswers)
+    
+    const nextQ = getNextQuestion(newAnswers)
+    if (nextQ) {
+      setCurrentQuestion(nextQ)
+    } else {
+      // All questions answered - get recommendation
+      getRecommendation(newAnswers)
     }
+  }
+
+  const getRecommendation = async (finalAnswers) => {
+    const response = await fetch(`${API_URL}/recommend-flow-v2`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(finalAnswers)
+    })
+    const recommendation = await response.json()
+    onComplete(recommendation)
   }
 
   /* ==============================
