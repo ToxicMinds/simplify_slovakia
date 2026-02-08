@@ -1,0 +1,91 @@
+flow_id: sk_tourist_schengen_visa_v1
+title: "Tourist Visit to Slovakia (Schengen Visa Required)"
+description: |
+  For non-EU citizens who NEED a Schengen visa to visit Slovakia for tourism.
+  
+  This applies to citizens of India, China, Russia, and many other countries.
+  
+  IMPORTANT: Check if your country needs a Schengen visa at:
+  https://visa.vfsglobal.com/one-pager/slovakia/
+  
+  If you're from USA, Canada, UK, Australia, New Zealand, Japan, South Korea,
+  Brazil, Argentina, Chile, Israel, or UAE, you do NOT need this flow - 
+  you can enter visa-free for up to 90 days.
+  
+  Timeline: 2-4 weeks for visa application
+  Maximum stay: 90 days within any 180-day period
+
+persona_id: tourist_schengen_visa_required
+country: Slovakia
+version: 1.0.0
+
+eligibility:
+  intent: TOURISM
+  nationality: NON_EU_VISA_REQUIRED
+  current_location: OUTSIDE_SK
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+  max_duration_days: 90
+  requires_visa: true
+
+steps:
+  - step_id: check_schengen_visa_requirement
+    order: 1
+  
+  - step_id: gather_schengen_visa_documents
+    order: 2
+  
+  - step_id: apply_schengen_tourist_visa
+    order: 3
+  
+  - step_id: attend_visa_appointment
+    order: 4
+  
+  - step_id: collect_visa
+    order: 5
+  
+  - step_id: enter_slovakia_with_visa
+    order: 6
+  
+  - step_id: register_foreign_police_tourist
+    order: 7
+  
+  - step_id: track_your_90_days
+    order: 8
+  
+  - step_id: exit_before_visa_expires
+    order: 9
+
+estimated_timeline: "2-4 weeks for visa + your stay"
+estimated_cost: "€140-160"
+
+cost_breakdown:
+  schengen_visa_fee: "€80"
+  service_charge: "€30 (VFS/BLS)"
+  travel_insurance: "€30-50 (90 days, €30,000 coverage)"
+  total: "€140-160"
+
+prerequisites:
+  - Valid passport (6+ months validity)
+  - From a country that requires Schengen visa (India, China, Russia, etc.)
+  - Proof of accommodation
+  - Proof of funds (€50-100/day)
+  - Return ticket
+
+common_pitfalls:
+  - Assuming you're visa-free when you're not (CRITICAL ERROR)
+  - Not applying early enough (apply 3-4 weeks before travel)
+  - Insufficient travel insurance coverage
+  - No proof of return ticket
+  - Booking non-refundable tickets before visa approval
+
+reality_check: |
+  CRITICAL: If you're from India, China, Russia, or most non-Western countries,
+  you CANNOT enter Slovakia without a visa. 
+  
+  Don't book non-refundable tickets until your visa is approved!
+  
+  Processing time: Usually 15 working days, but can take up to 30 days.
+  
+  Rejection rate: About 15-20% for first-time applicants.
+  If rejected, fee (€110) is NOT refunded.
