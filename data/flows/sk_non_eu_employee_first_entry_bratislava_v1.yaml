@@ -118,4 +118,4 @@ intake_matches:
     weight: 10
     reason: "Optimized for Bratislava"
   
-  confidence_threshold: 90
+confidence_threshold: 90
