@@ -50,3 +50,89 @@ steps:
   
   - step_id: open_business_bank_account
     order: 13
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_REQUIRED
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: BUSINESS
+  time_horizon: MEDIUM
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Non-EU Freelancer / Self-Employed Setup"
+  category: "Business & Entrepreneurship"
+  description: |
+    Complete guide for non-EU citizens who want to freelance or run a business in Slovakia.
+    
+    This covers getting a trade license (živnostenský list), business visa, 
+    business residence permit, and all the bureaucracy for self-employment.
+    
+    Realistic timeline: 4-5 months from start to fully operational.
+    
+    More complex than employee route - requires business plan and financial proof.
+    
+    Perfect for: Non-EU freelancers, consultants, digital nomads, entrepreneurs.
+  
+  recommended_for:
+    - "Non-EU citizen who wants to freelance in Slovakia"
+    - "Digital nomad seeking legal residence"
+    - "Consultant or contractor with clients"
+    - "Small business owner (sole proprietor)"
+  
+  not_for:
+    - "Employees with job offers (use employee flow - much simpler)"
+    - "EU citizens (you can start immediately, no visa needed)"
+    - "Large corporations (need different company structure)"
+    - "Already in Slovakia illegally (must exit and apply properly)"
+  
+  difficulty_level: VERY_HARD
+  time_commitment: "4-5 months"
+  estimated_cost: "€800-1,200"
+  estimated_timeline: "4-5 months (90 days visa + 60-90 days residence + setup)"
+  
+  priority: HIGH
+  
+  tags:
+    - non-eu
+    - freelancer
+    - self-employed
+    - business
+    - trade-license
+    - zivnost
+    - entrepreneur
+    - digital-nomad
+  
+  warnings:
+    - "Requires €2,500+ in bank account for visa application"
+    - "Business plan must be realistic - embassy verifies"
+    - "Health insurance costs €96.81/month minimum (self-employed rate)"
+    - "Monthly social insurance €120+ (higher than employees)"
+    - "Some professions restricted - check eligibility first!"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_REQUIRED
+    weight: 35
+    reason: "Only for non-EU citizens who need visas"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 25
+    reason: "Must apply for business visa from outside Slovakia"
+  
+  - question: visit_purpose
+    required_answer: BUSINESS
+    weight: 35
+    reason: "Specifically for freelancers and business owners"
+  
+  - question: city
+    required_answer: ANY
+    weight: 5
+    reason: "Works for any city, but process same nationwide"
+  
+  confidence_threshold: 90

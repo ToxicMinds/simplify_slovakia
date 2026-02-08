@@ -200,3 +200,105 @@ reality_check: |
   - No language exam required
   
   For many people, permanent residence is the better goal.
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: ANY
+  entry_context: ANY
+  urgency: NORMAL
+  purpose: CITIZENSHIP
+  time_horizon: LONG
+  lifecycle_phase: CITIZENSHIP
+
+display_info:
+  title: "Path to Slovak Citizenship (8-10 Years)"
+  category: "Long-Term Residence & Citizenship"
+  description: |
+    The COMPLETE 8-10 year journey from first arrival to Slovak passport.
+    
+    This is the ultimate commitment to Slovakia.
+    
+    31 steps covering:
+    - Initial visa and entry
+    - Temporary residence (years 1-5)
+    - Language learning (parallel)
+    - Permanent residence (year 5)
+    - Integration (years 5-8)
+    - Citizenship application (year 8+)
+    - Renunciation of old citizenship
+    - Slovak passport
+    
+    Only ~40% who start actually complete it.
+    
+    This is a MAJOR life decision.
+  
+  recommended_for:
+    - "Committed to living in Slovakia for 8+ years"
+    - "Want Slovak passport and citizenship"
+    - "Ready to learn Slovak language fluently"
+    - "Willing to renounce current citizenship"
+    - "Looking for complete long-term roadmap"
+  
+  not_for:
+    - "Not sure about long-term commitment"
+    - "Can't or won't renounce current citizenship"
+    - "Not interested in learning Slovak"
+    - "Just need temporary or permanent residence (use those flows)"
+    - "Exploring options (this is very advanced)"
+  
+  difficulty_level: VERY_HARD
+  time_commitment: "8-10 years of your life"
+  estimated_cost: "€5,000-8,000 over 8 years"
+  estimated_timeline: "8-10 years minimum"
+  
+  priority: MEDIUM
+  
+  tags:
+    - citizenship
+    - naturalization
+    - slovak-passport
+    - 8-years
+    - long-term
+    - language-b1
+    - renunciation
+    - integration
+    - permanent-commitment
+  
+  warnings:
+    - "This is an 8-10 YEAR commitment - think very carefully"
+    - "Must renounce previous citizenship (Slovakia doesn't allow dual)"
+    - "Only ~40% approval rate for citizenship applications"
+    - "Language B1 is MANDATORY - most people fail here"
+    - "Any gap in residence resets the 8-year clock"
+    - "Alternative: Permanent residence keeps your original citizenship"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: ANY
+    weight: 0
+    reason: "Any nationality can pursue citizenship"
+  
+  - question: current_location
+    required_answer: ANY
+    weight: 0
+    reason: "Can start from outside or already in Slovakia"
+  
+  - question: visit_purpose
+    required_answer: CITIZENSHIP
+    weight: 40
+    reason: "Specifically seeking citizenship"
+  
+  - question: years_in_slovakia
+    required_answer: ANY
+    weight: 20
+    reason: "Shows at different stages (0 years = starting, 5+ = mid-journey, 8+ = ready to apply)"
+  
+  - question: commitment_level
+    required_answer: VERY_HIGH
+    weight: 40
+    reason: "Citizenship requires extreme long-term commitment"
+  
+  confidence_threshold: 80

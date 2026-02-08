@@ -23,3 +23,84 @@ steps:
     order: 5
   - step_id: understand_residence_permit_urgency
     order: 6
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: ANY
+  entry_context: IN_SK
+  urgency: EMERGENCY
+  purpose: ANY
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Emergency: Just Landed in Slovakia"
+  category: "Emergency & Urgent Situations"
+  description: |
+    You just arrived in Slovakia and need immediate help with critical first-week tasks.
+    
+    This is for people who:
+    - Just landed and feel overwhelmed
+    - Need to know what to do RIGHT NOW
+    - Have urgent deadlines (Foreign Police registration, etc.)
+    - Haven't had time to plan ahead
+    
+    Covers: temporary housing, SIM card, Foreign Police registration, employer contact, 
+    understanding residence permit timeline.
+  
+  recommended_for:
+    - "Just arrived in Slovakia and don't know where to start"
+    - "Need to handle Foreign Police registration (3-day deadline)"
+    - "Feel overwhelmed and need step-by-step emergency guidance"
+    - "Landed with a job offer but no preparation"
+  
+  not_for:
+    - "Haven't arrived yet - use the appropriate first-entry flow instead"
+    - "Already settled and past the first week"
+    - "Looking for long-term residence planning"
+  
+  difficulty_level: MEDIUM
+  time_commitment: "1 week"
+  estimated_cost: "€100-200"
+  estimated_timeline: "7 days (critical deadline: 3 working days for Foreign Police)"
+  
+  priority: CRITICAL
+  
+  tags:
+    - emergency
+    - just-landed
+    - first-week
+    - urgent
+    - foreign-police
+    - overwhelming
+  
+  warnings:
+    - "Foreign Police registration MUST be done within 3 working days - this is non-negotiable"
+    - "Missing the 3-day deadline = €50-1,000 fine"
+    - "This flow only covers your first week - you'll need to follow a full residence flow after"
+
+intake_matches:
+  - question: entry_context
+    required_answer: IN_SK
+    weight: 40
+    reason: "Must already be in Slovakia"
+  
+  - question: urgency_level
+    required_answer: EMERGENCY
+    weight: 30
+    reason: "This is specifically for emergency/just-landed situations"
+  
+  - question: purpose
+    required_answer: ANY
+    weight: 0
+    reason: "Works for any purpose (employment, business, family, etc.)"
+  
+  - question: nationality_type
+    required_answer: ANY
+    weight: 0
+    reason: "Works for EU and non-EU citizens"
+  
+  confidence_threshold: 70

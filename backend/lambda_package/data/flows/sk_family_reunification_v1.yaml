@@ -41,3 +41,89 @@ steps:
   
   - step_id: setup_health_insurance_dependent
     order: 10
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_REQUIRED
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: FAMILY
+  time_horizon: MEDIUM
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Family Reunification (Join Family in Slovakia)"
+  category: "Family & Dependents"
+  description: |
+    Join your family member who already has residence in Slovakia.
+    
+    This is for spouses, children, or dependent parents joining someone with 
+    legal residence in Slovakia.
+    
+    Your sponsor (family member in Slovakia) must have stable residence, 
+    accommodation, and financial means to support you.
+    
+    Timeline: 3-4 months from visa application to settled.
+    
+    Perfect for: Family members of legal residents in Slovakia.
+  
+  recommended_for:
+    - "Spouse of someone with residence in Slovakia"
+    - "Minor children joining parent"
+    - "Dependent parents joining adult child"
+    - "Family member has stable residence (not tourist visa)"
+  
+  not_for:
+    - "If sponsor has only tourist visa (not eligible)"
+    - "If sponsor's residence expires soon (<6 months)"
+    - "Distant relatives (only immediate family qualifies)"
+    - "If sponsor cannot prove financial means"
+  
+  difficulty_level: HARD
+  time_commitment: "3-4 months"
+  estimated_cost: "€400-700"
+  estimated_timeline: "3-4 months (60-120 days visa + 90 days residence permit)"
+  
+  priority: HIGH
+  
+  tags:
+    - family
+    - family-reunification
+    - spouse
+    - children
+    - dependent
+    - join-family
+    - non-eu
+  
+  warnings:
+    - "Sponsor must have at least 1 year remaining on their residence permit"
+    - "Sponsor must prove sufficient accommodation (min. 8m² per person)"
+    - "Sponsor must prove financial means to support you"
+    - "All documents need apostille + official translation"
+    - "Fake marriage = criminal charges + permanent ban"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_REQUIRED
+    weight: 30
+    reason: "Typically for non-EU family members (EU citizens use freedom of movement)"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 25
+    reason: "Must apply from outside Slovakia"
+  
+  - question: visit_purpose
+    required_answer: FAMILY
+    weight: 40
+    reason: "Specifically for family reunification"
+  
+  - question: city
+    required_answer: ANY
+    weight: 5
+    reason: "Works for any city where sponsor lives"
+  
+  confidence_threshold: 90

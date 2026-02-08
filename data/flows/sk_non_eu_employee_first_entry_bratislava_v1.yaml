@@ -34,3 +34,88 @@ steps:
     order: 10
   - step_id: tax_residence_and_annual_obligations
     order: 11
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_REQUIRED
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: EMPLOYMENT
+  time_horizon: MEDIUM
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Non-EU Employee Moving to Bratislava"
+  category: "Employment & Work"
+  description: |
+    Complete immigration checklist for non-EU citizens moving to Bratislava for employment.
+    
+    This is the most common path for non-EU workers.
+    
+    Covers the full journey: visa application → entry → Foreign Police registration → 
+    residence permit → settling in (bank, healthcare, etc.).
+    
+    Realistic timeline: 3-4 months from start to fully settled.
+    
+    Perfect for: Non-EU citizens with a job offer in Bratislava.
+  
+  recommended_for:
+    - "Non-EU citizen with job offer in Bratislava"
+    - "Currently outside Slovakia (planning to move)"
+    - "Single person or moving alone first"
+    - "Want complete step-by-step guidance"
+  
+  not_for:
+    - "EU citizens (you have simpler process - use EU employee flow)"
+    - "Already in Slovakia on tourist visa (risky - consult lawyer)"
+    - "Freelancers or starting a business (use freelancer flow)"
+    - "Family reunification (use family flow)"
+  
+  difficulty_level: HARD
+  time_commitment: "3-4 months"
+  estimated_cost: "€400-600"
+  estimated_timeline: "3-4 months (60-90 days visa + 60-90 days residence permit)"
+  
+  priority: HIGH
+  
+  tags:
+    - non-eu
+    - visa-required
+    - employment
+    - bratislava
+    - first-entry
+    - employee
+    - national-visa
+    - residence-permit
+  
+  warnings:
+    - "Visa application takes 60-90 days - start early!"
+    - "Critical 90-day deadline after entry to apply for residence permit"
+    - "Cannot work legally until residence permit approved"
+    - "Never enter on tourist visa then try to work - this is illegal and leads to deportation"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_REQUIRED
+    weight: 35
+    reason: "Only for non-EU citizens who need visas"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 25
+    reason: "Must apply for visa from outside Slovakia"
+  
+  - question: visit_purpose
+    required_answer: EMPLOYMENT
+    weight: 30
+    reason: "Specifically for employed workers"
+  
+  - question: city
+    required_answer: BRATISLAVA
+    weight: 10
+    reason: "Optimized for Bratislava"
+  
+  confidence_threshold: 90

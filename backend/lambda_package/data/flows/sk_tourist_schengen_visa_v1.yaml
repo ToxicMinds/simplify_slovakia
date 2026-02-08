@@ -89,3 +89,87 @@ reality_check: |
   
   Rejection rate: About 15-20% for first-time applicants.
   If rejected, fee (€110) is NOT refunded.
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_REQUIRED
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: TOURISM
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Tourist Visit (Schengen Visa Required)"
+  category: "Tourism & Short Stays"
+  description: |
+    Complete guide for tourists from visa-required countries (India, China, Russia, etc.).
+    
+    Covers: visa application → entry → staying legally → exit
+    
+    Maximum 90 days in any 180-day period.
+    
+    DON'T use this if you're from USA, Canada, UK, Australia, Japan, etc. - 
+    you're visa-free!
+  
+  recommended_for:
+    - "Citizens of India, China, Russia, Pakistan, Philippines, Indonesia, Thailand, Vietnam, Turkey, Egypt, most African countries"
+    - "Planning tourist visit to Slovakia"
+    - "Need Schengen visa guidance"
+    - "Staying up to 90 days"
+  
+  not_for:
+    - "Visa-free countries (USA, Canada, UK, Australia, Japan, etc.) - use visa-free flow"
+    - "EU citizens"
+    - "Planning to work (illegal on tourist visa - use employment flow)"
+    - "Staying over 90 days (not allowed on tourist visa)"
+  
+  difficulty_level: MEDIUM
+  time_commitment: "2-4 weeks for visa, then your visit"
+  estimated_cost: "€140-160"
+  estimated_timeline: "2-4 weeks for visa application"
+  
+  priority: HIGH
+  
+  tags:
+    - tourism
+    - schengen-visa
+    - visa-required
+    - short-stay
+    - india
+    - china
+    - russia
+    - tourist
+  
+  warnings:
+    - "CRITICAL: Check if you REALLY need a visa - many people get this wrong!"
+    - "Don't buy flight tickets before visa approved - you'll lose money if rejected"
+    - "Visa fee €110 is non-refundable even if rejected"
+    - "Processing takes 15-30 days - apply early!"
+    - "Overstaying even 1 day = fine + ban from Schengen"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_REQUIRED
+    weight: 40
+    reason: "Only for countries that require Schengen visa"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 20
+    reason: "Must apply from outside Schengen"
+  
+  - question: visit_purpose
+    required_answer: TOURISM
+    weight: 35
+    reason: "Specifically for tourism (not work, business, etc.)"
+  
+  - question: visit_duration
+    required_answer: SHORT_STAY
+    weight: 5
+    reason: "Tourist visa max 90 days"
+  
+  confidence_threshold: 85

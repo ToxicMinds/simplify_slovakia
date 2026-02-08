@@ -24,3 +24,85 @@ steps:
     order: 5
   - step_id: employer_tax_insurance_alignment_eu
     order: 6
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: EU
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: EMPLOYMENT
+  time_horizon: MEDIUM
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "EU Employee Moving to Bratislava"
+  category: "Employment & Work"
+  description: |
+    Complete immigration checklist for EU/EEA/Swiss citizens moving to Bratislava for employment.
+    
+    As an EU citizen, you have freedom of movement - no visa required!
+    Much simpler than non-EU process.
+    
+    This flow covers: entry, address registration, bank account, SIM card, 
+    healthcare registration, and employment setup.
+    
+    Perfect for: EU citizens with a job offer in Bratislava who are moving from outside Slovakia.
+  
+  recommended_for:
+    - "EU/EEA/Swiss citizen with job offer in Bratislava"
+    - "Moving from outside Slovakia (haven't arrived yet)"
+    - "Single person (no family to bring)"
+    - "Want straightforward, simplified process"
+  
+  not_for:
+    - "Non-EU citizens (you need visa - use non-EU employee flow)"
+    - "Already in Slovakia"
+    - "Looking for freelance/business setup"
+    - "Moving outside Bratislava (some steps may differ)"
+  
+  difficulty_level: EASY
+  time_commitment: "2-3 weeks"
+  estimated_cost: "€50-100"
+  estimated_timeline: "2-3 weeks for full setup"
+  
+  priority: HIGH
+  
+  tags:
+    - eu-citizen
+    - employment
+    - bratislava
+    - first-entry
+    - employee
+    - visa-free
+    - simple
+  
+  warnings:
+    - "Must register address within 90 days of arrival"
+    - "Employer handles most paperwork, but you're responsible for address registration"
+    - "Don't confuse EU freedom of movement with permanent residence (different processes)"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: EU
+    weight: 35
+    reason: "Only for EU/EEA/Swiss citizens"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 25
+    reason: "For people planning to move, not already in Slovakia"
+  
+  - question: visit_purpose
+    required_answer: EMPLOYMENT
+    weight: 30
+    reason: "Specifically for employed workers (not freelancers)"
+  
+  - question: city
+    required_answer: BRATISLAVA
+    weight: 10
+    reason: "Optimized for Bratislava (other cities similar but may vary)"
+  
+  confidence_threshold: 85

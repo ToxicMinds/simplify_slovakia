@@ -96,3 +96,92 @@ reality_check: |
   - No return ticket
   
   Be prepared with all documents!
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: NON_EU_VISA_FREE
+  entry_context: OUTSIDE_SK
+  urgency: NORMAL
+  purpose: TOURISM
+  time_horizon: SHORT
+  lifecycle_phase: FIRST_ENTRY
+
+display_info:
+  title: "Tourist Visit (Visa-Free Entry)"
+  category: "Tourism & Short Stays"
+  description: |
+    Easy tourism guide for visa-free travelers (USA, Canada, UK, Australia, Japan, etc.).
+    
+    No visa needed - just show up with your passport!
+    
+    But you still need to:
+    - Have proper documents
+    - Track your 90 days
+    - Exit on time
+    
+    Maximum 90 days in any 180-day period.
+  
+  recommended_for:
+    - "Citizens of USA, Canada, UK, Australia, New Zealand, Japan, South Korea, Taiwan, Singapore"
+    - "Also: Brazil, Argentina, Chile, Israel, UAE, etc. (check official list)"
+    - "Planning tourist visit to Slovakia"
+    - "No visa needed"
+    - "Staying up to 90 days"
+  
+  not_for:
+    - "Visa-required countries (India, China, Russia, etc.) - use Schengen visa flow"
+    - "EU citizens (you have freedom of movement)"
+    - "Planning to work (illegal on tourist entry)"
+    - "Staying over 90 days (not allowed)"
+  
+  difficulty_level: EASY
+  time_commitment: "Your visit (up to 90 days)"
+  estimated_cost: "€30-50 (travel insurance)"
+  estimated_timeline: "Immediate (no visa process)"
+  
+  priority: MEDIUM
+  
+  tags:
+    - tourism
+    - visa-free
+    - no-visa
+    - short-stay
+    - usa
+    - canada
+    - uk
+    - australia
+    - japan
+    - tourist
+  
+  warnings:
+    - "VERIFY you're actually visa-free - many people get this wrong!"
+    - "Even visa-free travelers can be denied entry if lacking documents"
+    - "Overstaying even 1 day = fine + 1-5 year ban from Schengen"
+    - "Track your 90 days carefully - the 90/180 rule is complex"
+    - "Border officers have final say - always have proof of funds, return ticket, accommodation"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: NON_EU_VISA_FREE
+    weight: 40
+    reason: "Only for visa-free countries"
+  
+  - question: current_location
+    required_answer: OUTSIDE_SK
+    weight: 20
+    reason: "Coming from outside Slovakia"
+  
+  - question: visit_purpose
+    required_answer: TOURISM
+    weight: 35
+    reason: "Specifically for tourism"
+  
+  - question: visit_duration
+    required_answer: SHORT_STAY
+    weight: 5
+    reason: "Max 90 days visa-free"
+  
+  confidence_threshold: 85

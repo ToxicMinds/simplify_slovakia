@@ -116,3 +116,93 @@ after_approval:
   - Can apply for citizenship after 3 more years (8 years total)
   - Can sponsor family members for residence
   - Can apply for long-term EU residence permit
+
+# ==============================================================================
+# METADATA - Added for dynamic intake form and recommendation engine
+# ==============================================================================
+
+intake_routing:
+  nationality_requirement: ANY
+  entry_context: IN_SK
+  urgency: NORMAL
+  purpose: PERMANENT
+  time_horizon: LONG
+  lifecycle_phase: PERMANENT
+
+display_info:
+  title: "Permanent Residence (After 5 Years)"
+  category: "Long-Term Residence & Citizenship"
+  description: |
+    Apply for permanent residence after 5 years of continuous temporary residence.
+    
+    This is the MAJOR milestone for long-term residents.
+    
+    Benefits:
+    - No more yearly renewals
+    - Can stay indefinitely
+    - Pathway to citizenship
+    - More stability
+    
+    Requirements:
+    - 5 years continuous residence
+    - Slovak B1 language
+    - Clean record
+    
+    Timeline: 6-12 months to get the card.
+  
+  recommended_for:
+    - "Lived in Slovakia 5+ years on temporary residence"
+    - "Want permanent status (no more renewals)"
+    - "Considering citizenship eventually"
+    - "Ready to prove Slovak language B1"
+  
+  not_for:
+    - "Less than 5 years in Slovakia (not eligible yet)"
+    - "Gaps in residence >6 months/year (clock resets)"
+    - "No Slovak language skills yet (start learning now!)"
+    - "Just arrived in Slovakia (focus on temporary residence first)"
+  
+  difficulty_level: VERY_HARD
+  time_commitment: "6-12 months for application + years of prep"
+  estimated_cost: "€300-500 application + €1,000-2,000 language prep"
+  estimated_timeline: "6-12 months from application to card"
+  
+  priority: HIGH
+  
+  tags:
+    - permanent-residence
+    - 5-years
+    - long-term
+    - language-exam
+    - b1-slovak
+    - settled
+  
+  warnings:
+    - "Language B1 is MANDATORY - start learning NOW if you haven't!"
+    - "Most rejections due to language issues (40%) or residence gaps (30%)"
+    - "Medical and language certificates expire - timing is critical"
+    - "Application fee €160 is non-refundable if rejected"
+    - "Even with 5 years, approval is not automatic - discretionary"
+
+intake_matches:
+  - question: nationality_type
+    required_answer: ANY
+    weight: 0
+    reason: "Works for any nationality (EU or non-EU)"
+  
+  - question: current_location
+    required_answer: IN_SK
+    weight: 20
+    reason: "Must already be living in Slovakia"
+  
+  - question: visit_purpose
+    required_answer: PERMANENT
+    weight: 30
+    reason: "Specifically seeking permanent residence"
+  
+  - question: years_in_slovakia
+    required_answer: "5+"
+    weight: 50
+    reason: "Must have 5+ years continuous residence"
+  
+  confidence_threshold: 90
