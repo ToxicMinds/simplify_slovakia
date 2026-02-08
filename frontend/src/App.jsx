@@ -4,7 +4,7 @@
 import React from 'react'
 import { useSession } from './hooks/useSession'
 import { useFlowData } from './hooks/useFlowData'
-import intakeQuestions from './components/IntakeQuestions'
+import IntakeFlow from './components/IntakeFlow'
 import FlowSelector from './components/FlowSelector'
 import Logo from './components/Logo'
 import './App.css'
