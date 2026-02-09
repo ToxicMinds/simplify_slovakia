@@ -83,7 +83,7 @@ display_info:
     - "This flow only covers your first week - you'll need to follow a full residence flow after"
 
 intake_matches:
-  - question: entry_context
+  - question: current_location
     required_answer: IN_SK
     weight: 40
     reason: "Must already be in Slovakia"
@@ -93,7 +93,7 @@ intake_matches:
     weight: 30
     reason: "This is specifically for emergency/just-landed situations"
   
-  - question: purpose
+  - question: visit_purpose
     required_answer: ANY
     weight: 0
     reason: "Works for any purpose (employment, business, family, etc.)"

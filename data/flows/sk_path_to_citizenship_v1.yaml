@@ -288,17 +288,12 @@ intake_matches:
   
   - question: visit_purpose
     required_answer: CITIZENSHIP
-    weight: 40
+    weight: 60
     reason: "Specifically seeking citizenship"
   
   - question: years_in_slovakia
-    required_answer: ANY
-    weight: 20
-    reason: "Shows at different stages (0 years = starting, 5+ = mid-journey, 8+ = ready to apply)"
-  
-  - question: commitment_level
-    required_answer: VERY_HIGH
+    required_answer: ["8+"]
     weight: 40
-    reason: "Citizenship requires extreme long-term commitment"
-  
+    reason: "Shows at different stages (0 years = starting, 5+ = mid-journey, 8+ = ready to apply)"
+
 confidence_threshold: 80

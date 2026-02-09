@@ -201,7 +201,7 @@ intake_matches:
     reason: "Specifically seeking permanent residence"
   
   - question: years_in_slovakia
-    required_answer: "5+"
+    required_answer: ["5-7", "8+"]
     weight: 50
     reason: "Must have 5+ years continuous residence"
   
