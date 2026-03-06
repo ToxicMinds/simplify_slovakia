@@ -21,7 +21,7 @@ app.add_middleware(
 )
 
 # Paths
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).parent.parent.parent  # backend/app -> backend -> project root
 FLOWS_DIR = BASE_DIR / "data" / "flows"
 STEPS_DIR = BASE_DIR / "data" / "steps"
 

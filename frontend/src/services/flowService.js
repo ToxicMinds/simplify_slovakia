@@ -1,7 +1,7 @@
 // frontend/src/services/flowService.js
 // Service to fetch flows and steps from backend API
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://08bus5orrf.execute-api.eu-central-1.amazonaws.com'
+import { API_URL } from '../config.js'
 
 /**
  * Fetch available flows list
@@ -9,11 +9,11 @@ const API_URL = process.env.REACT_APP_API_URL || 'https://08bus5orrf.execute-api
 export async function getAvailableFlows() {
   try {
     const response = await fetch(`${API_URL}/flows`)
-    
+
     if (!response.ok) {
       throw new Error(`Failed to fetch flows: ${response.status}`)
     }
-    
+
     const data = await response.json()
     return data.flows || []
   } catch (error) {
@@ -28,14 +28,14 @@ export async function getAvailableFlows() {
 export async function getFlow(flowId) {
   try {
     const response = await fetch(`${API_URL}/flow/${flowId}`)
-    
+
     if (!response.ok) {
       if (response.status === 404) {
         throw new Error(`Flow not found: ${flowId}`)
       }
       throw new Error(`Failed to fetch flow: ${response.status}`)
     }
-    
+
     const data = await response.json()
     return data
   } catch (error) {
@@ -50,14 +50,14 @@ export async function getFlow(flowId) {
 export async function getStep(stepId) {
   try {
     const response = await fetch(`${API_URL}/step/${stepId}`)
-    
+
     if (!response.ok) {
       if (response.status === 404) {
         throw new Error(`Step not found: ${stepId}`)
       }
       throw new Error(`Failed to fetch step: ${response.status}`)
     }
-    
+
     const data = await response.json()
     return data
   } catch (error) {
